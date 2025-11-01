@@ -1,0 +1,35 @@
+types = {
+    type[climate] = {
+        path = "game/common/climates"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
+    }
+}
+
+climate = {
+    winter = enum[climate_winter_type]
+    alias_name[color] = alias_match_left[color]
+    
+    ## cardinality = 0..1
+    always_winter = bool
+
+    ## cardinality = 0..1
+    has_precipitation = bool
+
+    ## cardinality = 0..1
+    location_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    unit_modifier = single_alias_right[modifier_clause]
+
+    audio_tags = {
+        #TODO
+        scalar = value_field
+    }
+
+    debug_color = <named_color>
+    debug_color = colour[rgb]
+    debug_color = colour[hsv360]
+}

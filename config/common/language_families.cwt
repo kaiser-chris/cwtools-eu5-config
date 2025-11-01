@@ -1,0 +1,10 @@
+types = {
+    type[language_family] = {
+        path = "game/common/language_families"
+        file_extension = .txt
+    }
+}
+
+language_family = {
+    alias_name[color] = alias_match_left[color]
+}

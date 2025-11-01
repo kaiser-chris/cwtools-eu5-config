@@ -1,0 +1,33 @@
+types = {
+    type[vegetation] = {
+        path = "game/common/vegetation"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            name = "$_desc"
+        }
+    }
+}
+
+vegetation = {
+    alias_name[color] = alias_match_left[color]
+
+    movement_cost = value_field
+
+    ## cardinality = 0..1
+    defender = value_field
+
+    location_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    has_sand = bool
+
+    audio_tags = {
+        #TODO
+        scalar = value_field
+    }
+
+    debug_color = <named_color>
+    debug_color = colour[rgb]
+    debug_color = colour[hsv360]
+}

@@ -1,0 +1,18 @@
+types = {
+    type[hegemon] = {
+        path = "game/common/hegemons"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+hegemon = {
+    gain = single_alias_right[trigger_clause]
+
+    lose = single_alias_right[trigger_clause]
+
+    modifier = single_alias_right[modifier_clause]
+}

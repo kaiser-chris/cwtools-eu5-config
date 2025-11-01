@@ -1,0 +1,26 @@
+types = {
+    type[levy] = {
+        path = "game/common/levies"
+        file_extension = .txt
+    }
+}
+
+levy = {
+    size = value_field
+    unit = <unit_type>
+
+    ## cardinality = 0..1
+    country_allow = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    allow = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    allow_as_crew = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    allowed_pop_type = <pop_type>
+
+    ## cardinality = 0..inf
+    allowed_culture = <culture>
+}

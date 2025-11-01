@@ -1,0 +1,48 @@
+types = {
+    type[country] = {
+        path = "game/setup/countries"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            name = "$_ADJ"
+        }
+    }
+}
+
+country = {
+    alias_name[color] = alias_match_left[color]
+
+    color2 = <named_color>
+    color2 = colour[rgb]
+    color2 = colour[hsv360]
+
+    ## cardinality = 0..1
+    unit_color0 = <named_color>
+    ## cardinality = 0..1
+    unit_color0 = colour[rgb]
+    ## cardinality = 0..1
+    unit_color0 = colour[hsv360]
+
+    ## cardinality = 0..1
+    unit_color1 = <named_color>
+    ## cardinality = 0..1
+    unit_color1 = colour[rgb]
+    ## cardinality = 0..1
+    unit_color1 = colour[hsv360]
+
+    ## cardinality = 0..1
+    unit_color2 = <named_color>
+    ## cardinality = 0..1
+    unit_color2 = colour[rgb]
+    ## cardinality = 0..1
+    unit_color2 = colour[hsv360]
+
+    ## cardinality = 0..1
+    description_category = <country_description_category>
+
+    ## cardinality = 0..1
+    difficulty = int
+
+    culture_definition = <culture>
+    religion_definition = <religion>
+}

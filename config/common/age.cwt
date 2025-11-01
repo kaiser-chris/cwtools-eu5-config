@@ -1,0 +1,41 @@
+types = {
+    type[age] = {
+        path = "game/common/age"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+            format = "age_format_$"
+        }
+    }
+}
+
+age = {
+    year = int
+    price_stability = value_field
+    max_price = int
+
+    modifier = single_alias_right[modifier_clause]
+
+    efficiency = value_field
+
+    ## cardinality = 0..1
+    mercenaries = value_field
+
+    ## cardinality = 0..1
+    hegemons_allowed = bool
+
+    ## cardinality = 0..1
+    war_score_from_battles = value_field
+
+    victory_card = int
+
+    max_ai_privilege_per_estate = single_alias_right[age_estate_privilige_clause]
+
+    min_ai_privilege_per_estate = single_alias_right[age_estate_privilige_clause]
+}
+
+single_alias[age_estate_privilige_clause] = {
+    ## cardinality = 1..inf
+    <estate> = int
+}

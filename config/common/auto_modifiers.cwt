@@ -1,0 +1,42 @@
+types = {
+    type[auto_modifier] = {
+        path = "game/common/auto_modifiers"
+        file_extension = .txt
+    }
+}
+
+auto_modifier = {
+    ### (yes/no) does this auto modifier require a real country
+    ## cardinality = 0..1
+    requires_real = bool
+
+    ### (yes/no) is this a hidden modifier
+    ## cardinality = 0..1
+    hide_effects = bool
+
+    ### Scope type for potential_trigger. (default: country - if set must be before potential_trigger )
+    ## cardinality = 0..1
+    type = enum[modifier_type]
+
+    ### Modifier category for the modifiers. (default: country - if set must be before any modifiers)
+    ## cardinality = 0..1
+    category = enum[modifier_category]
+
+    ### trigger for if the auto modifier will be applied
+    ## cardinality = 0..1
+    potential_trigger = single_alias_right[trigger_clause]
+
+    ### trigger checks to see when the auto modifier can be applied
+    ## cardinality = 0..1
+    limit = single_alias_right[trigger_clause]
+
+    ### evaluates a value to multiply the auto modifier effects by
+    ## cardinality = 0..1
+    scales_with = single_alias_right[formula]
+    ### evaluates a value to multiply the auto modifier effects by
+    ## cardinality = 0..1
+    scales_with = value_field
+
+    ## cardinality = 0..inf
+    alias_name[modifier_element] = alias_match_left[modifier_element]
+}

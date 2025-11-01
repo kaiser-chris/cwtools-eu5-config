@@ -1,0 +1,27 @@
+types = {
+    type[child_education] = {
+        path = "game/common/child_educations"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+child_education = {
+    ## cardinality = 0..1
+    modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    country_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    price_to_select = <price>
+
+    ## cardinality = 0..1
+    price_to_deselect = <price>
+
+    ## cardinality = 0..1
+    allow = single_alias_right[trigger_clause]
+}

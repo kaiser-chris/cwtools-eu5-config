@@ -1,0 +1,81 @@
+types = {
+    type[good] = {
+        path = "game/common/goods"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
+    }
+}
+
+good = {
+    ### Defaults to no, mark that good as a slave good
+    ## cardinality = 0..1
+    is_slaves = bool
+
+    ### Defaults to no, blocks the expansion of the rgo for this good
+    ## cardinality = 0..1
+    block_rgo_upgrade = bool
+
+    ### Defaults to no, will cause inflation when produced
+    ## cardinality = 0..1
+    inflation = bool
+
+    ### Defaults to 0
+    ## cardinality = 0..1
+    base_production = value_field
+
+    ### What color the goods should have in the map mode
+    ## cardinality = 0..1
+    alias_name[color] = alias_match_left[color]
+
+    ### Defaults to 0, how much food this good provides with
+    ## cardinality = 0..1
+    food = value_field
+
+    ### Defaults to 1, how expensive it is to transport the good
+    ## cardinality = 0..1
+    transport_cost = value_field
+
+    ### Defaults to 1, the default price of the good on a market
+    ## cardinality = 0..1
+    default_market_price = value_field
+
+    ### Defaults to raw_material, defines if the goods is a raw_material or not
+    ## cardinality = 0..1
+    category = enum[good_category]
+
+    ### Defaults to farming, defines the category of the good
+    ## cardinality = 0..1
+    method = enum[good_method]
+
+    ### ai preference to avoid building a city on this rgo
+    ## cardinality = 0..1
+    ai_rgo_size_importance = value_field
+
+    ## cardinality = 0..1
+    ai_rgo_expansion_priority = value_field
+
+    ## cardinality = 0..1
+    demand_add = {
+        ## cardinality = 0..1
+        all = value_field
+        ## cardinality = 0..inf
+        <pop_type> = value_field
+    }
+
+    ## cardinality = 0..1
+    demand_multiply = {
+        ## cardinality = 0..1
+        upper = value_field
+        ## cardinality = 0..inf
+        <pop_type> = value_field
+    }
+
+    ### A list of custom strings to use to identify that good
+    ## cardinality = 0..1
+    custom_tags = {
+        ## cardinality = 0..inf
+        scalar
+    }
+}

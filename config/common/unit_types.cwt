@@ -1,0 +1,89 @@
+types = {
+    type[unit_type] = {
+        path = "game/common/unit_types"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            name = "$_desc"
+        }
+        subtype[land] = {
+            category = <unit_category.land>
+        }
+        subtype[naval] = {
+            category = <unit_category.naval>
+        }
+    }
+}
+
+unit_type = {
+    category = <unit_category>
+
+    ## cardinality = 0..1
+    alias_name[color] = alias_match_left[color]
+
+    ## cardinality = 0..1
+    startup_amount = int
+
+    ## cardinality = 0..1
+    copy_from = <unit_type>
+
+    ## cardinality = 0..1
+    buildable = bool
+
+    ## cardinality = 0..1
+    levy = bool
+
+    ## cardinality = 0..1
+    age = <age>
+
+    ## cardinality = 0..1
+    gfx_tags = {
+        scalar
+    }
+
+    ## cardinality = 0..1
+    build_time_modifier = value_field
+
+    ## cardinality = 0..1
+    mercenaries_per_location = {
+        pop_type = <pop_type>
+        multiply = value_field
+    }
+
+    ## cardinality = 0..1
+    country_potential = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    location_potential = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    upgrades_to = <unit_type>
+
+    ## cardinality = 0..1
+    upgrades_to_only = <unit_type>
+
+    ## cardinality = 0..1
+    construction_demand = <goods_demand>
+
+    ## cardinality = 0..1
+    maintenance_demand = <goods_demand>
+
+    ## cardinality = 0..inf
+    alias_name[combat_modifier_element_general] = alias_match_left[combat_modifier_element_general]
+
+    subtype[land] = {
+        ## cardinality = 0..inf
+        alias_name[combat_modifier_element_land] = alias_match_left[combat_modifier_element_land]
+
+        ## cardinality = 0..1
+        light = bool
+    }
+
+    subtype[naval] = {
+        ## cardinality = 0..inf
+        alias_name[combat_modifier_element_naval] = alias_match_left[combat_modifier_element_naval]
+
+        ## cardinality = 0..1
+        use_ship_names = bool
+    }
+}

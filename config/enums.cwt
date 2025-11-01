@@ -1,0 +1,423 @@
+enums = {
+
+    enum[modifier_color] = {
+        good
+        bad
+        neutral
+    }
+    enum[modifier_category] = {
+        all
+        none
+        country
+        location
+        province
+        character
+        unit
+        mercenary
+        religion
+        internationalorganization
+        rebel
+    }
+    enum[modifier_format] = {
+        FormatPopCaps
+        FormatManPower
+        FormatGold
+    }
+    enum[modifier_bias_type] = {
+        opinion
+        trust
+        voting
+    }
+    enum[modifier_type] = {
+        country
+        international_organization
+    }
+
+    enum[game_rule_flag] = {
+        blocks_achievements
+        historical_ai_choices
+        general_rule
+        blocks_achievements
+        random_ai_choices
+        country_change_allowed
+        blocks_ironman
+        country_change_prohibited
+        proficiency_novice
+        proficiency_experienced
+        proficiency_advanced
+        proficiency_expert
+        formable_historical
+        formable_plausible
+        formable_fantasy
+        flavour_rule
+        task_rewards_disabled
+        mission_rewards_disabled
+        byz_name_ere
+        byz_name_default
+        limit_ledger
+        victory_cards_enabled
+        multiplayer_rule
+        block_client_system_unpause
+        block_client_pause
+        allow_client_pause
+        timeout_0
+        timeout_30
+        timeout_60
+        timeout_120
+        go_to_lobby
+        pause_on_leave_enabled
+        change_speed_on_multiplayer_wars
+    }
+
+    enum[game_concept_family] = {
+        good
+        tax_base
+        religion
+        culture
+        food
+        integration_status
+        combat
+        dice
+        cabinet
+        market
+        mercenary
+        trait
+        role
+        location_rank
+        ability
+    }
+
+    enum[scenario_playstyle] = {
+        MILITARY
+        ADMINISTRATIVE
+        DIPLOMATIC
+    }
+
+    enum[scenario_proficiency] = {
+        NOVICE
+        EXPERIENCED
+        ADVANCED
+    }
+
+    # Undocumented. Unused so copied over Vic3
+    enum[scripted_list_base] = {
+        country
+        character_in_void
+    }
+
+    enum[advance_ai_preference_tag] = {
+        exploration
+    }
+
+    enum[ability_type] = {
+        dip
+        mil
+        adm
+    }
+
+    enum[good_category] = {
+        raw_material
+        produced
+    }
+    enum[good_method] = {
+        mining
+        farming
+        hunting
+        gathering
+        forestry
+    }
+
+    enum[estate_character_dynasty] = {
+        always
+        sometimes
+        never
+    }
+    enum[estate_revolt_court_language] = {
+        court_language
+        liturgical_language
+        common_language
+    }
+
+    enum[duration] = {
+        days
+        weeks
+        months
+        years
+    }
+
+    enum[building_type_in_empty] = {
+        empty
+        owned
+        any
+    }
+
+    enum[attribute_column_sort_order] = {
+        Descending
+        Ascending
+    }
+
+    enum[climate_winter_type] = {
+        none
+        mild
+        normal
+        severe
+    }
+
+    enum[goods_demand_category_display_type] = {
+        integer
+        pop
+    }
+
+    enum[government_type_power] = {
+        legitimacy
+        republican_tradition
+        devotion
+        horde_unity
+        tribal_cohesion
+    }
+
+    enum[character_interaction_ai_tick] = {
+        never
+        daily
+        monthly
+    }
+
+    enum[selected_trigger_looking_for] = {
+        character
+        location
+        province
+        area
+        region
+        country
+        value
+        boolean
+        international_organization
+        law
+        policy
+        active_resolution
+    }
+    enum[selected_trigger_source_flag] = {
+        same_international_organization
+        neighbor
+        possible_colonial_charters
+        include_dead
+        include_any_present
+        possible_exploration_areas
+        adjacent_locations
+        vacant_adjacent_locations
+        adjacent_provinces
+        border
+        border_or_recipients_capital_area
+        provinces_ai_wants_to_give_away
+        only_actual_locations
+        law
+        policy
+    }
+
+    enum[country_interaction_type] = {
+        subject
+        diplomacy
+    }
+
+    enum[war_goal_type] = {
+        take_province
+        superiority
+        naval_superiority
+        defend_capital
+        enforce_military_access
+        independence
+        take_capital
+        take_border
+        take_country
+        destroy_army
+    }
+
+    enum[culture_opinion] = {
+        enemy
+        negative
+        positive
+        kindred
+    }
+    enum[culture_dynastic_name_type] = {
+        patronym
+        descendant
+        positive
+        kindred
+    }
+
+    enum[law_category] = {
+        administrative
+        religious
+        military
+        elector
+        free_city
+        centralization
+    }
+    enum[law_type] = {
+        international_organization
+    }
+
+    enum[international_organization_leader_change_method] = {
+        none
+        vote
+        lottery
+        rotation
+    }
+    enum[international_organization_leader_type] = {
+        none
+        country
+        character
+    }
+    enum[international_organization_leader_change_trigger_type] = {
+        none
+        rulerchange
+        timed
+    }
+
+    enum[modifier_mode] = {
+        add
+        extend
+        replace
+        add_and_extend
+    }
+
+    enum[colonial_claim_category] = {
+        exclusive
+        same_religion
+    }
+
+    enum[character_trait_category] = {
+        admiral
+        artist
+        explorer
+        general
+        child
+        ruler
+    }
+
+    enum[scope] = {
+        active_resolution
+        area
+        building
+        building_type
+        cabinet
+        character
+        colonial_charter
+        combat_side
+        continent
+        country
+        culture
+        culture_group
+        demand
+        dynasty
+        estate
+        exploration
+        god
+        group
+        heir_selection
+        international_organization
+        law
+        loan
+        location
+        market
+        mercenary
+        none
+        policy
+        pop
+        privateer
+        production_method
+        province
+        province_definition
+        rebels
+        region
+        religion
+        religious_aspect
+        religious_school
+        siege
+        sub_continent
+        sub_unit
+        trade
+        unit
+        war
+        work_of_art
+        active_resolution
+        advance_type
+        area
+        avatar
+        building
+        building_type
+        cabinet
+        cabinet_action
+        cardinal
+        character
+        child_education
+        colonial_charter
+        continent
+        country
+        country_rank
+        culture
+        culture_group
+        demand
+        dialect
+        disaster
+        disease_outbreak
+        dynasty
+        employment_system
+        estate
+        estate_privilege
+        estate_type
+        ethnicity
+        exploration
+        formable_country
+        god
+        goods
+        government
+        government_reform
+        graphical_culture
+        heir_selection
+        holy_site
+        institution
+        international_organization
+        law
+        loan
+        location
+        location_rank
+        market
+        mercenary
+        military_stance
+        mission_task
+        parliament_agenda
+        parliament_issue
+        parliament_type
+        policy
+        pop
+        pop_type
+        price
+        privateer
+        production_method
+        province
+        province_definition
+        rebels
+        region
+        religion
+        religious_aspect
+        religious_focus
+        religious_school
+        resolution
+        road_type
+        situation
+        special_status
+        sub_continent
+        sub_unit
+        sub_unit_category
+        subject_type
+        trade
+        trait
+        unit
+        unit_type
+        war
+        weather_system
+        work_of_art
+    }
+
+}

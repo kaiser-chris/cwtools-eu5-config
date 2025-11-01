@@ -1,0 +1,15 @@
+types = {
+    type[goods_demand] = {
+        path = "game/common/goods_demand"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
+    }
+}
+
+goods_demand = {
+    category = <goods_demand_category>
+
+    <good> = value_field
+}

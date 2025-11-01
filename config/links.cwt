@@ -1,0 +1,1435 @@
+links = {
+    # == Are these needed or just internals being exposed?
+    # TODO: A comparison trigger that needs a parsable string parameter that will return its value in the context it is used eg: scope:root.number_of(armies)
+    # compare_complex_value = {
+    #     desc = "desc"
+    #     input_scopes = { any }
+    #     output_scope = any
+    # }
+    # TODO: A comparison trigger that will return its date in the context it is used eg: root.gold
+    # compare_date = {
+    #     desc = "desc"
+    #     input_scopes = { any }
+    #     output_scope = any
+    # }
+    # TODO: A comparison trigger that will return its value in the context it is used eg: root.gold
+    # compare_value = {
+    #     desc = "desc"
+    #     input_scopes = { any }
+    #     output_scope = any
+    # }
+
+    active_mission = {
+        input_scopes = { country }
+        output_scope = mission
+    }
+    ### gets the active outbreak for a disease in a location or subunit - usage active_outbreak(<disease>)
+    active_outbreak = {
+        input_scopes = { location sub_unit }
+        output_scope = disease_outbreak
+        from_data = yes
+        prefix = active_outbreak:
+        data_source = scope[disease]
+    }
+    ### gets the active resolution of the type specified in the scope international organization or situation - usage active_resolution(<resolution>)
+    active_resolution = {
+        desc = "desc"
+        input_scopes = { international_organization situation }
+        output_scope = active_resolution
+        from_data = yes
+        prefix = active_resolution:
+        data_source = scope[resolution]
+    }
+    controller = {
+        input_scopes = { location sub_unit }
+        output_scope = country
+    }
+    disaster_type = {
+        input_scopes = { disaster }
+        output_scope = disaster_type
+    }
+    ### The amount of pops of a specific type at Province
+    num_pop_type_in_province = {
+        input_scopes = { province }
+        output_scope = value
+        from_data = yes
+        prefix = num_pop_type_in_province:
+        data_source = <pop_type>
+    }
+    ### Links to an exploration in the scope area for the suppled country. Usage: area_exploration:<country> or area_exploration(<country>)
+    area_exploration = {
+        input_scopes = { area }
+        output_scope = exploration
+        from_data = yes
+        prefix = area_exploration:
+        data_source = scope[country]
+    }
+    ### Reference the value of a numeric value in an array define: array_define:Namespace|Name|Index. Index is 0-based.
+    array_define = {
+        input_scopes = { any }
+        output_scope = value
+        from_data = yes
+        prefix = array_define:
+        data_source = <array_define>
+    }
+    artist_type = {
+        input_scopes = { any }
+        output_scope = any
+        from_data = yes
+        prefix = artist_type:
+        data_source = <artist_type>
+    }
+    avatar = {
+        input_scopes = { holy_site }
+        output_scope = avatar
+    }
+    avatar_link = {
+        input_scopes = { any }
+        output_scope = avatar
+        from_data = yes
+        prefix = avatar:
+        data_source = <avatar>
+    }
+    autocephalous_patriarchate = {
+        input_scopes = { country }
+        output_scope = international_organization
+    }
+    bias_value = {
+        input_scopes = { any }
+        output_scope = value
+        from_data = yes
+        prefix = bias_value:
+        data_source = <bias>
+    }
+    birth_location = {
+        input_scopes = { character }
+        output_scope = location
+    }
+    borrower = {
+        input_scopes = { loan }
+        output_scope = country
+    }
+    building = {
+        input_scopes = { location }
+        output_scope = building
+        from_data = yes
+        prefix = building:
+        data_source = scope[building_type]
+        data_source = scope[country]
+    }
+    ### The Building base price in gold
+    building_base_cost_in_gold = {
+        input_scopes = { building_type }
+        output_scope = value
+    }
+    building_type = {
+        input_scopes = { any }
+        output_scope = building_type
+        from_data = yes
+        prefix = building_type:
+        data_source = <building_type>
+    }
+    c = {
+        input_scopes = { any }
+        output_scope = country
+        from_data = yes
+        prefix = c:
+        data_source = <country>
+    }
+    cabinet_action = {
+        input_scopes = { any }
+        output_scope = cabinet_action
+        from_data = yes
+        prefix = building_type:
+        data_source = <cabinet_action>
+    }
+    cabinet_member = {
+        input_scopes = { cabinet }
+        output_scope = character
+    }
+    capacity_market = {
+        input_scopes = { trade }
+        output_scope = market
+    }
+    capital = {
+        input_scopes = { country dynasty province area }
+        output_scope = location
+    }
+    cardinal = {
+        input_scopes = { location }
+        output_scope = cardinal
+    }
+    ### gets the cast vote in a resolution, returns nothing if the vote isn't explicit - usage cast_vote_in_resolution(<country>)
+    cast_vote_in_active_resolution = {
+        input_scopes = { active_resolution }
+        output_scope = bool
+        from_data = yes
+        prefix = cast_vote_in_active_resolution:
+        data_source = scope[country]
+    }
+    casus_belli = {
+        input_scopes = { any }
+        output_scope = casus_belli
+        from_data = yes
+        prefix = casus_belli:
+        data_source = <casus_belli>
+    }
+    character = {
+        input_scopes = { any }
+        output_scope = character
+        from_data = yes
+        prefix = character:
+        data_source = <character>
+    }
+    character_interaction = {
+        input_scopes = { any }
+        output_scope = character_interaction
+        from_data = yes
+        prefix = character_interaction:
+        data_source = <character_interaction>
+    }
+    child_education = {
+        input_scopes = { any }
+        output_scope = child_education
+        from_data = yes
+        prefix = child_education:
+        data_source = <child_education>
+    }
+    civil_war = {
+        input_scopes = { country }
+        output_scope = war
+    }
+    civil_war_opponent = {
+        input_scopes = { country }
+        output_scope = country
+    }
+    climate = {
+        input_scopes = { any }
+        output_scope = climate
+        from_data = yes
+        prefix = climate:
+        data_source = <climate>
+    }
+    combat = {
+        input_scopes = { location unit combat_side }
+        output_scope = combat
+    }
+    combat_attacker = {
+        input_scopes = { combat }
+        output_scope = combat_side
+    }
+    combat_defender = {
+        input_scopes = { combat }
+        output_scope = combat_side
+    }
+    commander = {
+        input_scopes = { combat_side }
+        output_scope = country
+    }
+    commanding_country = {
+        input_scopes = { combat_side }
+        output_scope = country
+    }
+    consort = {
+        input_scopes = { country }
+        output_scope = character
+    }
+    continent = {
+        input_scopes = { any }
+        output_scope = continent
+        from_data = yes
+        prefix = continent:
+        data_source = <continent>
+    }
+    controller = {
+        input_scopes = { location sub_unit }
+        output_scope = country
+    }
+    country_color = {
+        input_scopes = { country }
+        output_scope = color
+    }
+    country_rank_link = {
+        input_scopes = { country }
+        output_scope = country_rank
+        from_data = yes
+        prefix = country_rank:
+        data_source = <country_rank>
+    }
+    country_rank = {
+        input_scopes = { country }
+        output_scope = country_rank
+    }
+    country_rank_on_date = {
+        input_scopes = { country }
+        output_scope = country_rank
+        from_data = yes
+        prefix = country_rank_on_date:
+        data_source = scope[date]
+    }
+    country_stance = {
+        input_scopes = { country }
+        output_scope = military_stance
+    }
+    court_dialect = {
+        input_scopes = { country }
+        output_scope = dialect
+    }
+    court_language = {
+        input_scopes = { country }
+        output_scope = language
+    }
+    creator = {
+        input_scopes = { work_of_art }
+        output_scope = character
+    }
+    culture_link = {
+        input_scopes = { any }
+        output_scope = culture
+        from_data = yes
+        prefix = culture:
+        data_source = <culture>
+    }
+    culture = {
+        input_scopes = { country sub_unit character dynasty pop rebels mercenary }
+        output_scope = culture
+    }
+    culture_group = {
+        input_scopes = { any }
+        output_scope = culture_group
+        from_data = yes
+        prefix = culture_group:
+        data_source = <culture_group>
+    }
+    current_mission_task = {
+        input_scopes = { country }
+        output_scope = mission_task
+    }
+    customer = {
+        input_scopes = { mercenary }
+        output_scope = country
+    }
+    default_price = {
+        input_scopes = { any }
+        output_scope = value
+        from_data = yes
+        prefix = default_price:
+        data_source = scope[good]
+    }
+    defender_leader = {
+        input_scopes = { war }
+        output_scope = country
+    }
+    demand = {
+        input_scopes = { any }
+        output_scope = demand
+        from_data = yes
+        prefix = demand:
+        data_source = <goods_demand>
+    }
+    dialect = {
+        input_scopes = { any }
+        output_scope = dialect
+        from_data = yes
+        prefix = dialect:
+        data_source = <dialect>
+    }
+    disaster_type = {
+        input_scopes = { any }
+        output_scope = disaster_type
+        from_data = yes
+        prefix = disaster_type:
+        data_source = <disaster>
+    }
+    disease = {
+        input_scopes = { any }
+        output_scope = disease
+        from_data = yes
+        prefix = disease:
+        data_source = <disease>
+    }
+    dominant_country = {
+        input_scopes = { culture }
+        output_scope = country
+    }
+    dominant_culture = {
+        input_scopes = { location country province }
+        output_scope = culture
+    }
+    dominant_dialect = {
+        input_scopes = { location country }
+        output_scope = dialect
+    }
+    dominant_language = {
+        input_scopes = { location country }
+        output_scope = language
+    }
+    dominant_religion = {
+        input_scopes = { location country province }
+        output_scope = religion
+    }
+    dominant_upper_class_culture = {
+        input_scopes = { country }
+        output_scope = culture
+    }
+    dynasty = {
+        input_scopes = { character }
+        output_scope = dynasty
+    }
+    dynasty_head = {
+        input_scopes = { dynasty }
+        output_scope = character
+    }
+    dynasty_home = {
+        input_scopes = { dynasty }
+        output_scope = location
+    }
+    employer = {
+        input_scopes = { character }
+        output_scope = country
+    }
+    employment_system = {
+        input_scopes = { any }
+        output_scope = employment_system
+        from_data = yes
+        prefix = employment_system:
+        data_source = <employment_system>
+    }
+    enemy_side = {
+        input_scopes = { combat_side }
+        output_scope = combat_side
+    }
+    estate = {
+        desc = "desc"
+        input_scopes = { any }
+        output_scope = any
+    }
+    estate_power = {
+        desc = "desc"
+        input_scopes = { any }
+        output_scope = any
+    }
+    estate_privilege = {
+        input_scopes = { any }
+        output_scope = estate_privilege
+        from_data = yes
+        prefix = estate_privilege:
+        data_source = <estate_privilege>
+    }
+    estate_satisfaction = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = estate_satisfaction:
+        data_source = <estate>
+    }
+    estate_target_satisfaction = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = estate_target_satisfaction:
+        data_source = <estate>
+    }
+    estate_tax_base = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = estate_tax_base:
+        data_source = <estate>
+    }
+    estate_tax_percentage = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = estate_tax_percentage:
+        data_source = <estate>
+    }
+    estate_type = {
+        input_scopes = { any }
+        output_scope = estate_type
+        from_data = yes
+        prefix = estate_type:
+        data_source = <estate>
+    }
+    ethnicity = {
+        input_scopes = { any }
+        output_scope = ethnicity
+        from_data = yes
+        prefix = ethnicity:
+        data_source = <ethnicity>
+    }
+    exploration = {
+        input_scopes = { character }
+        output_scope = exploration
+    }
+    father = {
+        input_scopes = { character }
+        output_scope = character
+    }
+    first_spouse = {
+        input_scopes = { character }
+        output_scope = character
+    }
+    flag = {
+        input_scopes = { any }
+        output_scope = flag
+        from_data = yes
+        prefix = flag:
+        data_source = localisation
+    }
+    formable_country = {
+        input_scopes = { any }
+        output_scope = formable_country
+        from_data = yes
+        prefix = formable_country:
+        data_source = <formable_country>
+    }
+    from_market = {
+        input_scopes = { trade }
+        output_scope = market
+    }
+    generic_action = {
+        input_scopes = { any }
+        output_scope = generic_action
+        from_data = yes
+        prefix = generic_action:
+        data_source = <generic_action>
+    }
+    gfx_culture = {
+        input_scopes = { culture }
+        output_scope = graphical_culture
+    }
+    global_var = {
+        output_scope = any
+        from_data = yes
+        type = both
+        prefix = global_var:
+        data_source = value[global_variable]
+    }
+    god = {
+        input_scopes = { any }
+        output_scope = god
+        from_data = yes
+        prefix = god:
+        data_source = <god>
+    }
+    goods = {
+        input_scopes = { any }
+        output_scope = goods
+        from_data = yes
+        prefix = goods:
+        data_source = <good>
+    }
+    government_reform = {
+        input_scopes = { any }
+        output_scope = government_reform
+        from_data = yes
+        prefix = government_reform:
+        data_source = <government_reform>
+    }
+    government_type = {
+        input_scopes = { any }
+        output_scope = government
+        from_data = yes
+        prefix = government_type:
+        data_source = <government_type>
+    }
+    group = {
+        input_scopes = { religion }
+        output_scope = religion_group
+    }
+    hegemony = {
+        input_scopes = { any }
+        output_scope = hegemony
+        from_data = yes
+        prefix = hegemony:
+        data_source = <hegemon>
+    }
+    heir = {
+        input_scopes = { country }
+        output_scope = character
+    }
+    heir_selection = {
+        input_scopes = { any }
+        output_scope = heir_selection
+        from_data = yes
+        prefix = heir_selection:
+        data_source = <heir_selection>
+    }
+    holy_site = {
+        input_scopes = { god avatar }
+        output_scope = holy_site
+    }
+    holy_site_definition = {
+        input_scopes = { any }
+        output_scope = holy_site_definition
+        from_data = yes
+        prefix = holy_site_definition:
+        data_source = <holy_site_definition>
+    }
+    holy_site_type = {
+        input_scopes = { any }
+        output_scope = holy_site_type
+        from_data = yes
+        prefix = holy_site_type:
+        data_source = <holy_site_type>
+    }
+    institution = {
+        input_scopes = { any }
+        output_scope = institution
+        from_data = yes
+        prefix = institution:
+        data_source = <institution>
+    }
+    institution_progress = {
+        input_scopes = { location }
+        output_scope = value
+        from_data = yes
+        prefix = institution_progress:
+        data_source = <institution>
+    }
+    interaction_target = {
+        input_scopes = { cabinet }
+        output_scope = value
+        from_data = yes
+        prefix = interaction_target:
+        data_source = value[event_target]
+    }
+    international_organization = {
+        input_scopes = { any }
+        output_scope = international_organization
+        from_data = yes
+        prefix = institution_progress:
+        data_source = <international_organization>
+    }
+    international_organization_target = {
+        input_scopes = { international_organization }
+        output_scope = country
+    }
+    international_organization_type = {
+        input_scopes = { location }
+        output_scope = value
+        from_data = yes
+        prefix = international_organization_type:
+        data_source = <international_organization>
+    }
+    known_in_country = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = known_in_country:
+        data_source = <good>
+    }
+    land_ownership_rule = {
+        input_scopes = { any }
+        output_scope = land_ownership_rule
+        from_data = yes
+        prefix = land_ownership_rule:
+        data_source = <international_organization_land_ownership_rule>
+    }
+    language = {
+        input_scopes = { any }
+        output_scope = language
+        from_data = yes
+        prefix = language:
+        data_source = <language>
+    }
+    language_family = {
+        input_scopes = { any }
+        output_scope = language_family
+        from_data = yes
+        prefix = language_family:
+        data_source = <language_family>
+    }
+    last_dynasty_in_location = {
+        input_scopes = { location }
+        output_scope = dynasty
+    }
+    last_leader_country = {
+        input_scopes = { international_organization }
+        output_scope = country
+    }
+    last_valid_ruler = {
+        input_scopes = { country }
+        output_scope = character
+    }
+    law = {
+        input_scopes = { any }
+        output_scope = law
+        from_data = yes
+        prefix = law:
+        data_source = <law>
+    }
+    ### gets the policy chosen for a particular law in the scope international organization or country - usage law_policy(<law>)
+    law_policy = {
+        input_scopes = { country international_organization }
+        output_scope = policy
+        from_data = yes
+        prefix = law_policy:
+        data_source = <law>
+    }
+    leader = {
+        input_scopes = { unit exploration }
+        output_scope = character
+    }
+    leader_at_index = {
+        input_scopes = { international_organization }
+        output_scope = character
+        from_data = yes
+        prefix = leader_at_index:
+        data_source = int
+    }
+    leader_country = {
+        input_scopes = { international_organization }
+        output_scope = country
+    }
+    leadership_election_resolution = {
+        input_scopes = { international_organization }
+        output_scope = resolution
+    }
+    leading_unit = {
+        input_scopes = { combat_side }
+        output_scope = unit
+    }
+    levy_setup = {
+        input_scopes = { any }
+        output_scope = levy_setup
+        from_data = yes
+        prefix = levy_setup:
+        data_source = <levy>
+    }
+    liturgical_dialect = {
+        input_scopes = { country }
+        output_scope = dialect
+    }
+    liturgical_language = {
+        input_scopes = { country }
+        output_scope = language
+    }
+    local_var = {
+        output_scope = any
+        type = both
+        from_data = yes
+        prefix = local_var:
+        data_source = value[local_variable]
+    }
+    location = {
+        input_scopes = { character pop combat siege market exploration work_of_art holy_site building cardinal }
+        output_scope = location
+    }
+    location_rank = {
+        input_scopes = { location }
+        output_scope = location_rank
+    }
+    low_control_best_tax_base = {
+        input_scopes = { country }
+        output_scope = province
+    }
+    market = {
+        input_scopes = { location }
+        output_scope = market
+    }
+    ### The price a goods has in a market
+    market_price = {
+        input_scopes = { market }
+        output_scope = value
+        from_data = yes
+        prefix = market_price:
+        data_source = <good>
+    }
+    marriage_union = {
+        input_scopes = { country }
+        output_scope = international_organization
+    }
+    max_great_powers = {
+        input_scopes = { any }
+        output_scope = value
+    }
+    mercenary_home = {
+        input_scopes = { mercenary }
+        output_scope = location
+    }
+    mission = {
+        input_scopes = { country }
+        output_scope = mission
+    }
+    mission_task = {
+        input_scopes = { any }
+        output_scope = mission_task
+        from_data = yes
+        prefix = mission_task:
+        data_source = <mission_task>
+    }
+    modifier = {
+        input_scopes = { location country unit character religion province international_organization }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = modifier:
+        data_source = <modifier_type>
+    }
+    most_powerful_merchant = {
+        input_scopes = { market }
+        output_scope = country
+    }
+    mother = {
+        input_scopes = { character }
+        output_scope = character
+    }
+    num_estate_privileges = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = num_estate_privileges:
+        data_source = <estate>
+    }
+    num_location_rank = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = num_location_rank:
+        data_source = <location_rank>
+    }
+    num_pop_type = {
+        input_scopes = { location }
+        output_scope = value
+        from_data = yes
+        prefix = num_pop_type:
+        data_source = <pop_type>
+    }
+    num_pop_type_in_country = {
+        input_scopes = { any }
+        output_scope = value
+        from_data = yes
+        prefix = num_pop_type_in_country:
+        data_source = <pop_type>
+    }
+    num_pop_type_in_province = {
+        input_scopes = { any }
+        output_scope = value
+        from_data = yes
+        prefix = num_pop_type_in_province:
+        data_source = <pop_type>
+    }
+    num_possible_estate_privileges = {
+        input_scopes = { any }
+        output_scope = value
+        from_data = yes
+        prefix = num_possible_estate_privileges:
+        data_source = <estate>
+    }
+    origin = {
+        input_scopes = { disease }
+        output_scope = disease_outbreak
+    }
+    original_outbreak = {
+        input_scopes = { disease }
+        output_scope = disease_outbreak
+    }
+    overlord = {
+        input_scopes = { country }
+        output_scope = country
+    }
+    owner = {
+        input_scopes = { location unit sub_unit character pop colonial_charter market province rebels trade privateer exploration mercenary work_of_art loan building disaster cabinet cardinal estate }
+        output_scope = country
+    }
+    owning_unit = {
+        input_scopes = { sub_unit }
+        output_scope = unit
+    }
+    parliament_agenda = {
+        input_scopes = { any }
+        output_scope = parliament_agenda
+        from_data = yes
+        prefix = parliament_agenda:
+        data_source = <parliament_agenda>
+    }
+    parliament_issue_link = {
+        input_scopes = { any }
+        output_scope = parliament_issue
+        from_data = yes
+        prefix = parliament_issue:
+        data_source = <parliament_issue>
+    }
+    parliament_issue = {
+        input_scopes = { country international_organization }
+        output_scope = parliament_issue
+    }
+    parliament_seat = {
+        input_scopes = { country international_organization }
+        output_scope = location
+    }
+    parliament_type_link = {
+        input_scopes = { any }
+        output_scope = parliament_type
+        from_data = yes
+        prefix = parliament_type:
+        data_source = <parliament_type>
+    }
+    parliament_type = {
+        input_scopes = { country international_organization }
+        output_scope = parliament_type
+    }
+    payment = {
+        input_scopes = { any }
+        output_scope = payment
+        from_data = yes
+        prefix = payment:
+        data_source = <international_organization_payment>
+    }
+    peace_treaty = {
+        input_scopes = { any }
+        output_scope = peace_treaty
+        from_data = yes
+        prefix = peace_treaty:
+        data_source = <peace_treaty>
+    }
+    percentage_pop_type_in_country = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = percentage_pop_type_in_country:
+        data_source = <pop_type>
+    }
+    percentage_pop_type_in_location = {
+        input_scopes = { location }
+        output_scope = value
+        from_data = yes
+        prefix = percentage_pop_type_in_location:
+        data_source = <pop_type>
+    }
+    policy = {
+        input_scopes = { any }
+        output_scope = policy
+        from_data = yes
+        prefix = policy:
+        data_source = <policy>
+    }
+    pop_type = {
+        input_scopes = { any }
+        output_scope = pop_type
+        from_data = yes
+        prefix = pop_type:
+        data_source = <pop_type>
+    }
+    previous_owner = {
+        input_scopes = { location }
+        output_scope = country
+    }
+    previous_ruler = {
+        input_scopes = { country }
+        output_scope = character
+    }
+    price = {
+        input_scopes = { any }
+        output_scope = price
+        from_data = yes
+        prefix = price:
+        data_source = <price>
+    }
+    produced_goods = {
+        input_scopes = { production_method }
+        output_scope = goods
+    }
+    produced_in_country = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = produced_in_country:
+        data_source = <good>
+    }
+    produced_in_market = {
+        input_scopes = { market }
+        output_scope = value
+        from_data = yes
+        prefix = produced_in_market:
+        data_source = <good>
+    }
+    produced_in_world = {
+        input_scopes = { any }
+        output_scope = value
+        from_data = yes
+        prefix = produced_in_world:
+        data_source = <good>
+    }
+    production_method = {
+        input_scopes = { any }
+        output_scope = production_method
+        from_data = yes
+        prefix = production_method:
+        data_source = <production_method>
+    }
+    province = {
+        input_scopes = { country }
+        output_scope = province
+        from_data = yes
+        prefix = province:
+        data_source = <province>
+    }
+    province_capital = {
+        input_scopes = { province }
+        output_scope = location
+    }
+    province_definition = {
+        input_scopes = { any }
+        output_scope = province_definition
+        from_data = yes
+        prefix = province_definition:
+        data_source = <province>
+    }
+    raw_material = {
+        input_scopes = { location }
+        output_scope = goods
+    }
+    raw_material_location = {
+        input_scopes = { location }
+        output_scope = goods
+    }
+    rebel = {
+        input_scopes = { character pop }
+        output_scope = rebels
+    }
+    recruitment_method = {
+        input_scopes = { any }
+        output_scope = recruitment_method
+        from_data = yes
+        prefix = recruitment_method:
+        data_source = <recruitment_method>
+    }
+    regency_type = {
+        input_scopes = { country }
+        output_scope = regency_type
+    }
+    regent = {
+        input_scopes = { country }
+        output_scope = character
+    }
+    region = {
+        input_scopes = { any }
+        output_scope = region
+        from_data = yes
+        prefix = region:
+        data_source = <region>
+    }
+    relation_type = {
+        input_scopes = { any }
+        output_scope = relation_type
+        from_data = yes
+        prefix = relation_type:
+        data_source = <scripted_relation_type>
+    }
+    religion = {
+        input_scopes = { country sub_unit character dynasty pop rebels mercenary }
+        output_scope = religion
+    }
+    religion_group = {
+        input_scopes = { any }
+        output_scope = religion_group
+        from_data = yes
+        prefix = religion_group:
+        data_source = <religion_group>
+    }
+    religious_aspect = {
+        input_scopes = { any }
+        output_scope = religious_aspect
+        from_data = yes
+        prefix = religious_aspect:
+        data_source = <religious_aspect>
+    }
+    religious_faction = {
+        input_scopes = { any }
+        output_scope = religious_faction
+        from_data = yes
+        prefix = religious_faction:
+        data_source = <religious_faction>
+    }
+    religious_figure = {
+        input_scopes = { any }
+        output_scope = religious_figure
+        from_data = yes
+        prefix = religious_figure:
+        data_source = <religious_figure>
+    }
+    religious_focus = {
+        input_scopes = { any }
+        output_scope = religious_focus
+        from_data = yes
+        prefix = religious_focus:
+        data_source = <religious_focus>
+    }
+    religious_head = {
+        input_scopes = { religion }
+        output_scope = country
+    }
+    religious_school = {
+        input_scopes = { any }
+        output_scope = religious_school
+        from_data = yes
+        prefix = religious_school:
+        data_source = <religious_school>
+    }
+    resolution = {
+        input_scopes = { any }
+        output_scope = resolution
+        from_data = yes
+        prefix = resolution:
+        data_source = <resolution>
+    }
+    resolution_proposer = {
+        input_scopes = { active_resolution }
+        output_scope = country
+    }
+    resolution_target = {
+        input_scopes = { any }
+        output_scope = active_resolution
+        from_data = yes
+        prefix = resolution_target:
+        data_source = value[event_target]
+    }
+    resolution_vote = {
+        input_scopes = { any }
+        output_scope = policy
+        from_data = yes
+        prefix = resolution_vote:
+        data_source = value[country]
+        data_source = value[international_organization]
+        data_source = value[resolution]
+    }
+    revolutionary_target = {
+        input_scopes = { country }
+        output_scope = country
+    }
+    road_type = {
+        input_scopes = { any }
+        output_scope = road_type
+        from_data = yes
+        prefix = road_type:
+        data_source = <road_type>
+    }
+    rule_end_date = {
+        input_scopes = { character }
+        output_scope = date
+        from_data = yes
+        prefix = rule_end_date:
+        data_source = value[country]
+    }
+    ruler = {
+        input_scopes = { country }
+        output_scope = character
+    }
+    ruler_or_heir_if_regent = {
+        input_scopes = { country }
+        output_scope = character
+    }
+    ruler_or_regent = {
+        desc = "desc"
+        input_scopes = { country }
+        output_scope = character
+    }
+    scope = {
+        from_data = yes
+        prefix = scope:
+        data_source = value[event_target]
+    }
+    scriptable_hint_definition = {
+        input_scopes = { any }
+        output_scope = scriptable_hint_definition
+        from_data = yes
+        prefix = scriptable_hint_definition:
+        data_source = <scriptable_hint>
+    }
+    sea_zone = {
+        input_scopes = { location }
+        output_scope = location
+    }
+    second_best_market = {
+        input_scopes = { location }
+        output_scope = market
+    }
+    secondary_culture = {
+        input_scopes = { location }
+        output_scope = culture
+    }
+    secondary_otherwise_primary_culture = {
+        input_scopes = { location }
+        output_scope = culture
+    }
+    siege = {
+        input_scopes = { location unit }
+        output_scope = siege
+    }
+    siege_defender = {
+        input_scopes = { siege }
+        output_scope = country
+    }
+    siege_main_attacker = {
+        input_scopes = { siege }
+        output_scope = country
+    }
+    situation = {
+        input_scopes = { any }
+        output_scope = situation
+        from_data = yes
+        prefix = situation:
+        data_source = <situation>
+    }
+    societal_value = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = societal_value:
+        data_source = <societal_value>
+    }
+    societal_value_type = {
+        input_scopes = { any }
+        output_scope = societal_value_type
+        from_data = yes
+        prefix = societal_value_type:
+        data_source = <societal_value>
+    }
+    source_province = {
+        input_scopes = { colonial_charter }
+        output_scope = province
+    }
+    special_status = {
+        input_scopes = { parliament_issue }
+        output_scope = special_status
+    }
+    stockpile_in_market = {
+        input_scopes = { market }
+        output_scope = value
+        from_data = yes
+        prefix = stockpile_in_market:
+        data_source = scope[good]
+    }
+    sub_continent = {
+        input_scopes = { any }
+        output_scope = sub_continent
+        from_data = yes
+        prefix = sub_continent:
+        data_source = <sub_continent>
+    }
+    sub_unit_category = {
+        input_scopes = { sub_unit }
+        output_scope = sub_unit_category
+    }
+    sub_unit_count = {
+        input_scopes = { unit }
+        output_scope = value
+        from_data = yes
+        prefix = sub_unit_count:
+        data_source = <unit_type>
+    }
+    sub_unit_fraction = {
+        input_scopes = { unit }
+        output_scope = value
+        from_data = yes
+        prefix = sub_unit_fraction:
+        data_source = <unit_type>
+    }
+    sub_unit_strength = {
+        input_scopes = { unit }
+        output_scope = value
+        from_data = yes
+        prefix = sub_unit_strength:
+        data_source = <unit_type>
+    }
+    subject_military_stance = {
+        input_scopes = { any }
+        output_scope = military_stance
+        from_data = yes
+        prefix = subject_military_stance:
+        data_source = <subject_military_stance>
+    }
+    subject_type = {
+        input_scopes = { any }
+        output_scope = subject_type
+        from_data = yes
+        prefix = subject_type:
+        data_source = <subject_type>
+    }
+    subunit_home = {
+        input_scopes = { sub_unit }
+        output_scope = location
+    }
+    succession_law = {
+        input_scopes = { country }
+        output_scope = heir_selection
+    }
+    target_price = {
+        input_scopes = { market }
+        output_scope = value
+        from_data = yes
+        prefix = target_price:
+        data_source = <good>
+    }
+    to_market = {
+        input_scopes = { trade }
+        output_scope = market
+    }
+    top_overlord = {
+        input_scopes = { country }
+        output_scope = country
+    }
+    top_overlord_or_this = {
+        input_scopes = { country }
+        output_scope = country
+    }
+    top_owner = {
+        input_scopes = { location }
+        output_scope = country
+    }
+    topography = {
+        input_scopes = { any }
+        output_scope = topography
+        from_data = yes
+        prefix = topography:
+        data_source = <topography>
+    }
+    total_effective_building_levels = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = total_effective_building_levels:
+        data_source = <building_type>
+    }
+    total_sub_unit_category_in_unit = {
+        input_scopes = { unit }
+        output_scope = value
+        from_data = yes
+        prefix = total_sub_unit_category_in_unit:
+        data_source = <unit_category>
+    }
+    total_sub_unit_count = {
+        input_scopes = { unit }
+        output_scope = value
+        from_data = yes
+        prefix = total_sub_unit_count:
+        data_source = <unit_category>
+    }
+    total_sub_unit_strength = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = total_sub_unit_strength:
+        data_source = <unit_category>
+    }
+    total_sub_unit_type_count = {
+        input_scopes = { country }
+        output_scope = value
+        from_data = yes
+        prefix = total_sub_unit_type_count:
+        data_source = <unit_category>
+    }
+    total_sub_unit_type_strength = {
+        input_scopes = { unit }
+        output_scope = value
+        from_data = yes
+        prefix = total_sub_unit_type_strength:
+        data_source = <unit_category>
+    }
+    traded_goods = {
+        input_scopes = { trade }
+        output_scope = goods
+    }
+    traded_in_market = {
+        input_scopes = { market }
+        output_scope = value
+        from_data = yes
+        prefix = traded_in_market:
+        data_source = <good>
+    }
+    trait = {
+        input_scopes = { any }
+        output_scope = trait
+        from_data = yes
+        prefix = trait:
+        data_source = <trait>
+    }
+    union = {
+        input_scopes = { country }
+        output_scope = international_organization
+    }
+    unit = {
+        input_scopes = { character }
+        output_scope = unit
+    }
+    unit_ability = {
+        input_scopes = { any }
+        output_scope = unit_ability
+        from_data = yes
+        prefix = unit_ability:
+        data_source = <unit_ability>
+    }
+    unit_destination = {
+        input_scopes = { unit }
+        output_scope = location
+    }
+    unit_location = {
+        input_scopes = { unit }
+        output_scope = location
+    }
+    unit_next_location = {
+        input_scopes = { unit }
+        output_scope = location
+    }
+    unit_type = {
+        input_scopes = { any }
+        output_scope = unit_type
+        from_data = yes
+        prefix = unit_type:
+        data_source = <unit_type>
+    }
+    upgrade_demand = {
+        input_scopes = { production_method }
+        output_scope = demand
+    }
+    value = {
+        desc = "desc"
+        input_scopes = { any }
+        output_scope = any
+    }
+    var = {
+        output_scope = any
+        from_data = yes
+        type = both
+        prefix = global_var:
+        data_source = value[global_variable]
+    }
+    vegetation = {
+        input_scopes = { any }
+        output_scope = vegetation
+        from_data = yes
+        prefix = vegetation:
+        data_source = <vegetation>
+    }
+    vote_in_active_resolution = {
+        input_scopes = { any }
+        output_scope = active_resolution
+        from_data = yes
+        prefix = vote_in_active_resolution:
+        data_source = scope[country]
+    }
+    war_with_country = {
+        input_scopes = { country }
+        output_scope = war
+        from_data = yes
+        prefix = war_with_country:
+        data_source = scope[country]
+    }
+    work_of_art = {
+        input_scopes = { any }
+        output_scope = work_of_art
+        from_data = yes
+        prefix = work_of_art:
+        data_source = <work_of_art>
+    }
+    work_of_art_type = {
+        input_scopes = { any }
+        output_scope = work_of_art_type
+        from_data = yes
+        prefix = work_of_art_type:
+        data_source = <artist_work>
+    }
+}

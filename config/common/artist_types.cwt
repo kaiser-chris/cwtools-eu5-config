@@ -1,0 +1,15 @@
+types = {
+    type[artist_type] = {
+        path = "game/common/artist_types"
+        file_extension = .txt
+        localisation = {
+            name = "ARTIST_TYPE_NAME_$"
+            desc = "ARTIST_TYPE_DESC_$"
+        }
+    }
+}
+
+artist_type = {
+    ## cardinality = 0..1
+    potential = single_alias_right[trigger_clause]
+}

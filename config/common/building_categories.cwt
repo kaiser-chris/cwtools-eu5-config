@@ -1,0 +1,12 @@
+types = {
+    type[building_category] = {
+        path = "game/common/building_categories"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+building_category = {}

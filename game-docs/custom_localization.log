@@ -1,0 +1,3602 @@
+Custom Localization Documentation:
+
+--------------------
+
+GetSCCallToArmsTooltip:
+
+Scope: none
+Random Valid: no
+
+Entries:
+sc_call_to_arms_only_same_religion_tt
+sc_call_to_arms_always_tt
+empty_text
+
+--------------------
+
+vote_in_western_schism_resolution_specific:
+
+Scope: none
+Random Valid: no
+
+Entries:
+western_schism_side_with_country
+western_schism_become_neutral
+
+--------------------
+
+vote_in_fall_of_delhi_resolution_specific:
+
+Scope: none
+Random Valid: no
+
+Entries:
+fall_of_delhi_side_with_country
+fall_of_delhi_become_neutral
+
+--------------------
+
+GetDangerousWildAnimalName:
+
+Scope: location
+Random Valid: yes
+
+Entries:
+dangerous_wild_animal_tiger
+dangerous_wild_animal_elephant
+dangerous_wild_animal_moose
+dangerous_wild_animal_elk
+dangerous_wild_animal_lion
+dangerous_wild_animal_boar
+dangerous_wild_animal_wolf
+dangerous_wild_animal_jaguar
+dangerous_wild_animal_dolphin
+dangerous_wild_animal_whale
+dangerous_wild_animal_shark
+dangerous_wild_animal_kraken
+dangerous_wild_animal_default
+
+--------------------
+
+GetLocalReformer_martin_luther:
+
+Scope: location
+Random Valid: no
+
+Entries:
+martin_luther_key
+empty_text
+
+--------------------
+
+GetLocalReformer_martin_luther_WithNoTooltip:
+
+Scope: location
+Random Valid: no
+
+Entries:
+martin_luther_key_with_no_tooltip
+empty_text
+
+--------------------
+
+GetLocalReformer_reformer_philip_melanchton:
+
+Scope: location
+Random Valid: no
+
+Entries:
+reformer_philip_melanchton_key
+empty_text
+
+--------------------
+
+GetLocalReformer_reformer_philip_melanchton_WithNoTooltip:
+
+Scope: location
+Random Valid: no
+
+Entries:
+reformer_philip_melanchton_key_with_no_tooltip
+empty_text
+
+--------------------
+
+GetLocalReformer_reformer_justus_jonas:
+
+Scope: location
+Random Valid: no
+
+Entries:
+reformer_justus_jonas_key
+empty_text
+
+--------------------
+
+GetLocalReformer_reformer_justus_jonas_WithNoTooltip:
+
+Scope: location
+Random Valid: no
+
+Entries:
+reformer_justus_jonas_key_with_no_tooltip
+empty_text
+
+--------------------
+
+GetLocalReformer_swe_mikael_agricola:
+
+Scope: location
+Random Valid: no
+
+Entries:
+swe_mikael_agricola_key
+empty_text
+
+--------------------
+
+GetLocalReformer_swe_mikael_agricola_WithNoTooltip:
+
+Scope: location
+Random Valid: no
+
+Entries:
+swe_mikael_agricola_key_with_no_tooltip
+empty_text
+
+--------------------
+
+GetLocalReformer_script_hans_tausen:
+
+Scope: location
+Random Valid: no
+
+Entries:
+script_hans_tausen_key
+empty_text
+
+--------------------
+
+GetLocalReformer_script_hans_tausen_WithNoTooltip:
+
+Scope: location
+Random Valid: no
+
+Entries:
+script_hans_tausen_key_with_no_tooltip
+empty_text
+
+--------------------
+
+GetLocalReformer_john_calvin:
+
+Scope: location
+Random Valid: no
+
+Entries:
+john_calvin_key
+empty_text
+
+--------------------
+
+GetLocalReformer_john_calvin_WithNoTooltip:
+
+Scope: location
+Random Valid: no
+
+Entries:
+john_calvin_key_with_no_tooltip
+empty_text
+
+--------------------
+
+GetLocalReformer_swi_huldrych_zwingli:
+
+Scope: location
+Random Valid: no
+
+Entries:
+swi_huldrych_zwingli_key
+empty_text
+
+--------------------
+
+GetLocalReformer_swi_huldrych_zwingli_WithNoTooltip:
+
+Scope: location
+Random Valid: no
+
+Entries:
+swi_huldrych_zwingli_key_with_no_tooltip
+empty_text
+
+--------------------
+
+GetLocalReformer_reformation_henry_bullinger:
+
+Scope: location
+Random Valid: no
+
+Entries:
+reformation_henry_bullinger_key
+empty_text
+
+--------------------
+
+GetLocalReformer_reformation_henry_bullinger_WithNoTooltip:
+
+Scope: location
+Random Valid: no
+
+Entries:
+reformation_henry_bullinger_key_with_no_tooltip
+empty_text
+
+--------------------
+
+GetLocalReformer_script_john_knox:
+
+Scope: location
+Random Valid: no
+
+Entries:
+script_john_knox_key
+empty_text
+
+--------------------
+
+GetLocalReformer_script_john_knox_WithNoTooltip:
+
+Scope: location
+Random Valid: no
+
+Entries:
+script_john_knox_key_with_no_tooltip
+empty_text
+
+--------------------
+
+GetLocalReformer_reformation_wido_de_bres:
+
+Scope: location
+Random Valid: no
+
+Entries:
+reformation_wido_de_bres_key
+empty_text
+
+--------------------
+
+GetLocalReformer_reformation_wido_de_bres_WithNoTooltip:
+
+Scope: location
+Random Valid: no
+
+Entries:
+reformation_wido_de_bres_key_with_no_tooltip
+empty_text
+
+--------------------
+
+GetShugoProvinceName:
+
+Scope: location
+Random Valid: no
+
+Entries:
+shugo_province_mutsu
+shugo_province_dewa
+shugo_province_wakasa
+shugo_province_iki
+shugo_province_location
+shugo_province_default
+
+--------------------
+
+derry:
+
+Scope: location
+Random Valid: no
+
+Entries:
+derry_londonderry
+
+--------------------
+
+derry_ADJ:
+
+Scope: location
+Random Valid: no
+Parent: derry
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+london:
+
+Scope: location
+Random Valid: no
+
+Entries:
+london_derrylondon
+
+--------------------
+
+london_ADJ:
+
+Scope: location
+Random Valid: no
+Parent: derry
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+urfa:
+
+Scope: location
+Random Valid: no
+
+Entries:
+urfa_christian
+
+--------------------
+
+urfa_ADJ:
+
+Scope: location
+Random Valid: no
+Parent: urfa
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+GetOrderOfChivalry:
+
+Scope: country
+Random Valid: no
+
+Entries:
+order_of_saint_george_policy
+order_of_the_ermine_policy
+order_of_the_dragon_policy
+order_of_the_band_policy
+order_of_the_swan_policy
+order_of_the_black_eagle_policy
+order_of_the_white_eagle_policy
+order_of_chivalry_law
+
+--------------------
+
+GetOrderOfChivalryBonusTooltip:
+
+Scope: country
+Random Valid: no
+
+Entries:
+STATIC_MODIFIER_EFFECT_joined_order_of_saint_george
+STATIC_MODIFIER_EFFECT_joined_order_of_the_ermine
+STATIC_MODIFIER_EFFECT_joined_order_of_the_dragon
+STATIC_MODIFIER_EFFECT_joined_order_of_the_band
+STATIC_MODIFIER_EFFECT_joined_order_of_the_swan
+STATIC_MODIFIER_EFFECT_joined_order_of_the_black_eagle
+STATIC_MODIFIER_EFFECT_joined_order_of_the_white_eagle
+order_of_chivalry_law
+
+--------------------
+
+GetHeathenInsult:
+
+Scope: country
+Random Valid: no
+
+Entries:
+religious_insult_devil
+religious_insult_fool
+
+--------------------
+
+GetHeathenInsultPlural:
+
+Scope: country
+Random Valid: no
+
+Entries:
+religious_insult_devils
+religious_insult_fools
+
+--------------------
+
+GetMotherlandFatherland:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_parent_motherland
+country_parent_fatherland
+country_parent_homeland
+
+--------------------
+
+GetExaminationSystemPolicyName:
+
+Scope: country
+Random Valid: no
+
+Entries:
+examination_system_policy_korean
+examination_system_policy_chinese
+examination_system_policy_shu_language
+examination_system_policy_xiang_language
+examination_system_policy_gan_language
+examination_system_policy_yue_language
+examination_system_policy_min_language
+examination_system_policy_wu_language
+examination_system_policy_kejia_language
+examination_system_policy_jin_language
+examination_system_policy_vietnam
+imperial_examination_law
+
+--------------------
+
+GetHeadOfCabinetName:
+
+Scope: country
+Random Valid: no
+
+Entries:
+cabinet_role_head_of_cabinet_pirate_yarr
+cabinet_role_head_of_cabinet_procurator_of_saint_mark
+cabinet_role_head_of_cabinet_grand_vizier
+cabinet_role_head_of_cabinet_chancellor
+cabinet_role_head_of_cabinet_peshwa
+cabinet_role_head_of_cabinet_prime_minister
+
+--------------------
+
+GetRulerOrRegentTitle:
+
+Scope: country
+Random Valid: no
+
+Entries:
+getrulertitle_ruler
+getrulertitle_regent
+getrulertitle_fallback
+
+--------------------
+
+GetRulerOrHeirTitle:
+
+Scope: country
+Random Valid: no
+
+Entries:
+this_ruler_title
+this_heir_title
+ruler
+
+--------------------
+
+GetSibling:
+
+Scope: country
+Random Valid: no
+
+Entries:
+family_relations_sister
+family_relations_brother
+family_relations_sibling
+
+--------------------
+
+GetSiblings:
+
+Scope: country
+Random Valid: no
+
+Entries:
+family_relations_sisters
+family_relations_brothers
+family_relations_siblings
+
+--------------------
+
+GetGAGOwnFaction:
+
+Scope: country
+Random Valid: no
+
+Entries:
+faction_guelphs
+faction_ghibellines
+faction_default
+
+--------------------
+
+GetGAGEnemyFaction:
+
+Scope: country
+Random Valid: no
+
+Entries:
+faction_ghibellines
+faction_guelphs
+faction_default
+
+--------------------
+
+GetGAGOwnFactionWithNoTooltip:
+
+Scope: country
+Random Valid: no
+
+Entries:
+faction_guelphs_no_tt
+faction_ghibellines_no_tt
+faction_default
+
+--------------------
+
+GetGAGEnemyFactionWithNoTooltip:
+
+Scope: country
+Random Valid: no
+
+Entries:
+faction_ghibellines_no_tt
+faction_guelphs_no_tt
+faction_default
+
+--------------------
+
+GetSeatOfPower:
+
+Scope: country
+Random Valid: no
+
+Entries:
+seat_of_power_throne
+seat_of_power_state
+
+--------------------
+
+GetQizilbashEstateName:
+
+Scope: country
+Random Valid: no
+
+Entries:
+qizilbash_estate_name
+qizilbash
+
+--------------------
+
+GetContemporaryStringedInstrumentPlural:
+
+Scope: country
+Random Valid: no
+
+Entries:
+dynastic_lires
+dynastic_violins
+
+--------------------
+
+GetReligiousLeagueName:
+
+Scope: country
+Random Valid: no
+
+Entries:
+protestant_union_name
+catholic_league_name
+religious_league_name
+
+--------------------
+
+GetEnemyReligiousLeagueName:
+
+Scope: country
+Random Valid: no
+
+Entries:
+catholic_league_name
+protestant_union_name
+religious_league_name
+
+--------------------
+
+GetReligiousLeagueNameWithNoTooltip:
+
+Scope: country
+Random Valid: no
+
+Entries:
+protestant_union_name_with_no_tooltip
+catholic_league_name_with_no_tooltip
+faction_default
+
+--------------------
+
+GetEnemyReligiousLeagueNameWithNoTooltip:
+
+Scope: country
+Random Valid: no
+
+Entries:
+catholic_league_name_with_no_tooltip
+protestant_union_name_with_no_tooltip
+faction_default
+
+--------------------
+
+GetWokouName:
+
+Scope: country
+Random Valid: no
+
+Entries:
+wokou_name_wako
+wokou_name_waegu
+wokou_name_wokou
+
+--------------------
+
+GetHaCWFaction:
+
+Scope: country
+Random Valid: no
+
+Entries:
+hacw_hook_faction
+hacw_cod_faction
+hacw_our_faction
+
+--------------------
+
+GetHaCWFactionShort:
+
+Scope: country
+Random Valid: no
+
+Entries:
+hacw_hook_faction_short
+hacw_cod_faction_short
+hacw_our_faction
+
+--------------------
+
+GetHaCWOwnFactionScore:
+
+Scope: country
+Random Valid: no
+
+Entries:
+GetHookFactionInfluenceHolland
+GetCodFactionInfluenceHolland
+hacw_our_faction
+
+--------------------
+
+GetHaCWEnemyFaction:
+
+Scope: country
+Random Valid: no
+
+Entries:
+hacw_cod_faction
+hacw_hook_faction
+hacw_enemy_faction
+
+--------------------
+
+GetHaCWEnemyFactionShort:
+
+Scope: country
+Random Valid: no
+
+Entries:
+hacw_cod_faction_short
+hacw_hook_faction_short
+hacw_enemy_faction
+
+--------------------
+
+GetHaCWEnemyFactionScore:
+
+Scope: country
+Random Valid: no
+
+Entries:
+GetCodFactionInfluenceHolland
+GetHookFactionInfluenceHolland
+hacw_enemy_faction
+
+--------------------
+
+common_string_positive:
+
+Scope: country
+Random Valid: yes
+
+Entries:
+common_string_positive_pirate
+common_string_positive_catalan
+common_string_positive_french
+common_string_positive_italian
+common_string_positive_german
+common_string_positive_spanish
+common_string_positive_swedish
+common_string_brilliant
+common_string_excellent
+common_string_excellent_news
+common_string_good
+common_string_good_news
+common_string_great_news
+common_string_great
+common_string_this_is_good
+common_string_this_is_great
+common_string_very_well
+common_string_well_done
+common_string_good
+
+--------------------
+
+common_string_wonder:
+
+Scope: country
+Random Valid: yes
+
+Entries:
+common_string_wonder_german
+common_string_marvelous
+common_string_fantastic
+common_string_extraordinary
+common_string_wonderful
+
+--------------------
+
+common_string_ok:
+
+Scope: country
+Random Valid: yes
+
+Entries:
+common_string_ok_catalan
+common_string_ok_italian
+common_string_ok_spanish
+common_string_ok_french
+common_string_ok_french_2
+common_string_alright
+common_string_ok
+
+--------------------
+
+common_string_negative:
+
+Scope: country
+Random Valid: yes
+
+Entries:
+common_string_negative_pirate
+common_string_negative_german
+common_string_negative_german_2
+common_string_negative_french
+common_string_curses
+common_string_damn
+common_string_this_is_not_good
+common_string_what_a_disaster
+common_string_unfortunate
+
+--------------------
+
+common_string_disappointing:
+
+Scope: country
+Random Valid: yes
+
+Entries:
+common_string_this_is_disappointing
+common_string_how_disappointing
+common_string_truly_disappointing
+common_string_this_is_truly_disappointing
+common_string_this_is_rather_disappointing
+common_string_rather_disappointing
+common_string_disappointing
+
+--------------------
+
+common_string_nothing_we_can_do:
+
+Scope: country
+Random Valid: yes
+
+Entries:
+common_string_nothing_we_can_do_about_it
+common_string_alas_nothing_we_can_do
+common_string_alas_nothing_we_can_do_about_it
+common_string_nothing_we_can_do
+
+--------------------
+
+common_string_we_must_do_something:
+
+Scope: country
+Random Valid: yes
+
+Entries:
+common_string_we_must_do_something_about_it
+common_string_we_must_do_something_about_this
+common_string_we_must_do_something
+
+--------------------
+
+common_string_suprised:
+
+Scope: country
+Random Valid: yes
+
+Entries:
+common_string_suprised_german
+common_string_suprised_german_2
+common_string_suprised
+
+--------------------
+
+ADU:
+
+Scope: country
+Random Valid: no
+
+Entries:
+ADU_arabic
+ADU
+
+--------------------
+
+ADU_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: ADU
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+BYZ:
+
+Scope: country
+Random Valid: no
+
+Entries:
+BYZ_eastern_rome
+BYZ
+
+--------------------
+
+BYZ_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: BYZ
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+ENG:
+
+Scope: country
+Random Valid: no
+
+Entries:
+ENG_latin
+ENG
+
+--------------------
+
+ENG_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: ENG
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+EUR:
+
+Scope: country
+Random Valid: no
+
+Entries:
+EUR_english
+EUR
+
+--------------------
+
+EUR_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: EUR
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+GBR:
+
+Scope: country
+Random Valid: no
+
+Entries:
+GBR_latin
+GBR_welsh
+GBR_and_ireland
+GBR_ireland_and_great_britain
+GBR
+
+--------------------
+
+GBR_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: GBR
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+GLH:
+
+Scope: country
+Random Valid: no
+
+Entries:
+GLH_horde
+GLH
+
+--------------------
+
+GLH_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: GLH
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+HEN:
+
+Scope: country
+Random Valid: no
+
+Entries:
+HEN_welsh
+HEN
+
+--------------------
+
+HEN_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: HEN
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+IRE:
+
+Scope: country
+Random Valid: no
+
+Entries:
+IRE_gaelic
+IRE
+
+--------------------
+
+IRE_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: IRE
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+PAP:
+
+Scope: country
+Random Valid: no
+
+Entries:
+PAP_papacy
+PAP
+
+--------------------
+
+PAP_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: PAP
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+PLC:
+
+Scope: country
+Random Valid: no
+
+Entries:
+PLC_ruthenian
+PLC_lithuania_poland
+PLC
+
+--------------------
+
+PLC_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: PLC
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+SCO:
+
+Scope: country
+Random Valid: no
+
+Entries:
+SCO_roman
+SCO_latin
+SCO_gaelic
+SCO_scots
+SCO_scotch
+SCO
+
+--------------------
+
+SCO_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: SCO
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+SMI:
+
+Scope: country
+Random Valid: no
+
+Entries:
+SMI_english
+SMI_scandinavian
+SMI
+
+--------------------
+
+SMI_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: SMI
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+SPA:
+
+Scope: country
+Random Valid: no
+
+Entries:
+SPA_latin
+SPA
+
+--------------------
+
+SPA_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: SPA
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+WLS:
+
+Scope: country
+Random Valid: no
+
+Entries:
+WLS_welsh
+WLS_latin
+WLS
+
+--------------------
+
+WLS_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: WLS
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+HIN:
+
+Scope: country
+Random Valid: no
+
+Entries:
+HIN_bharat
+HIN
+
+--------------------
+
+HIN_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: HIN
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+country_history:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_history_ARA
+country_history_ARM
+country_history_AZT
+country_history_BAV
+country_history_BAV
+country_history_BOH
+country_history_BRA
+country_history_BRB
+country_history_BYZ
+country_history_CAS
+country_history_CHA
+country_history_CHG
+country_history_CHI
+country_history_CHK
+country_history_CSU
+country_history_DAI
+country_history_DAN
+country_history_DHM
+country_history_DLH
+country_history_DMS
+country_history_ENG
+country_history_ERE
+country_history_ETH
+country_history_EWY
+country_history_FLA
+country_history_FLO
+country_history_FRA
+country_history_FRI
+country_history_GEL
+country_history_GEN
+country_history_GEO
+country_history_GLH
+country_history_GRM
+country_history_HAB
+country_history_HAI
+country_history_HOL
+country_history_HUN
+country_history_JAP
+country_history_KAR
+country_history_KBO
+country_history_KHM
+country_history_KNI
+country_history_KOR
+country_history_LAV
+country_history_LIE
+country_history_LIT
+country_history_LUX
+country_history_MAC
+country_history_MAJ
+country_history_MAL
+country_history_MAM
+country_history_MEI
+country_history_MLO
+country_history_MOR
+country_history_MOS
+country_history_NAV
+country_history_NAP
+country_history_NOV
+country_history_NTC
+country_history_PAL
+country_history_PAP
+country_history_PLE
+country_history_POL
+country_history_POR
+country_history_SBL
+country_history_SCO
+country_history_SER
+country_history_STC
+country_history_SUK
+country_history_SWE
+country_history_TEU
+country_history_THO
+country_history_TRE
+country_history_TUR
+country_history_ULS
+country_history_UTR
+country_history_VEN
+country_history_VIJ
+country_history_WLS
+country_history_ZAN
+country_history_ZMW
+country_history_haudenosaunee
+country_history_puebloan
+country_history_nahua
+country_history_mayan
+country_history_tonal
+country_history_andean
+country_history_swiss_group
+country_history_baltic_german
+country_history_german_group
+country_history_low_countries_minors
+country_history_irish_minors
+country_history_anglo_irish_minors
+country_history_finnic
+country_history_italian
+country_history_polish
+country_history_bohemian
+country_history_east_slavic
+country_history_iberian
+country_history_georgian
+country_history_armenian
+country_history_persian
+country_history_indian
+country_history_thai
+country_history_tibet
+country_history_jurchen
+country_history_mongolian_group
+country_history_japanese_clan_north
+country_history_japanese_clan_south
+country_history_scandinavia
+country_history_ruthenia
+country_history_france
+country_history_britain
+country_history_balkan
+country_history_maghreb
+country_history_sahel
+country_history_kongo
+country_history_east_africa
+country_history_anatolia
+country_history_caucasus
+country_history_middle_east
+country_history_china
+country_history_indonesia
+country_history_indochina
+country_history_america
+country_history_europe
+country_history_africa
+country_history_asia
+country_history_fallback
+
+--------------------
+
+country_name_construction:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_name_construction_name
+country_name_construction_prefix_rank_of_name_but_map_is_just_prefix_rank
+country_name_construction_prefix_name_rank
+country_name_construction_prefix_name
+country_name_construction_prefix_adjective_rank
+country_name_construction_prefix_rank_of_name
+
+--------------------
+
+country_name_construction_map:
+
+Scope: country
+Random Valid: no
+Parent: country_name_construction
+Suffix: _map
+
+Entries:
+
+--------------------
+
+country_flavor:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_rank_people
+country_rank_league
+country_rank_colony_viceroyalty
+country_rank_colony
+country_rank_governor
+rank_confederation
+country_rank_cossacks_reform
+country_rank_empire_cossacks_reform
+rank_empire_revolutionary
+rank_empire_conquistador
+rank_empire_czech_commonwealth
+rank_county_republic_maya
+rank_empire_pirate_republic
+rank_empire_republic_revolutionary
+rank_empire_republic_judicate_reform
+rank_empire_bank
+rank_empire_union
+rank_kingdom_united_states
+rank_empire_latin_empire
+rank_kingdom_commonwealth_british_republic
+rank_empire_imperial_provinces
+rank_empire_signoria
+rank_empire_republic_high_alemannic
+rank_empire_republic
+rank_kingdom_papacy
+rank_empire_order
+rank_empire_abbey
+rank_empire_bishopric
+rank_empire_theocracy_dharmic
+rank_empire_theocracy
+rank_empire_horde
+rank_empire_nu_tireni
+rank_empire_tribe
+rank_empire_mali
+rank_empire_inca
+rank_empire_aymara
+rank_empire_jurchen
+rank_empire_korean
+rank_kingdom_seven_kingdoms
+rank_empire_ilkhanate
+rank_empire_persian
+rank_empire_muslim_mamluk
+rank_empire_muslim_marinids
+rank_empire_muslim_zayyanids
+rank_empire_muslim_hafsids
+rank_empire_muslim_nasrids
+rank_empire_tsar
+rank_empire_dynasty
+rank_empire_ethiopia
+rank_empire_kanem
+rank_empire_vietnamese
+rank_japanese_court
+rank_japanese_shogunate
+rank_empire_catholic_spain
+rank_empire_byzantine
+rank_empire_turkish
+rank_empire_nahua
+rank_empire
+rank_kingdom_revolutionary
+rank_kingdom_pirate_republic
+rank_kingdom_republic_revolutionary
+rank_kingdom_republic_judicate_reform
+rank_kingdom_conquistador
+rank_kingdom_bank
+rank_kingdom_maori
+rank_kingdom_maya
+rank_duchy_united_provinces
+rank_kingdom_united_states
+rank_kingdom_republic_genoa
+rank_kingdom_psihipqua
+rank_kingdom_hoa
+rank_kingdom_republic_venice
+rank_empire_signoria
+rank_kingdom_commonwealth_british_republic
+rank_duchy_frisian_freedom
+rank_kingdom_republic_high_alemannic
+rank_kingdom_republic_novgorod
+rank_kingdom_republic
+rank_kingdom_catholic_spain
+rank_kingdom_papacy
+rank_kingdom_order
+rank_kingdom_abbey
+rank_kingdom_bishopric
+rank_kingdom_theocracy_dharmic
+rank_kingdom_theocracy
+rank_kingdom_horde
+rank_kingdom_nu_tireni
+rank_kingdom_tribe
+rank_kingdom_kanem
+rank_kingdom_mali
+rank_kingdom_mutapa
+rank_kingdom_zimbabwe
+rank_kingdom_persian
+rank_kingdom_muslim_mamluk
+rank_kingdom_muslim_marinids
+rank_kingdom_muslim_zayyanids
+rank_kingdom_muslim_hafsids
+rank_kingdom_muslim_nasrids
+rank_kingdom_muslim
+rank_kingdom_indian
+rank_kingdom_commonwealth_polish_lithuanian
+rank_kingdom_celtic_welsh
+rank_kingdom_celtic
+rank_kingdom_united_kingdom_british
+rank_duchy_grand_principality_slavic
+rank_kingdom_crown
+rank_kingdom_ethiopia
+rank_kingdom_inca
+rank_kingdom_aymara
+rank_kingdom_jurchen
+rank_japanese_daimyo
+rank_japanese_clan
+rank_kingdom_vietnamese
+rank_kingdom_russian_prince
+rank_kingdom
+rank_duchy_revolutionary
+rank_duchy_pirate_republic
+rank_duchy_republic_revolutionary
+rank_duchy_republic_judicate_reform
+rank_duchy_bank
+rank_duchy_united_provinces
+rank_duchy_ajawil
+rank_duchy_irechikwa
+rank_kingdom_republic_genoa
+rank_kingdom_republic_venice
+rank_kingdom_grand_duchy_LIT
+rank_empire_signoria
+rank_duchy_free_city
+rank_duchy_frisian_freedom
+rank_duchy_republic_high_alemannic
+rank_duchy_republic_novgorod
+rank_duchy_republic
+rank_empire_muslim
+rank_kingdom_papacy
+rank_duchy_order_german
+rank_duchy_order
+rank_duchy_abbey
+rank_duchy_bishopric
+rank_duchy_theocracy_dharmic
+rank_duchy_theocracy
+rank_duchy_celtic_welsh
+rank_duchy_celtic_irish
+rank_duchy_tribe_maori
+rank_duchy_tribe_haudenosaunee
+rank_duchy_tribe
+rank_duchy_turkish
+rank_duchy_voivode
+rank_duchy_persian
+rank_duchy_andalusi
+rank_duchy_muslim_marinids
+rank_duchy_muslim_zayyanids
+rank_duchy_muslim_hafsids
+rank_duchy_muslim_nasrids
+rank_duchy_muslim
+rank_duchy_indian
+rank_duchy_dauphiny
+rank_duchy_palatinate
+rank_duchy_principality
+rank_duchy_principality_slavic
+rank_duchy_free_city
+rank_duchy_electorate
+rank_duchy_lordship
+rank_duchy_grandduchy
+rank_duchy_ethiopia
+rank_duchy_kanem
+rank_duchy_mali
+rank_duchy_inca
+rank_duchy_aymara
+rank_duchy_jurchen
+rank_duchy_archduchy
+rank_duchy_vietnamese
+rank_duchy_russian_prince
+rank_duchy_nahua
+rank_duchy_thai
+rank_duchy
+rank_county_revolutionary
+rank_county_pirate_republic
+rank_county_republic_revolutionary
+rank_county_republic_judicate_reform
+rank_county_bank
+rank_county_united_province
+rank_county_burgh
+rank_county_city
+rank_kingdom_republic_venice
+rank_empire_signoria
+rank_county_republic_high_alemannic
+rank_county_republic
+rank_kingdom_papacy
+rank_county_theocracy_maya
+rank_county_order
+rank_county_abbey
+rank_county_bishopric
+rank_county_theocracy_dharmic
+rank_county_theocracy
+rank_county_celtic_irish
+rank_county_tribe_maori
+rank_county_tribe_haudenosaunee
+rank_county_tribe
+rank_county_turkish
+rank_county_arabic
+rank_county_indian
+rank_county_jarldom
+rank_county_mormaerdom
+rank_county_kuchkabal
+rank_county_iya
+rank_county_iarldom
+rank_county_earldom
+rank_county_kanem
+rank_county_bailiwick
+rank_county_mali
+rank_county_inca
+rank_county_aymara
+rank_county_jurchen
+rank_county_vietnamese
+rank_county_nahua
+rank_county_barangay
+rank_county_thai
+rank_county
+
+--------------------
+
+country_flavor_prefix:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor
+Suffix: _prefix
+
+Entries:
+
+--------------------
+
+country_flavor_ADJ:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor
+Suffix: _ADJ
+
+Entries:
+
+--------------------
+
+country_flavor_ruler_suffix_female:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor
+Suffix: _ruler_suffix_female
+
+Entries:
+
+--------------------
+
+country_flavor_ruler_suffix_male:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor
+Suffix: _ruler_suffix_male
+
+Entries:
+
+--------------------
+
+country_flavor_ruler_female:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor
+Suffix: _ruler_female
+
+Entries:
+
+--------------------
+
+country_flavor_ruler_male:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor
+Suffix: _ruler_male
+
+Entries:
+
+--------------------
+
+country_flavor_heir:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_flavor_heir_successor
+country_flavor_heir_tanist
+country_flavor_heir_viscount
+rank_inca_heir
+rank_kingdom_maya
+rank_maya_heir
+rank_japanese_court_heir
+country_flavor_france_dauphin
+country_flavor_heir_crown_prince
+country_flavor_heir
+
+--------------------
+
+country_flavor_heir_suffix:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor_heir
+Suffix: _suffix
+
+Entries:
+
+--------------------
+
+country_flavor_heir_suffix_female:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor_heir
+Suffix: _suffix_female
+
+Entries:
+
+--------------------
+
+country_flavor_heir_female:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor_heir
+Suffix: _female
+
+Entries:
+
+--------------------
+
+country_flavor_regent:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_flavor_regent_head_of_the_papal_conclave
+country_flavor_regent_guardian
+country_flavor_regent_administrator
+country_flavor_regent
+
+--------------------
+
+country_flavor_regent_female:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor_regent
+Suffix: _female
+
+Entries:
+
+--------------------
+
+country_flavor_courtier:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_flavor_courtier
+
+--------------------
+
+country_flavor_courtier_female:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor_courtier
+Suffix: _female
+
+Entries:
+
+--------------------
+
+country_flavor_consort:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_flavor_consort_united_states
+rank_japanese_court_consort
+country_flavor_consort
+
+--------------------
+
+country_flavor_consort_suffix:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor_consort
+Suffix: _suffix
+
+Entries:
+
+--------------------
+
+country_flavor_consort_suffix_female:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor_consort
+Suffix: _suffix_female
+
+Entries:
+
+--------------------
+
+country_flavor_consort_female:
+
+Scope: country
+Random Valid: no
+Parent: country_flavor_consort
+Suffix: _female
+
+Entries:
+
+--------------------
+
+crown_estate:
+
+Scope: country
+Random Valid: no
+
+Entries:
+crown_estate_brethren
+crown_estate_derbfine
+crown_estate_republic
+crown_estate_clan
+crown_estate_kronan
+crown_estate
+
+--------------------
+
+nobles_estate:
+
+Scope: country
+Random Valid: no
+
+Entries:
+nobles_estate_greek
+nobles_estate_captains
+nobles_estate_ghazi
+nobles_estate_maori
+nobles_estate_chieftains
+nobles_estate_patriziato
+nobles_estate_patricians
+nobles_estate_szlachta
+nobles_estate_bajorai
+nobles_estate_znat
+nobles_estate_boyars
+nobles_estate_lords
+nobles_estate_barons
+nobles_estate_adeln
+nobles_estate_samurai
+nobles_estate_bushi
+nobles_estate_kuge
+nobles_estate_yukatchu
+nobles_estate_rangatira
+nobles_estate_lairds
+nobles_estate_uchelwyr
+nobles_estate_hawaii
+nobles_estate_noblesse
+nobles_estate_ricahombria
+nobles_estate_adel
+nobles_estate_almehenoob
+nobles_estate_dzayya_yya
+nobles_estate_makuannent
+nobles_estate_pipiltin
+nobles_estate_vlastela
+nobles_estate_yangban
+nobles_estate_mankari
+nobles_estate_nair
+nobles_estate_amir
+nobles_estate_kshatriya
+nobles_estate
+
+--------------------
+
+burghers_estate:
+
+Scope: country
+Random Valid: no
+
+Entries:
+burghers_estate_greek
+burghers_estate_cittadini
+burghers_estate_smugglers
+burghers_estate_maori
+burghers_estate_wangara
+burghers_estate_traders
+burghers_estate_burgesses
+burghers_estate_commissioners
+burghers_estate_borgarstanden
+burghers_estate_bourgeoisie
+burghers_estate_burguesia
+burghers_estate_naggade
+burghers_estate_pochteca
+burghers_estate_mestanstvo
+burghers_estate_jungin
+burghers_estate_vaishya
+burghers_estate_chounin
+clergy_estate_tohunga
+burghers_estate_horodiany
+burghers_estate_meschanstvo
+burghers_estate_mieszczanstwo
+burghers_estate_miestieciai
+burghers_estate_burgerij
+burghers_estate
+
+--------------------
+
+clergy_estate:
+
+Scope: country
+Random Valid: no
+
+Entries:
+clergy_estate_greek
+clergy_estate_tohunga
+clergy_estate_maori
+clergy_estate_dukhovenstvo
+clergy_estate_klir
+clergy_estate_patriarchs
+clergy_estate_pastors
+clergy_estate_ulama
+clergy_estate_brahmin
+clergy_estate_granthis
+clergy_estate_chaplains
+clergy_estate_prelates
+clergy_estate_clerge
+clergy_estate_clerecia
+clergy_estate_kahenat
+clergy_estate_teopixque
+clergy_estate_kler
+clergy_estate_prest
+clergy_estate_bateren
+clergy_estate_souryo
+clergy_estate_kaminchu
+clergy_estate_shona
+clergy_estate_duchowienstwo
+clergy_estate_dvasininkai
+clergy_estate_geestelijken
+clergy_estate_ah_kinoob
+clergy_estate
+
+--------------------
+
+peasants_estate:
+
+Scope: country
+Random Valid: no
+
+Entries:
+peasants_estate_greek
+peasants_estate_buccaneers
+peasants_estate_yeomanry
+peasants_estate_commons
+peasants_estate_bondestandet
+peasants_estate_gebbar
+peasants_estate_macehualtin
+peasants_estate_sebri
+peasants_estate_sangmin
+peasants_estate_sudra
+peasants_estate_noumin
+peasants_estate_prostoliud
+peasants_estate_tay_nuu
+peasants_estate_krestyanstvo
+peasants_estate_petit_peuple
+peasants_estate_comun
+peasants_estate_chlopstwo
+peasants_estate_valstieciai
+peasants_estate_boeren
+peasants_estate
+
+--------------------
+
+dhimmi_estate:
+
+Scope: country
+Random Valid: no
+
+Entries:
+dhimmi_estate_persian
+dhimmi_estate_malay
+dhimmi_estate_urdu
+dhimmi_estate_arabic
+dhimmi_estate_turkish
+dhimmi_estate
+
+--------------------
+
+tribes_estate:
+
+Scope: country
+Random Valid: no
+
+Entries:
+tribes_estate_gaelic
+tribes_estate_qizilbash
+tribes_estate_barbaroi
+tribes_estate_plemena
+tribes_estate_chibaloob
+tribes_estate
+
+--------------------
+
+cossacks_estate:
+
+Scope: country
+Random Valid: no
+
+Entries:
+cossacks_estate
+
+--------------------
+
+country_flavor_parliament:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_flavor_parliament_jewish_theocracy
+country_flavor_parliament_orthodox_theocracy
+country_flavor_parliament_catholic_theocracy
+country_flavor_parliament_jewish
+country_flavor_parliament_usa
+country_flavor_parliament_bank
+country_flavor_parliament_pirates
+country_flavor_parliament_frisian_freedom
+country_flavor_parliament_bulgarian
+country_flavor_parliament_south_slavic
+country_flavor_parliament_georgian
+country_flavor_parliament_indian_muslim
+country_flavor_parliament_indian_county
+country_flavor_parliament_indian
+country_flavor_parliament_byzantine
+country_flavor_parliament_romanian
+country_flavor_parliament_florence
+country_flavor_parliament_italian_monarchy
+country_flavor_parliament_venice
+country_flavor_parliament_senate
+country_flavor_parliament_naples
+country_flavor_parliament_italian
+country_flavor_parliament_japanese
+country_flavor_parliament_albanian
+country_flavor_parliament_pashtun
+country_flavor_parliament_dutch_netherlands
+country_flavor_parliament_swiss
+country_flavor_parliament_german_empire
+country_flavor_parliament_dutch_city
+country_flavor_parliament_dutch
+country_flavor_parliament_german_city
+country_flavor_parliament_german
+country_flavor_parliament_breton
+country_flavor_parliament_welsh
+country_flavor_parliament_ruthenian
+country_flavor_parliament_catalan
+country_flavor_parliament_occitan
+country_flavor_parliament_portuguese_parliament
+country_flavor_parliament_cortes
+country_flavor_parliament_althing
+country_flavor_parliament_veche
+country_flavor_parliament_tynwald
+country_flavor_parliament_sejm
+country_flavor_parliament_riksdag
+country_flavor_parliament_folketing
+country_flavor_parliament_storting
+country_flavor_parliament_uijeongbu
+country_flavor_parliament_rogati
+country_flavor_parliament_turkish
+country_flavor_parliament_tagsatzung
+country_flavor_parliament_french_republic
+country_flavor_parliament_french_parliament
+country_flavor_parliament_french_council
+country_flavor_parliament_french
+country_flavor_parliament_irish_modern
+country_flavor_parliament_irish_council
+country_flavor_parliament_irish
+country_flavor_parliament_basque
+country_flavor_parliament_duma
+country_flavor_parliament_hluttaw
+country_flavor_parliament_parlamento
+country_flavor_parliament_tshogdu
+country_flavor_parliament_sansad
+country_flavor_parliament_majlis
+country_flavor_parliament_landtag
+country_flavor_parliament_seimas
+country_flavor_parliament_mejlis
+country_flavor_parliament_orszaggyules
+country_flavor_parliament_kurultai
+country_flavor_parliament_upstalboom
+country_flavor_parliament_czechslovak
+country_flavor_parliament_council_scots
+country_flavor_parliament_scots
+country_flavor_parliament_arabic
+country_flavor_parliament_council
+country_flavor_parliament
+
+--------------------
+
+country_flavor_court:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_flavor_court
+
+--------------------
+
+country_flavor_cabinet:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_flavor_cabinet
+
+--------------------
+
+country_flavor_cabinet_holder:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_flavor_cabinet_holder
+
+--------------------
+
+country_flavor_official:
+
+Scope: country
+Random Valid: no
+
+Entries:
+country_flavor_official_swedish
+country_flavor_official_monarchy
+country_flavor_official
+
+--------------------
+
+subunit_prefix:
+
+Scope: sub_unit
+Random Valid: no
+
+Entries:
+SUBUNIT_PREFIX_REGALSKEPP
+SUBUNIT_PREFIX_HMS
+SUBUNIT_PREFIX_USS
+SUBUNIT_PREFIX_HRMS
+SUBUNIT_PREFIX_ZRMS
+SUBUNIT_PREFIX_IMS
+SUBUNIT_PREFIX_SMS
+
+--------------------
+
+subunit_nickname:
+
+Scope: sub_unit
+Random Valid: yes
+
+Entries:
+subunit_nickname_english_royal_north_british
+subunit_nickname_english_north_british
+subunit_nickname_english_royal_irish
+subunit_nickname_english_irish
+subunit_nickname_english_royal_welch
+subunit_nickname_english_welch
+subunit_nickname_english_queens_royal
+subunit_nickname_english_kings_own
+subunit_nickname_english_buffs
+subunit_nickname_french_ecossais
+subunit_nickname_english_blues
+subunit_nickname_french_du_roi
+subunit_nickname_french_royal
+
+--------------------
+
+subunit_structure_army:
+
+Scope: sub_unit
+Random Valid: no
+
+Entries:
+subunit_structure_army_roman
+subunit_structure_army_spanish
+subunit_structure_army_german
+subunit_structure_army_italian
+subunit_structure_army_arabic
+subunit_structure_army_english
+subunit_structure_army_welsh
+subunit_structure_army
+
+--------------------
+
+subunit_structure_army_nickname:
+
+Scope: sub_unit
+Random Valid: no
+Parent: subunit_structure_army
+Suffix: _nickname
+
+Entries:
+
+--------------------
+
+subunit_structure_army_levy:
+
+Scope: sub_unit
+Random Valid: no
+Parent: subunit_structure_army
+Suffix: _levy
+
+Entries:
+
+--------------------
+
+subunit_structure_army_levy_nickname:
+
+Scope: sub_unit
+Random Valid: no
+Parent: subunit_structure_army
+Suffix: _levy_nickname
+
+Entries:
+
+--------------------
+
+subunit_structure_navy:
+
+Scope: sub_unit
+Random Valid: no
+
+Entries:
+subunit_structure_navy
+
+--------------------
+
+subunit_structure_navy_prefix:
+
+Scope: sub_unit
+Random Valid: no
+Parent: subunit_structure_navy
+Suffix: _prefix
+
+Entries:
+
+--------------------
+
+subunit_type_army_infantry:
+
+Scope: sub_unit
+Random Valid: no
+
+Entries:
+subunit_type_army_infantry_gallowglass_scottish
+subunit_type_army_infantry_gallowglass_gaelic
+subunit_type_army_infantry_gallowglass
+subunit_type_army_infantry_varangians_greek
+subunit_type_army_infantry_varangians
+subunit_type_army_infantry_mamluks_arabic
+subunit_type_army_infantry_mamluks_turkish
+subunit_type_army_infantry_mamluks
+subunit_type_army_infantry_levies_italian
+subunit_type_army_infantry_levies_breton
+subunit_type_army_infantry_levies_welsh
+subunit_type_army_infantry_levies_polish
+subunit_type_army_infantry_levies_french
+subunit_type_army_infantry_levies_spanish
+subunit_type_army_infantry_levies_english
+subunit_type_army_infantry_levies
+subunit_type_army_infantry_chinese
+subunit_type_army_infantry_shu_language
+subunit_type_army_infantry_xiang_language
+subunit_type_army_infantry_gan_language
+subunit_type_army_infantry_yue_language
+subunit_type_army_infantry_min_language
+subunit_type_army_infantry_wu_language
+subunit_type_army_infantry_kejia_language
+subunit_type_army_infantry_jin_language
+subunit_type_army_infantry_korean
+subunit_type_army_infantry_japanese
+subunit_type_army_infantry_roman
+subunit_type_army_infantry_greek
+subunit_type_army_infantry_tercio_portuguese
+subunit_type_army_infantry_tercio_catalan
+subunit_type_army_infantry_tercio_basque
+subunit_type_army_infantry_tercio_spanish
+subunit_type_army_infantry_czech
+subunit_type_army_infantry_polish
+subunit_type_army_infantry_ukrainian
+subunit_type_army_infantry_russian
+subunit_type_army_infantry_dutch
+subunit_type_army_infantry_frisian
+subunit_type_army_infantry_low_german
+subunit_type_army_infantry_high_german
+subunit_type_army_infantry_portuguese
+subunit_type_army_infantry_catalan
+subunit_type_army_infantry_occitan
+subunit_type_army_infantry_basque
+subunit_type_army_infantry_french
+subunit_type_army_infantry_spanish
+subunit_type_army_infantry_north_italian
+subunit_type_army_infantry_south_italian
+subunit_type_army_infantry_scottish_gaelic
+subunit_type_army_infantry_irish
+subunit_type_army_infantry_scots
+subunit_type_army_infantry_english
+subunit_type_army_infantry_breton
+subunit_type_army_infantry_welsh
+subunit_type_army_infantry
+
+--------------------
+
+subunit_type_army_cavalry:
+
+Scope: sub_unit
+Random Valid: no
+
+Entries:
+subunit_type_army_cavalry_cataphracts_greek
+subunit_type_army_cavalry_cataphracts
+subunit_type_army_cavalry_knights_greek
+subunit_type_army_cavalry_knights_dutch
+subunit_type_army_cavalry_knights_german
+subunit_type_army_cavalry_knights_scottish_gaelic
+subunit_type_army_cavalry_knights_irish
+subunit_type_army_cavalry_knights_swedish
+subunit_type_army_cavalry_knights_czech
+subunit_type_army_cavalry_knights_polish
+subunit_type_army_cavalry_knights_ukrainian
+subunit_type_army_cavalry_knights_russian
+subunit_type_army_cavalry_knights_romanian
+subunit_type_army_cavalry_knights_portuguese
+subunit_type_army_cavalry_knights_french
+subunit_type_army_cavalry_knights_catalan
+subunit_type_army_cavalry_knights_occitan
+subunit_type_army_cavalry_knights_spanish
+subunit_type_army_cavalry_knights_scots
+subunit_type_army_cavalry_knights_english
+subunit_type_army_cavalry_knights
+subunit_type_army_cavalry_chinese
+subunit_type_army_cavalry_shu_language
+subunit_type_army_cavalry_xiang_language
+subunit_type_army_cavalry_gan_language
+subunit_type_army_cavalry_yue_language
+subunit_type_army_cavalry_min_language
+subunit_type_army_cavalry_wu_language
+subunit_type_army_cavalry_kejia_language
+subunit_type_army_cavalry_jin_language
+subunit_type_army_cavalry_korean
+subunit_type_army_cavalry_japanese
+subunit_type_army_cavalry_roman
+subunit_type_army_cavalry_greek
+subunit_type_army_cavalry_czech
+subunit_type_army_cavalry_polish
+subunit_type_army_cavalry_ukrainian
+subunit_type_army_cavalry_russian
+subunit_type_army_cavalry_dutch
+subunit_type_army_cavalry_frisian
+subunit_type_army_cavalry_german
+subunit_type_army_cavalry_catalan
+subunit_type_army_cavalry_occitan
+subunit_type_army_cavalry_portuguese
+subunit_type_army_cavalry_spanish
+subunit_type_army_cavalry_french
+subunit_type_army_cavalry_north_italian
+subunit_type_army_cavalry_south_italian
+subunit_type_army_cavalry_scottish_gaelic
+subunit_type_army_cavalry_irish
+subunit_type_army_cavalry_english
+subunit_type_army_cavalry_welsh
+subunit_type_army_cavalry_welsh
+subunit_type_army_cavalry
+
+--------------------
+
+subunit_type_army_artillery:
+
+Scope: sub_unit
+Random Valid: no
+
+Entries:
+subunit_type_army_artillery_chinese
+subunit_type_army_artillery_shu_language
+subunit_type_army_artillery_xiang_language
+subunit_type_army_artillery_gan_language
+subunit_type_army_artillery_yue_language
+subunit_type_army_artillery_min_language
+subunit_type_army_artillery_wu_language
+subunit_type_army_artillery_kejia_language
+subunit_type_army_artillery_jin_language
+subunit_type_army_artillery_korean
+subunit_type_army_artillery_japanese
+subunit_type_army_artillery_roman
+subunit_type_army_artillery_greek
+subunit_type_army_artillery_czech
+subunit_type_army_artillery_polish
+subunit_type_army_artillery_ukrainian
+subunit_type_army_artillery_russian
+subunit_type_army_artillery_dutch
+subunit_type_army_artillery_frisian
+subunit_type_army_artillery_low_german
+subunit_type_army_artillery_high_german
+subunit_type_army_artillery_portuguese
+subunit_type_army_artillery_catalan
+subunit_type_army_artillery_occitan
+subunit_type_army_artillery_spanish
+subunit_type_army_artillery_french
+subunit_type_army_artillery_north_italian
+subunit_type_army_artillery_south_italian
+subunit_type_army_artillery_scottish_gaelic
+subunit_type_army_artillery_irish
+subunit_type_army_artillery_scots
+subunit_type_army_artillery_breton
+subunit_type_army_artillery_welsh
+subunit_type_army_artillery_english
+subunit_type_army_artillery
+
+--------------------
+
+subunit_type_army_auxiliary:
+
+Scope: sub_unit
+Random Valid: no
+
+Entries:
+subunit_type_army_auxiliary_chinese
+subunit_type_army_auxiliary_shu_language
+subunit_type_army_auxiliary_xiang_language
+subunit_type_army_auxiliary_gan_language
+subunit_type_army_auxiliary_yue_language
+subunit_type_army_auxiliary_min_language
+subunit_type_army_auxiliary_wu_language
+subunit_type_army_auxiliary_kejia_language
+subunit_type_army_auxiliary_jin_language
+subunit_type_army_auxiliary_korean
+subunit_type_army_auxiliary_japanese
+subunit_type_army_auxiliary_roman
+subunit_type_army_auxiliary_greek
+subunit_type_army_auxiliary_czech
+subunit_type_army_auxiliary_polish
+subunit_type_army_auxiliary_ukrainian
+subunit_type_army_auxiliary_russian
+subunit_type_army_auxiliary_dutch
+subunit_type_army_auxiliary_frisian
+subunit_type_army_auxiliary_low_german
+subunit_type_army_auxiliary_middle_german
+subunit_type_army_auxiliary_high_german
+subunit_type_army_auxiliary_spanish
+subunit_type_army_auxiliary_occitan
+subunit_type_army_auxiliary_french
+subunit_type_army_auxiliary_north_italian
+subunit_type_army_auxiliary_south_italian
+subunit_type_army_auxiliary_breton
+subunit_type_army_auxiliary_welsh
+subunit_type_army_auxiliary_english
+subunit_type_army_auxiliary
+
+--------------------
+
+GetCharacterCabinetTitle:
+
+Scope: character
+Random Valid: no
+
+Entries:
+cabinet_role_head_of_cabinet_procurator_of_saint_mark
+cabinet_role_head_of_cabinet_grand_vizier
+cabinet_role_head_of_cabinet_chancellor
+cabinet_role_head_of_cabinet_peshwa
+cabinet_role_head_of_cabinet_prime_minister
+empty_text
+
+--------------------
+
+GetNicknameOrName:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CHARACTER_SHORT_NAME
+CHARACTER_NICKNAME
+
+--------------------
+
+GetNicknameOrNameWithNoTooltip:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CHARACTER_SHORT_NAME_WITH_NO_TOOLTIP
+CHARACTER_NICKNAME_WITH_NO_TOOLTIP
+
+--------------------
+
+GetEmpressEmperor:
+
+Scope: character
+Random Valid: no
+
+Entries:
+rank_empire_ruler_female
+rank_empire_ruler_male
+
+--------------------
+
+GetQueenKing:
+
+Scope: character
+Random Valid: no
+
+Entries:
+rank_kingdom_ruler_female
+rank_kingdom_ruler_male
+
+--------------------
+
+GetLover:
+
+Scope: character
+Random Valid: no
+
+Entries:
+affair_mistress
+affair_beau
+affair_lover
+
+--------------------
+
+GetAbdicationDeath:
+
+Scope: character
+Random Valid: no
+
+Entries:
+no_more_ruler_reason_abdication
+no_more_ruler_reason_death
+no_more_ruler_reason_vanishment
+
+--------------------
+
+GetLadyLord:
+
+Scope: character
+Random Valid: no
+
+Entries:
+character_title_lady
+character_title_lord
+character_title_lord
+
+--------------------
+
+GetPrincessPrince:
+
+Scope: character
+Random Valid: no
+
+Entries:
+character_title_princess
+character_title_prince
+character_title_prince
+
+--------------------
+
+GetBoreSired:
+
+Scope: character
+Random Valid: no
+
+Entries:
+verb_bore
+verb_sired
+verb_conceived
+
+--------------------
+
+GetHungarianTournamentFate:
+
+Scope: character
+Random Valid: no
+
+Entries:
+flavor_hun.422.tournament_winning_character_big_gain
+flavor_hun.422.tournament_winning_character_small_gain
+flavor_hun.422.tournament_winning_character_small_loss
+flavor_hun.422.tournament_winning_character_big_loss
+flavor_hun.422.tournament_losing_character_big_gain
+flavor_hun.422.tournament_losing_character_small_gain
+flavor_hun.422.tournament_losing_character_small_loss
+flavor_hun.422.tournament_losing_character_big_loss
+flavor_hun.422.fallback
+
+--------------------
+
+DE_ART_DEF_P_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_ART_DEF_P_A_male
+CustomLoc_DE_ART_DEF_P_A_female
+
+--------------------
+
+DE_ART_DEF_P_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_ART_DEF_P_D_male
+CustomLoc_DE_ART_DEF_P_D_female
+
+--------------------
+
+DE_ART_DEF_P_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_ART_DEF_P_G_male
+CustomLoc_DE_ART_DEF_P_G_female
+
+--------------------
+
+DE_ART_DEF_P_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_ART_DEF_P_N_male
+CustomLoc_DE_ART_DEF_P_N_female
+
+--------------------
+
+DE_ART_DEF_S_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_ART_DEF_S_A_male
+CustomLoc_DE_ART_DEF_S_A_female
+
+--------------------
+
+DE_ART_DEF_S_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_ART_DEF_S_D_male
+CustomLoc_DE_ART_DEF_S_D_female
+
+--------------------
+
+DE_ART_DEF_S_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_ART_DEF_S_G_male
+CustomLoc_DE_ART_DEF_S_G_female
+
+--------------------
+
+DE_ART_DEF_S_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_ART_DEF_S_N_male
+CustomLoc_DE_ART_DEF_S_N_female
+
+--------------------
+
+DE_ART_IND_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_ART_IND_A_male
+CustomLoc_DE_ART_IND_A_female
+
+--------------------
+
+DE_ART_IND_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_ART_IND_D_male
+CustomLoc_DE_ART_IND_D_female
+
+--------------------
+
+DE_ART_IND_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_ART_IND_G_male
+CustomLoc_DE_ART_IND_G_female
+
+--------------------
+
+DE_ART_IND_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_ART_IND_N_male
+CustomLoc_DE_ART_IND_N_female
+
+--------------------
+
+DE_END_ADJ_DEF_P_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_DEF_P_A_male
+CustomLoc_DE_END_ADJ_DEF_P_A_female
+
+--------------------
+
+DE_END_ADJ_DEF_P_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_DEF_P_D_male
+CustomLoc_DE_END_ADJ_DEF_P_D_female
+
+--------------------
+
+DE_END_ADJ_DEF_P_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_DEF_P_G_male
+CustomLoc_DE_END_ADJ_DEF_P_G_female
+
+--------------------
+
+DE_END_ADJ_DEF_P_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_DEF_P_N_male
+CustomLoc_DE_END_ADJ_DEF_P_N_female
+
+--------------------
+
+DE_END_ADJ_DEF_S_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_DEF_S_A_male
+CustomLoc_DE_END_ADJ_DEF_S_A_female
+
+--------------------
+
+DE_END_ADJ_DEF_S_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_DEF_S_D_male
+CustomLoc_DE_END_ADJ_DEF_S_D_female
+
+--------------------
+
+DE_END_ADJ_DEF_S_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_DEF_S_G_male
+CustomLoc_DE_END_ADJ_DEF_S_G_female
+
+--------------------
+
+DE_END_ADJ_DEF_S_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_DEF_S_N_male
+CustomLoc_DE_END_ADJ_DEF_S_N_female
+
+--------------------
+
+DE_END_ADJ_IND_P_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_IND_P_A_male
+CustomLoc_DE_END_ADJ_IND_P_A_female
+
+--------------------
+
+DE_END_ADJ_IND_P_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_IND_P_D_male
+CustomLoc_DE_END_ADJ_IND_P_D_female
+
+--------------------
+
+DE_END_ADJ_IND_P_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_IND_P_G_male
+CustomLoc_DE_END_ADJ_IND_P_G_female
+
+--------------------
+
+DE_END_ADJ_IND_P_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_IND_P_N_male
+CustomLoc_DE_END_ADJ_IND_P_N_female
+
+--------------------
+
+DE_END_ADJ_IND_S_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_IND_S_A_male
+CustomLoc_DE_END_ADJ_IND_S_A_female
+
+--------------------
+
+DE_END_ADJ_IND_S_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_IND_S_D_male
+CustomLoc_DE_END_ADJ_IND_S_D_female
+
+--------------------
+
+DE_END_ADJ_IND_S_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_IND_S_G_male
+CustomLoc_DE_END_ADJ_IND_S_G_female
+
+--------------------
+
+DE_END_ADJ_IND_S_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_IND_S_N_male
+CustomLoc_DE_END_ADJ_IND_S_N_female
+
+--------------------
+
+DE_END_ADJ_NUL_P_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_NUL_P_A_male
+CustomLoc_DE_END_ADJ_NUL_P_A_female
+
+--------------------
+
+DE_END_ADJ_NUL_P_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_NUL_P_D_male
+CustomLoc_DE_END_ADJ_NUL_P_D_female
+
+--------------------
+
+DE_END_ADJ_NUL_P_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_NUL_P_G_male
+CustomLoc_DE_END_ADJ_NUL_P_G_female
+
+--------------------
+
+DE_END_ADJ_NUL_P_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_NUL_P_N_male
+CustomLoc_DE_END_ADJ_NUL_P_N_female
+
+--------------------
+
+DE_END_ADJ_NUL_S_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_NUL_S_A_male
+CustomLoc_DE_END_ADJ_NUL_S_A_female
+
+--------------------
+
+DE_END_ADJ_NUL_S_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_NUL_S_D_male
+CustomLoc_DE_END_ADJ_NUL_S_D_female
+
+--------------------
+
+DE_END_ADJ_NUL_S_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_NUL_S_G_male
+CustomLoc_DE_END_ADJ_NUL_S_G_female
+
+--------------------
+
+DE_END_ADJ_NUL_S_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_ADJ_NUL_S_N_male
+CustomLoc_DE_END_ADJ_NUL_S_N_female
+
+--------------------
+
+DE_END_NOU_S_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_NOU_S_G_male
+CustomLoc_DE_END_NOU_S_G_female
+
+--------------------
+
+DE_END_NOU_S_GS_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_NOU_S_GS_N_male
+CustomLoc_DE_END_NOU_S_GS_N_female
+
+--------------------
+
+DE_END_PRO_P_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_PRO_P_A_male
+CustomLoc_DE_END_PRO_P_A_female
+
+--------------------
+
+DE_END_PRO_P_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_PRO_P_D_male
+CustomLoc_DE_END_PRO_P_D_female
+
+--------------------
+
+DE_END_PRO_P_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_PRO_P_G_male
+CustomLoc_DE_END_PRO_P_G_female
+
+--------------------
+
+DE_END_PRO_P_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_PRO_P_N_male
+CustomLoc_DE_END_PRO_P_N_female
+
+--------------------
+
+DE_END_PRO_S_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_PRO_S_A_male
+CustomLoc_DE_END_PRO_S_A_female
+
+--------------------
+
+DE_END_PRO_S_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_PRO_S_D_male
+CustomLoc_DE_END_PRO_S_D_female
+
+--------------------
+
+DE_END_PRO_S_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_PRO_S_G_male
+CustomLoc_DE_END_PRO_S_G_female
+
+--------------------
+
+DE_END_PRO_S_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_END_PRO_S_N_male
+CustomLoc_DE_END_PRO_S_N_female
+
+--------------------
+
+DE_PRO_DEM:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_DEM_male
+CustomLoc_DE_PRO_DEM_female
+
+--------------------
+
+DE_PRO_PER_P_3P_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_PER_P_3P_A_male
+CustomLoc_DE_PRO_PER_P_3P_A_female
+
+--------------------
+
+DE_PRO_PER_P_3P_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_PER_P_3P_D_male
+CustomLoc_DE_PRO_PER_P_3P_D_female
+
+--------------------
+
+DE_PRO_PER_P_3P_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_PER_P_3P_G_male
+CustomLoc_DE_PRO_PER_P_3P_G_female
+
+--------------------
+
+DE_PRO_PER_P_3P_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_PER_P_3P_N_male
+CustomLoc_DE_PRO_PER_P_3P_N_female
+
+--------------------
+
+DE_PRO_PER_S_3P_A:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_PER_S_3P_A_male
+CustomLoc_DE_PRO_PER_S_3P_A_female
+
+--------------------
+
+DE_PRO_PER_S_3P_D:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_PER_S_3P_D_male
+CustomLoc_DE_PRO_PER_S_3P_D_female
+
+--------------------
+
+DE_PRO_PER_S_3P_G:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_PER_S_3P_G_male
+CustomLoc_DE_PRO_PER_S_3P_G_female
+
+--------------------
+
+DE_PRO_PER_S_3P_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_PER_S_3P_N_male
+CustomLoc_DE_PRO_PER_S_3P_N_female
+
+--------------------
+
+DE_PRO_POS_P_1P:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_POS_P_1P_male
+CustomLoc_DE_PRO_POS_P_1P_female
+
+--------------------
+
+DE_PRO_POS_P_2P:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_POS_P_2P_male
+CustomLoc_DE_PRO_POS_P_2P_female
+
+--------------------
+
+DE_PRO_POS_P_2P_N:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_POS_P_2P_N_male
+CustomLoc_DE_PRO_POS_P_2P_N_female
+
+--------------------
+
+DE_PRO_POS_P_3P:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_POS_P_3P_male
+CustomLoc_DE_PRO_POS_P_3P_female
+
+--------------------
+
+DE_PRO_POS_S_1P:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_POS_S_1P_male
+CustomLoc_DE_PRO_POS_S_1P_female
+
+--------------------
+
+DE_PRO_POS_S_2P:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_POS_S_2P_male
+CustomLoc_DE_PRO_POS_S_2P_female
+
+--------------------
+
+DE_PRO_POS_S_3P:
+
+Scope: character
+Random Valid: no
+
+Entries:
+CustomLoc_DE_PRO_POS_S_3P_male
+CustomLoc_DE_PRO_POS_S_3P_female
+
+--------------------
+
+character_address:
+
+Scope: character
+Random Valid: no
+
+Entries:
+character_address_holiness
+character_address_imperial_majesty
+character_address_imperial_highness
+character_address_catholic_majesty
+character_address_apostolic_majesty
+character_address_most_christian_majesty
+character_address_most_faithful_majesty
+character_address_britannic_majesty
+character_address_majesty
+character_address_grace_duke
+character_address_lordship
+character_address_royal_highness
+character_address_highness
+character_address_excellency
+character_address_lordship_low_noble
+
+--------------------
+
+character_title_prefix:
+
+Scope: character
+Random Valid: no
+
+Entries:
+character_title_guru
+character_title_saint
+character_title_doctor
+character_title_nobility_pirate
+character_title_nobility_french
+character_title_nobility_welsh
+character_title_nobility_english
+character_title_nobility_malay
+
+--------------------
+
+character_title_prefix_female:
+
+Scope: character
+Random Valid: no
+Parent: character_title_prefix
+Suffix: _female
+
+Entries:
+
+--------------------
+
+character_title_suffix:
+
+Scope: character
+Random Valid: no
+
+Entries:
+character_title_shinno
+character_title_minister_of_parliament
+character_title_burgher_esquire
+
+--------------------
+
+character_title_suffix_female:
+
+Scope: character
+Random Valid: no
+Parent: character_title_suffix
+Suffix: _female
+
+Entries:
+
+--------------------
+
+character_title_prefix_captain:
+
+Scope: culture
+Random Valid: no
+
+Entries:
+captain_catalan
+captain_danish
+captain_norwegian
+captain_dutch
+captain_icelandic
+captain_scottish_gaelic
+captain_slovak
+captain_estonian
+captain_breton
+captain_norman
+captain_low_german
+captain_scots
+captain_swedish
+captain_spanish
+captain_occitan
+captain_french
+captain_frisian
+captain_north_italian
+captain_italian
+captain_german
+captain_finnish
+captain_polish
+captain_czech
+captain_hungarian
+captain_south_slavic
+captain_bulgarian
+captain_romanian
+captain_greek
+captain_russian
+captain_ruthenian
+captain_basque
+captain_welsh
+captain_irish
+captain_arabic
+captain_english
+captain_default
+
+--------------------
+
+character_title_prefix_captain_female:
+
+Scope: culture
+Random Valid: no
+Parent: character_title_prefix_captain
+Suffix: _female
+
+Entries:
+
+--------------------
+
+character_title_prefix_captain_plural:
+
+Scope: culture
+Random Valid: no
+Parent: character_title_prefix_captain
+Suffix: _plural
+
+Entries:
+
+--------------------
+
+GetHREElectionDescription:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+hre_emperor_cannot_vote_for_themselves_tt
+empty_text
+
+--------------------
+
+GetPolicyVoteDesc:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+policy_vote_desc_vote
+policy_vote_desc_default
+
+--------------------
+
+autocephalous_patriarchate_name:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+CATHOLIC_PATRIARCHATE_NAME
+ECUMENICAL_PATRIARCHATE_NAME
+AUTOCEPHALOUS_PATRIARCHATE_SEAT_NAME
+autocephalous_patriarchate
+
+--------------------
+
+sect_name:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+SECT_CONFUCIANISM_NAME
+SECT_DAOISM_NAME
+SECT_JOUDO_SHINSHUU
+SECT_PURE_LAND_SCHOOL_NAME
+SECT_TENDAI_NAME
+SECT_NICHIREN_NAME
+SECT_TIANTAI_NAME
+SECT_DHARMA_SCHOOL_NAME
+SECT_FLOWER_GARLAND_SCHOOL_NAME
+SECT_MEDITATION_SCHOOL_NAME
+SECT_MANTRA_SCHOOL_NAME
+SECT_SHUGENDO_NAME
+SECT_AZHALIISM_NAME
+SECT_MUSOK_NAME
+SECT_NYIGMA_NAME
+SECT_KADAM_NAME
+SECT_KAGYU_NAME
+SECT_SAKYA_NAME
+SECT_JONANG_NAME
+SECT_MULASARVASTIVADA_NAME
+SECT_MAHAVIHARA_NAME
+SECT_BURMESE_BUDDHISM_NAME
+SECT_LANKAVONG_NAME
+SECT_KHMER_BUDDHISM_NAME
+SECT_NAME
+
+--------------------
+
+hindu_branch_name:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+vaishnavism
+shaivism
+shaktism
+smartism
+HINDU_BRANCH_NAME
+
+--------------------
+
+tribal_confederation_name:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+haudenosaunee_tribal_confederation
+tribal_confederation
+
+--------------------
+
+colonial_federation_name:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+colonial_federation_usa
+colonial_federation
+
+--------------------
+
+high_kingship_name:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+HIGH_KINGSHIP_NAME
+
+--------------------
+
+lordship_of_ireland_name:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+LORDSHIP_OF_IRELAND_NAME
+
+--------------------
+
+jurchen_confederation_name:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+jianzhou_jurchen_confederation
+hulun_jurchen_confederation
+changbaishan_jurchen_confederation
+jurchen_confederation
+
+--------------------
+
+crusade_name:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+PAPAL_HOLY_LEAGUE_NAME
+crusade
+
+--------------------
+
+independence_movement_name:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+independence_movement_name
+
+--------------------
+
+union_name:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+LITHUANIAN_POLISH_COMMONWEALTH_NAME
+POLISH_LITHUANIAN_COMMONWEALTH_NAME
+KALMAR_UNION_NAME
+UNION_OF_THE_CROWNS_NAME
+IBERIAN_UNION_NAME
+HABSBURG_UNION_NAME
+PERSONALIZED_UNION_NAME
+DOUBLE_UNION_NAME
+union
+
+--------------------
+
+marriage_union_name:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+MARRIAGE_UNION_COUNTRIES
+MARRIAGE_UNION_DYNASTIES
+MARRIAGE_UNION_SAME_DYNASTY
+union
+
+--------------------
+
+international_organization_flavor_parliament:
+
+Scope: international_organization
+Random Valid: no
+
+Entries:
+hre_court_assembly
+hre_early_imperial_diet
+hre_bi_camerial_imperial_diet
+hre_tri_camerial_imperial_diet
+international_organization_flavor_parliament
+
+--------------------
+

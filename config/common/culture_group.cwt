@@ -1,0 +1,24 @@
+types = {
+    type[culture_group] = {
+        path = "game/common/culture_groups"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+culture_group = {
+    ### modifier when Primary Culture is a culture with this culture group
+    ## cardinality = 0..1
+    country_modifier = single_alias_right[modifier_clause]
+
+    ### modifier when Dominant Culture is a culture with this culture group
+    ## cardinality = 0..1
+    location_modifier = single_alias_right[modifier_clause]
+
+    ### modifier when Culture is a culture with this culture group
+    ## cardinality = 0..1
+    character_modifier = single_alias_right[modifier_clause]
+}

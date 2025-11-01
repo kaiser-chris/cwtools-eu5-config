@@ -1,0 +1,157 @@
+types = {
+    type[building_type] = {
+        path = "game/common/building_types"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+building_type = {
+    ### building time in days
+    build_time = int
+    build_time = <script_value>
+    build_time = <static_value>
+
+    ### maximum levels the building can be upgraded to (root = location, scope:owner = building owner, scope:builder = who's paying)
+    max_levels = int
+    max_levels = <script_value>
+    max_levels = <static_value>
+
+    ### how many people can be employed there. 1 = 1000 people
+    employment_size = value_field
+    employment_size = <script_value>
+    employment_size = <static_value>
+
+    ### location ranks that the building can be built in
+    ## cardinality = 0..inf
+    <location_rank> = bool
+
+    ### how much of the produced good can be output per building level
+    ## cardinality = 0..1
+    output = value_field
+
+    ### is the building type able to be built in foreign lands
+    ## cardinality = 0..1
+    is_foreign = bool
+
+    ### empty = can build in non-owned locations only; owned = can build in owned locations only; any = can build anywhere
+    ## cardinality = 0..1
+    in_empty = enum[building_type_in_empty]
+
+    ### if yes, and you're building it in a foreign-owned location, you need stronger power projection than the location's owner to build it
+    ## cardinality = 0..1
+    stronger_power_projection = bool
+
+    ## cardinality = 0..1
+    expensive = bool
+
+    ### if yes, and you're building it in a foreign-owned location, you need good relations with the location's owner to build it
+    ## cardinality = 0..1
+    need_good_relation = bool
+
+    ### when set to yes building will need full demand even if doesn't employ all workers
+    ## cardinality = 0..1
+    always_add_demands = bool
+
+    ### AI will build this building even if it is lacking the required pop type
+    ## cardinality = 0..1
+    ai_ignore_available_worker_flag = bool
+
+    ### When set it makes the AI use more performance trying to find a suitable place to build this
+    ## cardinality = 0..1
+    important_for_ai = bool
+
+    ### cost of creating the building
+    ## cardinality = 0..1
+    price = <price>
+
+    ### price to destroy the building
+    ## cardinality = 0..1
+    destroy_price = <price>
+
+    ### what estate can build the building
+    ## cardinality = 0..1
+    estate = <estate>
+
+    ### religion that pops are converted to by this building
+    ## cardinality = 0..1
+    conversion_religion = <religion>
+
+    ### the pop type employed in this building
+    pop_type = <pop_type>
+
+    ### building category tag
+    category = <building_category>
+
+    ### what goods are required during construction
+    construction_demand = <goods_demand>
+
+    ### production methods for each slot. (add as many lists as you desire)
+    ## cardinality = 0..1
+    possible_production_methods = {
+        ## cardinality = 0..inf
+        <production_method>
+    }
+
+    ### defining unique production methods scripted directly into the building
+    ## cardinality = 0..1
+    unique_production_methods = {
+        #TODO
+    }
+
+    ### can the building be built in the location (root = location) (think of this as a "visible" check)
+    ## cardinality = 0..1
+    location_potential = single_alias_right[trigger_clause]
+
+    ### can the building be built by the country (root = country) (think of this as a "visible" check)
+    ## cardinality = 0..1
+    country_potential = single_alias_right[trigger_clause]
+
+    ### can the building be destroyed in the location (root = location, actor = destroyer, building = building)
+    ## cardinality = 0..1
+    can_destroy = single_alias_right[trigger_clause]
+
+    ### will the building be auto-destroyed in the location (root = building)
+    ## cardinality = 0..1
+    remove_if = single_alias_right[trigger_clause]
+
+    ### can the building be built in the location (root = location) (think of this as an "enabled" check)
+    ## cardinality = 0..1
+    allow = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    on_built = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    on_destroyed = single_alias_right[effect_clause]
+
+    ### what building type this one makes obsolete
+    ## cardinality = 0..1
+    obsolete = <building_type>
+
+    ### modifier applied to the location if built in the capital (multiplied by building level and goods access)
+    ## cardinality = 0..1
+    capital_modifier = single_alias_right[modifier_clause]
+
+    ### modifier applied to the country if built in the capital (multiplied by building level and goods access)
+    ## cardinality = 0..1
+    capital_country_modifier = single_alias_right[modifier_clause]
+
+    ### modifier applied to the location (multiplied by building level and goods access)
+    ## cardinality = 0..1
+    modifier = single_alias_right[modifier_clause]
+
+    ### modifier applied to the location (not scaled)
+    ## cardinality = 0..1
+    raw_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    custom_tags = {
+        ## cardinality = 0..inf
+        scalar
+    }
+
+}

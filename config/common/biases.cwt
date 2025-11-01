@@ -1,0 +1,21 @@
+types = {
+    type[bias] = {
+        path = "game/common/biases"
+        file_extension = .txt
+    }
+}
+
+bias = {
+    ## cardinality = 1..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+
+    ## cardinality = 0..1
+    yearly_decay = value_field
+
+    ## cardinality = 0..1
+    enum[duration] = int_value_field
+    ## cardinality = 0..1
+    enum[duration] == <script_value>
+    ## cardinality = 0..1
+    enum[duration] == <static_value>
+}
