@@ -94,6 +94,15 @@ single_alias[modifier_clause] = {
     ## cardinality = 0..1
     potential_trigger = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
+    scale = value_field
+    ## cardinality = 0..1
+    scale = <script_value>
+    ## cardinality = 0..1
+    scale = <static_value>
+    ## cardinality = 0..1
+    scale = single_alias_right[formula]
+
     ## cardinality = 0..inf
     alias_name[modifier_element] = alias_match_left[modifier_element]
 }
@@ -110,6 +119,7 @@ alias[duration:enum[duration]] = <static_value>
 alias[color:color] = <named_color>
 alias[color:color] = colour[rgb]
 alias[color:color] = colour[hsv360]
+alias[color:color] = single_alias_right[scripted_color_clause]
 
 single_alias[scripted_color_clause] = {
     lerp = {

@@ -1,0 +1,30 @@
+types = {
+    type[death_reason] = {
+        path = "game/common/death_reason"
+        file_extension = .txt
+        localisation = {
+            name = "DEATH_REASON_$"
+        }
+    }
+}
+
+death_reason = {
+    ## cardinality = 0..inf
+    possible_parameter = value_set[event_target]
+
+    ## cardinality = 0..1
+    random = bool
+
+    ## cardinality = 0..1
+    weight = value_field
+    ## cardinality = 0..1
+    weight = <script_value>
+    ## cardinality = 0..1
+    weight = <static_value>
+    ## cardinality = 0..1
+    weight = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ## push_scope = character
+    trigger = single_alias_right[trigger_clause]
+}

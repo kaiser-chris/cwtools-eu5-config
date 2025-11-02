@@ -1,0 +1,11 @@
+types = {
+    type[designated_heir_reason] = {
+        path = "game/common/designated_heir_reason"
+        file_extension = .txt
+        localisation = {
+            name = "HEIR_REASON_$"
+        }
+    }
+}
+
+designated_heir_reason = {}
