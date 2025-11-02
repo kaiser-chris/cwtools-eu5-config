@@ -454,4 +454,38 @@ enums = {
         navy
     }
 
+    enum[trait_category] = {
+        ruler
+        general
+        admiral
+        artist
+        explorer
+        child
+        religious_figure
+    }
+
+    enum[age_preference] = {
+        dip
+        mil
+        adm
+    }
+
+    enum[automated_system] = {
+        finances
+        research
+    }
+
+    enum[pin_collection] = {
+        outliner
+    }
+    enum[pin_key] = {
+        agenda
+    }
+
+    enum[weather_system] = {
+        front
+        cyclone
+        tornado
+    }
+
 }
