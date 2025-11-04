@@ -1,0 +1,4955 @@
+### Checks if a country is researching a certain religious focus
+## scopes = { country }
+alias[trigger:active_religious_focus] = scope[religious_focus]
+
+### Utility of adding however much estate satisfaction to the country - usage: add_estate_satisfaction_utility(<estate>|<amount>) or add_estate_satisfaction_utility = { type = <estate type> amount = <amount> value <operator><threshold> }
+## scopes = { country }
+alias[trigger:add_estate_satisfaction_utility] = {
+    type = <estate>
+
+    amount == value_field
+    amount == <script_value>
+    amount == <static_value>
+    amount == single_alias_right[formula]
+}
+
+### Checks the AI utility of adding a static modifier to the scoped object
+### add_static_modifier_utility = { modifier = X value >= Y }
+### Where X is the name of the static modifier
+### Where Y is a script value
+## scopes = { location country character  }
+alias[trigger:add_static_modifier_utility] = {
+    modifier = <static_modifier>
+
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
+
+### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the same trigger
+### add_to_temporary_list = <name_of_list>
+### add_to_temporary_list = { name = <name_of_list> value = <script_value> }
+### NOTE, if adding a temporary target to a permanent list, the list will stay permanent
+## scopes = { any }
+alias[trigger:add_to_temporary_list] = value_set[temporary_list]
+### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the same trigger
+### add_to_temporary_list = <name_of_list>
+### add_to_temporary_list = { name = <name_of_list> value = <script_value> }
+### NOTE, if adding a temporary target to a permanent list, the list will stay permanent
+## scopes = { any }
+alias[trigger:add_to_temporary_list] = {
+    name = value_set[temporary_list]
+
+    ## cardinality = 0..1
+    target = scope_field
+    ## cardinality = 0..1
+    target = value_field
+    ## cardinality = 0..1
+    target = <script_value>
+    ## cardinality = 0..1
+    target = <static_value>
+    ## cardinality = 0..1
+    target = single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[duration] = alias_match_left[duration]
+}
+
+### is the area/location adjacent to an area with a country's presence in it?
+## scopes = { location area }
+alias[trigger:adjacent_to_owned_by] = scope[country]
+
+### is the area/location adjacent to an area with a country's or one of its subjects' presence in it?
+## scopes = { location area }
+alias[trigger:adjacent_to_owned_or_owned_by_subject] = scope[country]
+
+### checks a countries age preference for current age
+## scopes = { country }
+alias[trigger:age_preference] = enum[age_preference]
+
+### Check if the parliament agenda can be available for the specified estate type
+## scopes = { parliament_agenda }
+alias[trigger:agenda_for_estate_type] = scope[estate_type]
+
+### Check if the parliament agenda can be available for the specified special status
+## scopes = { parliament_agenda }
+alias[trigger:agenda_for_special_status] = scope[estate_type]
+
+### religion is one AI wants
+## scopes = { religion }
+alias[trigger:ai_wants_convert] = bool
+
+### true if all children are false (equivalent to NOR)
+## scopes = { any }
+alias[trigger:all_false] = single_alias_right[trigger_clause]
+
+### country allows female rulers
+## scopes = { country }
+alias[trigger:allows_female_rulers] = bool
+
+### country allows male rulers
+## scopes = { country }
+alias[trigger:allows_male_rulers] = bool
+
+### checks if the assigned yes/no value is true
+### always = yes # always succeeds
+### always = no  # always fails
+### always = scope:a_boolean_value # evaluated at runtime
+## scopes = { any }
+alias[trigger:always] = bool
+
+### if estate type is crown
+## scopes = { estate_type }
+alias[trigger:always_loyal] = bool
+
+### Checks if a character is a specific type of artist
+## scopes = { character }
+alias[trigger:artist_type] = <artist_type>
+
+### Conditionally cause an assert during run time
+### assert_if = { limit = { X } text = Y }, where X is a trigger and Y is an optional string
+## scopes = { any }
+alias[trigger:assert_if] = {
+    limit = single_alias_right[trigger_clause]
+
+    text = localisation
+    text = scalar
+}
+
+### Conditionally cause an assert during read time
+## scopes = { any }
+alias[trigger:assert_read] = localisation
+### Conditionally cause an assert during read time
+## scopes = { any }
+alias[trigger:assert_read] = scalar
+
+### country is at war
+## scopes = { country }
+alias[trigger:at_war] = bool
+
+### Get the average political power of the target special status. Usage: average_special_status_power = { type = <special status> value <operator> <float> } or average_special_status_power(<special status>)
+## scopes = { international_organization }
+alias[trigger:average_special_status_power] = {
+    type = <international_organization_special_status>
+
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
+
+### gets distance between borders of two nations or a location/province and a nation. Usage - border_distance_to = { country = x value [operator] y } or border_distance_to(country)
+## scopes = { location country province }
+alias[trigger:border_distance_to] = {
+    country = scope[country]
+
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
+
+### Checks if a building or building type is linked to a certain category
+## scopes = { building building_type }
+alias[trigger:building_category] = <building_category>
+
+### todo
+## scopes = { building }
+alias[trigger:building_goods_input] = {
+    goods = scope[goods]
+
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
+
+### Checks if a building is linked to a certain pop type
+## scopes = { building }
+alias[trigger:building_pop_type] = <pop_type>
+
+### Checks if a building produces a certain good
+## scopes = { building }
+alias[trigger:building_produced_goods] = scope[goods]
+
+### Checks if the specified building type is obsolete for the scope country.
+## scopes = { country }
+alias[trigger:building_type_is_obsolete] = scope[building_type]
+
+### Gets the max level for a building type in a location. Usage: [location scope] building_type_max_level = { building_type = <building type scope> [owner = <country scope>] value <operator> <compare value> }
+## scopes = { location }
+alias[trigger:building_type_max_level] = {
+    building_type = scope[building_type]
+
+    ## cardinality = 0..1
+    owner = scope[country]
+
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
+
+### Checks the type of cabinet action (ADM/DIP/MIL)
+## scopes = { cabinet_action }
+alias[trigger:cabinet_action_type] = enum[cabinet_action_type]
+
+### Returns true if the specified number of sub-triggers return true
+### calc_true_if = { amount = 2 <trigger> <trigger> <trigger> }
+## scopes = { any }
+alias[trigger:calc_true_if] = {
+    amount = int
+
+    ## cardinality = 1..inf
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Can the country have the specified scripted relation with another country. Usage: can_add_relation = { first = <country> second = <country> type = <relation type> }
+## scopes = { any }
+alias[trigger:can_add_relation] = {
+    first = scope[country]
+
+    second = scope[country]
+
+    type = scope[relation_type]
+}
+
+### Can a country annex members in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:can_annex_members] = scope[country]
+
+### Check if the parliament agenda can also serve as a bribe
+## scopes = { parliament_agenda }
+alias[trigger:can_be_bribe] = bool
+
+### Check if a subject type can be force broken in a peace treaty
+## scopes = { subject_type }
+alias[trigger:can_be_force_broken_in_peace_treaty] = bool
+
+### Check if a location can become the supplied location rank
+## scopes = { location }
+alias[trigger:can_become_rank] = scope[location_rank]
+
+### Checks if the location/country can build the specified building. Location only checks local requirements, country checks the country scope requirements.
+## scopes = { location country }
+alias[trigger:can_build_building] = scope[building_type]
+
+### Checks if the country can build the specified unit type.
+## scopes = { country }
+alias[trigger:can_build_unit_type] = scope[unit_type]
+
+### Checks if the country can build units of the specified category.
+## scopes = { country }
+alias[trigger:can_build_units_of_category] = scope[sub_unit_category]
+
+### Can the country see and create a cb of the supplied type on the target? Usage - can_create_casus_belli_of_type_on = { type = <cb type key> target = <country> }
+## scopes = { any }
+alias[trigger:can_create_casus_belli_of_type_on] = {
+    type = <casus_belli>
+
+    target = scope[country]
+}
+
+### Can the country declare a war without any casus belli on the target country?
+## scopes = { country }
+alias[trigger:can_declare_no_cb_war_on] = scope[country]
+
+### Check if the current country could declare war on the target country
+## scopes = { country }
+alias[trigger:can_declare_war_on] = scope[country]
+
+### Is the country capable of doing the specified generic action right now? Usage: can_do_generic_action = { generic_action = <generic action> <parameters> }
+## scopes = { country }
+alias[trigger:can_do_generic_action] = {
+    generic_action = scope[generic_action]
+
+    value[event_target] = scope_field
+}
+
+### can the prisoners in this unit be executed
+## scopes = { unit }
+alias[trigger:can_execute_prisoners] = bool
+
+### can the country find a trade route from market a to market b { from = <market> to = <market> }?
+## scopes = { country }
+alias[trigger:can_find_trade_route] = {
+    from = scope[market]
+
+    to = scope[market]
+}
+
+### Checks if the country can form the specified formable country.
+## scopes = { country }
+alias[trigger:can_form] = scope[formable_country]
+
+### can we hire the prisoners in this unit as mercenaries
+## scopes = { unit }
+alias[trigger:can_hire_prisoners_as_mercenaries] = bool
+
+### Can a country initiate votes in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:can_initiate_policy_votes] = scope[country]
+
+### Can the target country join the war in scope as attacker ?
+## scopes = { war }
+alias[trigger:can_join_as_attacker] = scope[country]
+
+### Can the target country join the war in scope as defender ?
+## scopes = { war }
+alias[trigger:can_join_as_defender] = scope[country]
+
+### Can the country join in a defensive war with the scope country?
+## scopes = { country }
+alias[trigger:can_join_defensive_war_with] = scope[country]
+
+### Can we join the supplied international organization?
+## scopes = { country }
+alias[trigger:can_join_international_organization] = scope[international_organization]
+
+### Can the country join in an offensive war with the scope country?
+## scopes = { country }
+alias[trigger:can_join_offensive_war_with] = scope[country]
+
+### Can the country lead the specified international organization?
+## scopes = { country }
+alias[trigger:can_lead_international_organization] = scope[international_organization]
+
+### Can we leave the supplied international organization?
+## scopes = { country }
+alias[trigger:can_leave_international_organization] = scope[international_organization]
+
+### Can the country in scope become a subject of the target country ? Same checks as the peace treaty become-subject.
+### Usage - can_make_subject_of = { target = <country> type = <subject_type> [ignore_war_limitation = yes #use to ignore allowed_subjugation of the war] }
+## scopes = { any }
+alias[trigger:can_make_subject_of] = {
+    target = scope[country]
+
+    type = scope[subject_type]
+
+    ## cardinality = 0..1
+    ignore_war_limitation = bool
+}
+
+### Can the country pay the specified price?
+## scopes = { country }
+alias[trigger:can_pay_price] = scope[price]
+
+### Checks if the country can raise army levies
+## scopes = { country }
+alias[trigger:can_raise_army_levies] = bool
+
+### Checks if the country can raise any kind of levies
+## scopes = { country }
+alias[trigger:can_raise_levies] = bool
+
+### Checks if the country can raise navy levies
+## scopes = { country }
+alias[trigger:can_raise_navy_levies] = bool
+
+### can the prisoners in this unit be ransomed
+## scopes = { unit }
+alias[trigger:can_ransom_prisoners] = bool
+
+### Checks if a country can research but has not yet researched a specific advance.
+## scopes = { country }
+alias[trigger:can_research_advance] = <advance>
+
+### Checks if the input religious aspect is visible for the country in scope.
+## scopes = { country }
+alias[trigger:can_see_religious_aspect] = scope[religious_aspect]
+
+### Checks if the 'visible' trigger of the target situation is fulfilled for the country scope.
+## scopes = { country }
+alias[trigger:can_see_situation] = scope[situation]
+
+### can the prisoners in this unit be sold as slaves
+## scopes = { unit }
+alias[trigger:can_sell_prisoners_into_slavery] = bool
+
+### Checks if the character can serve in the cabinet of the target country
+## scopes = { character }
+alias[trigger:can_serve_in_cabinet_of] = scope[country]
+
+### Country can share maps with the supplied country?
+## scopes = { country }
+alias[trigger:can_share_maps_with] = scope[country]
+
+### Can the specified tutorial lesson be started?
+### can_start_tutorial_lesson = reactive_advice_succession
+## scopes = { any }
+alias[trigger:can_start_tutorial_lesson] = tutorial_lesson
+
+### returns true if the subunit can be upgraded
+## scopes = { unit }
+alias[trigger:can_upgrade_subunit] = bool
+
+### returns trus if the unit can be upgraded
+## scopes = { unit }
+alias[trigger:can_upgrade_unit] = bool
+
+### Checks if estate type is allowed in parliament
+## scopes = { country }
+alias[trigger:can_use_agenda_bribe] = {
+    type = scope[parliament_agenda]
+
+    estate_type = scope[estate_type]
+
+    target = scope[country]
+}
+
+### todo
+## scopes = { any }
+alias[trigger:can_vote_in_parliament] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:cancel_exploration_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:cb_creation_progress_against] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:character_name] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:character_nickname] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:climate] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:colonial_charter_progress] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:colonial_charter_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:colonial_charter_value] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:colonial_maintenance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:colonial_range] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:combat_side_strength] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:combined_special_status_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:combined_unique_special_status_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:compare_value] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:conquer_desire] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:conquistador_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:controls] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_art_quality] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_can_join_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_combined_special_status_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_combined_special_status_power_fraction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_economical_base] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_estate_loan_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_exists] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_has_been_member_for_years] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_has_disease] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_has_disease_outbreak] = bool
+
+### Checks if the country has the specific Estate
+## scopes = { country }
+alias[trigger:country_has_estate] = scope[estate_type]
+
+### todo
+## scopes = { any }
+alias[trigger:country_has_special_status] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_highest_rated_special_status_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_interaction_acceptance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_loan_capacity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_rank_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_rank_level_on_date] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_strength] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_tax_base] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_total_army_levy_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_total_navy_levy_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:country_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:court_language_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:court_maintenance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:create_market_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:cultural_influence] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:cultural_maintenance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:cultural_tradition] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:cultural_unity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:cultural_view] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:culture_group_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:culture_group_percentage_in_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:culture_group_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:culture_group_population_in_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:culture_opinion_impact] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:culture_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:culture_percentage_in_area] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:culture_percentage_in_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:culture_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:culture_population_in_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:currency_percentage_towards_limit] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:currency_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:current_age] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:current_date] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:current_mission_task] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:current_month] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:current_ruler_term_years] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:current_tooltip_depth] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:current_year] = bool
+
+### Wraps triggers that get a custom description instead of the auto-generated one custom_description = { 	text = <trigger_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... triggers ... }
+## scopes = { any }
+alias[trigger:custom_description] = {
+    text = <trigger_localization>
+
+    ## cardinality = 0..1
+    subject = scope_field
+
+    ## cardinality = 0..1
+    object = scope_field
+
+    ## cardinality = 0..1
+    value == scope_field
+    ## cardinality = 0..1
+    value == value_field
+    ## cardinality = 0..1
+    value == single_alias_right[formula]
+    ## cardinality = 0..1
+    value == <script_value>
+    ## cardinality = 0..1
+    value == <static_value>
+
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+### todo
+## scopes = { any }
+alias[trigger:custom_tooltip] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:days_since_disaster_end] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:days_since_disaster_start] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:days_since_situation_end] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:days_since_situation_start] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:debug_log] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:debug_log_details] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:debug_only] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:defensive_alliance_strength] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:definition_is_for_levy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:demands_goods] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:demands_goods_by_pops] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:dependency_length_days] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:destroy_market_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:development] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:devotion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:devotion_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:dip] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:diplomatic_capacity_of_new_relation] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:diplomatic_capacity_without_maintenance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:diplomatic_maintenance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:diplomatic_range] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:disaster_has_ended] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:disaster_is_active] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:discount_needed_for_law_change] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:disease_country_deaths] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:disease_has_stagnated] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:disease_is_active] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:disease_outbreak_country_deaths] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:disease_outbreak_is_active] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:disease_outbreak_presence] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:disease_outbreak_total_deaths] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:disease_presence] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:disease_resistance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:disease_total_deaths] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:distance_to] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:distance_to_area] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:distance_to_squared] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:does_estate_want_other_policy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:does_owner_want_to_give_away] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:doom] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:doom_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:dynastic_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:dynasty_exists] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:dynasty_name] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:education] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:effective_skill] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:eligible_for_cabinet] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:employment_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:employment_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:employment_system_desire] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:estate_gold] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:estate_loan_interest] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:estate_max_tax] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:estate_opinion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:estate_satisfaction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:estate_tax] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:estate_tax_rate] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:estate_taxable_income] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:estate_type_allowed_in_cabinet] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:estate_type_allowed_in_command] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:estate_type_allowed_in_parliament] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:exists] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:expected_army_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:expected_navy_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:experience_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:exploration_expected_cost] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:exploration_maintenance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:exploration_monthly_cost] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:exploration_monthly_progress] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:exploration_needed_time] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:exploration_progress] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:exploration_time] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:exploration_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:favors] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:fertility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:food_consumption] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:food_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:food_price] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:food_production] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:food_value] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:forbids_sovereign_diplomacy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:fort_maintenance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:garrison_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:garrison_strength] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:get_antagonism] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:get_opinion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:get_trust] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:gfx_culture_applicable] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:gives_fleet_basing_rights] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:gives_fleet_basing_rights_to] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:gives_food_access] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:gives_food_access_to] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:gives_isolation_exemption_to] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:gives_military_access_to] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:giving_scripted_relation] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:giving_scripted_relation_of_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:global_variable_list_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:gold] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:gold_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:goods] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:goods_category] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:goods_demand_in_market] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:goods_method] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:goods_output] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:goods_supply_in_market] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:government_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:government_power_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:great_power_ranking] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:great_power_score] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:had_disaster_for_years] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:harmony] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:harmony_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_accepted_culture] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_accessible_coastline] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_active_resolution] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_advance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_advance_available] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_advance_for_employment_system] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_advance_for_succession_law] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_antagonism] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_any_active_disaster] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_any_convertable_pops] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_any_culture_group] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_any_disease_present] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_any_mission_active] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_any_possible_disaster] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_art_in_progress] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_assigned_explorer] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_autocephalous_patriarchates] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_available_marriage_slot] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_avatar] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_been_formed] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_been_influenced_by_parliament_agenda] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_blocked_treaties] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_breach] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_building] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_building_with_at_least_one_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_building_with_graphical_tag] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_building_with_graphical_tag_and_at_least_one_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_cabinet_action] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_cached_or_cast_vote_for] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_canonization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_cardinals] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_casus_belli] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_casus_belli_of_type_on] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_casus_belli_on] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_character_modifier] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_child_education] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_child_education_selected] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_claim_on_province] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_colonial_charter] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_colonial_charter_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_colonial_charters] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_colonial_claim] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_combat] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_commander] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_completed_religious_focus] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_consort] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_cooldown] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_core] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_countries_with_antagonism] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_countries_with_coalition_grade_antagonism] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_countries_with_near_coalition_grade_antagonism] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_countries_with_timed_antagonism] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_country_modifier] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_culture_group] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_culture_with_tag] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_customer] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_diplomacy_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_discovered] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_discovered_area] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_dlc] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_doom] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_dynasty] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_earthquakes] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_elections] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_embraced_institution] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_employment_system] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_enabled_currency] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_estate] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_estate_privilege] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_exploration] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_exploration_construction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_exports] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_extended_winter] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_fired_unique_event] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_fixed_liturgical_language] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_fort] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_game_rule] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_gifted_gold_to] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_global_variable] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_global_variable_list] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_graphical_culture] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_graphical_religion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_heir] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_highest_rated_special_status_in_international_organization_of_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_historical_rival] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_historical_rivals] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_holy_sites] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_honor] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_imports] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_institution] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_insulted] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_international_organization_modifier] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_invited_religious_figure] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_karma] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_land_ownership_rule] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_latest_road_to] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_law] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_leader] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_levies] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_limited_diplomacy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_loc_key] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_local_dlc] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_local_variable] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_local_variable_list] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_location] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_location_modifier] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_market_construction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_markets] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_member] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_mercenaries] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_mercenary_modifier] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_merchant] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_merchant_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_migration] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_mission_task] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_multiple_players] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_mutual_scripted_relation] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_mutual_scripted_relation_of_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_newsletter_subscription] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_nickname] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_ongoing_parliament_debate] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_opinion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_or_had_tag] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_overlords_ruler] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_owned_buildings] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_owner] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_parliament] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_participated_in_parliament] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_passable_land] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_patriarchs] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_periphora] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_policy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_ports] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_positive_opinion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_possible_institution_spawn] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_possible_nomad_targets] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_potential_royal_marriage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_presence_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_primary_or_accepted_culture] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_primary_or_accepted_or_tolerated_culture] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_prisoners] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_privateers_from] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_province_modifier] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_purity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_raised_army_levies] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_raised_levies] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_raised_navy_levies] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_rebel] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_reform] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_regent] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_regular_elections] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_regulars] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_religion_modifier] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_religious_aspect] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_religious_factions] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_religious_focuses] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_religious_head] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_religious_influence] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_religious_schools] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_river] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_road_constructions] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_road_of_type_to] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_road_to] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_royal_marriage_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_ruler] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_scripted_relation] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_scripted_relation_of_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_sects] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_shared_culture_group] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_siege] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_societal_value] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_sound_tolls] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_spawned] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_special_status_available] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_special_status_in_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_support_from] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_tag] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_target_casus_belli_on_us] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_temporary_demand] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_temporary_demands] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_tolerated_culture] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_trade_treaty_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_trait] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_trait_category] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_truce_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_trust] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_unit] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_unit_modifier] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_unlocked_any_unit_of_category] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_variable] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_variable_list] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_volcano] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_voted] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_voted_for] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_voted_for_issue_in_parliament] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:has_yanantin] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:heathen_population_fraction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:heir_candidates_count] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:heir_position] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:heir_score] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:heir_score_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:heir_score_home] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:hemisphere] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:heretic_population_fraction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:hidden_trigger] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:higher_temporary_taxes_needed] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:hire_price] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:honor] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:honor_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:horde_unity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:horde_unity_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:implementation_progress_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:in_assault] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:in_cabinet] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:in_civil_war] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:in_combat] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:in_marriage_union_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:in_retreat] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:in_siege] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:in_trade_range_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:in_union_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:in_war_of_casus_belli] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:in_zone_of_control] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:inflation] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:inflation_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:integration_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:integration_progress] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_can_add_land] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_can_own_land] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_can_remove_land] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_has_internal_peace] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_has_law] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_has_laws] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_has_leader] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_has_policy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_leader_count] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_leader_reign] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_leader_reign_in_days] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_lifetime] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_lifetime_in_days] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_locations_owned_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_num_locations] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:international_organization_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:intrinsic_disease_resistance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:io_within_diplomatic_range] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:ironman] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_a_defender] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_accepted_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_active_parliament] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_adjacent_to_lake] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_admiral] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_admiral_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_adolescent] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_adult] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_ai] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_alert_shown] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_alert_triggered] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_alive] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_allowed_for] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_allowed_for_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_already_merged] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_an_attacker] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_annexing] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_annexing_any_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_area_coastal_sea] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_area_fully_discovered] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_area_passable] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_area_sea] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_army] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_art_destroyed] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_artist] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_artist_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_at_max_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_at_war_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_auto_raise_taxrate_for_all_estates] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_available_for] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_available_for_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_being_annexed] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_being_annexed_by] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_being_explored] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_bombard_phase] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_border] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_building_owned_by] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_burgher_positive_deficit] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_camera_in_zoom_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_capital] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_carrying_troops] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_child] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_child_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_city] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_civil_war_for] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_close_relative] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_coastal] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_colonial_overlord] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_colonial_subject] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_colonial_top_overlord] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_connected_to] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_consort] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_consort_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_core_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_courtier] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_creating_cb_against] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_creating_cb_of_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_crossing] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_currently_being_integrated] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_demanded_in_market] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_demanded_in_market_by_buildings] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_demanded_in_market_by_burgher_trades] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_demanded_in_market_by_constructions] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_demanded_in_market_by_pops] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_demanded_in_market_by_roads] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_demanded_in_market_by_trades] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_demanded_in_market_by_units] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_discovered_by] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_disloyal_subject] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_dominant_country_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_during_bankruptcy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_dynastic_descendant_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_dynasty_head] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_east_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_elector_in_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_eligible_heir] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_eligible_heir_baseline] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_eligible_military_leader] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_embargoed_by] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_embargoing] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_embraced_for] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_enemy_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_enemy_of_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_exiled] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_explorer] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_explorer_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_export] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_export_banned] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_female] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_fighting_war_together_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_food] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_friendly_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_full_capacity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_full_expanded_rgo] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_fully_implemented_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_gamestate_tutorial_active] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_general] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_general_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_great_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_hegemon] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_hegemon_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_heir] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_heir_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_historical_rival_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_holy_site_for] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_hostile_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_human] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_immortal] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_implementable_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_import_banned] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_in_any_same_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_in_list] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_in_losing_war] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_in_same_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_in_surplus_in_market] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_in_war] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_infant] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_integrating] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_international_organization_unique] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_known_by_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_labourer_positive_deficit] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_lacking_goods] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_land] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_latest_road_type_for] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_leader_of_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_levy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_linked_to_foreign_building] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_location_holy_site_for] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_locked] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_locked_for] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_locked_for_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_looted] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_loyal] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_major_reform] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_map_mode_active] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_market_center] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_married] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_matrilineal_descendant_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_max_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_member_of_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_member_of_international_organization_of_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_mercenary] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_mercenary_hired_by] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_mercenary_leader] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_mercenary_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_mercenary_owned_by] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_merged_culture_group] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_merged_culture_group_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_mining_rgo] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_movement_locked] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_moving] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_multiplayer_session] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_naval_combat] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_navy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_neighbor_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_neighbor_of_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_neighbor_of_location] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_neighbor_of_province_definition] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_no_cb] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_no_cb_war] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_not_profitable] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_on_opposite_sides] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_on_same_side] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_opened] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_overlord] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_overseas_for_owner] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_ownable] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_owned_by_any_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_owned_by_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_owned_or_owned_by_subjects_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_owned_or_owned_by_subjects_or_below_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_parent_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_passable] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_patrilineal_descendant_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_player_playstyle] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_port] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_pregnant] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_primary_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_primary_or_accepted_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_produced_by_production_method] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_produced_in_market] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_profitable] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_projected_to_run_out_of_food_stockpile] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_province_capital] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_real_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_rebel_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_regency_extended] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_regent] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_regent_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_regiment] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_relevant] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_religion_enabled] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_religious_aspect_enabled] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_religious_figure] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_required_for_formable] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_revolution_target] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_revolutionary] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_rival_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_river_crossing] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_ruler] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_ruler_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_saint] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_saint_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_same_gender] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_sea_landing] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_selectable_issue_for] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_set] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_ship] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_sibling_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_situation_active] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_spouse_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_starving] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_strait_crossing] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_subject] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_subject_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_subject_or_below_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_subject_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_subsidized] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_supported_by_character] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_supported_by_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_target_in_global_variable_list] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_target_in_local_variable_list] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_target_in_variable_list] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_target_of_international_organization_of_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_threat_to] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_tolerated_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_tooltip_with_name_open] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_trade_cb] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_traded_in_market] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_tutorial_active] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_tutorial_lesson_active] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_tutorial_lesson_chain_completed] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_tutorial_lesson_completed] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_tutorial_lesson_step_completed] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_unified_culture] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_unique_reform] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_unit_locked] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_upgradeable] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_upgraded_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_upper_class] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_used_by_production_method] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_valid_colonial_charter] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_valid_for_exploration] = bool
+
+### Returns true if the current database object is visible (but not necessarily allowed) to the target country.
+## scopes = { law policy building_type religious_aspect estate_privilege cabinet_action government_reform production_method parliament_issue parliament_type god avatar unit_type levy_setup parliament_agenda artist_type mission mission_task regency_type unit_ability road_type heir_selection formable_country }
+alias[trigger:is_visible_for] = scope[country]
+
+### todo
+## scopes = { any }
+alias[trigger:is_visible_for_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_war_leader_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:is_widgetid_open] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:join_organization_ai_desire] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:join_war_reason] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:karma] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:karma_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:knows_about_institution] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:knows_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:language_percentage_in_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:language_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:law_enabled_to_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:law_is_locked_in_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:law_visible_to_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:leader_change_method] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:leader_change_trigger_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:leader_special_status_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:leader_special_status_power_fraction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:leader_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:legitimacy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:legitimacy_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:liberty_desire] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:list_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:liturgical_language_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:loan_amount] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:loan_interest] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:local_control] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:local_cultural_unity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:local_political_power_fraction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:local_religious_unity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:local_variable_list_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_art_quality] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_building_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_can_be_added_to_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_can_be_removed_from_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_counter] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_key] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_maritime_merchant_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_maritime_presence_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_max_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_max_winter_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_num_holy_sites] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_num_works_of_art] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_peace_cost] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_population_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_privateer_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_progress_for_formable] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_tax_base] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_unemployed_population_for_building_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_within_range] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:location_works_of_art_star_rating] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:long_term_trigger_currency_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:lowest_prosperity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:lowest_war_score] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:manpower] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:manpower_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:market_access] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:market_food] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:market_food_deficit] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:market_food_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:market_food_traded] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:market_max_food] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:market_monthly_food_balance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:market_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:market_possible_goods_trade_surplus] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:max_control] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:max_countries_with_special_status] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:max_garrison_strength] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:max_manpower] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:max_possible_candidates] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:max_religious_aspects] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:max_rgo_workers] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:max_sailors] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:max_sects] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:mercenary_has_owner] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:merchant_capacity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:merchant_power_in_market] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:migration_attraction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:mil] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:military_strength] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:military_tech_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:mission_completed] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:mission_task_bypassed] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:mission_task_completed] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:modifier_utility] = {
+    modifier = <static_modifier>
+
+    value == int_value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
+
+### todo
+## scopes = { any }
+alias[trigger:modifier_utility_include_locations] = {
+    modifier = <static_modifier>
+
+    value == int_value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
+
+### todo
+## scopes = { any }
+alias[trigger:monthly_balance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:monthly_conversion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:monthly_cost] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:monthly_income_total] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:monthly_income_trade_and_tax] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:monthly_manpower] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:monthly_sailors] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:monthly_trade_income] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:months_between_leader_changes] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:months_left] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:months_since_last_parliament_called] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:months_since_peace] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:months_since_war] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:morale_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:nand] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:naval_range] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:navy_maintenance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:navy_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:navy_size_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:navy_tradition] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:navy_tradition_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:need_reforms] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:needs_opinion_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:nor] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:not] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_adult_capable_characters] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_affected_locations] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_army_constructions] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_artists] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_avatars] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_buildings] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_cardinals] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_characters] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_civil_constructions] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_colonial_charters] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_countries_in_religion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_countries_with_special_status] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_embraced_institutions] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_explorations] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_foreign_buildings] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_forts] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_known_institutions] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_loans] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_locations] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_locations_owned_or_owned_by_subjects] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_locations_owned_or_owned_by_subjects_or_below] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_navy_constructions] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_active_parliament_agendas] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_advances_researched] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_children] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_diplomats] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_electors] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_locations_owned_by_io] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_markets_with_merchants] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_non_rural] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_non_rural_ports] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_ports] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_rebel_characters] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_rebel_supporters] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_religious_aspects] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_spouses] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_trades] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_traits] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_of_traits_of_category] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_open_reform_slots] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_possible_privileges] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_possible_rivals] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_privileges] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_province_definitions_in_area] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_provinces] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_rebels] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_reforms] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_regiments] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_relations_above_limit] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_rivals] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_roads] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_subjects] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_subunits] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_union_countries] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_unions] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:num_works_of_art] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:offensive_alliance_strength] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:only_allowed_overlord_court_language] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:only_allowed_overlord_primary_culture] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:only_allowed_overlord_primary_or_kindred_culture] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:opinion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:opinion_difference_between] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:or] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:organization_strength_relative_to_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:overlord_can_build_markets] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:overlord_can_destroy_markets] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:overlord_can_enforce_peace_on_subject] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:own_entire_area] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:own_entire_province] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:owns] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:owns_any_foreign_buildings_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:owns_or_non_sovereign_subject_owns] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:parliament_issue_chance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:parliament_issue_support] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:parliament_issue_will_pass] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:parliament_type_enabled_in_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:parliament_type_is_enabled_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:parliament_type_is_locked_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:parliament_type_is_locked_in_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:parliament_type_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:parliament_type_visible_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:parliament_type_visible_in_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:payment_contribution] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:payment_maintenance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:player_proficiency] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:player_proficiency_greater] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:player_proficiency_greater_eq] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:player_proficiency_less] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:player_proficiency_less_eq] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:policy_enabled_to_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:policy_has_ai_propose_value] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:policy_is_locked_in_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:policy_visible_to_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:pop_character_chance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:pop_knows_about_goods] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:pop_literacy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:pop_satisfaction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:pop_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:pop_type_percentage_in_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:pop_type_population_in_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:population_in_area] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:population_with_traits] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:possible_military_leaders] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:power_projection] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:prestige] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:prestige_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:prev_antagonism_towards_this] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:prev_opinion_of_this] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:prev_trust_of_this] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:price_in_market] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:prisoner_strength] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:privateer_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:privateer_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:production_method_profit] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:proper_culture_nobles] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:prosperity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_army_levy_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_average_control] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_average_development] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_average_integration] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_cabinet_action] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_cultural_unity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_food] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_food_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_max_food] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_monthly_food_production] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_navy_levy_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_possible_institutions] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_prosperity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_rebel_progress] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_religious_unity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_satisfaction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:province_tax_base] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:proximity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:purity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:purity_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:random_integer] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:rank_index] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:raw_material_amount] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:raw_material_occurrence] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:raw_material_output] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:rebel_category] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:rebel_estate_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:rebel_last_months_progress] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:rebel_locations] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:rebel_name_key] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:rebel_progress] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:rebel_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:receives_fleet_basing_rights_from] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:receives_food_access_from] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:receives_isolation_exemption_from] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:receives_military_access_from] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:receiving_scripted_relation] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:receiving_scripted_relation_of_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:reform_desire] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:regular_army_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:relative_military_strength] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:relative_raw_material_price] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:relative_strength] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:release_only] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:relevant_countries] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:religion_group_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:religion_group_percentage_in_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:religion_group_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:religion_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:religion_percentage_in_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:religion_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:religion_population_in_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:religious_figure_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:religious_influence] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:religious_influence_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:religious_unity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:religious_view] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:relocate_market_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:remaining_debt] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:remaining_parliament_days] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:remove_static_modifier_utility] = {
+    modifier = <static_modifier>
+
+    value == int_value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
+
+### todo
+## scopes = { any }
+alias[trigger:republican_tradition] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:republican_tradition_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:requires_goods] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:requires_vote] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:research_progress] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:resolution_is_active] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:resolution_opinion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:reverse_country_interaction_acceptance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:reverse_cultural_view] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:reverse_religious_view] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:reverse_school_opinion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:rgo_workers] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:righteousness] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:righteousness_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:rite_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:rite_power_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:ruled_country_on_or_after] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:ruler_reign] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:ruler_reign_in_days] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:ruler_term_start_date] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:sailors] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:sailors_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:satisfaction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:save_temporary_scope_as] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:save_temporary_scope_value_as] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:school_opinion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:scope_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:self_control] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:self_control_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:short_term_trigger_currency_utility] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:situation_has_ended] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:situation_is_active] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:slider_minting_value] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:societal_value_cabinet_action] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:societal_value_progress] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:special_status_can_be_bestowed] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:special_status_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:special_status_power_fraction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:spy_network] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:stability] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:stability_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:state_religion_clergy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:strength_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:sub_unit_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:subject_can_be_annexed] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:subject_can_be_created_by] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:subject_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:subject_loyalty] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:subjects_relative_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:subunit_morale] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:subunit_morale_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:subunit_number] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:subunit_strength] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:subunit_strength_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:supports_rebel] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:switch] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:tag] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:tag_exists] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:target_satisfaction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:this_antagonism_towards_prev] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:this_opinion_of_prev] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:this_trust_of_prev] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:threat_level_to] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:time_of_year] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:tithe] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:topography] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_abilities] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_accepted_culture_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_building_levels] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_cardinals] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_control_scaled_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_debt] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_development] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_dynastic_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_effective_goods_production_buildings] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_enemies] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_goods_traded] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_goods_value_traded] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_heathen_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_heretic_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_locations_owned] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_members] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_merchant_capacity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_merchant_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_not_tolerated_culture_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_payment_contribution] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_population_in_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_population_in_international_organization_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_primary_culture_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_special_status_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_special_status_power_fraction] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_tolerated_culture_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_true_faith_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:total_unique_special_status_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:trade_buy] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:trade_capacity_usage_percent] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:trade_profit] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:trade_sell] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:trade_volume] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:tribal_cohesion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:tribal_cohesion_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:trigger_else] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:trigger_else_if] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:trigger_if] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:trust] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:union_length_days] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:unique_international_organization_type_exists] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:unit_has_leader] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:unit_strength] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:upkeep_maintenance] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:used_cultures_capacity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:used_diplomatic_capacity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:used_merchant_capacity] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:uses_government_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:valid_estate_for_heir_selection] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:variable_list_size] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:vegetation] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:vote_impact_in_resolution] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:vote_is_locked] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:vote_percentage_impact_in_resolution] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:vote_type] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:votes_for_resolution] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:wants_casus_belli_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:wants_military_access_in] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:wants_opinion_with] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:wants_to_give_away_any_province] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:wants_to_subjugate] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:war_enthusiasm] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:war_exhaustion] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:war_exhaustion_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:war_length] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:war_length_in_years] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:war_score_in_war] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:war_score_of_country] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:war_score_versus] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:war_stalling_length] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:war_stalling_length_in_years] = bool
+
+### Returns true if the sum of weights of fulfilled sub-triggers amount to the specified sum
+### weighted_calc_true_if = { amount = 10 5 = { <trigger> } 15 = { <trigger> } 7 = { <trigger> } }
+## scopes = { any }
+alias[trigger:weighted_calc_true_if] = {
+    amount = int
+
+    ## cardinality = 1..inf
+    int = single_alias_right[trigger_clause]
+}
+
+### todo
+## scopes = { any }
+alias[trigger:winter_level] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:winter_power] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:within_colonial_range_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:within_diplomatic_range] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:within_naval_range_of] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:world_art_quality] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:world_culture_group_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:world_culture_group_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:world_culture_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:world_culture_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:world_religion_group_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:world_religion_group_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:world_religion_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:world_religion_population] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:yanantin] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:yanantin_percentage] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:yearly_gold] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:yearly_manpower] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:yearly_sailors] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:yearly_salary] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:years_active] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:years_in_international_organization] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:years_since_disaster_end] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:years_since_disaster_start] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:years_since_situation_end] = bool
+
+### todo
+## scopes = { any }
+alias[trigger:years_since_situation_start] = bool

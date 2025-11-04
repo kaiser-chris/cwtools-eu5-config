@@ -1,4 +1,5 @@
 ### Executes enclosed effects if limit criteria are met if = { limit = { <triggers> } <effects> }
+## scopes = { any }
 alias[effect:if] = {
     ## cardinality = ~1..1
     limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6,6 +7,7 @@ alias[effect:if] = {
 }
 
 ### Executes enclosed effects if limit criteria of preceding 'if' or 'else_if' is not met, and its own limit is met if = { limit = { <triggers> } <effects> } else_if = { limit = { <triggers> } <effects> }
+## scopes = { any }
 alias[effect:else_if] = {
     ## cardinality = 0..1
     limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -13,12 +15,14 @@ alias[effect:else_if] = {
 }
 
 ### Executes enclosed effects if limit criteria of preceding 'if' or 'else_if' is not met if = { limit = { <triggers> } <effects> } else = { <effects> }
+## scopes = { any }
 alias[effect:else] = {
     ## cardinality = 1..inf
     alias_name[effect] = alias_match_left[effect]
 }
 
 ### a random effect, random = { chance = X modifier = Y effects... } where X is a chance of the enclosed effects being fired and can be modified by optional value modifier list (AKA MTTH) Y
+## scopes = { any }
 alias[effect:random] = {
     chance = int_value_field[1...99]
     ## cardinality = 0..inf

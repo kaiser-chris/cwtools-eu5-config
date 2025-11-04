@@ -510,4 +510,10 @@ enums = {
         fantasy
     }
 
+    enum[cabinet_action_type] = {
+        adm
+        dip
+        mil
+    }
+
 }

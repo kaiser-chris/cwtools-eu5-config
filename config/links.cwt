@@ -446,12 +446,16 @@ links = {
         prefix = estate_tax_percentage:
         data_source = <estate>
     }
-    estate_type = {
+    estate_type_link = {
         input_scopes = { any }
         output_scope = estate_type
         from_data = yes
         prefix = estate_type:
         data_source = <estate>
+    }
+    estate_type = {
+        input_scopes = { estate }
+        output_scope = estate_type
     }
     ethnicity = {
         input_scopes = { any }
@@ -1728,7 +1732,7 @@ links = {
         output_scope = value
         type = value
         from_data = yes
-        prefix = building_type_max_level:
+        prefix = cancel_exploration_utility:
         data_source = scope[area]
     }
     ### Checks the progress of the casus belli creation against the target country in percentage. Usage: cb_creation_progress_against = { target = <country scope> value = <value> } or cb_creation_progress_against(<country scope>)
@@ -1783,172 +1787,198 @@ links = {
         output_scope = value
         type = value
     }
-    #TODO: continue here
+    ### Get the combined special status power of ALL special statuses in the international organization
     combined_special_status_power = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Get the combined special status power of all countries with their highest ranking special status in the international organization
     combined_unique_special_status_power = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    #TODO
     compare_value = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### Gets how much the AI wants to conquer the supplied country - usage: conquer_desire(<target>) or conquer_desire = { target = <country link> value <operator> <amount> }
     conquer_desire = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = conquer_desire:
+        data_source = scope[country]
     }
+    ### Utility of a conquistador - usage: conquistador_utility(<area>) or conquistador_utility = { area = <area> value <operator><threshold> }
     conquistador_utility = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = conquistador_utility:
+        data_source = scope[area]
     }
-    controls = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks the total art quality in a Country
     country_art_quality = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
-    country_can_join_international_organization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Get the political power of the country within the target international organization with all of its special statuses combined. Usage: country_combined_special_status_power = { international_organization = <international organization> value <operator> <float> } or country_combined_special_status_power(<international organization>)
     country_combined_special_status_power = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = country_combined_special_status_power:
+        data_source = scope[international_organisation]
     }
+    ### Get the political power fraction of the country within the target international organization with all of its special statuses combined. Usage: country_combined_special_status_power = { international_organization = <international organization> value <operator> <float> } or country_combined_special_status_power(<international organization>)
     country_combined_special_status_power_fraction = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = country_combined_special_status_power_fraction:
+        data_source = scope[international_organisation]
     }
+    ### Checks the total economical base of a country
     country_economical_base = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks the size of a loan given by the estates to a country
     country_estate_loan_size = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
-    country_exists = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks if the country has been in the current international organization scope for x years. Usage: country_has_been_member_for_years = { country = <country scope> value = <years> } or country_has_been_member_for_years(country)
     country_has_been_member_for_years = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = country_has_been_member_for_years:
+        data_source = scope[country]
     }
-    country_has_disease = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    country_has_disease_outbreak = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    country_has_estate = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Get the political power of the country within the target international organization of its highest prioritized special status. Usage: highest_rated_special_status_power = { international_organization = <international organization> value <operator> <float> } or highest_rated_special_status_power(<international organization>)
     country_highest_rated_special_status_power = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = country_highest_rated_special_status_power:
+        data_source = scope[international_organisation]
     }
+    ### How high is the target country's AI value of accepting the country interaction done by the current country scope? Always return 0 if the target is a player
+    ### Usage: country_interaction_acceptance = { type = <country interaction> target = <country> value = <value> } or country_interaction_acceptance(<country interaction>|<country>)
     country_interaction_acceptance = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = country_interaction_acceptance:
+        data_source = scope[country_interaction]
+        data_source = scope[country]
     }
+    ### Checks how much more money a country can borrow
     country_loan_capacity = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### level of the country rank of a country
     country_rank_level = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### level of the country rank of a country on a particular date
     country_rank_level_on_date = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = country_rank_level_on_date:
+        data_source = scope[date]
     }
+    ### Strength of a country, including their troop numbers as well as tax base and manpower
     country_strength = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks the total tax base of a country
     country_tax_base = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Gets the total number of army levies available to the country
     country_total_army_levy_size = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Gets the total number of navy levies available to the country
     country_total_navy_levy_size = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Utility of a court language accorting to Ai
     court_language_utility = {
-        input_scopes = { any }
+        input_scopes = { language dialect }
         output_scope = value
         type = value
     }
+    ### What is the xx position (0-1) the country has?
     court_maintenance = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Utility of creating a market - usage: create_market_utility(<location>) or create_market_utility = { location = <location> value <operator><threshold> }
     create_market_utility = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = create_market_utility:
+        data_source = scope[location]
     }
+    ### How much influence does the culture have?
     cultural_influence = {
-        input_scopes = { any }
+        input_scopes = { culture }
         output_scope = value
         type = value
     }
+    ### What is the xx position (0-1) the country has?
     cultural_maintenance = {
-        input_scopes = { any }
+        input_scopes = { culture }
         output_scope = value
         type = value
     }
+    ### How much tradition does the culture have?
     cultural_tradition = {
-        input_scopes = { any }
+        input_scopes = { culture }
         output_scope = value
         type = value
     }
+    ### Checks the fraction of the population sharing the country's primary culture
     cultural_unity = {
-        input_scopes = { any }
+        input_scopes = { culture }
         output_scope = value
         type = value
     }
+    #TODO: continue here
     culture_group_percentage = {
         input_scopes = { any }
         output_scope = value

@@ -220,7 +220,10 @@ single_alias[selected_trigger_clause] = {
     only_color_selectable = bool
 
     ## cardinality = 0..1
-    cache_targets = yes
+    cache_targets = bool
+
+    ## cardinality = 0..1
+    show_why_not_enabled = bool
 
     ## cardinality = 0..1
     pre_evaluation_sort_value = single_alias_right[formula]

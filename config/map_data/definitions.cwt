@@ -64,8 +64,20 @@ enums = {
     complex_enum[location] = {
         path = "game/map_data"
         path_file = "definitions.txt"
+        start_from_root = yes
         name = {
-            # no idea how to fill this
+            #scalar = { scalar = { scalar = { scalar = { enum_name } } } } # if necessary
+            scalar = {
+                scalar = {
+                    scalar = {
+                        scalar = {
+                            scalar = {
+                                enum_name
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
