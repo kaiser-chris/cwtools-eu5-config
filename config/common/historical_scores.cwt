@@ -1,0 +1,17 @@
+types = {
+    type[historical_score] = {
+        path = "game/common/historical_scores"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+historical_score = {
+    tag = <country>
+    tag = <formable_country>
+
+    score = int
+}

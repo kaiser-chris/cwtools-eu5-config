@@ -12,8 +12,11 @@ types = {
 country = {
     alias_name[color] = alias_match_left[color]
 
+    ## cardinality = 0..1
     color2 = <named_color>
+    ## cardinality = 0..1
     color2 = colour[rgb]
+    ## cardinality = 0..1
     color2 = colour[hsv360]
 
     ## cardinality = 0..1

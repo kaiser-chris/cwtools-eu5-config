@@ -1,0 +1,23 @@
+types = {
+    type[religion_group] = {
+        path = "game/common/religion_groups"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+religion_group = {
+    alias_name[color] = alias_match_left[color]
+
+    ## cardinality = 0..1
+    convert_slaves_at_start = bool
+
+    ## cardinality = 0..1
+    allow_slaves_of_same_group = bool
+
+    ## cardinality = 0..inf
+    modifier = single_alias_right[modifier_clause]
+}

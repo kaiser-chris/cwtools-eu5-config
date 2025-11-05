@@ -691,9 +691,17 @@ alias[trigger:custom_description] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
-### todo
+### Replaces the tooltips for the enclosed triggers with a custom text custom_tooltip = { 	text = <text> 	subject = <scope> (optional) 	<trigger> }
 ## scopes = { any }
-alias[trigger:custom_tooltip] = bool
+alias[trigger:custom_tooltip] = {
+    text = localisation
+    ## cardinality = 0..1
+    subject = scope_field
+    alias_name[trigger] = alias_match_left[trigger]
+}
+### Replaces the tooltips for the enclosed triggers with a custom text custom_tooltip = { 	text = <text> 	subject = <scope> (optional) 	<trigger> }
+## scopes = { any }
+alias[trigger:custom_tooltip] = localisation
 
 ### todo
 ## scopes = { any }
@@ -1279,9 +1287,9 @@ alias[trigger:has_casus_belli_of_type_on] = bool
 ## scopes = { any }
 alias[trigger:has_casus_belli_on] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:has_character_modifier] = bool
+### Does the scoped character have a given modifier
+## scopes = { character }
+alias[trigger:has_character_modifier] = <static_modifier>
 
 ### todo
 ## scopes = { any }
@@ -1327,9 +1335,9 @@ alias[trigger:has_completed_religious_focus] = bool
 ## scopes = { any }
 alias[trigger:has_consort] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:has_cooldown] = bool
+### Does a country have a particular cooldown active
+## scopes = { country international_organization  }
+alias[trigger:has_cooldown] = localisation
 
 ### todo
 ## scopes = { any }
@@ -4512,13 +4520,16 @@ alias[trigger:supports_rebel] = bool
 ## scopes = { any }
 alias[trigger:switch] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:tag] = bool
+### if a country is a specific historical tag
+## scopes = { country }
+alias[trigger:tag] = <country>
+### if a country is a specific historical tag
+## scopes = { country }
+alias[trigger:tag] = <formable_country>
 
-### todo
+### does a tag exist
 ## scopes = { any }
-alias[trigger:tag_exists] = bool
+alias[trigger:tag_exists] = <country>
 
 ### todo
 ## scopes = { any }
@@ -4696,17 +4707,21 @@ alias[trigger:tribal_cohesion] = bool
 ## scopes = { any }
 alias[trigger:tribal_cohesion_percentage] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:trigger_else] = bool
+### Evaluates the triggers if the display_triggers of preceding 'trigger_if' or 'trigger_else_if' is not mettrigger_if = { limit = { <display_triggers> } <triggers> }  trigger_else = { <triggers> }
+alias[trigger:trigger_else] = single_alias_right[trigger_clause]
 
-### todo
-## scopes = { any }
-alias[trigger:trigger_else_if] = bool
+### Evaluates the enclosed triggers if the display_triggers of the preceding `trigger_if` or `trigger_else_if` is not met and its own display_trigger of the limit is mettrigger_if = { limit = { <display_triggers> } <triggers> } trigger_else_if = { limit = { <display_triggers> } <triggers> }
+alias[trigger:trigger_else_if] = {
+    limit = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:trigger_if] = bool
+### Evaluates the triggers if the display_triggers of the limit are met trigger_if = { limit = { <display_triggers> } <triggers> }
+alias[trigger:trigger_if] = {
+    ## cardinality = 0..inf
+    limit = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
 
 ### todo
 ## scopes = { any }

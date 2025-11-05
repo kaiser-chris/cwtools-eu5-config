@@ -1,0 +1,42 @@
+types = {
+    type[religious_focus] = {
+        path = "game/common/religious_focuses"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+religious_focus = {
+    ## cardinality = 0..1
+    allow = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    monthly_progress = value_field
+    ## cardinality = 0..1
+    monthly_progress = <script_value>
+    ## cardinality = 0..1
+    monthly_progress = <static_value>
+    ## cardinality = 0..1
+    monthly_progress = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ai_will_do = value_field
+    ## cardinality = 0..1
+    ai_will_do = <script_value>
+    ## cardinality = 0..1
+    ai_will_do = <static_value>
+    ## cardinality = 0..1
+    ai_will_do = single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    modifier_while_progressing = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..inf
+    modifier_on_completion = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    effect_on_completion = single_alias_right[effect_clause]
+}

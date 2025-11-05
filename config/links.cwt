@@ -66,6 +66,17 @@ links = {
         prefix = area_exploration:
         data_source = scope[country]
     }
+    area_link = {
+        input_scopes = { any }
+        output_scope = area
+        from_data = yes
+        prefix = area:
+        data_source = <area>
+    }
+    area = {
+        input_scopes = { country location }
+        output_scope = area
+    }
     ### Reference the value of a numeric value in an array define: array_define:Namespace|Name|Index. Index is 0-based.
     array_define = {
         input_scopes = { any }
@@ -236,12 +247,16 @@ links = {
         input_scopes = { country }
         output_scope = character
     }
-    continent = {
+    continent_link = {
         input_scopes = { any }
         output_scope = continent
         from_data = yes
         prefix = continent:
         data_source = <continent>
+    }
+    continent = {
+        input_scopes = { country location area sub_continent }
+        output_scope = continent
     }
     controller = {
         input_scopes = { location sub_unit }
@@ -533,12 +548,16 @@ links = {
         prefix = government_reform:
         data_source = <government_reform>
     }
-    government_type = {
+    government_type_link = {
         input_scopes = { any }
         output_scope = government
         from_data = yes
         prefix = government_type:
         data_source = <government_type>
+    }
+    government_type = {
+        input_scopes = { any }
+        output_scope = government_type
     }
     group = {
         input_scopes = { religion }
@@ -601,23 +620,31 @@ links = {
         prefix = interaction_target:
         data_source = value[event_target]
     }
-    international_organization = {
+    international_organization_link = {
         input_scopes = { any }
         output_scope = international_organization
         from_data = yes
-        prefix = institution_progress:
+        prefix = international_organization:
         data_source = <international_organization>
+    }
+    international_organization = {
+        input_scopes = { any }
+        output_scope = international_organization
     }
     international_organization_target = {
         input_scopes = { international_organization }
         output_scope = country
     }
-    international_organization_type = {
+    international_organization_type_link = {
         input_scopes = { location }
         output_scope = value
         from_data = yes
         prefix = international_organization_type:
         data_source = <international_organization>
+    }
+    international_organization_type = {
+        input_scopes = { international_organization }
+        output_scope = international_organization_type
     }
     known_in_country = {
         input_scopes = { country }
@@ -633,12 +660,16 @@ links = {
         prefix = land_ownership_rule:
         data_source = <international_organization_land_ownership_rule>
     }
-    language = {
+    language_link = {
         input_scopes = { any }
         output_scope = language
         from_data = yes
         prefix = language:
         data_source = <language>
+    }
+    language = {
+        input_scopes = { culture }
+        output_scope = language
     }
     language_family = {
         input_scopes = { any }
@@ -719,9 +750,23 @@ links = {
         prefix = local_var:
         data_source = value[local_variable]
     }
+    location_link = {
+        input_scopes = { any }
+        output_scope = location
+        from_data = yes
+        prefix = location:
+        data_source = <location>
+    }
     location = {
         input_scopes = { character pop combat siege market exploration work_of_art holy_site building cardinal }
         output_scope = location
+    }
+    location_rank_link = {
+        input_scopes = { any }
+        output_scope = location_rank
+        from_data = yes
+        prefix = location_rank:
+        data_source = <location_rank>
     }
     location_rank = {
         input_scopes = { location }
@@ -1011,12 +1056,16 @@ links = {
         input_scopes = { country }
         output_scope = character
     }
-    region = {
+    region_link = {
         input_scopes = { any }
         output_scope = region
         from_data = yes
         prefix = region:
         data_source = <region>
+    }
+    region = {
+        input_scopes = { any }
+        output_scope = region
     }
     relation_type = {
         input_scopes = { any }
@@ -1024,6 +1073,13 @@ links = {
         from_data = yes
         prefix = relation_type:
         data_source = <scripted_relation_type>
+    }
+    religion_link = {
+        input_scopes = { any }
+        output_scope = religion
+        from_data = yes
+        prefix = religion:
+        data_source = <religion>
     }
     religion = {
         input_scopes = { country sub_unit character dynasty pop rebels mercenary }
@@ -1209,12 +1265,23 @@ links = {
         prefix = stockpile_in_market:
         data_source = scope[good]
     }
-    sub_continent = {
+    sub_continent_link = {
         input_scopes = { any }
         output_scope = sub_continent
         from_data = yes
         prefix = sub_continent:
         data_source = <sub_continent>
+    }
+    sub_continent = {
+        input_scopes = { country location area continent }
+        output_scope = sub_continent
+    }
+    sub_unit_category_link = {
+        input_scopes = { any }
+        output_scope = sub_unit_category
+        from_data = yes
+        prefix = sub_unit_category:
+        data_source = <unit_category>
     }
     sub_unit_category = {
         input_scopes = { sub_unit }

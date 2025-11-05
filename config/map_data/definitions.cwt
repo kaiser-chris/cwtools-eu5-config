@@ -66,14 +66,22 @@ enums = {
         path_file = "definitions.txt"
         start_from_root = yes
         name = {
-            #scalar = { scalar = { scalar = { scalar = { enum_name } } } } # if necessary
+            # scalar = {
+            #     scalar = {
+            #         scalar = {
+            #             scalar = {
+            #                 scalar = {
+            #                     enum_name
+            #                 }
+            #             }
+            #         }
+            #     }
+            # }
             scalar = {
                 scalar = {
                     scalar = {
                         scalar = {
-                            scalar = {
-                                enum_name
-                            }
+                            enum_name
                         }
                     }
                 }

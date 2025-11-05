@@ -1,0 +1,65 @@
+types = {
+    type[institution] = {
+        path = "game/common/institution"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+institution = {
+    age = <age>
+
+    can_spawn = single_alias_right[trigger_clause]
+
+    promote_chance = value_field
+    promote_chance = <script_value>
+    promote_chance = <static_value>
+    promote_chance = single_alias_right[formula]
+
+    spread_from_friendly_coast_border_location = value_field
+    spread_from_friendly_coast_border_location = <script_value>
+    spread_from_friendly_coast_border_location = <static_value>
+    spread_from_friendly_coast_border_location = single_alias_right[formula]
+
+    spread_from_any_coast_border_location = value_field
+    spread_from_any_coast_border_location = <script_value>
+    spread_from_any_coast_border_location = <static_value>
+    spread_from_any_coast_border_location = single_alias_right[formula]
+
+    spread_from_any_import = value_field
+    spread_from_any_import = <script_value>
+    spread_from_any_import = <static_value>
+    spread_from_any_import = single_alias_right[formula]
+
+    spread_scale_on_control_if_owner_embraced = value_field
+    spread_scale_on_control_if_owner_embraced = <script_value>
+    spread_scale_on_control_if_owner_embraced = <static_value>
+    spread_scale_on_control_if_owner_embraced = single_alias_right[formula]
+
+    spread_embraced_to_capital = value_field
+    spread_embraced_to_capital = <script_value>
+    spread_embraced_to_capital = <static_value>
+    spread_embraced_to_capital = single_alias_right[formula]
+
+    spread_to_market_member = value_field
+    spread_to_market_member = <script_value>
+    spread_to_market_member = <static_value>
+    spread_to_market_member = single_alias_right[formula]
+
+    spread_from_was_possible_spawn = value_field
+    spread_from_was_possible_spawn = <script_value>
+    spread_from_was_possible_spawn = <static_value>
+    spread_from_was_possible_spawn = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    spread = value_field
+    ## cardinality = 0..1
+    spread = <script_value>
+    ## cardinality = 0..1
+    spread = <static_value>
+    ## cardinality = 0..1
+    spread = single_alias_right[formula]
+}

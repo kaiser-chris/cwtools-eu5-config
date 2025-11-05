@@ -1,0 +1,13 @@
+types = {
+    type[insult] = {
+        path = "game/common/insults"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
+    }
+}
+
+insult = {
+    trigger = single_alias_right[trigger_clause]
+}

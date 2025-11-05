@@ -1,0 +1,47 @@
+types = {
+    type[god] = {
+        path = "game/common/gods"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+god = {
+    ## cardinality = 0..1
+    icon = filepath[gfx/interface/icons/gods/,.dds]
+
+    ## cardinality = 0..inf
+    religion = <religion>
+
+    ## cardinality = 0..inf
+    religion = {
+        religion = <religion>
+
+        name_key = localisation
+    }
+
+    ## cardinality = 0..inf
+    group = {
+        group = <religion_group>
+
+        name_key = localisation
+    }
+
+    ## cardinality = 0..1
+    potential = single_alias_right[trigger_clause]
+
+    ### which is applied to whole countries
+    ## cardinality = 0..inf
+    country_modifier = single_alias_right[modifier_clause]
+
+    ### which is applied to provinces
+    ## cardinality = 0..inf
+    province_modifier = single_alias_right[modifier_clause]
+
+    ### which is applied to locations
+    ## cardinality = 0..inf
+    location_modifier = single_alias_right[modifier_clause]
+}

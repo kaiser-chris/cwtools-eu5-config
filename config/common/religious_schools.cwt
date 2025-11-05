@@ -1,0 +1,21 @@
+types = {
+    type[religious_school] = {
+        path = "game/common/religious_schools"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+religious_school = {
+    ## cardinality = 0..1
+    enabled_for_country = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    enabled_for_character = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    modifier = single_alias_right[modifier_clause]
+}

@@ -502,6 +502,7 @@ enums = {
         situation
         internationalorganizationparliament
         disaster
+        parliament
     }
 
     enum[formable_country_rule] = {

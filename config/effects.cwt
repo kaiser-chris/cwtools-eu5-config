@@ -186,8 +186,7 @@ alias[effect:add_colonial_claim] = {
 ### adds a cooldown for a country or international organization. Usage: add_cooldown = { type = <token> days/weeks/months/years = <integer> }
 ## scopes = { country international_organization }
 alias[effect:add_cooldown] = {
-    type = <country_interaction>
-    type = <generic_action>
+    type = localisation
 
     ## cardinality = 1..inf
     alias_name[duration] = alias_match_left[duration]
@@ -1776,12 +1775,12 @@ alias[effect:change_heir_selection] = scope[heir_selection]
 ### changes Institution progress in location { institution = <type> value = <change>}
 ## scopes = { location }
 alias[effect:change_institution_progress] = {
-    institution = scope[institution]
+    type = scope[institution]
 
-    change = value_field
-    change = <script_value>
-    change = <static_value>
-    change = single_alias_right[formula]
+    value = value_field
+    value = <script_value>
+    value = <static_value>
+    value = single_alias_right[formula]
 }
 
 ### changes the name of a location
@@ -2017,7 +2016,7 @@ alias[effect:change_religion_view] = {
 ### Changes societal value
 ## scopes = { country }
 alias[effect:change_societal_value] = {
-    target = <societal_value>
+    type = <societal_value>
 
     value = value_field
     value = <script_value>
@@ -3288,10 +3287,7 @@ alias[effect:remove_commander] = scope[character]
 
 ### Removes a cooldown for a country or international organization. Usage: remove_cooldown = <cooldown token>
 ## scopes = { country international_organization }
-alias[effect:remove_cooldown] = <country_interaction>
-### Removes a cooldown for a country or international organization. Usage: remove_cooldown = <cooldown token>
-## scopes = { country international_organization }
-alias[effect:remove_cooldown] = <generic_action>
+alias[effect:remove_cooldown] = localisation
 
 ### makes the location no longer a core of the target country
 ## scopes = { location }

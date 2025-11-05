@@ -1,0 +1,28 @@
+types = {
+    type[holy_site] = {
+        path = "game/common/holy_sites"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
+    }
+}
+
+holy_site = {
+    location = enum[location]
+
+    type = <holy_site_type>
+
+    importance = int
+
+    religions = {
+        ## cardinality = 1..inf
+        <religion>
+    }
+
+    ## cardinality = 0..1
+    god = <god>
+
+    ## cardinality = 0..1
+    avatar = <avatar>
+}

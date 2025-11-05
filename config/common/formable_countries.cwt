@@ -6,6 +6,7 @@ types = {
             name = "$"
             name = "$_desc"
         }
+        name_field = tag
     }
 }
 
@@ -48,7 +49,7 @@ formable_country = {
 
     flag = <coat_of_arm>
 
-    tag = <country>
+    tag = scalar
 
     alias_name[color] = alias_match_left[color]
 
@@ -74,6 +75,12 @@ formable_country = {
     areas = {
         ## cardinality = 0..inf
         <area>
+    }
+
+    ## cardinality = 0..1
+    provinces = {
+        ## cardinality = 0..inf
+        <province>
     }
 
     ## cardinality = 0..1
