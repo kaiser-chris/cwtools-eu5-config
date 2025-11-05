@@ -18,7 +18,7 @@ types = {
 parliament_issue = {
     ### setup for what scope this parliament agenda is intended for, by default country
     ## cardinality = 0..1
-    type = enum[parliament_issue_type]
+    type = enum[parliament_scope]
 
     ### country or international organization modifier
     ## cardinality = 0..1

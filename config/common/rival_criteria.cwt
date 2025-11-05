@@ -1,0 +1,14 @@
+types = {
+    type[rival_criteria] = {
+        path = "game/common/rival_criteria"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
+    }
+}
+
+rival_criteria = {
+    ## cardinality = 0..1
+    enabled = single_alias_right[trigger_clause]
+}

@@ -203,7 +203,7 @@ links = {
         output_scope = character
         from_data = yes
         prefix = character:
-        data_source = <character>
+        data_source = value[character]
     }
     character_interaction = {
         input_scopes = { any }
@@ -999,12 +999,16 @@ links = {
         input_scopes = { country }
         output_scope = character
     }
-    price = {
+    price_link = {
         input_scopes = { any }
         output_scope = price
         from_data = yes
         prefix = price:
         data_source = <price>
+    }
+    price = {
+        input_scopes = { vote }
+        output_scope = price
     }
     produced_goods = {
         input_scopes = { production_method }
@@ -1410,28 +1414,28 @@ links = {
         output_scope = value
         from_data = yes
         prefix = total_sub_unit_count:
-        data_source = <unit_category>
+        data_source = <unit_type>
     }
     total_sub_unit_strength = {
         input_scopes = { country }
         output_scope = value
         from_data = yes
         prefix = total_sub_unit_strength:
-        data_source = <unit_category>
+        data_source = <unit_type>
     }
     total_sub_unit_type_count = {
         input_scopes = { country }
         output_scope = value
         from_data = yes
         prefix = total_sub_unit_type_count:
-        data_source = <unit_category>
+        data_source = <unit_type>
     }
     total_sub_unit_type_strength = {
         input_scopes = { unit }
         output_scope = value
         from_data = yes
         prefix = total_sub_unit_type_strength:
-        data_source = <unit_category>
+        data_source = <unit_type>
     }
     traded_goods = {
         input_scopes = { trade }
@@ -2583,11 +2587,6 @@ links = {
         type = value
     }
     gold_percentage = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    goods = {
         input_scopes = { any }
         output_scope = value
         type = value

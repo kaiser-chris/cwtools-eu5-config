@@ -542,11 +542,7 @@ enums = {
         diplomatic
     }
 
-    enum[parliament_agenda_type] = {
-        country
-        international_organization
-    }
-    enum[parliament_issue_type] = {
+    enum[parliament_scope] = {
         country
         international_organization
     }

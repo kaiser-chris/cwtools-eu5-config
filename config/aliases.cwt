@@ -195,6 +195,17 @@ single_alias[selected_trigger_clause] = {
 
     ## cardinality = 0..1
     allow_null = single_alias_right[trigger_clause]
+    ## cardinality = 0..1
+    allow_null = bool
+
+    ## cardinality = 0..1
+    allow_self = bool
+
+    ## cardinality = 0..1
+    source_global_list = value[global_variable_list]
+
+    ## cardinality = 0..1
+    cache_interaction_source_list = bool
 
     ### minimum value for value types
     ## cardinality = 0..1

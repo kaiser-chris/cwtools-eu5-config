@@ -103,7 +103,27 @@ building_type = {
     ### defining unique production methods scripted directly into the building
     ## cardinality = 0..1
     unique_production_methods = {
-        #TODO
+        localisation = {
+            ## cardinality = 0..1
+            potential = single_alias_right[trigger_clause]
+
+            ## cardinality = 0..1
+            no_upkeep = bool
+
+            ## cardinality = 0..1
+            debug_max_profit = value_field
+
+            ## cardinality = 0..inf
+            <good> = value_field
+
+            ## cardinality = 0..1
+            produced = <good>
+
+            ## cardinality = 0..1
+            output = value_field
+
+            category = localisation
+        }
     }
 
     ### can the building be built in the location (root = location) (think of this as a "visible" check)

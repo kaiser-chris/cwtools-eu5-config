@@ -1,0 +1,27 @@
+types = {
+    type[regency] = {
+        path = "game/common/regencies"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+regency = {
+    ## cardinality = 0..1
+    start_effect = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    end_effect = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    allow = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    internally_assigned = bool
+}

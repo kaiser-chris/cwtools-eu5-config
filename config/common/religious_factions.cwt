@@ -1,0 +1,21 @@
+types = {
+    type[religious_faction] = {
+        path = "game/common/religious_factions"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+religious_faction = {
+    visible = single_alias_right[trigger_clause]
+
+    enabled = single_alias_right[trigger_clause]
+
+    actions = {
+        ## cardinality = 0..inf
+        <generic_action>
+    }
+}

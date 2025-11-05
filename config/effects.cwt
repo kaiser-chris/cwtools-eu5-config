@@ -912,7 +912,11 @@ alias[effect:add_religion_modifier] = {
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
 
+    ## cardinality = 0..1
     mode = enum[modifier_mode]
+
+    ## cardinality = 0..1
+    modifier = <static_modifier>
 
     ## cardinality = 0..1
     size = value_field
@@ -2260,7 +2264,91 @@ alias[effect:create_building_country_in_location] = scope[country]
 
 ### Creates a character for a country
 ## scopes = { country }
-alias[effect:create_character] = scope[character]
+alias[effect:create_character] = {
+    ## cardinality = 0..1
+    culture = scope[culture]
+
+    ## cardinality = 0..1
+    artist = <artist_type>
+
+    ## cardinality = 0..1
+    dynasty = scope[dynasty]
+
+    ## cardinality = 0..1
+    religion = scope[religion]
+
+    ## cardinality = 0..1
+    estate = scope[estate_type]
+
+    ## cardinality = 0..1
+    first_name = localisation
+
+    ## cardinality = 0..1
+    last_name = localisation
+
+    ## cardinality = 0..1
+    nickname = localisation
+
+    ## cardinality = 0..inf
+    add_trait = scope[trait]
+
+    ## cardinality = 0..1
+    birth_date = date_field
+
+    ## cardinality = 0..1
+    script = value_set[character]
+
+    ## cardinality = 0..1
+    age = int_value_field
+    ## cardinality = 0..1
+    age = single_alias_right[formula]
+    ## cardinality = 0..1
+    age = <script_value>
+    ## cardinality = 0..1
+    age = <static_value>
+
+    ## cardinality = 0..1
+    adm = value_field
+    ## cardinality = 0..1
+    adm = single_alias_right[formula]
+    ## cardinality = 0..1
+    adm = <script_value>
+    ## cardinality = 0..1
+    adm = <static_value>
+
+    ## cardinality = 0..1
+    dip = value_field
+    ## cardinality = 0..1
+    dip = single_alias_right[formula]
+    ## cardinality = 0..1
+    dip = <script_value>
+    ## cardinality = 0..1
+    dip = <static_value>
+
+    ## cardinality = 0..1
+    mil = value_field
+    ## cardinality = 0..1
+    mil = single_alias_right[formula]
+    ## cardinality = 0..1
+    mil = <script_value>
+    ## cardinality = 0..1
+    mil = <static_value>
+
+    ## cardinality = 0..1
+    female = bool
+
+    ## cardinality = 0..1
+    create_in_limbo = bool
+
+    ## cardinality = 0..1
+    birth_location = scope[location]
+
+    ## cardinality = 0..1
+    trait_category = explorer
+
+    ## cardinality = 0..1
+    save_scope_as = value_set[event_target]
+}
 
 ### Creates a colonial charter in the target province_definition
 ## scopes = { country }
@@ -2427,6 +2515,9 @@ alias[effect:create_rebel] = {
     category = enum[rebel_type]
 
     name = localisation
+
+    ## cardinality = 0..1
+    rebel_gov_type = <government_type>
 
     ## cardinality = 0..1
     culture = scope[culture]

@@ -1,0 +1,39 @@
+types = {
+    type[parliament_type] = {
+        path = "game/common/parliament_types"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+        subtype[country] = {
+            type = country
+        }
+        subtype[international_organization] = {
+            type = international_organization
+        }
+    }
+}
+
+parliament_type = {
+    ### setup for what scope this parliament is intended for, by default country
+    ## cardinality = 0..1
+    type = enum[parliament_scope]
+
+    ### root = country / international_organization
+    ## cardinality = 0..1
+    allow = single_alias_right[trigger_clause]
+
+    ### root = country / international_organization
+    ## cardinality = 0..1
+    potential = single_alias_right[trigger_clause]
+
+    ### root = country / international_organization
+    ## cardinality = 0..1
+    locked = single_alias_right[trigger_clause]
+
+    ### root = country / international_organization
+    ## cardinality = 0..1
+    modifier = single_alias_right[modifier_clause]
+
+}
