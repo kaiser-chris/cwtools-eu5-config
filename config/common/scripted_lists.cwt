@@ -6,6 +6,6 @@ types = {
 }
 
 scripted_list = {
-    base = enum[scripted_list_base]
+    base = scalar
     conditions = single_alias_right[trigger_clause]
 }

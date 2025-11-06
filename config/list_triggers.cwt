@@ -23,6 +23,165 @@ single_alias[any_list_clause] = {
 }
 
 ## push_scope = any
+alias[trigger:any_country_of_country_type] = {
+    type = enum[country_type]
+
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    count = single_alias_right[formula]
+    ## cardinality = 0..1
+    count = <script_value>
+    ## cardinality = 0..1
+    count = <static_value>
+    ## cardinality = 0..1
+    count = $define_reference
+
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+
+    alias_name[trigger] = alias_match_left[trigger]
+}
+## push_scope = any
+alias[trigger:any_country_with_special_status_of_type] = {
+    type = <international_organization_special_status>
+
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    count = single_alias_right[formula]
+    ## cardinality = 0..1
+    count = <script_value>
+    ## cardinality = 0..1
+    count = <static_value>
+    ## cardinality = 0..1
+    count = $define_reference
+
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+
+    alias_name[trigger] = alias_match_left[trigger]
+}
+## push_scope = any
+alias[trigger:any_in_global_list] = {
+    variable = value[global_variable_list]
+
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    count = single_alias_right[formula]
+    ## cardinality = 0..1
+    count = <script_value>
+    ## cardinality = 0..1
+    count = <static_value>
+    ## cardinality = 0..1
+    count = $define_reference
+
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+
+    alias_name[trigger] = alias_match_left[trigger]
+}
+## push_scope = any
+alias[trigger:any_in_list] = {
+    variable = value[variable_list]
+
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    count = single_alias_right[formula]
+    ## cardinality = 0..1
+    count = <script_value>
+    ## cardinality = 0..1
+    count = <static_value>
+    ## cardinality = 0..1
+    count = $define_reference
+
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+
+    alias_name[trigger] = alias_match_left[trigger]
+}
+## push_scope = any
+alias[trigger:any_in_local_list] = {
+    variable = value[local_variable_list]
+
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    count = single_alias_right[formula]
+    ## cardinality = 0..1
+    count = <script_value>
+    ## cardinality = 0..1
+    count = <static_value>
+    ## cardinality = 0..1
+    count = $define_reference
+
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+
+    alias_name[trigger] = alias_match_left[trigger]
+}
+## push_scope = any
+alias[trigger:any_related_country] = {
+    type = <scripted_relation>
+
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    count = single_alias_right[formula]
+    ## cardinality = 0..1
+    count = <script_value>
+    ## cardinality = 0..1
+    count = <static_value>
+    ## cardinality = 0..1
+    count = $define_reference
+
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+## push_scope = any
+alias[trigger:any_<scripted_list>] = single_alias_right[any_list_clause]
+## push_scope = any
 alias[trigger:any_accepted_culture] = single_alias_right[any_list_clause]
 ## push_scope = any
 alias[trigger:any_active_disaster] = single_alias_right[any_list_clause]
@@ -137,8 +296,6 @@ alias[trigger:any_country_in_religious_school] = single_alias_right[any_list_cla
 ## push_scope = any
 alias[trigger:any_country_lent_to] = single_alias_right[any_list_clause]
 ## push_scope = any
-alias[trigger:any_country_of_country_type] = single_alias_right[any_list_clause]
-## push_scope = any
 alias[trigger:any_country_sub_unit] = single_alias_right[any_list_clause]
 ## push_scope = any
 alias[trigger:any_country_supporting_rebel] = single_alias_right[any_list_clause]
@@ -158,8 +315,6 @@ alias[trigger:any_country_with_capital_in_geography] = single_alias_right[any_li
 alias[trigger:any_country_with_cardinals] = single_alias_right[any_list_clause]
 ## push_scope = any
 alias[trigger:any_country_with_coalition_grade_antagonism_against_us] = single_alias_right[any_list_clause]
-## push_scope = any
-alias[trigger:any_country_with_special_status_of_type] = single_alias_right[any_list_clause]
 ## push_scope = any
 alias[trigger:any_country_with_succession_law] = single_alias_right[any_list_clause]
 ## push_scope = any
@@ -268,12 +423,6 @@ alias[trigger:any_hostile_to_hostile_country] = single_alias_right[any_list_clau
 alias[trigger:any_import] = single_alias_right[any_list_clause]
 ## push_scope = any
 alias[trigger:any_import_from_location] = single_alias_right[any_list_clause]
-## push_scope = any
-alias[trigger:any_in_global_list] = single_alias_right[any_list_clause]
-## push_scope = any
-alias[trigger:any_in_list] = single_alias_right[any_list_clause]
-## push_scope = any
-alias[trigger:any_in_local_list] = single_alias_right[any_list_clause]
 ## push_scope = any
 alias[trigger:any_institutions_embraced] = single_alias_right[any_list_clause]
 ## push_scope = any
@@ -468,8 +617,6 @@ alias[trigger:any_rebel] = single_alias_right[any_list_clause]
 alias[trigger:any_region] = single_alias_right[any_list_clause]
 ## push_scope = any
 alias[trigger:any_region_in_continent] = single_alias_right[any_list_clause]
-## push_scope = any
-alias[trigger:any_related_country] = single_alias_right[any_list_clause]
 ## push_scope = any
 alias[trigger:any_religion] = single_alias_right[any_list_clause]
 ## push_scope = any

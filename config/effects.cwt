@@ -721,10 +721,7 @@ alias[effect:add_navy_tradition] = single_alias_right[formula]
 ### Adds an opinion modifier, add_opinion = { modifier = X  target = Z scale = {script value} }
 ## scopes = { country }
 alias[effect:add_opinion] = {
-    modifier = int_value_field
-    modifier = <script_value>
-    modifier = <static_value>
-    modifier = single_alias_right[formula]
+    modifier = <bias>
 
     target = scope[country]
 
@@ -1670,6 +1667,12 @@ alias[effect:change_country_name] = localisation
 ### changes the historical tag of a country
 ## scopes = { country }
 alias[effect:change_country_tag] = <country>
+### changes the historical tag of a country
+## scopes = { country }
+alias[effect:change_country_tag] = <formable_country>
+### changes the historical tag of a country
+## scopes = { country }
+alias[effect:change_country_tag] = localisation
 
 ### Changes the country type!
 ## scopes = { country }
@@ -2159,11 +2162,16 @@ alias[effect:conditional_effect] = {
 alias[effect:construct_building] = {
     building_type = scope[building_type]
 
+    ## cardinality = 0..1
     cost_multiplier = value_field
+    ## cardinality = 0..1
     cost_multiplier = single_alias_right[formula]
+    ## cardinality = 0..1
     cost_multiplier = <script_value>
+    ## cardinality = 0..1
     cost_multiplier = <static_value>
 
+    ## cardinality = 0..1
     cost_multiplier_reason = localisation
 
     ## cardinality = 0..1
@@ -2260,10 +2268,38 @@ alias[effect:create_art] = {
 
 ### Creates a new building country in the relevant country and then scopes to the new country
 ## scopes = { location }
-alias[effect:create_building_country_in_location] = scope[country]
+## push_scope = country
+alias[effect:create_building_country_in_location] = {
+    ## cardinality = 0..1
+    name = {
+        name = localisation
+    }
+
+    ## cardinality = 0..1
+    reforms = {
+        ## cardinality = 0..inf
+        <government_reform>
+    }
+
+    ## cardinality = 0..1
+    region = scope[region]
+
+    ## cardinality = 0..1
+    ruler = scope[character]
+
+    ## cardinality = 0..1
+    subject_type = scope[subject_type]
+
+    ## cardinality = 0..1
+    overlord = scope[country]
+
+    alias_name[effect] = alias_match_left[effect]
+
+}
 
 ### Creates a character for a country
 ## scopes = { country }
+## push_scope = character
 alias[effect:create_character] = {
     ## cardinality = 0..1
     culture = scope[culture]
@@ -2294,6 +2330,8 @@ alias[effect:create_character] = {
 
     ## cardinality = 0..1
     birth_date = date_field
+    ## cardinality = 0..1
+    birth_date = int
 
     ## cardinality = 0..1
     script = value_set[character]
@@ -2346,8 +2384,7 @@ alias[effect:create_character] = {
     ## cardinality = 0..1
     trait_category = explorer
 
-    ## cardinality = 0..1
-    save_scope_as = value_set[event_target]
+    alias_name[effect] = alias_match_left[effect]
 }
 
 ### Creates a colonial charter in the target province_definition
@@ -2410,6 +2447,7 @@ alias[effect:create_holy_site] = {
 
 ### Creates an empty international organization, changing the scope to the created IO. Make sure to use add_country_to_international_organization / set_leader_country to set up the leader if needed. Usage: create_international_organization = { type = <type id> [creator = <country> (country which would found the IO)] [target = <country>] }
 ## scopes = { any }
+## push_scope = international_organization
 alias[effect:create_international_organization] = {
     type = scope[international_organization_type]
 
@@ -2418,6 +2456,8 @@ alias[effect:create_international_organization] = {
 
     ## cardinality = 0..1
     target = scope[country]
+
+    alias_name[effect] = alias_match_left[effect]
 }
 
 ### Creates a new country with the current Province scope as capital and then scopes to the new country
@@ -3266,12 +3306,15 @@ alias[effect:post_audio_event] = {
 ### proposes a new resolution. type = <resolution key> actor = <proposer country> recipient = <international organisation or situation>
 ## scopes = { any }
 alias[effect:propose_resolution] = {
-    type = scope[resolution]
+    resolution = scope[resolution]
 
     actor = scope[country]
 
     recipient = scope[international_organization]
     recipient = scope[situation]
+
+    ## cardinality = 0..1
+    vote = scope[country]
 }
 
 ### The country scope will raise all its levies of the specified type. Usage: raise_all_levies = { type = army/navy [instant = yes] }
@@ -4889,6 +4932,9 @@ alias[effect:trigger_event_non_silently] = <event>
 alias[effect:trigger_event_non_silently] = {
     id = <event>
 
+    ## cardinality = 0..1
+    trigger_on_next_date = date_field
+
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
 }
@@ -4900,6 +4946,9 @@ alias[effect:trigger_event_silently] = <event>
 ## scopes = { any }
 alias[effect:trigger_event_silently] = {
     id = <event>
+
+    ## cardinality = 0..1
+    trigger_on_next_date = date_field
 
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]

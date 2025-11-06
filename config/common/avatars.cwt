@@ -38,31 +38,13 @@ avatar = {
 
     ### <scaled and triggered modifier (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to whole countries
     ## cardinality = 0..1
-    country_modifier = {
-        ## cardinality = 0..1
-        potential_trigger = single_alias_right[trigger_clause]
-
-        ## cardinality = 0..inf
-        alias_name[modifier_element] = alias_match_left[modifier_element]
-    }
+    country_modifier = single_alias_right[modifier_clause]
 
     ### <scaled and triggered modifier (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to provinces
     ## cardinality = 0..1
-    province_modifier = {
-        ## cardinality = 0..1
-        potential_trigger = single_alias_right[trigger_clause]
-
-        ## cardinality = 0..inf
-        alias_name[modifier_element] = alias_match_left[modifier_element]
-    }
+    province_modifier = single_alias_right[modifier_clause]
 
     ### <scaled and triggered modifier (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to locations
     ## cardinality = 0..1
-    location_modifier = {
-        ## cardinality = 0..1
-        potential_trigger = single_alias_right[trigger_clause]
-
-        ## cardinality = 0..inf
-        alias_name[modifier_element] = alias_match_left[modifier_element]
-    }
+    location_modifier = single_alias_right[modifier_clause]
 }

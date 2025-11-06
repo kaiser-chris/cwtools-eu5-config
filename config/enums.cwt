@@ -415,7 +415,6 @@ enums = {
         militaryconquest
     }
 
-    # probably incomplete
     enum[country_type] = {
         building
         location

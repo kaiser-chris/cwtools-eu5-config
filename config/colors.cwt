@@ -1,0 +1,56 @@
+alias[color:color] = <named_color>
+alias[color:color] = colour[rgb]
+alias[color:color] = colour[hsv360]
+alias[color:color] = single_alias_right[scripted_color_clause]
+alias[color:color] = $define_reference
+alias[color:color] = scope[color]
+
+single_alias[scripted_color_clause] = {
+    ## cardinality = 1..inf
+    alias_name[scripted_color] = alias_match_left[scripted_color]
+}
+
+
+alias[scripted_color:lerp] = {
+    min_color = <named_color>
+    min_color = colour[rgb]
+    min_color = colour[hsv360]
+    min_color = $define_reference
+    min_color = scope[color]
+
+    max_color = <named_color>
+    max_color = colour[rgb]
+    max_color = colour[hsv360]
+    max_color = $define_reference
+    max_color = scope[color]
+
+    factor = value_field
+    factor = <script_value>
+    factor = <static_value>
+}
+
+alias[scripted_color:value] = <named_color>
+alias[scripted_color:value] = colour[rgb]
+alias[scripted_color:value] = colour[hsv360]
+alias[scripted_color:value] = $define_reference
+alias[scripted_color:value] = scope[color]
+alias[scripted_color:value] = single_alias_right[scripted_color_clause]
+
+alias[scripted_color:if] = {
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 1..inf
+    alias_name[scripted_color] = alias_match_left[scripted_color]
+}
+
+alias[scripted_color:else_if] = {
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 1..inf
+    alias_name[scripted_color] = alias_match_left[scripted_color]
+}
+
+alias[scripted_color:else] = {
+    ## cardinality = 1..inf
+    alias_name[scripted_color] = alias_match_left[scripted_color]
+}

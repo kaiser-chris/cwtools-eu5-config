@@ -10,6 +10,7 @@ types = {
 
 climate = {
     winter = enum[climate_winter_type]
+
     alias_name[color] = alias_match_left[color]
     
     ## cardinality = 0..1

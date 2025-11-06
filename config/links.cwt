@@ -35,20 +35,15 @@ links = {
     }
     ### gets the active resolution of the type specified in the scope international organization or situation - usage active_resolution(<resolution>)
     active_resolution = {
-        desc = "desc"
         input_scopes = { international_organization situation }
         output_scope = active_resolution
-        from_data = yes
+        from_argument = yes
         prefix = active_resolution:
         data_source = scope[resolution]
     }
     controller = {
         input_scopes = { location sub_unit }
         output_scope = country
-    }
-    disaster_type = {
-        input_scopes = { disaster }
-        output_scope = disaster_type
     }
     ### The amount of pops of a specific type at Province
     num_pop_type_in_province = {
@@ -191,12 +186,16 @@ links = {
         prefix = cast_vote_in_active_resolution:
         data_source = scope[country]
     }
-    casus_belli = {
+    casus_belli_link = {
         input_scopes = { any }
         output_scope = casus_belli
         from_data = yes
         prefix = casus_belli:
         data_source = <casus_belli>
+    }
+    casus_belli = {
+        input_scopes = { war }
+        output_scope = casus_belli
     }
     character = {
         input_scopes = { any }
@@ -355,19 +354,27 @@ links = {
         prefix = demand:
         data_source = <goods_demand>
     }
-    dialect = {
+    dialect_link = {
         input_scopes = { any }
         output_scope = dialect
         from_data = yes
         prefix = dialect:
         data_source = <dialect>
     }
-    disaster_type = {
+    dialect = {
+        input_scopes = { culture }
+        output_scope = dialect
+    }
+    disaster_type_link = {
         input_scopes = { any }
         output_scope = disaster_type
         from_data = yes
         prefix = disaster_type:
         data_source = <disaster>
+    }
+    disaster_type = {
+        input_scopes = { disaster }
+        output_scope = disaster_type
     }
     disease = {
         input_scopes = { any }
@@ -399,6 +406,13 @@ links = {
     dominant_upper_class_culture = {
         input_scopes = { country }
         output_scope = culture
+    }
+    dynasty_link = {
+        input_scopes = { any }
+        output_scope = dynasty
+        from_data = yes
+        prefix = dynasty:
+        data_source = <dynasty>
     }
     dynasty = {
         input_scopes = { character }
@@ -1083,6 +1097,13 @@ links = {
         prefix = recruitment_method:
         data_source = <recruitment_method>
     }
+    regency_type_link = {
+        input_scopes = { any }
+        output_scope = regency_type
+        from_data = yes
+        prefix = regency_type:
+        data_source = <regency>
+    }
     regency_type = {
         input_scopes = { country }
         output_scope = regency_type
@@ -1515,14 +1536,14 @@ links = {
     vote_in_active_resolution = {
         input_scopes = { any }
         output_scope = active_resolution
-        from_data = yes
+        from_argument = yes
         prefix = vote_in_active_resolution:
         data_source = scope[country]
     }
     war_with_country = {
         input_scopes = { country }
         output_scope = war
-        from_data = yes
+        from_argument = yes
         prefix = war_with_country:
         data_source = scope[country]
     }
@@ -2143,8 +2164,8 @@ links = {
     }
     current_date = {
         input_scopes = { any }
-        output_scope = value
-        type = value
+        output_scope = date
+        type = scope
     }
     current_mission_task = {
         input_scopes = { any }
@@ -2747,26 +2768,6 @@ links = {
         type = value
     }
     has_cabinet_action = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_canonization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_cardinals = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_casus_belli = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_casus_belli_on = {
         input_scopes = { any }
         output_scope = value
         type = value

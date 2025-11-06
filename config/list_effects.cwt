@@ -151,6 +151,321 @@ alias[effect:random_country_with_special_status_of_type] = {
     alias_name[effect] = alias_match_left[effect]
 }
 
+## push_scope = any
+alias[effect:every_country_of_country_type] = {
+    type = enum[country_type]
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[effect] = alias_match_left[effect]
+}
+## push_scope = any
+alias[effect:ordered_country_of_country_type] = {
+    type = enum[country_type]
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    ## cardinality = 0..1
+    order_by = value_field
+    ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
+    order_by = <script_value>
+    ## cardinality = 0..1
+    order_by = <static_value>
+    ## cardinality = 0..1
+    order_by = $define_reference
+
+    ## cardinality = 0..1
+    min = int_value_field
+    ## cardinality = 0..1
+    min = single_alias_right[formula]
+    ## cardinality = 0..1
+    min = <script_value>
+    ## cardinality = 0..1
+    min = <static_value>
+
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = single_alias_right[formula]
+    ## cardinality = 0..1
+    max = <script_value>
+    ## cardinality = 0..1
+    max = <static_value>
+
+    ## cardinality = 0..1
+    position = int
+
+    ## cardinality = 0..1
+    check_range_bounds = no
+
+    alias_name[effect] = alias_match_left[effect]
+}
+## push_scope = any
+alias[effect:random_country_of_country_type] = {
+    type = enum[country_type]
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[formula]
+
+    alias_name[effect] = alias_match_left[effect]
+}
+
+## push_scope = any
+alias[effect:every_in_global_list] = {
+    variable = value[global_variable_list]
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[effect] = alias_match_left[effect]
+}
+## push_scope = any
+alias[effect:ordered_in_global_list] = {
+    variable = value[global_variable_list]
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    ## cardinality = 0..1
+    order_by = value_field
+    ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
+    order_by = <script_value>
+    ## cardinality = 0..1
+    order_by = <static_value>
+    ## cardinality = 0..1
+    order_by = $define_reference
+
+    ## cardinality = 0..1
+    min = int_value_field
+    ## cardinality = 0..1
+    min = single_alias_right[formula]
+    ## cardinality = 0..1
+    min = <script_value>
+    ## cardinality = 0..1
+    min = <static_value>
+
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = single_alias_right[formula]
+    ## cardinality = 0..1
+    max = <script_value>
+    ## cardinality = 0..1
+    max = <static_value>
+
+    ## cardinality = 0..1
+    position = int
+
+    ## cardinality = 0..1
+    check_range_bounds = no
+
+    alias_name[effect] = alias_match_left[effect]
+}
+## push_scope = any
+alias[effect:random_in_global_list] = {
+    variable = value[global_variable_list]
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[formula]
+
+    alias_name[effect] = alias_match_left[effect]
+}
+
+## push_scope = any
+alias[effect:every_in_list] = {
+    ## cardinality = 0..1
+    list = value[list]
+    ## cardinality = 0..1
+    variable = value[variable_list]
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[effect] = alias_match_left[effect]
+}
+## push_scope = any
+alias[effect:ordered_in_list] = {
+    variable = value[variable_list]
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    ## cardinality = 0..1
+    order_by = value_field
+    ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
+    order_by = <script_value>
+    ## cardinality = 0..1
+    order_by = <static_value>
+    ## cardinality = 0..1
+    order_by = $define_reference
+
+    ## cardinality = 0..1
+    min = int_value_field
+    ## cardinality = 0..1
+    min = single_alias_right[formula]
+    ## cardinality = 0..1
+    min = <script_value>
+    ## cardinality = 0..1
+    min = <static_value>
+
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = single_alias_right[formula]
+    ## cardinality = 0..1
+    max = <script_value>
+    ## cardinality = 0..1
+    max = <static_value>
+
+    ## cardinality = 0..1
+    position = int
+
+    ## cardinality = 0..1
+    check_range_bounds = no
+
+    alias_name[effect] = alias_match_left[effect]
+}
+## push_scope = any
+alias[effect:random_in_list] = {
+    variable = value[variable_list]
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[formula]
+
+    alias_name[effect] = alias_match_left[effect]
+}
+
+## push_scope = any
+alias[effect:every_in_local_list] = {
+    variable = value[local_variable_list]
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[effect] = alias_match_left[effect]
+}
+## push_scope = any
+alias[effect:ordered_in_local_list] = {
+    variable = value[local_variable_list]
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    ## cardinality = 0..1
+    order_by = value_field
+    ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
+    order_by = <script_value>
+    ## cardinality = 0..1
+    order_by = <static_value>
+    ## cardinality = 0..1
+    order_by = $define_reference
+
+    ## cardinality = 0..1
+    min = int_value_field
+    ## cardinality = 0..1
+    min = single_alias_right[formula]
+    ## cardinality = 0..1
+    min = <script_value>
+    ## cardinality = 0..1
+    min = <static_value>
+
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = single_alias_right[formula]
+    ## cardinality = 0..1
+    max = <script_value>
+    ## cardinality = 0..1
+    max = <static_value>
+
+    ## cardinality = 0..1
+    position = int
+
+    ## cardinality = 0..1
+    check_range_bounds = no
+
+    alias_name[effect] = alias_match_left[effect]
+}
+## push_scope = any
+alias[effect:random_in_local_list] = {
+    variable = value[local_variable_list]
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[formula]
+
+    alias_name[effect] = alias_match_left[effect]
+}
+
 ### a random list effect random_list = { X1 = { trigger = { enables/disable this effect} modifier = Y1 effect1 } X2 = { trigger = { enables/disable this effect} modifier = Y2 effect2 } ... } Selects one effect from the list and fires it. The effects are weighted by numbers X1, X2... (the higher the number, the higher the chance of the effect being picked). The chances can be modified by optional value modifier lists Y1, Y2... (AKA MTTH constructs)
 ## scopes = { any }
 ## push_scope = any
@@ -171,6 +486,8 @@ single_alias[random_list_effect_clause] = {
 
 # = Every lists
 
+## push_scope = any
+alias[effect:every_<scripted_list>] = single_alias_right[every_list_clause]
 ## push_scope = any
 alias[effect:every_accepted_culture] = single_alias_right[every_list_clause]
 ## push_scope = any
@@ -285,8 +602,6 @@ alias[effect:every_country_in_religion_group] = single_alias_right[every_list_cl
 alias[effect:every_country_in_religious_school] = single_alias_right[every_list_clause]
 ## push_scope = any
 alias[effect:every_country_lent_to] = single_alias_right[every_list_clause]
-## push_scope = any
-alias[effect:every_country_of_country_type] = single_alias_right[every_list_clause]
 ## push_scope = any
 alias[effect:every_country_sub_unit] = single_alias_right[every_list_clause]
 ## push_scope = any
@@ -413,12 +728,6 @@ alias[effect:every_hostile_to_hostile_country] = single_alias_right[every_list_c
 alias[effect:every_import] = single_alias_right[every_list_clause]
 ## push_scope = any
 alias[effect:every_import_from_location] = single_alias_right[every_list_clause]
-## push_scope = any
-alias[effect:every_in_global_list] = single_alias_right[every_list_clause]
-## push_scope = any
-alias[effect:every_in_list] = single_alias_right[every_list_clause]
-## push_scope = any
-alias[effect:every_in_local_list] = single_alias_right[every_list_clause]
 ## push_scope = any
 alias[effect:every_institutions_embraced] = single_alias_right[every_list_clause]
 ## push_scope = any
@@ -697,6 +1006,8 @@ alias[effect:every_work_of_art_in_location] = single_alias_right[every_list_clau
 # = Ordered lists
 
 ## push_scope = any
+alias[effect:ordered_<scripted_list>] = single_alias_right[ordered_list_clause]
+## push_scope = any
 alias[effect:ordered_accepted_culture] = single_alias_right[ordered_list_clause]
 ## push_scope = any
 alias[effect:ordered_active_disaster] = single_alias_right[ordered_list_clause]
@@ -810,8 +1121,6 @@ alias[effect:ordered_country_in_religion_group] = single_alias_right[ordered_lis
 alias[effect:ordered_country_in_religious_school] = single_alias_right[ordered_list_clause]
 ## push_scope = any
 alias[effect:ordered_country_lent_to] = single_alias_right[ordered_list_clause]
-## push_scope = any
-alias[effect:ordered_country_of_country_type] = single_alias_right[ordered_list_clause]
 ## push_scope = any
 alias[effect:ordered_country_sub_unit] = single_alias_right[ordered_list_clause]
 ## push_scope = any
@@ -938,12 +1247,6 @@ alias[effect:ordered_hostile_to_hostile_country] = single_alias_right[ordered_li
 alias[effect:ordered_import] = single_alias_right[ordered_list_clause]
 ## push_scope = any
 alias[effect:ordered_import_from_location] = single_alias_right[ordered_list_clause]
-## push_scope = any
-alias[effect:ordered_in_global_list] = single_alias_right[ordered_list_clause]
-## push_scope = any
-alias[effect:ordered_in_list] = single_alias_right[ordered_list_clause]
-## push_scope = any
-alias[effect:ordered_in_local_list] = single_alias_right[ordered_list_clause]
 ## push_scope = any
 alias[effect:ordered_institutions_embraced] = single_alias_right[ordered_list_clause]
 ## push_scope = any
@@ -1222,6 +1525,8 @@ alias[effect:ordered_work_of_art_in_location] = single_alias_right[ordered_list_
 # = Random lists
 
 ## push_scope = any
+alias[effect:random_<scripted_list>] = single_alias_right[random_list_clause]
+## push_scope = any
 alias[effect:random_accepted_culture] = single_alias_right[random_list_clause]
 ## push_scope = any
 alias[effect:random_active_disaster] = single_alias_right[random_list_clause]
@@ -1335,8 +1640,6 @@ alias[effect:random_country_in_religion_group] = single_alias_right[random_list_
 alias[effect:random_country_in_religious_school] = single_alias_right[random_list_clause]
 ## push_scope = any
 alias[effect:random_country_lent_to] = single_alias_right[random_list_clause]
-## push_scope = any
-alias[effect:random_country_of_country_type] = single_alias_right[random_list_clause]
 ## push_scope = any
 alias[effect:random_country_sub_unit] = single_alias_right[random_list_clause]
 ## push_scope = any
@@ -1463,12 +1766,6 @@ alias[effect:random_hostile_to_hostile_country] = single_alias_right[random_list
 alias[effect:random_import] = single_alias_right[random_list_clause]
 ## push_scope = any
 alias[effect:random_import_from_location] = single_alias_right[random_list_clause]
-## push_scope = any
-alias[effect:random_in_global_list] = single_alias_right[random_list_clause]
-## push_scope = any
-alias[effect:random_in_list] = single_alias_right[random_list_clause]
-## push_scope = any
-alias[effect:random_in_local_list] = single_alias_right[random_list_clause]
 ## push_scope = any
 alias[effect:random_institutions_embraced] = single_alias_right[random_list_clause]
 ## push_scope = any
