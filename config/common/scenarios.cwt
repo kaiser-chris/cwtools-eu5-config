@@ -12,6 +12,6 @@ scenario = {
     ## cardinality = 0..1
     flag = <coat_of_arm>
 
-    player_playstyle = enum[scenario_playstyle]
+    player_playstyle = enum[playstyle_type]
     player_proficiency = enum[scenario_proficiency]
 }

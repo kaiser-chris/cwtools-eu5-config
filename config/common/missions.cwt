@@ -16,7 +16,7 @@ mission = {
     ### Image to show on the mission selection button and in the header for the active mission
     icon = filepath[gfx/interface/illustrations/missions/,.dds]
 
-    player_playstyle = enum[mission_playstyle]
+    player_playstyle = enum[playstyle_type]
 
     ### (Default no) Whether this mission is repeatable
     ## cardinality = 0..1

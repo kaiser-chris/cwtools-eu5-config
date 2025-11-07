@@ -187,7 +187,7 @@ links = {
     cast_vote_in_active_resolution = {
         input_scopes = { active_resolution }
         output_scope = bool
-        from_data = yes
+        from_argument = yes
         prefix = cast_vote_in_active_resolution:
         data_source = scope[country]
     }
@@ -1798,10 +1798,10 @@ links = {
         type = value
     }
     border_distance_to = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = border_distance_to:
         data_source = scope[country]
     }
@@ -2385,19 +2385,28 @@ links = {
         type = value
     }
     distance_to = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = distance_to:
+        data_source = scope[location]
     }
     distance_to_area = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = distance_to:
+        data_source = scope[area]
     }
     distance_to_squared = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = distance_to:
+        data_source = scope[location]
     }
     does_owner_want_to_give_away = {
         input_scopes = { any }
@@ -4410,9 +4419,12 @@ links = {
         type = value
     }
     opinion = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        prefix = opinion:
+        from_argument = yes
+        data_source = scope[country]
     }
     opinion_difference_between = {
         input_scopes = { any }

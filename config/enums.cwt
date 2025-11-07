@@ -86,13 +86,6 @@ enums = {
         location_rank
         ability
     }
-
-    enum[scenario_playstyle] = {
-        MILITARY
-        ADMINISTRATIVE
-        DIPLOMATIC
-    }
-
     enum[scenario_proficiency] = {
         NOVICE
         EXPERIENCED
@@ -427,6 +420,7 @@ enums = {
     enum[integration_level] = {
         core
         incorporated
+        integrated
         conquered
         colonized
     }
@@ -536,7 +530,7 @@ enums = {
         none
     }
 
-    enum[mission_playstyle] = {
+    enum[playstyle_type] = {
         administrative
         military
         diplomatic

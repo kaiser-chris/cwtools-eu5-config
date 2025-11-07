@@ -1,0 +1,20 @@
+types = {
+    type[scripted_country_name] = {
+        path = "game/common/scripted_country_names"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
+    }
+}
+
+scripted_country_name = {
+    ### regular old country trigger
+    country_trigger = single_alias_right[trigger_clause]
+
+    ### trigger to check country's capital against, has to pass
+    capital_trigger = single_alias_right[trigger_clause]
+
+    ### trigger to check all the country locations against, all have to pass
+    location_trigger = single_alias_right[trigger_clause]
+}

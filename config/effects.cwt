@@ -2551,6 +2551,7 @@ alias[effect:create_num_sub_unit_of_category] = {
 alias[effect:create_rebel] = {
     category = enum[rebel_type]
 
+    ## cardinality = 0..1
     name = localisation
 
     ## cardinality = 0..1

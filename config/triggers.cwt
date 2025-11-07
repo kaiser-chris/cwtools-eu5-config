@@ -496,7 +496,7 @@ alias[trigger:country_estate_loan_size] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:country_exists] = bool
+alias[trigger:country_exists] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -748,22 +748,6 @@ alias[trigger:dependency_length_days] = bool
 ### todo
 ## scopes = { any }
 alias[trigger:destroy_market_utility] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:development] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:devotion] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:devotion_percentage] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:dip] = bool
 
 ### todo
 ## scopes = { any }
@@ -1332,7 +1316,7 @@ alias[trigger:has_cooldown] = localisation
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_core] = bool
+alias[trigger:has_core] = scope[location]
 
 ### todo
 ## scopes = { any }
@@ -1978,22 +1962,6 @@ alias[trigger:hire_price] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:honor] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:honor_percentage] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:horde_unity] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:horde_unity_percentage] = bool
-
-### todo
-## scopes = { any }
 alias[trigger:implementation_progress_percentage] = bool
 
 ### todo
@@ -2050,7 +2018,7 @@ alias[trigger:inflation_percentage] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:integration_level] = bool
+alias[trigger:integration_level] = enum[integration_level]
 
 ### todo
 ## scopes = { any }
@@ -2137,8 +2105,8 @@ alias[trigger:ironman] = bool
 alias[trigger:is_a_defender] = bool
 
 ### todo
-## scopes = { any }
-alias[trigger:is_accepted_in] = bool
+## scopes = { culture }
+alias[trigger:is_accepted_in] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2170,7 +2138,7 @@ alias[trigger:is_ai] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_alert_shown] = bool
+alias[trigger:is_alert_shown] = scalar
 
 ### todo
 ## scopes = { any }
@@ -3032,9 +3000,9 @@ alias[trigger:is_target_of_international_organization_of_type] = bool
 ## scopes = { any }
 alias[trigger:is_threat_to] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_tolerated_in] = bool
+### If a culture is tolerated in the target country?
+## scopes = { culture }
+alias[trigger:is_tolerated_in] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -3183,18 +3151,6 @@ alias[trigger:leader_special_status_power_fraction] = bool
 ### todo
 ## scopes = { any }
 alias[trigger:leader_type] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:legitimacy] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:legitimacy_percentage] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:liberty_desire] = bool
 
 ### todo
 ## scopes = { any }
@@ -3844,10 +3800,6 @@ alias[trigger:rebel_estate_type] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:rebel_last_months_progress] = bool
-
-### todo
-## scopes = { any }
 alias[trigger:rebel_locations] = bool
 
 ### todo
@@ -3979,14 +3931,6 @@ alias[trigger:remove_static_modifier_utility] = {
 
 ### todo
 ## scopes = { any }
-alias[trigger:republican_tradition] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:republican_tradition_percentage] = bool
-
-### todo
-## scopes = { any }
 alias[trigger:requires_goods] = bool
 
 ### todo
@@ -4059,18 +4003,6 @@ alias[trigger:ruler_term_start_date] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:sailors] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:sailors_percentage] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:satisfaction] = bool
-
-### todo
-## scopes = { any }
 alias[trigger:save_temporary_scope_as] = value_set[event_target]
 
 ### todo
@@ -4083,7 +4015,7 @@ alias[trigger:school_opinion] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:scope_type] = bool
+alias[trigger:scope_type] = enum[scope]
 
 ### todo
 ## scopes = { any }
@@ -4255,14 +4187,6 @@ alias[trigger:trade_sell] = bool
 ### todo
 ## scopes = { any }
 alias[trigger:trade_volume] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:tribal_cohesion] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:tribal_cohesion_percentage] = bool
 
 ### Evaluates the triggers if the display_triggers of preceding 'trigger_if' or 'trigger_else_if' is not mettrigger_if = { limit = { <display_triggers> } <triggers> }  trigger_else = { <triggers> }
 alias[trigger:trigger_else] = single_alias_right[trigger_clause]

@@ -16,15 +16,15 @@ single_alias[ordered_list_clause] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = value_field
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = <script_value>
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = <static_value>
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = $define_reference
 
     ## cardinality = 0..1
@@ -96,15 +96,15 @@ alias[effect:ordered_country_with_special_status_of_type] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = value_field
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = <script_value>
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = <static_value>
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = $define_reference
 
     ## cardinality = 0..1
@@ -333,15 +333,15 @@ alias[effect:ordered_in_list] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = value_field
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = <script_value>
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = <static_value>
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = $define_reference
 
     ## cardinality = 0..1
@@ -396,6 +396,7 @@ alias[effect:every_in_local_list] = {
     limit = {
         alias_name[trigger] = alias_match_left[trigger]
     }
+
     ## cardinality = 0..inf
     alternative_limit = {
         alias_name[trigger] = alias_match_left[trigger]
@@ -411,15 +412,15 @@ alias[effect:ordered_in_local_list] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = value_field
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = <script_value>
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = <static_value>
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = $define_reference
 
     ## cardinality = 0..1
