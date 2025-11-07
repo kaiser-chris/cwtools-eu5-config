@@ -217,6 +217,7 @@ enums = {
         negative
         positive
         kindred
+        neutral
     }
     enum[culture_dynastic_name_type] = {
         patronym

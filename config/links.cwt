@@ -1957,12 +1957,6 @@ links = {
         output_scope = value
         type = value
     }
-    #TODO
-    compare_value = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
     ### Gets how much the AI wants to conquer the supplied country - usage: conquer_desire(<target>) or conquer_desire = { target = <country link> value <operator> <amount> }
     conquer_desire = {
         input_scopes = { country }
@@ -2092,11 +2086,14 @@ links = {
         output_scope = value
         type = value
     }
-    ### Utility of a court language accorting to Ai
+    ### Utility of a court language according to Ai
     court_language_utility = {
         input_scopes = { language dialect }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = court_language_utility:
+        data_source = scope[country]
     }
     ### What is the xx position (0-1) the country has?
     court_maintenance = {
@@ -2137,27 +2134,43 @@ links = {
         output_scope = value
         type = value
     }
-    #TODO: continue here
+    ### Gets the percentage of the population that follow a particular culture group in the location/province/province_defintion/area/region/subcontinent/continent - culture_group_percentage = { culture_group = <culture group> value ><= <value> }
     culture_group_percentage = {
-        input_scopes = { any }
+        input_scopes = { location province province_definition area region sub_continent continent }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = culture_group_percentage:
+        data_source = scope[culture_group]
     }
+    ### The percentage of a specific culture group in the current country
     culture_group_percentage_in_country = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = culture_group_percentage_in_country:
+        data_source = scope[culture_group]
     }
+    ### Gets the absolute number of the population that follow a particular religion in the location/province/province_defintion/area/region/subcontinent/continent - culture_group_population = { culture_group = <culture group> value ><= <value> }
     culture_group_population = {
-        input_scopes = { any }
+        input_scopes = { location province province_definition area region sub_continent continent }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = culture_group_population:
+        data_source = scope[culture_group]
     }
+    ### The number of pops of a specific culture group in the current country
     culture_group_population_in_country = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = culture_group_population_in_country:
+        data_source = scope[culture_group]
     }
+    #TODO: continue here
     culture_opinion_impact = {
         input_scopes = { any }
         output_scope = value
@@ -5013,9 +5026,14 @@ links = {
         type = value
     }
     reverse_country_interaction_acceptance = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = reverse_country_interaction_acceptance:
+        data_source = scope[country_interaction]
+        data_source = scope[country]
     }
     rgo_workers = {
         input_scopes = { any }
