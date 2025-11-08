@@ -70,10 +70,7 @@ alias[effect:add_adm] = single_alias_right[formula]
 ### Adds an antagonism modifier, add_antagonism = { modifier = X  target = Z scale = {script value} }
 ## scopes = { country }
 alias[effect:add_antagonism] = {
-    modifier = int_value_field
-    modifier = <script_value>
-    modifier = <static_value>
-    modifier = single_alias_right[formula]
+    modifier = <bias>
 
     target = scope[country]
 

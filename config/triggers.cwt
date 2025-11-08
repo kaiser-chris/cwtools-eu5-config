@@ -2458,8 +2458,8 @@ alias[trigger:is_burgher_positive_deficit] = bool
 alias[trigger:is_camera_in_zoom_level] = enum[camera_zoom_level]
 
 ### Check if a location is a capital
-## scopes = { any }
-alias[trigger:is_capital] = location
+## scopes = { location }
+alias[trigger:is_capital] = bool
 
 ### unit is carrying troops
 ## scopes = { unit }
@@ -2477,833 +2477,914 @@ alias[trigger:is_child_of] = scope[character]
 ## scopes = { location }
 alias[trigger:is_city] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_civil_war_for] = bool
+### Is the current war a civil war for the target country?
+## scopes = { war }
+alias[trigger:is_civil_war_for] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_close_relative] = bool
+### Is the character a close relative (Child, Parent, Sibling/Half-sibling, Nephew/Niece, Aunt/Uncle, Grandparent or Grandchild) of the target character?
+## scopes = { character }
+alias[trigger:is_close_relative] = scope[character]
 
-### todo
-## scopes = { any }
+### Check if a location is coastal
+## scopes = { location }
 alias[trigger:is_coastal] = bool
 
-### todo
-## scopes = { any }
+### Country is an overlord of a colonial subject
+## scopes = { country }
 alias[trigger:is_colonial_overlord] = bool
 
-### todo
-## scopes = { any }
+### Country is a type of colonial subject
+## scopes = { country }
 alias[trigger:is_colonial_subject] = bool
 
-### todo
-## scopes = { any }
+### Country is the top overlord of a colonial subject
+## scopes = { country }
 alias[trigger:is_colonial_top_overlord] = bool
 
-### todo
-## scopes = { any }
+### Check if a location is connected by land/strait to another location in the same country
+## scopes = { location }
 alias[trigger:is_connected_to] = scope[location]
 
-### todo
-## scopes = { any }
+### character is Consort
+## scopes = { character }
 alias[trigger:is_consort] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_consort_of] = bool
+### Character is consort of the target country.
+## scopes = { character }
+alias[trigger:is_consort_of] = scope[country]
 
-### todo
+### Is the location a core of the target country?
 ## scopes = { location }
 alias[trigger:is_core_of] = scope[country]
 
-### todo
-## scopes = { any }
+### Character is a courtier and has no roles assigned
+## scopes = { character }
 alias[trigger:is_courtier] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_creating_cb_against] = bool
+### Checks if the current country scope is creating a casus belli against the target country.
+## scopes = { country }
+alias[trigger:is_creating_cb_against] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_creating_cb_of_type] = bool
+### Checks if the current country scope is creating a casus belli of the specified type against the target country. Usage: is_creating_cb_of_type = { target = <country scope> type = <casus belli type> }
+## scopes = { country }
+alias[trigger:is_creating_cb_of_type] = {
+    target = scope[country]
 
-### todo
-## scopes = { any }
+    type = scope[casus_belli]
+}
+
+### Check if a combat has any crossing (river, strait, sea landing
+## scopes = { combat }
 alias[trigger:is_crossing] = bool
 
-### todo
-## scopes = { any }
+### Check if a location is currently being integrated
+## scopes = { location }
 alias[trigger:is_currently_being_integrated] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_demanded_in_market] = bool
+### Check if the goods scope is demanded in the target market.
+## scopes = { market }
+alias[trigger:is_demanded_in_market] = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:is_demanded_in_market_by_buildings] = bool
+### Check if the goods scope is demanded in the target market by buildings.
+## scopes = { market }
+alias[trigger:is_demanded_in_market_by_buildings] = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:is_demanded_in_market_by_burgher_trades] = bool
+### Check if the goods scope is demanded in the target market by burgher trades.
+## scopes = { market }
+alias[trigger:is_demanded_in_market_by_burgher_trades] = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:is_demanded_in_market_by_constructions] = bool
+### Check if the goods scope is demanded in the target market by constructions.
+## scopes = { market }
+alias[trigger:is_demanded_in_market_by_constructions] = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:is_demanded_in_market_by_pops] = bool
+### Check if the goods scope is demanded in the target market by pops.
+## scopes = { market }
+alias[trigger:is_demanded_in_market_by_pops] = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:is_demanded_in_market_by_roads] = bool
+### Check if the goods scope is demanded in the target market by roads.
+## scopes = { market }
+alias[trigger:is_demanded_in_market_by_roads] = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:is_demanded_in_market_by_trades] = bool
+### Check if the goods scope is demanded in the target market by trades.
+## scopes = { market }
+alias[trigger:is_demanded_in_market_by_trades] = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:is_demanded_in_market_by_units] = bool
+### Check if the goods scope is demanded in the target market by units.
+## scopes = { market }
+alias[trigger:is_demanded_in_market_by_units] = scope[goods]
 
-### todo
-## scopes = { any }
+### Is the scope location/country discovered by the target country?
+## scopes = { location country }
 alias[trigger:is_discovered_by] = scope[country]
 
-### todo
-## scopes = { any }
+### Is the country a disloyal subject?
+## scopes = { country }
 alias[trigger:is_disloyal_subject] = bool
 
-### todo
+### Check if a country is the dominant country of a culture
 ## scopes = { country }
 alias[trigger:is_dominant_country_of] = scope[culture]
 
-### todo
-## scopes = { any }
+### country is having a bankruptcy
+## scopes = { country }
 alias[trigger:is_during_bankruptcy] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_dynastic_descendant_of] = bool
+### Is the character a dynastic descendant of the target dynasty?
+## scopes = { character }
+alias[trigger:is_dynastic_descendant_of] = scope[dynasty]
 
-### todo
-## scopes = { any }
+### character is DynastyHead
+## scopes = { character }
 alias[trigger:is_dynasty_head] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_east_of] = bool
+### Check if a location is east of another location
+## scopes = { location }
+alias[trigger:is_east_of] = scope[location]
 
-### todo
-## scopes = { any }
-alias[trigger:is_elector_in_international_organization] = bool
+### Checks if the country is an elector in the target international organization.
+## scopes = { country }
+alias[trigger:is_elector_in_international_organization] = scope[international_organization]
 
-### todo
+### Checks if the character can be an eligible heir for the specified country
 ## scopes = { any }
-alias[trigger:is_eligible_heir] = bool
+alias[trigger:is_eligible_heir] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_eligible_heir_baseline] = bool
+### Checks if the character can be an eligible heir for the specified country without checking the heir selection law
+## scopes = { character }
+alias[trigger:is_eligible_heir_baseline] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_eligible_military_leader] = bool
+### Checks if the character can be an eligible military leader for the specified country
+## scopes = { character }
+alias[trigger:is_eligible_military_leader] = scope[country]
 
-### todo
-## scopes = { any }
+### Is the country embargoed by the specified country?
+## scopes = { country }
 alias[trigger:is_embargoed_by] = scope[country]
 
-### todo
-## scopes = { any }
+### Is the country embargoing the specified country?
+## scopes = { country }
 alias[trigger:is_embargoing] = scope[country]
 
-### todo
-## scopes = { any }
+### Is the institution embraced by the target country?
+## scopes = { institution }
 alias[trigger:is_embraced_for] = scope[country]
 
-### todo
-## scopes = { any }
+### Is the country a enemy of a specified country?
+## scopes = { country }
 alias[trigger:is_enemy_of] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_enemy_of_international_organization] = bool
+### Is the country an enemy of the supplied international organization?
+## scopes = { country }
+alias[trigger:is_enemy_of_international_organization] = scope[international_organization]
 
-### todo
-## scopes = { any }
+### unit is Exiled
+## scopes = { unit }
 alias[trigger:is_exiled] = bool
 
-### todo
-## scopes = { any }
+### character is an explorer
+## scopes = { character }
 alias[trigger:is_explorer] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_explorer_of] = bool
+### Character is explorer of the target country.
+## scopes = { character }
+alias[trigger:is_explorer_of] = scope[country]
 
-### todo
-## scopes = { any }
+### Check if a trade is an export
+## scopes = { trade }
 alias[trigger:is_export] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_export_banned] = bool
+### Checks if export of specific goods is banned in this market
+## scopes = { market }
+alias[trigger:is_export_banned] = scope[goods]
 
-### todo
-## scopes = { any }
+### character is Female
+## scopes = { character }
 alias[trigger:is_female] = bool
 
-### todo
+### Is the country fighting a war together with a specified country?
 ## scopes = { country }
 alias[trigger:is_fighting_war_together_with] = scope[country]
 
-### todo
-## scopes = { any }
+### Check if a goods is food
+## scopes = { goods }
 alias[trigger:is_food] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_friendly_with] = bool
+### Is the country friendly with specified country?
+## scopes = { country }
+alias[trigger:is_friendly_with] = scope[country]
 
-### todo
-## scopes = { any }
+### Checks if a building is working at full capacity
+## scopes = { building }
 alias[trigger:is_full_capacity] = bool
 
-### todo
-## scopes = { any }
+### Check if a location has its RGO fully expanded
+## scopes = { location }
 alias[trigger:is_full_expanded_rgo] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_fully_implemented_in] = bool
+### Checks if the current government reform/avatar/estate privilege/god/policy/law/cabinet action scope has been fully implemented in the specified country
+## scopes = { law policy estate_privilege cabinet_action government_reform god avatar }
+alias[trigger:is_fully_implemented_in] = scope[country]
 
-### todo
+### Is the gamestate tutorial active? See save_progress_in_gamestate in tutorial_lesson_chains documentation.
 ## scopes = { any }
 alias[trigger:is_gamestate_tutorial_active] = bool
 
-### todo
-## scopes = { any }
+### character is a general
+## scopes = { character }
 alias[trigger:is_general] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_general_of] = bool
+### Character is general of the target country.
+## scopes = { character }
+alias[trigger:is_general_of] = scope[country]
 
-### todo
-## scopes = { any }
+### country is a great power
+## scopes = { country }
 alias[trigger:is_great_power] = bool
 
-### todo
-## scopes = { any }
+### country is a Hegemon
+## scopes = { country }
 alias[trigger:is_hegemon] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_hegemon_type] = bool
+### Is the country a Hegemon of the specified type?
+## scopes = { country }
+alias[trigger:is_hegemon_type] = scope[hegemony]
 
-### todo
-## scopes = { any }
+### character is Heir
+## scopes = { character }
 alias[trigger:is_heir] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_heir_of] = bool
+### Character is heir of the target country.
+## scopes = { character }
+alias[trigger:is_heir_of] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_historical_rival_of] = bool
+### Is the country an historical rival of a specified country?
+## scopes = { country }
+alias[trigger:is_historical_rival_of] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_holy_site_for] = bool
+### Is the holy site relevant to the target religion?
+## scopes = { holy_site }
+alias[trigger:is_holy_site_for] = scope[religion]
 
-### todo
-## scopes = { any }
-alias[trigger:is_hostile_with] = bool
+### Is the country hostile of specified country?
+## scopes = { country }
+alias[trigger:is_hostile_with] = scope[country]
 
-### todo
-## scopes = { any }
+### country is controlled by a human
+## scopes = { country }
 alias[trigger:is_human] = bool
 
-### todo
-## scopes = { any }
+### character is immortal
+## scopes = { character }
 alias[trigger:is_immortal] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_implementable_in] = bool
+### Checks if the current government reform/avatar/estate privilege/god/policy/law/cabinet action scope can be implemented in the specified country. Does not check if it has already been implemented or not though.
+## scopes = { law policy estate_privilege cabinet_action government_reform god avatar }
+alias[trigger:is_implementable_in] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_import_banned] = bool
+### Checks if import of specific goods is banned in this market
+## scopes = { market }
+alias[trigger:is_import_banned] = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:is_in_any_same_international_organization] = bool
+### Is the country in any same international organization as the target country?
+## scopes = { country }
+alias[trigger:is_in_any_same_international_organization] = scope[country]
 
-### todo
+### Checks if a target in in a list
 ## scopes = { any }
-alias[trigger:is_in_list] = bool
+alias[trigger:is_in_list] = value[variable_list]
+### Checks if a target in in a list
+## scopes = { any }
+alias[trigger:is_in_list] = value[list]
 
-### todo
-## scopes = { any }
+### Country is currently in a war with less than 0 war score.
+## scopes = { country }
 alias[trigger:is_in_losing_war] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_in_same_international_organization] = bool
+### Is the country in the same international organization as the target country? Usage: is_in_same_international_organization = { international_organization = <international organization scope> target = <country> }
+## scopes = { country }
+alias[trigger:is_in_same_international_organization] = {
+    international_organization = scope[international_organization]
 
-### todo
-## scopes = { any }
-alias[trigger:is_in_surplus_in_market] = bool
+    target = scope[country]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:is_in_war] = bool
+### Gets the possible trade surplus of the scope goods in the target market.
+## scopes = { goods }
+alias[trigger:is_in_surplus_in_market] = {
+    market = scope[market]
 
-### todo
-## scopes = { any }
+    country = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Is the target country in the war?
+## scopes = { war }
+alias[trigger:is_in_war] = scope[country]
+
+### character is Infant
+## scopes = { character }
 alias[trigger:is_infant] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_integrating] = bool
+### Is the country integrating any of its owned locations in province?
+## scopes = { country }
+alias[trigger:is_integrating] = scope[province_definition]
 
-### todo
+### Is the international organization unique?
 ## scopes = { any }
 alias[trigger:is_international_organization_unique] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_known_by_country] = bool
+### Checks if the country is known by the specified country
+## scopes = { country }
+alias[trigger:is_known_by_country] = scope[country]
 
-### todo
-## scopes = { any }
+### Checks if a building location does not have negative labourer deficit
+## scopes = { location }
 alias[trigger:is_labourer_positive_deficit] = bool
 
-### todo
-## scopes = { any }
+### Checks if a building is lacking goods
+## scopes = { building }
 alias[trigger:is_lacking_goods] = bool
 
-### todo
-## scopes = { any }
+### Check if a location is land
+## scopes = { location }
 alias[trigger:is_land] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_latest_road_type_for] = bool
+### Check if a road type is the latest one for a country
+## scopes = { road_type }
+alias[trigger:is_latest_road_type_for] = scope[country]
 
-### todo
-## scopes = { any }
+### Is the country the Leader of the specified international organization?
+## scopes = { country }
 alias[trigger:is_leader_of_international_organization] = scope[international_organization]
 
-### todo
-## scopes = { any }
+### subunit is levy
+## scopes = { sub_unit }
 alias[trigger:is_levy] = bool
 
-### todo
-## scopes = { any }
+### Check if a pop is linked to a foreign building
+## scopes = { pop }
 alias[trigger:is_linked_to_foreign_building] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_location_holy_site_for] = bool
+### Is the location a holy site for the target religion?
+## scopes = { location }
+alias[trigger:is_location_holy_site_for] = scope[religion]
 
-### todo
-## scopes = { any }
+### Check if a trade is locked
+## scopes = { trade }
 alias[trigger:is_locked] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_locked_for] = bool
+### Returns true if the current database object is locked for the target country.
+## scopes = { law policy government_reform parliament_type heir_selection }
+alias[trigger:is_locked_for] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_locked_for_international_organization] = bool
+### Returns true if the current database object is locked for the target international organization
+## scopes = { law policy parliament_type }
+alias[trigger:is_locked_for_international_organization] = scope[international_organization]
 
-### todo
-## scopes = { any }
+### Check if a location is looted
+## scopes = { location }
 alias[trigger:is_looted] = bool
 
-### todo
-## scopes = { any }
+### character is loyal to their ruler
+## scopes = { character }
 alias[trigger:is_loyal] = bool
 
-### todo
-## scopes = { any }
+### Checks if the government reform is major
+## scopes = { government_reform }
 alias[trigger:is_major_reform] = bool
 
-### todo
+### Is map mode active?
 ## scopes = { any }
-alias[trigger:is_map_mode_active] = bool
+alias[trigger:is_map_mode_active] = <map_mode>
 
-### todo
-## scopes = { any }
+### Check if a location is a market center
+## scopes = { location }
 alias[trigger:is_market_center] = bool
 
-### todo
-## scopes = { any }
+### character is Married
+## scopes = { character }
 alias[trigger:is_married] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_matrilineal_descendant_of] = bool
+### Is the character a dynastic descendant of the target dynasty via a matrilineal line??
+## scopes = { character }
+alias[trigger:is_matrilineal_descendant_of] = scope[dynasty]
 
-### todo
-## scopes = { any }
+### Checks if a building is at maximum level
+## scopes = { building }
 alias[trigger:is_max_level] = bool
 
-### todo
-## scopes = { any }
+### Is the country in the supplied international organization?
+## scopes = { country }
 alias[trigger:is_member_of_international_organization] = scope[international_organization]
 
-### todo
-## scopes = { any }
-alias[trigger:is_member_of_international_organization_of_type] = bool
+### Is the country in an international organization of the specified type { type = x [target = <country>] }?
+## scopes = { country }
+alias[trigger:is_member_of_international_organization_of_type] = {
+    type = <international_organization>
 
-### todo
-## scopes = { any }
+    ## cardinality = 0..1
+    target = scope[country]
+}
+
+### subunit is Mercenary
+## scopes = { sub_unit }
 alias[trigger:is_mercenary] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_mercenary_hired_by] = bool
+### Check if a mercenary is hired by a specific country
+## scopes = { mercenary }
+alias[trigger:is_mercenary_hired_by] = scope[country]
 
-### todo
-## scopes = { any }
+### character is a mercenary leader
+## scopes = { character }
 alias[trigger:is_mercenary_leader] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_mercenary_of] = bool
+### Character is mercenary of the target country.
+## scopes = { character }
+alias[trigger:is_mercenary_of] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_mercenary_owned_by] = bool
+### Check if a mercenary is owned by a specific country
+## scopes = { mercenary }
+alias[trigger:is_mercenary_owned_by] = scope[country]
 
-### todo
-## scopes = { any }
+### If a culture has been merged from a culture group.
+## scopes = { culture }
 alias[trigger:is_merged_culture_group] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_merged_culture_group_of] = bool
+### If a culture has been merged from this specific culture group.
+## scopes = { culture }
+alias[trigger:is_merged_culture_group_of] = scope[culture_group]
 
-### todo
-## scopes = { any }
+### Check if a location has a mining_rgo
+## scopes = { location }
 alias[trigger:is_mining_rgo] = bool
 
-### todo
-## scopes = { any }
+### unit is movement locked
+## scopes = { unit }
 alias[trigger:is_movement_locked] = bool
 
-### todo
-## scopes = { any }
+### unit is moving
+## scopes = { unit }
 alias[trigger:is_moving] = bool
 
-### todo
+### Is the current game session multiplayer?
 ## scopes = { any }
 alias[trigger:is_multiplayer_session] = bool
 
-### todo
-## scopes = { any }
+### Check if a combat is between navies on the sea
+## scopes = { combat }
 alias[trigger:is_naval_combat] = bool
 
-### todo
-## scopes = { any }
+### unit is Navy
+## scopes = { unit }
 alias[trigger:is_navy] = bool
 
-### todo
-## scopes = { any }
+### Is the country or location a Neighbor to the specified country?
+## scopes = { location country }
 alias[trigger:is_neighbor_of] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_neighbor_of_international_organization] = bool
+### Is the country or location a neighbor to the specified international organization?
+## scopes = { location country }
+alias[trigger:is_neighbor_of_international_organization] = scope[international_organization]
 
-### todo
-## scopes = { any }
-alias[trigger:is_neighbor_of_location] = bool
+### Check if a location is neighbour to another
+## scopes = { location }
+alias[trigger:is_neighbor_of_location] = scope[location]
 
-### todo
-## scopes = { any }
-alias[trigger:is_neighbor_of_province_definition] = bool
+### Check if a province definition is neighbour to another
+## scopes = { province_definition }
+alias[trigger:is_neighbor_of_province_definition] = scope[province_definition]
 
-### todo
-## scopes = { any }
+### is it no CB
+## scopes = { casus_belli }
 alias[trigger:is_no_cb] = bool
 
-### todo
-## scopes = { any }
+### Checks if that war was started without any casus belli ('no cb')
+## scopes = { war }
 alias[trigger:is_no_cb_war] = bool
 
-### todo
-## scopes = { any }
+### Checks if a building is not profitable or not has prfot at all
+## scopes = { building }
 alias[trigger:is_not_profitable] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_on_opposite_sides] = bool
+### Check if the two countries are in opposing sides. Usage: is_on_opposite_sides = { country = <country> target = <target> }
+## scopes = { war }
+alias[trigger:is_on_opposite_sides] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_on_same_side] = bool
+    target = scope[country]
+}
 
-### todo
+### Check if the two countries are on the same side. Usage: is_on_same_side = { country = <country> target = <target> }
 ## scopes = { any }
+alias[trigger:is_on_same_side] = {
+    country = scope[country]
+
+    target = scope[country]
+}
+
+### Checks if a building is opened
+## scopes = { building }
 alias[trigger:is_opened] = bool
 
-### todo
-## scopes = { any }
+### country is an overlord
+## scopes = { country }
 alias[trigger:is_overlord] = bool
 
-### todo
-## scopes = { any }
+### Check if a location or province is overseas for owber
+## scopes = { location province }
 alias[trigger:is_overseas_for_owner] = bool
 
-### todo
-## scopes = { any }
+### Check if a location is ownable, i.e. not sea, lake or an impassable
+## scopes = { location }
 alias[trigger:is_ownable] = bool
 
-### todo
-## scopes = { any }
+### Check if a location is owned by any international organization
+## scopes = { location }
 alias[trigger:is_owned_by_any_international_organization] = bool
 
-### todo
-## scopes = { any }
+### Check if a location is owned by an international organization
+## scopes = { location }
 alias[trigger:is_owned_by_international_organization] = scope[international_organization]
 
-### todo
-## scopes = { any }
-alias[trigger:is_owned_or_owned_by_subjects_of] = bool
+### Check if the location is owned by the target country or its subjects
+## scopes = { location }
+alias[trigger:is_owned_or_owned_by_subjects_of] = scope[country]
 
-### todo
-## scopes = { any }
+### Check if the location is owned by the target country or its subjects or the subjects' subject
+## scopes = { location }
 alias[trigger:is_owned_or_owned_by_subjects_or_below_of] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_parent_of] = bool
+### Is the character a parent of the target character?
+## scopes = { character }
+alias[trigger:is_parent_of] = scope[character]
 
-### todo
-## scopes = { any }
+### Check if a location is passable
+## scopes = { location }
 alias[trigger:is_passable] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_patrilineal_descendant_of] = bool
+### Is the character a dynastic descendant of the target dynasty via a patrilineal line??
+## scopes = { character }
+alias[trigger:is_patrilineal_descendant_of] = scope[dynasty]
 
-### todo
-## scopes = { any }
-alias[trigger:is_player_playstyle] = bool
+### Player has only one playstyle and is equal to MILITARY, ADMINISTRATIVE or DIPLOMATIC
+## scopes = { country }
+alias[trigger:is_player_playstyle] = enum[playstyle_type]
 
-### todo
-## scopes = { any }
+### Check if a location has a port
+## scopes = { location }
 alias[trigger:is_port] = bool
 
-### todo
-## scopes = { any }
+### character is Pregnant
+## scopes = { character }
 alias[trigger:is_pregnant] = bool
 
-### todo
+### If a culture is a primary culture in the target country?
 ## scopes = { culture }
 alias[trigger:is_primary_in] = scope[country]
 
-### todo
+### If a culture is a primary culture or accepted in the target country?
 ## scopes = { culture }
 alias[trigger:is_primary_or_accepted_in] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_produced_by_production_method] = bool
+### Returns true if the trade good is produced by the specified production method.
+## scopes = { goods }
+alias[trigger:is_produced_by_production_method] = scope[production_method]
 
-### todo
-## scopes = { any }
+### Checks if a specific goods in produced in this market
+## scopes = { market }
 alias[trigger:is_produced_in_market] = scope[goods]
 
-### todo
-## scopes = { any }
+### Checks if a building is profitable
+## scopes = { building }
 alias[trigger:is_profitable] = bool
 
-### todo
-## scopes = { any }
+### Checks if a market is projected to run out of food
+## scopes = { market }
 alias[trigger:is_projected_to_run_out_of_food_stockpile] = bool
 
-### todo
-## scopes = { any }
+### Check if a location is the province capital
+## scopes = { location }
 alias[trigger:is_province_capital] = bool
 
-### todo
-## scopes = { any }
+### Checks if a country is a real country as opposed to rebels, mercenaries, pirates
+## scopes = { country }
 alias[trigger:is_real_country] = bool
 
-### todo
-## scopes = { any }
+### Checks if a country is a rebel country created from a civil war
+## scopes = { country }
 alias[trigger:is_rebel_country] = bool
 
-### todo
-## scopes = { any }
+### country has an extended regency?
+## scopes = { country }
 alias[trigger:is_regency_extended] = bool
 
-### todo
-## scopes = { any }
+### character is Regent
+## scopes = { character }
 alias[trigger:is_regent] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_regent_of] = bool
+### Character is regent of the target country.
+## scopes = { character }
+alias[trigger:is_regent_of] = scope[country]
 
-### todo
-## scopes = { any }
+### unit is regiment
+## scopes = { sub_unit }
 alias[trigger:is_regiment] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_relevant] = bool
+### Checks if an international organization is relevant to the supplied country
+## scopes = { international_organization }
+alias[trigger:is_relevant] = scope[country]
 
-### todo
-## scopes = { any }
+### is the religion enabled or not
+## scopes = { religion }
 alias[trigger:is_religion_enabled] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_religious_aspect_enabled] = bool
+### Checks if the input religious aspect is enabled for the country in scope.
+### Meaning if the allow trigger in religious aspect DB object returns true.
+### example:
+### c:ARA = {
+### 	is_religious_aspect_enabled = religious_aspect:gomarism
+### }
+## scopes = { country }
+alias[trigger:is_religious_aspect_enabled] = scope[religious_aspect]
 
-### todo
-## scopes = { any }
+### character is religious figure
+## scopes = { character }
 alias[trigger:is_religious_figure] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_required_for_formable] = bool
+### Check if the location scope is required by the formable
+## scopes = { location }
+alias[trigger:is_required_for_formable] = scope[formable_country]
 
-### todo
-## scopes = { any }
+### Check if the country is the target of the revolution
+## scopes = { country }
 alias[trigger:is_revolution_target] = bool
 
-### todo
-## scopes = { any }
+### Check if the country is revolutionary
+## scopes = { country }
 alias[trigger:is_revolutionary] = bool
 
-### todo
-## scopes = { any }
+### Is the country a rival of a specified country?
+## scopes = { country }
 alias[trigger:is_rival_of] = scope[country]
 
-### todo
-## scopes = { any }
+### Check if a combat has a river crossing
+## scopes = { combat }
 alias[trigger:is_river_crossing] = bool
 
-### todo
-## scopes = { any }
+### character is Ruler
+## scopes = { character }
 alias[trigger:is_ruler] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_ruler_of] = bool
+### Character is ruler of the target country.
+## scopes = { character }
+alias[trigger:is_ruler_of] = scope[country]
 
-### todo
-## scopes = { any }
+### Checks if a character is a saint in any religion
+## scopes = { character }
 alias[trigger:is_saint] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_saint_of] = bool
+### Checks if a character is a saint in the specific religion
+## scopes = { character }
+alias[trigger:is_saint_of] = scope[religion]
 
-### todo
-## scopes = { any }
-alias[trigger:is_same_gender] = bool
+### Is the character same gender as target character?
+## scopes = { character }
+alias[trigger:is_same_gender] = scope[character]
 
-### todo
-## scopes = { any }
+### Check if a combat has an amphibious landing
+## scopes = { combat }
 alias[trigger:is_sea_landing] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_selectable_issue_for] = bool
+### Check if the parliament issue scope is selectable by country in the target international organization. Usage: is_selectable_issue_for = { actor = <country scope> international_organization = <international organization scope> }
+## scopes = { parliament_issue }
+alias[trigger:is_selectable_issue_for] = {
+    actor = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_set] = bool
+    international_organization = scope[international_organization]
+}
 
-### todo
+### Checks whether the specified scope target has been set (includes being the null object)
+### is_set = from.owner.var:cool_var.mother
 ## scopes = { any }
+alias[trigger:is_set] = scope_field
+
+### subunit is Ship
+## scopes = { sub_unit }
 alias[trigger:is_ship] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_sibling_of] = bool
+### Is the character a sibling of the target character?
+## scopes = { character }
+alias[trigger:is_sibling_of] = scope[character]
 
-### todo
+### Checks if the target situation is currently active
 ## scopes = { any }
 alias[trigger:is_situation_active] = scope[situation]
 
-### todo
-## scopes = { any }
-alias[trigger:is_spouse_of] = bool
+### Is the character a spouse of the target character?
+## scopes = { character }
+alias[trigger:is_spouse_of] = scope[character]
 
-### todo
-## scopes = { any }
+### Check if a province is starving
+## scopes = { province }
 alias[trigger:is_starving] = bool
 
-### todo
-## scopes = { any }
+### Check if a combat has a strait crossing
+## scopes = { combat }
 alias[trigger:is_strait_crossing] = bool
 
-### todo
-## scopes = { any }
+### country is a subject
+## scopes = { country }
 alias[trigger:is_subject] = bool
 
-### todo
-## scopes = { any }
+### Is the country a subject to the specified country?
+## scopes = { country }
 alias[trigger:is_subject_of] = scope[country]
 
-### todo
-## scopes = { any }
+### Is the country a subject of (or subject of a subject of) the specified country?
+## scopes = { country }
 alias[trigger:is_subject_or_below_of] = scope[country]
 
-### todo
-## scopes = { any }
+### Is the country a subject of the specified type?
+## scopes = { country }
 alias[trigger:is_subject_type] = <subject_type>
 
-### todo
-## scopes = { any }
+### Checks if a building is subsidized
+## scopes = { building }
 alias[trigger:is_subsidized] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_supported_by_character] = bool
+### Returns true if the rebel is supported by the target character
+## scopes = { rebels }
+alias[trigger:is_supported_by_character] = scope[character]
 
-### todo
-## scopes = { any }
-alias[trigger:is_supported_by_country] = bool
+### Returns true if the rebel is supported by the target country
+## scopes = { rebels }
+alias[trigger:is_supported_by_country] = scope[character]
 
-### todo
+### Checks if a target is in a variable list
+### is_target_in_variable_list = { name = X target = Y }
+### Where X is the name of the variable
+### Where Y is an event target
 ## scopes = { any }
-alias[trigger:is_target_in_global_variable_list] = bool
+alias[trigger:is_target_in_global_variable_list] = {
+    name = value[global_variable_list]
 
-### todo
-## scopes = { any }
-alias[trigger:is_target_in_local_variable_list] = bool
+    target = scope_field
+}
 
-### todo
+### Checks if a target is in a variable list
+### is_target_in_variable_list = { name = X target = Y }
+### Where X is the name of the variable
+### Where Y is an event target
 ## scopes = { any }
-alias[trigger:is_target_in_variable_list] = bool
+alias[trigger:is_target_in_local_variable_list] = {
+    name = value[local_variable_list]
 
-### todo
+    target = scope_field
+}
+
+### Checks if a target is in a variable list
+### is_target_in_variable_list = { name = X target = Y }
+### Where X is the name of the variable
+### Where Y is an event target
 ## scopes = { any }
+alias[trigger:is_target_in_variable_list] = {
+    name = value[variable_list]
+
+    target = scope_field
+}
+
+### Is the country a target of an international organization of the specified type?
+## scopes = { country }
 alias[trigger:is_target_of_international_organization_of_type] = <international_organization>
 
-### todo
-## scopes = { any }
+### Current country scope is a threat to the target country
+## scopes = { country }
 alias[trigger:is_threat_to] = scope[country]
 
 ### If a culture is tolerated in the target country?
 ## scopes = { culture }
 alias[trigger:is_tolerated_in] = scope[country]
 
-### todo
+### Is the tooltip with the specified name open?
 ## scopes = { any }
-alias[trigger:is_tooltip_with_name_open] = bool
+alias[trigger:is_tooltip_with_name_open] = scalar
 
-### todo
-## scopes = { any }
+### is it a trade CB
+## scopes = { casus_belli }
 alias[trigger:is_trade_cb] = bool
 
-### todo
-## scopes = { any }
+### Checks if a specific goods in traded in this market
+## scopes = { market }
 alias[trigger:is_traded_in_market] = scope[goods]
 
-### todo
+### Is the tutorial active?
 ## scopes = { any }
 alias[trigger:is_tutorial_active] = bool
 
-### todo
+### Is this the current tutorial lesson?
+### is_tutorial_lesson_active = reactive_advice_succession
 ## scopes = { any }
-alias[trigger:is_tutorial_lesson_active] = bool
+alias[trigger:is_tutorial_lesson_active] = <tutorial_lesson>
 
-### todo
+### Has the tutorial lesson chain with the specified key been finished?
 ## scopes = { any }
-alias[trigger:is_tutorial_lesson_chain_completed] = bool
+alias[trigger:is_tutorial_lesson_chain_completed] = <tutorial_lesson_chain>
 
-### todo
+### has the tutorial lesson with the specified name been finished?
 ## scopes = { any }
-alias[trigger:is_tutorial_lesson_completed] = bool
+alias[trigger:is_tutorial_lesson_completed] = <tutorial_lesson>
 
-### todo
+### Has the tutorial lesson step been finished?
+### is_tutorial_lesson_step_completed = lesson_key:step_key
 ## scopes = { any }
-alias[trigger:is_tutorial_lesson_step_completed] = bool
+alias[trigger:is_tutorial_lesson_step_completed] = <tutorial_lesson>:value[lesson_step]
 
-### todo
-## scopes = { any }
+### Check if a location has culture unified with the owner
+## scopes = { location }
 alias[trigger:is_unified_culture] = bool
 
-### todo
-## scopes = { any }
+### Checks if the government reform is unique
+## scopes = { government_reform }
 alias[trigger:is_unique_reform] = bool
 
-### todo
-## scopes = { any }
+### Check if a Unit is locked
+## scopes = { unit }
 alias[trigger:is_unit_locked] = bool
 
-### todo
-## scopes = { any }
+### Checks if a building is upgradeable
+## scopes = { building_type }
 alias[trigger:is_upgradeable] = bool
 
-### todo
-## scopes = { any }
+### Checks if a building could have been upgraded
+## scopes = { building_type }
 alias[trigger:is_upgraded_level] = bool
 
-### todo
-## scopes = { any }
+### Check if a pop is upper class or not
+## scopes = { pop }
 alias[trigger:is_upper_class] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:is_used_by_production_method] = bool
+### Returns true if the trade good is used by the specified production method.
+## scopes = { goods }
+alias[trigger:is_used_by_production_method] = scope[production_method]
 
-### todo
-## scopes = { any }
-alias[trigger:is_valid_colonial_charter] = scope[colonial_charter]
+### is this colonial charter valid, or blocked by a recognised claim?
+## scopes = { country }
+alias[trigger:is_valid_colonial_charter] = scope[province_definition]
 
-### todo
-## scopes = { any }
+### character is valid for an exploration
+## scopes = { character }
 alias[trigger:is_valid_for_exploration] = bool
 
 ### Returns true if the current database object is visible (but not necessarily allowed) to the target country.
 ## scopes = { law policy building_type religious_aspect estate_privilege cabinet_action government_reform production_method parliament_issue parliament_type god avatar unit_type levy_setup parliament_agenda artist_type mission mission_task regency_type unit_ability road_type heir_selection formable_country }
 alias[trigger:is_visible_for] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:is_visible_for_international_organization] = bool
+### Returns true if the current database object is available to the target international organization.
+## scopes = { law policy parliament_issue parliament_type parliament_agenda }
+alias[trigger:is_visible_for_international_organization] = scope[international_organization]
 
-### todo
-## scopes = { any }
+### Checks if the current country scope is a war leader of the target war
+## scopes = { country }
 alias[trigger:is_war_leader_of] = scope[war]
 
-### todo
+### Is the widget with the specified `widgetid` open (visible and not animating)?
+### The fastest and safest way to check. (replaces old `is_widget_open` functionality, which operated on names.)
 ## scopes = { any }
-alias[trigger:is_widgetid_open] = bool
+alias[trigger:is_widgetid_open] = scalar
 
-### todo
-## scopes = { any }
-alias[trigger:join_organization_ai_desire] = bool
+### Returns the AI desire to join the specified target international organization. Usage: join_organization_ai_desire = { international_organization = <organization scope> value = <value> } or join_organization_ai_desire(<organization scope>)
+## scopes = { country }
+alias[trigger:join_organization_ai_desire] = {
+    international_organization = scope[international_organization]
 
-### todo
-## scopes = { any }
-alias[trigger:join_war_reason] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### Checks the reason for a country joining a war. join_war_reason = { country = <> reason = <Instigator,Target,Alliance,Subject,Overlord,SupportRevolt,Intervene,Union,InternationalOrganization,Guarantee,RivalClaimant,Scripted> [optional] international_organization = <> }
 ## scopes = { any }
-alias[trigger:karma] = bool
+alias[trigger:join_war_reason] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:karma_percentage] = bool
+    reason = enum[join_war_reason]
+
+    ## cardinality = 0..1
+    international_organization = scope[international_organization]
+}
 
 ### Checks if a country has knows about an institution
 ## scopes = { country }
@@ -3313,97 +3394,141 @@ alias[trigger:knows_about_institution] = scope[institution]
 ## scopes = { country }
 alias[trigger:knows_country] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:language_percentage_in_country] = bool
+### Can we select a policy for a law in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:law_enabled_to_international_organization] = scope[law]
 
-### todo
-## scopes = { any }
-alias[trigger:language_power] = bool
+### Is a law locked in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:law_is_locked_in_international_organization] = scope[law]
 
-### todo
-## scopes = { any }
-alias[trigger:law_enabled_to_international_organization] = bool
+### Can we see a policy for a law in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:law_visible_to_international_organization] = scope[law]
 
-### todo
-## scopes = { any }
-alias[trigger:law_is_locked_in_international_organization] = bool
+### Check if the international organization has the specified leader changed method (rotation/vote/lottery/none)
+## scopes = { international_organization }
+alias[trigger:leader_change_method] = enum[international_organization_leader_change_method]
 
-### todo
-## scopes = { any }
-alias[trigger:law_visible_to_international_organization] = bool
+### Check if the international organization has the specified leader changed trigger type (rulerchang/timed/none)
+## scopes = { international_organization }
+alias[trigger:leader_change_trigger_type] = enum[international_organization_leader_change_trigger_type]
 
-### todo
-## scopes = { any }
-alias[trigger:leader_change_method] = bool
+### Check if the international organization has the specified leader type (character/country/none)
+## scopes = { international_organization }
+alias[trigger:leader_type] = enum[international_organization_leader_type]
 
-### todo
+### Checks the size of a list
+### list_size = { name = X value >= Y }
+### Where X is the name of the list
+### Where Y is a script value
 ## scopes = { any }
-alias[trigger:leader_change_trigger_type] = bool
+alias[trigger:list_size] = {
+    name = value[variable_list]
 
-### todo
-## scopes = { any }
-alias[trigger:leader_special_status_power] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:leader_special_status_power_fraction] = bool
+### Utility of a liturgical language according to Ai
+## scopes = { language dialect }
+alias[trigger:liturgical_language_utility] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:leader_type] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### Checks the size of a variable list
+### variable_list_size = { name = X target >= Y }
+### Where X is the name of the variable
+### Where Y is a script value or number
 ## scopes = { any }
-alias[trigger:list_size] = bool
+alias[trigger:local_variable_list_size] = {
+    name = value[local_variable_list]
 
-### todo
-## scopes = { any }
-alias[trigger:liturgical_language_utility] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:local_variable_list_size] = bool
+### Checks if a location has a building type at a certain level (with optional owner)
+## scopes = { location }
+alias[trigger:location_building_level] = {
+    building_type = scope[building_type]
 
-### todo
-## scopes = { any }
-alias[trigger:location_art_quality] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:location_building_level] = bool
+### Can we add a location to the scope international organization?
+## scopes = { international_organization }
+alias[trigger:location_can_be_added_to_international_organization] = scope[location]
 
-### todo
-## scopes = { any }
-alias[trigger:location_can_be_added_to_international_organization] = bool
+### Can we remove a location from the scope international organization?
+## scopes = { international_organization }
+alias[trigger:location_can_be_removed_from_international_organization] = scope[location]
 
-### todo
+### Checks if a location is the specific one (from named_location)
 ## scopes = { any }
-alias[trigger:location_can_be_removed_from_international_organization] = bool
+alias[trigger:location_key] = <named_location>
 
-### todo
-## scopes = { any }
-alias[trigger:location_counter] = bool
+### gets the maritime merchant power for a country in the scope location
+## scopes = { location }
+alias[trigger:location_maritime_merchant_power] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:location_key] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:location_maritime_merchant_power] = bool
+### gets the maritime presence power for a country in the scope location. Usage: location_maritime_presence_power = { country = <country scope> value <operator> <number> }
+## scopes = { location }
+alias[trigger:location_maritime_presence_power] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:location_maritime_presence_power] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:location_max_population] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:location_max_winter_level] = bool
+### Checks the maximum winter level of a location
+## scopes = { location }
+alias[trigger:location_max_winter_level] = enum[climate_winter_type]
 
 ### todo
 ## scopes = { any }
@@ -4314,7 +4439,7 @@ alias[trigger:switch] = bool
 alias[trigger:tag] = <country>
 ### if a country is a specific historical tag
 ## scopes = { country }
-alias[trigger:tag] = <formable_country>
+alias[trigger:tag] = enum[formable_country_tag]
 
 ### does a tag exist
 ## scopes = { any }

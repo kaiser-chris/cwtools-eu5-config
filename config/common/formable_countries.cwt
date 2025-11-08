@@ -6,7 +6,16 @@ types = {
             name = "$"
             name = "$_desc"
         }
-        name_field = tag
+    }
+}
+
+enums = {
+    complex_enum[formable_country_tag] = {
+        path = "game/common/formable_countries"
+        file_extension = .txt
+        name = {
+            tag = enum_name
+        }
     }
 }
 
@@ -49,7 +58,7 @@ formable_country = {
 
     flag = <coat_of_arm>
 
-    tag = scalar
+    tag = enum[formable_country_tag]
 
     alias_name[color] = alias_match_left[color]
 

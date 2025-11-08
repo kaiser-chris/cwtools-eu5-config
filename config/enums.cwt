@@ -595,9 +595,24 @@ enums = {
     }
 
     enum[camera_zoom_level] = {
-        SMALL
-        MEDIUM
-        LARGE
+        small
+        medium
+        large
+    }
+
+    enum[join_war_reason] = {
+        Instigator
+        Target
+        Alliance
+        Subject
+        Overlord
+        SupportRevolt
+        Intervene
+        Union
+        InternationalOrganization
+        Guarantee
+        RivalClaimant
+        Scripted
     }
 
 }

@@ -1614,10 +1614,10 @@ links = {
         data_source = value
     }
     add_static_modifier_utility = {
-        input_scopes = { location country character  }
+        input_scopes = { location country character }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = add_static_modifier_utility:
         data_source = <static_modifier>
     }
@@ -2981,158 +2981,161 @@ links = {
         output_scope = value
         type = value
     }
+    ### Returns the AI desire to join the specified target international organization. Usage: join_organization_ai_desire = { international_organization = <organization scope> value = <value> } or join_organization_ai_desire(<organization scope>)
     join_organization_ai_desire = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = join_organization_ai_desire:
+        data_source = scope[international_organization]
     }
+    ### How much karma does the country/IO have?
     karma = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current karma compared to the maximum does the country/IO have?
     karma_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
-    knows_about_institution = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    knows_country = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### The percentage of speakers of a specific language in the current country
     language_percentage_in_country = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### How much power does the language has (percent of best)?
     language_power = {
-        input_scopes = { any }
+        input_scopes = { language dialect }
         output_scope = value
         type = value
     }
-    law_enabled_to_international_organization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    law_is_locked_in_international_organization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    law_visible_to_international_organization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Get the special status power of all special statuses with the 'leader' trait
     leader_special_status_power = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Get the fraction of the special status power of all special statuses with the 'leader' trait
     leader_special_status_power_fraction = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### How much legitimacy does the country/IO have?
     legitimacy = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current legitimacy compared to the maximum does the country/IO have?
     legitimacy_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks the amount of liberty desire a country has
     liberty_desire = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
-    list_size = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Utility of a liturgical language accorting to Ai
     liturgical_language_utility = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = liturgical_language_utility:
+        data_source = scope[country]
     }
+    ### Checks the amount of a loan
     loan_amount = {
-        input_scopes = { any }
+        input_scopes = { loan }
         output_scope = value
         type = value
     }
+    ### Checks the interest of a loan
     loan_interest = {
-        input_scopes = { any }
+        input_scopes = { loan }
         output_scope = value
         type = value
     }
+    ### Checks if a location has a certain control
     local_control = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks the percentage the dominant-culture has in a location
     local_cultural_unity = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks the fraction this location has of the total political power of a country
     local_political_power_fraction = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks the percentage the dominant-religion has in a location
     local_religious_unity = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks the total art quality in a location
     location_art_quality = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks if a location has a building type at a certain level (with optional owner)
     location_building_level = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = location_building_level:
+        data_source = scope[building_type]
     }
-    location_can_be_added_to_international_organization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    location_can_be_removed_from_international_organization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks if the province/province_defintion/area/region/subcontinent/continent has this amount of location
     location_counter = {
-        input_scopes = { any }
+        input_scopes = { province province_definition area region sub_continent continent }
         output_scope = value
         type = value
     }
+    ### gets the maritime merchant power for a country in the scope location
     location_maritime_merchant_power = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = location_maritime_merchant_power:
+        data_source = scope[country]
     }
+    ### gets the maritime presence power for a country in the scope location. Usage: location_maritime_presence_power = { country = <country scope> value <operator> <number> }
     location_maritime_presence_power = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = location_maritime_presence_power:
+        data_source = scope[country]
     }
+    ### Checks if a location has a certain pixel count
     location_max_population = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
