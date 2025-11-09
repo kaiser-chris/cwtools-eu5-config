@@ -70,16 +70,8 @@ event = {
 
 	## cardinality = 0..1
 	cooldown = {
-		## cardinality = 0..1
-		enum[duration] = int
-		## cardinality = 0..1
-		enum[duration] = <script_value>
-		## cardinality = 0..1
-		enum[duration] = <static_value>
-		## cardinality = 0..1
-		enum[duration] = enum[duration]
-		## cardinality = 0..1
-		enum[duration] = { int int }
+        ## cardinality = 0..inf
+        alias_name[duration] = alias_match_left[duration]
 	}
 
 	subtype[hidden] = {

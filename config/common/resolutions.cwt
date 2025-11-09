@@ -150,7 +150,7 @@ resolution = {
     ### adds a cooldown for the action during which time it cannot be performed again
     ## cardinality = 0..1
     cooldown = {
-        type = localisation
+        type = value_set[cooldown]
 
         alias_name[duration] = alias_match_left[duration]
     }

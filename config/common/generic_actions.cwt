@@ -35,6 +35,9 @@ generic_action = {
     ## cardinality = 0..1
     message = scalar
 
+    ## cardinality = 0..1
+    exclusive_group = value_set[generic_action_exclusive_group]
+
     ### optional, to prevent messages showing
     ## cardinality = 0..1
     show_message = bool
@@ -54,10 +57,25 @@ generic_action = {
     ### a scripted standard price, listed in \common\prices\ and referenced by name (like price:<price_id>) or as a result of a script (like scope:target.price)
     ## cardinality = 0..1
     price = scope[price]
+    ### a scripted standard price, listed in \common\prices\ and referenced by name (like price:<price_id>) or as a result of a script (like scope:target.price)
+    ## cardinality = 0..1
+    price = single_alias_right[formula]
+    ### a scripted standard price, listed in \common\prices\ and referenced by name (like price:<price_id>) or as a result of a script (like scope:target.price)
+    ## cardinality = 0..1
+    price = <script_value>
+    ### a scripted standard price, listed in \common\prices\ and referenced by name (like price:<price_id>) or as a result of a script (like scope:target.price)
+    ## cardinality = 0..1
+    price = <static_value>
+    ### a scripted standard price, listed in \common\prices\ and referenced by name (like price:<price_id>) or as a result of a script (like scope:target.price)
+    ## cardinality = 0..1
+    price = value_field
 
     ### optional, to prevent the price of the action to be paid
     ## cardinality = 0..1
     should_execute_price = bool
+
+    ## cardinality = 0..1
+    ai_prerequisite = single_alias_right[trigger_clause]
 
     ### script to determine who is paying the price. By default, the actor
     ## cardinality = 0..1
@@ -87,6 +105,15 @@ generic_action = {
     ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So ai_tick = monthly and ai_tick_frequency = 6 means "check every 6 months"
     ## cardinality = 0..1
     ai_tick_frequency = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    price_modifier = value_field
+    ## cardinality = 0..1
+    price_modifier = <script_value>
+    ## cardinality = 0..1
+    price_modifier = <static_value>
+    ## cardinality = 0..1
+    price_modifier = single_alias_right[formula]
 
     ### use to ban the AI from using an action that is already handled in code OR to indicate how often to process. Used for the automation
     ## cardinality = 0..inf
@@ -133,7 +160,8 @@ generic_action = {
     ### adds a cooldown for the action during which time it cannot be performed again
     ## cardinality = 0..1
     cooldown = {
-        type = localisation
+        ## cardinality = 0..1
+        type = value_set[cooldown]
 
         alias_name[duration] = alias_match_left[duration]
     }

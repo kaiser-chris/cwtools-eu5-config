@@ -25,8 +25,11 @@ alias[effect:else] = {
 ## scopes = { any }
 alias[effect:random] = {
     chance = int_value_field[1...99]
+    chance = single_alias_right[formula]
+
     ## cardinality = 0..inf
     modifier = single_alias_right[formula]
+
     ## cardinality = 1..inf
     alias_name[effect] = alias_match_left[effect]
 }
@@ -117,7 +120,7 @@ alias[effect:add_avatar] = scope[avatar]
 ### adds some bonus war score to the supplied country. Usage: add_bonus_warscore = { country = country scope amount = script value }
 ## scopes = { war }
 alias[effect:add_bonus_warscore] = {
-    target = scope[country]
+    country = scope[country]
 
     ## cardinality = 0..1
     amount = value_field
@@ -157,6 +160,7 @@ alias[effect:add_character_modifier] = {
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
 
+    ## cardinality = 0..1
     mode = enum[modifier_mode]
 
     ## cardinality = 0..1
@@ -183,7 +187,7 @@ alias[effect:add_colonial_claim] = {
 ### adds a cooldown for a country or international organization. Usage: add_cooldown = { type = <token> days/weeks/months/years = <integer> }
 ## scopes = { country international_organization }
 alias[effect:add_cooldown] = {
-    type = localisation
+    type = value_set[cooldown]
 
     ## cardinality = 1..inf
     alias_name[duration] = alias_match_left[duration]
@@ -203,9 +207,10 @@ alias[effect:add_core] = scope[international_organization]
 alias[effect:add_country_modifier] = {
     modifier = <static_modifier>
 
-    ## cardinality = 0..inf
+    ## cardinality = 0..1
     alias_name[duration] = alias_match_left[duration]
 
+    ## cardinality = 0..1
     mode = enum[modifier_mode]
 
     ## cardinality = 0..1
@@ -392,6 +397,9 @@ alias[effect:add_gold] = <static_value>
 ### Adds gold
 ## scopes = { country international_organization }
 alias[effect:add_gold] = single_alias_right[formula]
+### Adds gold
+## scopes = { country international_organization }
+alias[effect:add_gold] = scope_field
 
 ### Changes the gold of an estate
 ## scopes = { country }
@@ -502,6 +510,7 @@ alias[effect:add_international_organization_modifier] = {
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
 
+    ## cardinality = 0..1
     mode = enum[modifier_mode]
 
     ## cardinality = 0..1
@@ -568,6 +577,7 @@ alias[effect:add_location_modifier] = {
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
 
+    ## cardinality = 0..1
     mode = enum[modifier_mode]
 
     ## cardinality = 0..1
@@ -608,6 +618,7 @@ alias[effect:add_mercenary_modifier] = {
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
 
+    ## cardinality = 0..1
     mode = enum[modifier_mode]
 
     ## cardinality = 0..1
@@ -819,6 +830,7 @@ alias[effect:add_province_modifier] = {
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
 
+    ## cardinality = 0..1
     mode = enum[modifier_mode]
 
     ## cardinality = 0..1
@@ -859,6 +871,7 @@ alias[effect:add_rebel_modifier] = {
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
 
+    ## cardinality = 0..1
     mode = enum[modifier_mode]
 
     ## cardinality = 0..1
@@ -1357,6 +1370,7 @@ alias[effect:add_unit_modifier] = {
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
 
+    ## cardinality = 0..1
     mode = enum[modifier_mode]
 
     ## cardinality = 0..1
@@ -1493,9 +1507,9 @@ alias[effect:block_treaties] = scope[country]
 ### The current country scope bribes the estate of the target country using the specified parliament agenda. Usage: bribe_estate = { type = <parliament agenda> estate_type = <estate type> target = <country> }
 ## scopes = { country }
 alias[effect:bribe_estate] = {
-    type = <parliament_agenda>
+    type = scope[parliament_agenda]
 
-    estate_type = <estate>
+    estate_type = scope[estate_type]
 
     target = scope[country]
 }
@@ -1656,7 +1670,10 @@ alias[effect:change_country_dynastic_name] = {}
 
 ### changes the flag of a country
 ## scopes = { country }
-alias[effect:change_country_flag] = <coat_arm>
+alias[effect:change_country_flag] = <coat_of_arm>
+### changes the flag of a country
+## scopes = { country }
+alias[effect:change_country_flag] = <flag_definition>
 
 ### changes the name of a country
 ## scopes = { country }
@@ -1871,12 +1888,12 @@ alias[effect:change_location_rank] = scope[location_rank]
 ### Add or remove maritime presence power for the specified country in the current location scope. Usage: change_maritime_presence_power = { country = <country scope> value = <script value> }
 ## scopes = { location }
 alias[effect:change_maritime_presence_power] = {
-    institution = scope[institution]
+    country = scope[country]
 
-    change = value_field
-    change = <script_value>
-    change = <static_value>
-    change = single_alias_right[formula]
+    value = value_field
+    value = <script_value>
+    value = <static_value>
+    value = single_alias_right[formula]
 }
 
 ### increases rgo size
@@ -2248,6 +2265,7 @@ alias[effect:create_art] = {
     ## cardinality = 0..1
     target = scope[character]
 
+    ## cardinality = 0..1
     location = scope[location]
 
     quality = value_field
@@ -2321,6 +2339,12 @@ alias[effect:create_character] = {
     last_name = localisation
 
     ## cardinality = 0..1
+    mother = scope[character]
+
+    ## cardinality = 0..1
+    father = scope[character]
+
+    ## cardinality = 0..1
     nickname = localisation
 
     ## cardinality = 0..inf
@@ -2330,6 +2354,9 @@ alias[effect:create_character] = {
     birth_date = date_field
     ## cardinality = 0..1
     birth_date = int
+
+    ## cardinality = 0..1
+    no_stats = bool
 
     ## cardinality = 0..1
     script = value_set[character]
@@ -2371,6 +2398,15 @@ alias[effect:create_character] = {
     mil = <static_value>
 
     ## cardinality = 0..1
+    artist_skill = value_field
+    ## cardinality = 0..1
+    artist_skill = single_alias_right[formula]
+    ## cardinality = 0..1
+    artist_skill = <script_value>
+    ## cardinality = 0..1
+    artist_skill = <static_value>
+
+    ## cardinality = 0..1
     female = bool
 
     ## cardinality = 0..1
@@ -2380,7 +2416,11 @@ alias[effect:create_character] = {
     birth_location = scope[location]
 
     ## cardinality = 0..1
-    trait_category = explorer
+    trait_category = enum[character_trait_category]
+
+    ## cardinality = 0..1
+    ## push_scope = estate_type
+    random_estate_type_trigger = single_alias_right[trigger_clause]
 
     alias_name[effect] = alias_match_left[effect]
 }
@@ -2412,14 +2452,22 @@ alias[effect:create_dynasty_from_location] = random
 ### scope country takes a specialized estate loan with { amount = gold interest = percent months = months }
 ## scopes = { country }
 alias[effect:create_estate_loan] = {
+    ## cardinality = 0..1
     amount = value_field
+    ## cardinality = 0..1
     amount = single_alias_right[formula]
+    ## cardinality = 0..1
     amount = <script_value>
+    ## cardinality = 0..1
     amount = <static_value>
 
+    ## cardinality = 0..1
     interest = value_field
+    ## cardinality = 0..1
     interest = single_alias_right[formula]
+    ## cardinality = 0..1
     interest = <script_value>
+    ## cardinality = 0..1
     interest = <static_value>
 
     ## cardinality = 0..inf
@@ -2441,6 +2489,8 @@ alias[effect:create_holy_site] = {
         ## cardinality = 1..inf
         scope[religion]
     }
+
+    save_scope_as = value_set[event_target]
 }
 
 ### Creates an empty international organization, changing the scope to the created IO. Make sure to use add_country_to_international_organization / set_leader_country to set up the leader if needed. Usage: create_international_organization = { type = <type id> [creator = <country> (country which would found the IO)] [target = <country>] }
@@ -2461,7 +2511,15 @@ alias[effect:create_international_organization] = {
 ### Creates a new country with the current Province scope as capital and then scopes to the new country
 ## scopes = { province }
 ## push_scope = country
-alias[effect:create_location_country_from_province] = single_alias_right[effect_clause]
+alias[effect:create_location_country_from_province] = {
+    ## cardinality = 0..1
+    ruler = scope[character]
+
+    ## cardinality = 0..1
+    subject_type = scope[subject_type]
+
+    alias_name[effect] = alias_match_left[effect]
+}
 
 ### creates a market. Usage: create_market { builder = <country> location = <location> price = <link to price> instant = <yes/no> price_modifier = <script value> }
 ## scopes = { any }
@@ -2472,8 +2530,10 @@ alias[effect:create_market] = {
 
     price = scope[price]
 
+    ## cardinality = 0..1
     instant = bool
 
+    price_modifier = scope_field
     price_modifier = value_field
     price_modifier = single_alias_right[formula]
     price_modifier = <script_value>
@@ -2495,7 +2555,10 @@ alias[effect:create_mercenary] = {
     ## cardinality = 0..1
     borrower = scope[country]
 
+    ## cardinality = 0..1
     cost_multiplier = <cost>
+
+    alias_name[duration] = alias_match_left[duration]
 
     home = scope[location]
 
@@ -2625,13 +2688,18 @@ alias[effect:create_sub_unit_with_owner] = {
 alias[effect:create_trade] = {
     from = scope[market]
 
+    to = scope[market]
+
     merchant = scope[market]
 
     goods = scope[goods]
 
     ## cardinality = 0..1
     locked = bool
+    ## cardinality = 0..1
+    locked = scope_field
 
+    desired = scope_field
     desired = value_field
     desired = single_alias_right[formula]
     desired = <script_value>
@@ -2901,6 +2969,8 @@ alias[effect:end_vote] = {
 
     ## cardinality = 0..1
     vote = scope_field
+    ## cardinality = 0..1
+    vote = bool
 }
 
 ### Log a string to the error log when this effect executes, error_log = message, the message can be a localization string with ROOT, SCOPE and PREV available
@@ -3095,7 +3165,7 @@ alias[effect:international_organization_add_special_status] = {
 
 ### international organization chooses a new leader
 ## scopes = { international_organization }
-alias[effect:international_organization_chooses_new_leader] = scope[country]
+alias[effect:international_organization_chooses_new_leader] = scope[international_organization]
 
 ### international organization removes special status from a country
 ## scopes = { international_organization }
@@ -3122,6 +3192,9 @@ alias[effect:join_war_as_attacker] = {
     war = scope[war]
 
     ## cardinality = 0..1
+    reason = enum[join_war_reason]
+
+    ## cardinality = 0..1
     call_in_subjects = bool
 }
 
@@ -3129,6 +3202,9 @@ alias[effect:join_war_as_attacker] = {
 ## scopes = { country }
 alias[effect:join_war_as_defender] = {
     war = scope[war]
+
+    ## cardinality = 0..1
+    reason = enum[join_war_reason]
 
     ## cardinality = 0..1
     call_in_subjects = bool
@@ -3316,7 +3392,9 @@ alias[effect:propose_resolution] = {
     recipient = scope[situation]
 
     ## cardinality = 0..1
-    vote = scope[country]
+    vote = scope_field
+    ## cardinality = 0..1
+    vote = bool
 }
 
 ### The country scope will raise all its levies of the specified type. Usage: raise_all_levies = { type = army/navy [instant = yes] }
@@ -3421,12 +3499,19 @@ alias[effect:remove_commander] = scope[character]
 
 ### Removes a cooldown for a country or international organization. Usage: remove_cooldown = <cooldown token>
 ## scopes = { country international_organization }
-alias[effect:remove_cooldown] = localisation
+alias[effect:remove_cooldown] = value[cooldown]
 
 ### makes the location no longer a core of the target country
 ## scopes = { location }
 alias[effect:remove_core] = scope[country]
 
+### removes a country from an international organization
+## scopes = { international_organization }
+alias[effect:remove_country_from_international_organization] = {
+    country = scope[country]
+
+    reason = enum[international_organization_leave_reason]
+}
 ### removes a country from an international organization
 ## scopes = { international_organization }
 alias[effect:remove_country_from_international_organization] = scope[country]
@@ -3871,6 +3956,8 @@ alias[effect:save_temporary_scope_as] = value_set[temporary_scope]
 ## scopes = { any }
 alias[effect:save_temporary_scope_value_as] = {
     name = value_set[temporary_scope]
+
+    value = scope_field
     value = value_field
     value = single_alias_right[formula]
     value = <script_value>
@@ -3965,7 +4052,7 @@ alias[effect:set_child_education] = scope[child_education]
 ### Sets collection pin
 ## scopes = { any }
 alias[effect:set_collection_pin] = {
-    collection = enum[collection]
+    collection = enum[pin_collection]
 
     key = enum[pin_key]
 
@@ -4079,6 +4166,8 @@ alias[effect:set_global_variable] = {
     value = <script_value>
     ## cardinality = 0..1
     value = <static_value>
+    ## cardinality = 0..1
+    value = bool
 }
 ### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope
 alias[effect:set_global_variable] = value_set[global_variable]
@@ -4337,6 +4426,9 @@ alias[effect:set_participated_in_parliament] = {
 
     ### optional, for voting against the parliament issue
     ## cardinality = 0..1
+    vote = scope_field
+    ### optional, for voting against the parliament issue
+    ## cardinality = 0..1
     vote = bool
 }
 
@@ -4485,7 +4577,7 @@ alias[effect:set_self_control] = single_alias_right[formula]
 ### Sets societal value
 ## scopes = { country }
 alias[effect:set_societal_value] = {
-    target = <societal_value>
+    type = <societal_value>
 
     value = value_field
     value = <script_value>
@@ -4557,6 +4649,7 @@ alias[effect:set_tutorial_var] = {
     value = single_alias_right[formula]
     value = scope_field
     value = bool
+    value = scalar
 }
 
 ### Sets the number of people in each subunit in the Unit to the given percentage of maximum
@@ -4618,9 +4711,16 @@ alias[effect:set_vote] = {
 
     ## cardinality = 0..1
     vote = scope_field
+    ## cardinality = 0..1
+    vote = bool
 
     ## cardinality = 0..1
     locked = bool
+
+    ## cardinality = 0..1
+    lock_reason = {
+        key = localisation
+    }
 }
 
 ### Sets WarExhaustion
@@ -4777,6 +4877,8 @@ alias[effect:start_conquistador] = {
     price_modifier = <script_value>
     ## cardinality = 0..1
     price_modifier = <static_value>
+    ## cardinality = 0..1
+    price_modifier = scope_field
 }
 
 ### Creates a new exploration = { area = <area> character = <character> price = <price> price_modifier = <number> } in the current country
@@ -4787,6 +4889,12 @@ alias[effect:start_exploration] = {
     price = scope[price]
 
     ## cardinality = 0..1
+    location = scope[location]
+
+    ## cardinality = 0..1
+    character = scope[character]
+
+    ## cardinality = 0..1
     price_modifier = value_field
     ## cardinality = 0..1
     price_modifier = single_alias_right[formula]
@@ -4794,6 +4902,8 @@ alias[effect:start_exploration] = {
     price_modifier = <script_value>
     ## cardinality = 0..1
     price_modifier = <static_value>
+    ## cardinality = 0..1
+    price_modifier = scope_field
 }
 
 ### The country starts immediately the specified mission. Will not do anything if a mission is active already. start_mission = { mission = <mission scope> [optional any parameters to pass in, eg target = x]}
@@ -4943,6 +5053,10 @@ alias[effect:trigger_event_non_silently] = <event>
 ### triggers an event or on_action, but shows the name of the event
 ## scopes = { any }
 alias[effect:trigger_event_non_silently] = {
+    ## cardinality = 0..1
+    on_action = <on_action>
+
+    ## cardinality = 0..1
     id = <event>
 
     ## cardinality = 0..1
@@ -4958,6 +5072,10 @@ alias[effect:trigger_event_silently] = <event>
 ### triggers an event or on_action
 ## scopes = { any }
 alias[effect:trigger_event_silently] = {
+    ## cardinality = 0..1
+    on_action = <on_action>
+
+    ## cardinality = 0..1
     id = <event>
 
     ## cardinality = 0..1

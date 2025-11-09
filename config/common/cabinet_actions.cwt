@@ -32,6 +32,9 @@ cabinet_action = {
     ## cardinality = 0..1
     allow_multiple = bool
 
+    ## cardinality = 0..1
+    forbid_for_automation = bool
+
     ### can add multiple of these to allow selection of targets/parameters for the action. They get stored in scope:target, scope:target_1, scope:target_2....etc
     ## cardinality = 0..inf
     select_trigger = single_alias_right[selected_trigger_clause]

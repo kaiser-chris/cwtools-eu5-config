@@ -16,9 +16,8 @@ bias = {
     yearly_decay = value_field
 
     ## cardinality = 0..1
-    enum[duration] = int_value_field
-    ## cardinality = 0..1
-    enum[duration] == <script_value>
-    ## cardinality = 0..1
-    enum[duration] == <static_value>
+    yearly_gain = value_field
+
+    ## cardinality = 0..inf
+    alias_name[duration] = alias_match_left[duration]
 }

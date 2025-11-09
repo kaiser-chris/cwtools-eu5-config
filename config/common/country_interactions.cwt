@@ -9,6 +9,7 @@ country_interaction = {
     ### subject/diplomacy
     type = enum[country_interaction_type]
 
+    ## cardinality = 0..1
     category = localisation
 
     #TODO
@@ -113,7 +114,7 @@ country_interaction = {
 
     ## cardinality = 0..1
     cooldown = {
-        type = localisation
+        type = value_set[cooldown]
 
         alias_name[duration] = alias_match_left[duration]
     }

@@ -65,12 +65,16 @@ peace_treaty = {
     antagonism_type = <bias>
 
     ### script value for how much the loser wants to accept this treaty, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
+    ## cardinality = 0..1
     ai_desire = value_field
     ### script value for how much the loser wants to accept this treaty, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
+    ## cardinality = 0..1
     ai_desire = <script_value>
     ### script value for how much the loser wants to accept this treaty, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
+    ## cardinality = 0..1
     ai_desire = <static_value>
     ### script value for how much the loser wants to accept this treaty, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
+    ## cardinality = 0..1
     ai_desire = single_alias_right[formula]
 
 

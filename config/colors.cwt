@@ -27,6 +27,7 @@ alias[scripted_color:lerp] = {
     factor = value_field
     factor = <script_value>
     factor = <static_value>
+    factor = single_alias_right[formula]
 }
 
 alias[scripted_color:value] = <named_color>

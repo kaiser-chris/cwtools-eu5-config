@@ -6,6 +6,7 @@ types = {
 }
 
 generic_action_ai_list = {
+    ## cardinality = 0..1
     potential = single_alias_right[trigger_clause]
 
     actions = {

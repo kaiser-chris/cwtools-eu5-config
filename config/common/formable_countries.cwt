@@ -57,6 +57,7 @@ formable_country = {
     adjective = localisation
 
     flag = <coat_of_arm>
+    flag = <flag_definition>
 
     tag = enum[formable_country_tag]
 

@@ -25,6 +25,9 @@ alias[trigger:add_static_modifier_utility] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the same trigger
@@ -103,6 +106,24 @@ alias[trigger:always] = bool
 ## scopes = { estate_type }
 alias[trigger:always_loyal] = bool
 
+### if estate type is crown
+## scopes = { country }
+alias[trigger:antagonism] = {
+    target = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
 ### Checks if a character is a specific type of artist
 ## scopes = { character }
 alias[trigger:artist_type] = <artist_type>
@@ -128,6 +149,20 @@ alias[trigger:assert_read] = scalar
 ## scopes = { country }
 alias[trigger:at_war] = bool
 
+### gets the market available merchant capacity for a country in the scope market
+## scopes = { market }
+alias[trigger:available_merchant_capacity] = {
+    country = scope[country]
+
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
 ### Get the average political power of the target special status. Usage: average_special_status_power = { type = <special status> value <operator> <float> } or average_special_status_power(<special status>)
 ## scopes = { international_organization }
 alias[trigger:average_special_status_power] = {
@@ -137,6 +172,9 @@ alias[trigger:average_special_status_power] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### gets distance between borders of two nations or a location/province and a nation. Usage - border_distance_to = { country = x value [operator] y } or border_distance_to(country)
@@ -148,6 +186,9 @@ alias[trigger:border_distance_to] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if a building or building type is linked to a certain category
@@ -163,6 +204,9 @@ alias[trigger:building_goods_input] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if a building is linked to a certain pop type
@@ -189,6 +233,9 @@ alias[trigger:building_type_max_level] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the type of cabinet action (ADM/DIP/MIL)
@@ -411,6 +458,9 @@ alias[trigger:cancel_exploration_utility] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the progress of the casus belli creation against the target country in percentage. Usage: cb_creation_progress_against = { target = <country scope> value = <value> } or cb_creation_progress_against(<country scope>)
@@ -422,6 +472,9 @@ alias[trigger:cb_creation_progress_against] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if the character has the same name key as their first name.
@@ -445,6 +498,9 @@ alias[trigger:colonial_charter_progress] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Utility of a colonial charter - usage: colonial_charter_utility(<province definition>|<source province>) or colonial_charter_utility = { province_definition = <province definition> source = <source province> value <operator><threshold> }
@@ -458,6 +514,9 @@ alias[trigger:colonial_charter_utility] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets how much the AI wants to conquer the supplied country - usage: conquer_desire(<target>) or conquer_desire = { target = <country link> value <operator> <amount> }
@@ -469,6 +528,9 @@ alias[trigger:conquer_desire] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Utility of a conquistador - usage: conquistador_utility(<area>) or conquistador_utility = { area = <area> value <operator><threshold> }
@@ -480,6 +542,9 @@ alias[trigger:conquistador_utility] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Does the country control a specific location?
@@ -499,6 +564,9 @@ alias[trigger:country_combined_special_status_power] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Get the political power fraction of the country within the target international organization with all of its special statuses combined. Usage: country_combined_special_status_power = { international_organization = <international organization> value <operator> <float> } or country_combined_special_status_power(<international organization>)
@@ -510,6 +578,9 @@ alias[trigger:country_combined_special_status_power_fraction] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Does the country exist?
@@ -525,6 +596,9 @@ alias[trigger:country_has_been_member_for_years] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the presence of a disease in a country. usage <country scope>: country_has_disease = <disease>
@@ -556,6 +630,9 @@ alias[trigger:country_highest_rated_special_status_power] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### How high is the target country's AI value of accepting the country interaction done by the current country scope? Always return 0 if the target is a player
@@ -570,6 +647,9 @@ alias[trigger:country_interaction_acceptance] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### level of the country rank of a country on a particular date
@@ -581,6 +661,9 @@ alias[trigger:country_rank_level_on_date] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks what type a country is (location, pop, building, army, navy)
@@ -596,6 +679,9 @@ alias[trigger:court_language_utility] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Utility of creating a market - usage: create_market_utility(<location>) or create_market_utility = { location = <location> value <operator><threshold> }
@@ -607,6 +693,9 @@ alias[trigger:create_market_utility] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### does the culture have the specified opinion of the target? { target = <target culture> value <>= <value> }
@@ -615,10 +704,9 @@ alias[trigger:cultural_view] = {
     target = scope[culture]
 
     value == enum[culture_opinion]
-    value == value_field
-    value == <script_value>
-    value == <static_value>
-    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the percentage of the population that follow a particular culture group in the location/province/province_defintion/area/region/subcontinent/continent - culture_group_percentage = { culture_group = <culture group> value ><= <value> }
@@ -630,6 +718,9 @@ alias[trigger:culture_group_percentage] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### The percentage of a specific culture group in the current country
@@ -641,6 +732,9 @@ alias[trigger:culture_group_percentage_in_country] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the absolute number of the population that follow a particular religion in the location/province/province_defintion/area/region/subcontinent/continent - culture_group_population = { culture_group = <culture group> value ><= <value> }
@@ -652,6 +746,9 @@ alias[trigger:culture_group_population] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### The number of pops of a specific culture group in the current country
@@ -663,6 +760,9 @@ alias[trigger:culture_group_population_in_country] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Opinion impact of a particular culture on another - usage: culture_opinion_impact(<culture link>) or culture_percentage = { culture = <culture link> value <operator> <amount> }
@@ -674,6 +774,9 @@ alias[trigger:culture_opinion_impact] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the percentage of the population that follow a particular culture in the location/province/province_defintion/area/region/subcontinent/continent - culture_percentage = { culture = <culture> value ><= <value> }
@@ -685,6 +788,9 @@ alias[trigger:culture_percentage] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### gets the percentage of the population that follow a particular culture in the area - culture_percentage_in_area = { country = <country> culture = <culture> value ><= <value> }
@@ -696,6 +802,9 @@ alias[trigger:culture_percentage_in_area] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### The percentage of a specific culture in the current country
@@ -707,6 +816,9 @@ alias[trigger:culture_percentage_in_country] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the absolute number of the population that follow a particular culture in the location/province/province_defintion/area/region/subcontinent/continent - culture_population = { culture = <culture> value ><= <value> }
@@ -718,6 +830,9 @@ alias[trigger:culture_population] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### The number of pops of a specific culture in the current country
@@ -729,6 +844,9 @@ alias[trigger:culture_population_in_country] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets currency progress towards specified limit
@@ -740,6 +858,9 @@ alias[trigger:currency_percentage_towards_limit] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Utility of an amount of currency to the country - usage: currency_utility(<currency>|<amount>) or currency_utility = { currency = <currency> amount = <amount> }
@@ -915,6 +1036,9 @@ alias[trigger:disease_outbreak_presence] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the presence of a disease in a location or subunit. usage: disease_presence(<disease>) or disease_presence = { disease = <disease> value <comparator> <real> }
@@ -926,6 +1050,9 @@ alias[trigger:disease_presence] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the resistance to a disease in a location or subunit. usage: disease_resistance(<disease>) or disease_resistance = { target = <disease> value <comparator> <real> }
@@ -937,6 +1064,9 @@ alias[trigger:disease_resistance] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### gets distance between locations
@@ -952,6 +1082,9 @@ alias[trigger:distance_to] =  {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### gets distance between a location and an area
@@ -967,6 +1100,9 @@ alias[trigger:distance_to_area] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### gets distance squared as the crow flies between locations (much quicker than distance_to, useful if you're just comparing)
@@ -982,6 +1118,9 @@ alias[trigger:distance_to_squared] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if a country has at least one law for which the input estate want another policy
@@ -1009,6 +1148,9 @@ alias[trigger:dynastic_power] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### does a tag exist
@@ -1027,6 +1169,8 @@ alias[trigger:education] = <child_education>
 ## scopes = { estate_type }
 alias[trigger:eligible_for_cabinet] = {
     target = scope[country]
+
+    value = bool
 }
 
 ### returns how much the country wants the target employment system. Usage: employment_system_desire = { target = <employment system> value <comparator> <value> }
@@ -1042,6 +1186,9 @@ alias[trigger:employment_system_desire] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### the current max-tax of an estate in a country - usage: estate_max_tax(<estate_type link>) or estate_max_tax = { estate_type = <estate_type link> value <operator> <amount> }
@@ -1057,6 +1204,9 @@ alias[trigger:estate_max_tax] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### the current opinion that an estate in a country has of another country - usage: estate_opinion(<estate_type link>|<country>) or estate_opinion = { estate_type = <estate_type link> target = country value <operator> <amount> }
@@ -1074,6 +1224,9 @@ alias[trigger:estate_opinion] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### the current opinion that an estate in a country has of another country - usage: estate_opinion(<estate_type link>|<country>) or estate_opinion = { estate_type = <estate_type link> target = country value <operator> <amount> }
@@ -1089,6 +1242,9 @@ alias[trigger:estate_satisfaction] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if estate type is allowed in cabinet
@@ -1131,6 +1287,9 @@ alias[trigger:exploration_expected_cost] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### gets the exploration needed time (months) for a country in the scope area
@@ -1146,6 +1305,9 @@ alias[trigger:exploration_needed_time] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Utility of an exploration to the country - usage: exploration_utility(<area>|<character>) or exploration_utility = { area = <area> character = <character> value <operator><threshold> }
@@ -1165,6 +1327,9 @@ alias[trigger:exploration_utility] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### How much favors does the country have in the target? favors = { target = X [*value >/</>=/<= Y* or *value = { min max }*  }
@@ -1180,6 +1345,9 @@ alias[trigger:favors] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Check if a subject type restricts diplomacy
@@ -1240,6 +1408,9 @@ alias[trigger:global_variable_list_size] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks which good is in this trade
@@ -1263,6 +1434,9 @@ alias[trigger:goods_demand_in_market] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### tests the goods method - mining/farming/hunting/gathering
@@ -1282,6 +1456,9 @@ alias[trigger:goods_supply_in_market] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Check if the country scope had the specified disaster type for a specific amount of years. Usage: had_disaster_for_years = { disaster_type = <disaster type> years = <years> } or had_disaster_for_years(<disaster type>)
@@ -1429,7 +1606,8 @@ alias[trigger:has_cached_or_cast_vote_for] = {
 
     resolution = scope[resolution]
 
-    vote = scope[country]
+    vote = scope_field
+    vote = bool
 }
 
 ### religion has canonization
@@ -1506,7 +1684,7 @@ alias[trigger:has_consort] = bool
 
 ### Does a country have a particular cooldown active
 ## scopes = { country international_organization  }
-alias[trigger:has_cooldown] = localisation
+alias[trigger:has_cooldown] = value[cooldown]
 
 ### Does the country has a core of a specific location?
 ## scopes = { any }
@@ -1838,7 +2016,7 @@ alias[trigger:has_opinion] = {
 alias[trigger:has_or_had_tag] = <country>
 ### if a country is a specific historical tag or was it.
 ## scopes = { country }
-alias[trigger:has_or_had_tag] = <formable_country>
+alias[trigger:has_or_had_tag] = enum[formable_country_tag]
 
 ### Check if a subject type has to have its overlord's ruler
 ## scopes = { subject_type }
@@ -1899,6 +2077,15 @@ alias[trigger:has_potential_royal_marriage] = scope[country]
 ### country has a presence in the geography supplied?
 ## scopes = { country }
 alias[trigger:has_presence_in] = scope[region]
+### country has a presence in the geography supplied?
+## scopes = { country }
+alias[trigger:has_presence_in] = scope[sub_continent]
+### country has a presence in the geography supplied?
+## scopes = { country }
+alias[trigger:has_presence_in] = scope[continent]
+### country has a presence in the geography supplied?
+## scopes = { country }
+alias[trigger:has_presence_in] = scope[area]
 
 ### Check if a country has a culture as a primary or an accepted culture
 ## scopes = { country }
@@ -2137,7 +2324,11 @@ alias[trigger:has_volcano] = bool
 
 ### Has the supplied country voted on the supplied resolution in the scope international organization/situation?
 ## scopes = { international_organization situation }
-alias[trigger:has_voted] = bool
+alias[trigger:has_voted] = {
+    voter = scope[country]
+
+    resolution = scope[resolution]
+}
 
 ### Has the supplied country voted on the supplied resolution for a specific target in the scope international organization/situation?
 ## scopes = { international_organization situation }
@@ -2146,7 +2337,10 @@ alias[trigger:has_voted_for] = {
 
     resolution = scope[resolution]
 
-    vote = scope[country]
+    ## cardinality = 0..1
+    vote = scope_field
+    ## cardinality = 0..1
+    vote = bool
 }
 
 ### Checks if the country scope has voted for the issue in the target international organization's parliament. Returns false if they have voted against it or have not voted at all.
@@ -2170,6 +2364,9 @@ alias[trigger:heir_score] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Get the hypothetical heir score of the target character for the current country, even if the character in question could not be an heir.
@@ -2185,6 +2382,9 @@ alias[trigger:heir_score_country] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Check if a location is either in the northern or southern hemisphere. Usage: hemisphere = northern/southern
@@ -2211,6 +2411,9 @@ alias[trigger:implementation_progress_percentage] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### siege is in assault
@@ -2266,8 +2469,8 @@ alias[trigger:integration_level] = enum[integration_level]
 alias[trigger:international_organization_can_add_land] = scope[international_organization]
 
 ### Can the international organization own land?
-## scopes = { any }
-alias[trigger:international_organization_can_own_land] = scope[international_organization]
+## scopes = { international_organization }
+alias[trigger:international_organization_can_own_land] = bool
 
 ### Can we remove a location from the scope international organization?
 ## scopes = { any }
@@ -2783,6 +2986,9 @@ alias[trigger:is_in_surplus_in_market] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Is the target country in the war?
@@ -3373,6 +3579,9 @@ alias[trigger:join_organization_ai_desire] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the reason for a country joining a war. join_war_reason = { country = <> reason = <Instigator,Target,Alliance,Subject,Overlord,SupportRevolt,Intervene,Union,InternationalOrganization,Guarantee,RivalClaimant,Scripted> [optional] international_organization = <> }
@@ -3434,6 +3643,9 @@ alias[trigger:list_size] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Utility of a liturgical language according to Ai
@@ -3449,6 +3661,9 @@ alias[trigger:liturgical_language_utility] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the size of a variable list
@@ -3467,6 +3682,9 @@ alias[trigger:local_variable_list_size] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if a location has a building type at a certain level (with optional owner)
@@ -3482,6 +3700,9 @@ alias[trigger:location_building_level] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Can we add a location to the scope international organization?
@@ -3509,6 +3730,9 @@ alias[trigger:location_maritime_merchant_power] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### gets the maritime presence power for a country in the scope location. Usage: location_maritime_presence_power = { country = <country scope> value <operator> <number> }
@@ -3524,6 +3748,9 @@ alias[trigger:location_maritime_presence_power] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the maximum winter level of a location
@@ -3553,6 +3780,9 @@ alias[trigger:location_peace_cost] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the progress of the country scope to form the specified formable in percentage. Usage: location_progress_for_formable = { formable_country = <formable country scope> value = <value> } or location_progress_for_formable(<formable country scope>)
@@ -3568,6 +3798,9 @@ alias[trigger:location_progress_for_formable] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if a location has a certain unemployed population for the supplied building type (with optional owner)
@@ -3583,6 +3816,9 @@ alias[trigger:location_unemployed_population_for_building_type] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if a location has a certain population within range
@@ -3609,6 +3845,9 @@ alias[trigger:long_term_trigger_currency_utility] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### gets the possible trade surplus for the goods in the scope market
@@ -3626,6 +3865,9 @@ alias[trigger:market_possible_goods_trade_surplus] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### gets the max number of countries with a specific special status in an international organization
@@ -3641,6 +3883,9 @@ alias[trigger:max_countries_with_special_status] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Check if a mercenary has an owner
@@ -3660,6 +3905,9 @@ alias[trigger:merchant_capacity] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### gets the market merchant power for a country in the scope market
@@ -3675,6 +3923,9 @@ alias[trigger:merchant_power_in_market] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if the country has completed the mission.
@@ -3698,6 +3949,9 @@ alias[trigger:modifier_utility] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the AI utility of a modifier with location checks
@@ -3709,6 +3963,9 @@ alias[trigger:modifier_utility_include_locations] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### religion needs reforms
@@ -3724,12 +3981,15 @@ alias[trigger:needs_opinion_with] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### gets the number of countries with a particular special status in an international organization
-## scopes = { country }
+## scopes = { international_organization }
 alias[trigger:num_countries_with_special_status] = {
-    special_status = scope[special_status]
+    type = scope[special_status]
 
     ## cardinality = 0..inf
     value == value_field
@@ -3739,6 +3999,9 @@ alias[trigger:num_countries_with_special_status] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### The number of traits of a specified category the character has. usage: num_of_trait_by_category(<trait_category>) or num_of_trait_by_category = { type = <trait_category> value <comparator> <integer> }
@@ -3754,6 +4017,9 @@ alias[trigger:num_of_traits_of_category] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Check if a subject type only allows use of the overlord's court language
@@ -3781,6 +4047,9 @@ alias[trigger:opinion] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Get the opinion of the current country scope against the first target country and subtract it with the opinion the current scope has of the second country. Usage: opinion_difference_between = { first = <country> second = <country> value = <value> } or opinion_difference_between(<country>|<country>)
@@ -3798,6 +4067,9 @@ alias[trigger:opinion_difference_between] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the relative strength of the scope organization to the supplied country - usage: organization_strength_relative_to_country(<target>|<bool exclude_target>) or organization_strength_relative_to_country = { target = <country link> value <operator> <amount> exclude_target = <bool> }
@@ -3813,6 +4085,9 @@ alias[trigger:organization_strength_relative_to_country] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 
     exclude_target = bool
 }
@@ -3862,11 +4137,15 @@ alias[trigger:parliament_issue_chance] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### The current support in parliament for an issue
 ## scopes = { country international_organization }
 alias[trigger:parliament_issue_support] = {
+    ## cardinality = 0..1
     parliament_issue = scope[parliament_issue]
 
     ## cardinality = 0..inf
@@ -3877,6 +4156,9 @@ alias[trigger:parliament_issue_support] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Check if the parliament issue of the country / international in debate will pass
@@ -3912,6 +4194,12 @@ alias[trigger:parliament_type_utility] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 
     subtract_current = bool
 }
@@ -3993,6 +4281,12 @@ alias[trigger:pop_type_percentage_in_country] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### The number of the specific pop type in the current country
@@ -4008,6 +4302,9 @@ alias[trigger:pop_type_population_in_country] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if the location has x amount of population with specific pop traits. Usage: population_with_traits = { limit = { <pop triggers> } OR scripted_trigger = <scripted trigger key> value = <script value> } or population_with_traits(<scripted trigger key>)
@@ -4028,6 +4325,9 @@ alias[trigger:population_with_traits] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the price of the scoped goods in the supplied market
@@ -4046,6 +4346,9 @@ alias[trigger:price_in_market] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if a cabinet action role affects a province
@@ -4065,6 +4368,9 @@ alias[trigger:raw_material_amount] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if a rebel is of a certain category
@@ -4100,7 +4406,7 @@ alias[trigger:receives_military_access_from] = scope[country]
 alias[trigger:receiving_scripted_relation] = {
     target = scope[country]
 
-    type = enum[scripted_relation_type]
+    type = scope[relation_type]
 }
 
 ### Checks if that scripted relation is received by the country scope from any other country.
@@ -4120,6 +4426,9 @@ alias[trigger:relative_military_strength] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the price of a location's raw material in its market as a percentage of the base price of that material
@@ -4135,6 +4444,9 @@ alias[trigger:relative_raw_material_price] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the relative strength of the scope country to the supplied one - usage: relative_strength(<target>) or relative_strength = { target = <country link> value <operator> <amount> }
@@ -4150,6 +4462,9 @@ alias[trigger:relative_strength] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if the game is in release mode or not.
@@ -4173,12 +4488,15 @@ alias[trigger:religion_group_percentage] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### The percentage of a specific religion group in the current country
 ## scopes = { country }
 alias[trigger:religion_group_percentage_in_country] = {
-    religion_group = scope[religion_group]
+    group = scope[religion_group]
 
     ## cardinality = 0..inf
     value == value_field
@@ -4188,6 +4506,9 @@ alias[trigger:religion_group_percentage_in_country] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the absolute number of the population that follow a particular religion group in the location/province/province_defintion/area/region/subcontinent/continent - religion_group_population = { religion_group = <religion group> value ><= <value> }
@@ -4203,6 +4524,9 @@ alias[trigger:religion_group_population] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the percentage of the population that follow a particular religion in the location/province/province_defintion/area/region/subcontinent/continent - religion_percentage = { religion = <religion> value ><= <value> }
@@ -4218,6 +4542,9 @@ alias[trigger:religion_percentage] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### The percentage of a specific religion in the current country
@@ -4233,6 +4560,9 @@ alias[trigger:religion_percentage_in_country] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the absolute number of the population that follow a particular religion in the location/province/province_defintion/area/region/subcontinent/continent - religion_population = { religion = <religion> value ><= <value> }
@@ -4248,6 +4578,9 @@ alias[trigger:religion_population] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### The number of pops with a specific religion in the current country
@@ -4263,6 +4596,9 @@ alias[trigger:religion_population_in_country] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if a character is a specific type of religious figure
@@ -4274,10 +4610,10 @@ alias[trigger:religious_figure_type] = <religious_figure>
 alias[trigger:religious_view] = {
     target = scope[religion]
 
-    value == value_field
-    value == <script_value>
-    value == <static_value>
-    value == single_alias_right[formula]
+    value == enum[culture_opinion]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Utility of relocating a market - usage: relocate_market_utility(<location>,<location>) or relocate_market_utility = { location = <location> new_location = <location> value <operator><threshold> }
@@ -4295,6 +4631,9 @@ alias[trigger:relocate_market_utility] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the AI utility of removing a static modifier from the scoped object
@@ -4313,6 +4652,9 @@ alias[trigger:remove_static_modifier_utility] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Returns true if the production method requires the specified trade good.
@@ -4334,7 +4676,8 @@ alias[trigger:resolution_opinion] = {
 
     resolution = scope[resolution]
 
-    vote = scope[country]
+    vote = scope_field
+    vote = bool
 }
 
 ### How high is the current country's AI value of accepting the country interaction done by the specified country scope? Always return 0 if the scope is a player
@@ -4353,6 +4696,9 @@ alias[trigger:reverse_country_interaction_acceptance] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### does the target have the specified opinion of the culture? { target = <target culture> value <>= <value> }
@@ -4368,10 +4714,10 @@ alias[trigger:reverse_cultural_view] = {
 alias[trigger:reverse_religious_view] = {
     target = scope[religion]
 
-    value == value_field
-    value == <script_value>
-    value == <static_value>
-    value == single_alias_right[formula]
+    value == enum[culture_opinion]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### does the target have the specified opinion of the school?
@@ -4383,6 +4729,9 @@ alias[trigger:reverse_school_opinion] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### can the country find a trade route from market a to market b { from = <market> to = <market> }?
@@ -4425,6 +4774,9 @@ alias[trigger:school_opinion] = {
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks the type of the scope object
@@ -4451,6 +4803,9 @@ alias[trigger:short_term_trigger_currency_utility] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Check if a situation has ended
@@ -4488,6 +4843,9 @@ alias[trigger:special_status_power] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Get the political power fraction of the specified country in an organization with that specified special status. Usage: special_status_power_fraction = { country = <country> type = <special status> value <operator> <float> } or special_status_power(<country>|<special status>)
@@ -4495,7 +4853,7 @@ alias[trigger:special_status_power] = {
 alias[trigger:special_status_power_fraction] = {
     country = scope[country]
 
-    type = scope[special_status]
+    special_status = scope[special_status]
 
     ## cardinality = 0..inf
     value == value_field
@@ -4505,6 +4863,9 @@ alias[trigger:special_status_power_fraction] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### How much spy-network does the country have in the target? spy_network = { target = X [*value >/</>=/<= Y* or *value = { min max }*  }
@@ -4520,6 +4881,9 @@ alias[trigger:spy_network] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if a sub_unit is of a specific type
@@ -4547,12 +4911,12 @@ alias[trigger:supports_rebel] = scope[rebels]
 alias[trigger:switch] = {
     trigger = alias_keys_field[trigger]
 
-    ## cardinality = ~1..inf
+    ## cardinality = 1..inf
     scalar = {
         alias_name[trigger] = alias_match_left[trigger]
     }
 
-    ## cardinality = ~1..1
+    ## cardinality = 0..1
     fallback = {
         alias_name[trigger] = alias_match_left[trigger]
     }
@@ -4564,6 +4928,8 @@ alias[trigger:tag] = <country>
 ### if a country is a specific historical tag
 ## scopes = { country }
 alias[trigger:tag] = enum[formable_country_tag]
+## scopes = { country }
+alias[trigger:tag] = scope[country]
 
 ### does a tag exist
 ## scopes = { any }
@@ -4585,6 +4951,9 @@ alias[trigger:threat_level_to] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Check if the current date is within the bounds
@@ -4618,6 +4987,9 @@ alias[trigger:total_effective_goods_production_buildings] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Return the threat level the scope country has towards the target country scope. Usage: threat_level_to = { country = <country scope> value = <value> } or threat_level_to(<country scope>)
@@ -4635,6 +5007,9 @@ alias[trigger:total_payment_contribution] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Return the threat level the scope country has towards the target country scope. Usage: threat_level_to = { country = <country scope> value = <value> } or threat_level_to(<country scope>)
@@ -4650,6 +5025,9 @@ alias[trigger:total_payment_contribution] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Return the threat level the scope country has towards the target country scope. Usage: threat_level_to = { country = <country scope> value = <value> } or threat_level_to(<country scope>)
@@ -4665,6 +5043,9 @@ alias[trigger:total_population_in_international_organization_percentage] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Get the political power of all countries in an organization with that specified special status. Usage: total_special_status_power = { type = <special status> value <operator> <float> } or total_special_status_power(<special status>)
@@ -4680,6 +5061,9 @@ alias[trigger:total_population_in_international_organization_percentage] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Get the percentage political power of the target special status compared to the total amount of political power of all special statuses combined. Usage: special_status_power_fraction = { type = <special status> value <operator> <float> } or special_status_power_fraction(<special status>)
@@ -4695,6 +5079,9 @@ alias[trigger:total_population_in_international_organization_percentage] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Get the political power of all countries in an organization with that specified special status. Usage: total_special_status_power = { type = <special status> value <operator> <float> } or total_special_status_power(<special status>)
@@ -4710,6 +5097,9 @@ alias[trigger:total_unique_special_status_power] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Evaluates the triggers if the display_triggers of preceding 'trigger_if' or 'trigger_else_if' is not mettrigger_if = { limit = { <display_triggers> } <triggers> }  trigger_else = { <triggers> }
@@ -4725,6 +5115,7 @@ alias[trigger:trigger_else_if] = {
 alias[trigger:trigger_if] = {
     ## cardinality = 0..inf
     limit = single_alias_right[trigger_clause]
+
     alias_name[trigger] = alias_match_left[trigger]
 }
 
@@ -4741,6 +5132,9 @@ alias[trigger:trust] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### returns the number of days a country has been in a union with the target country. Usage: union_length_days = { target = <country> value <comparator> <value> }
@@ -4756,6 +5150,9 @@ alias[trigger:union_length_days] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Does an international organization of this type exist?
@@ -4765,6 +5162,21 @@ alias[trigger:unique_international_organization_type_exists] = scope[internation
 ### does the unit have a leader?
 ## scopes = { unit }
 alias[trigger:unit_has_leader] = bool
+
+### Checks if a country has a certain government_power (e.g. 'legitimacy')
+## scopes = { market }
+alias[trigger:used_merchant_capacity] = {
+    country = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
 ### Checks if a country has a certain government_power (e.g. 'legitimacy')
 ## scopes = { country }
@@ -4790,6 +5202,9 @@ alias[trigger:variable_list_size] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if a location is of a specific Vegetation type
@@ -4811,6 +5226,9 @@ alias[trigger:vote_impact_in_resolution] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Is a country's vote locked in the scope international organization/situation?
@@ -4836,6 +5254,9 @@ alias[trigger:vote_percentage_impact_in_resolution] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 #TODO: unknown
@@ -4858,6 +5279,9 @@ alias[trigger:votes_for_resolution] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Does country want a casus belli with another nation? Only for Ai
@@ -4893,6 +5317,9 @@ alias[trigger:war_enthusiasm] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Check how much war score the current country has in the target war. Usage: war_score_in_war = { war = <war> value <operatore> <real> } or war_score_in_war(<war>)
@@ -4908,6 +5335,9 @@ alias[trigger:war_score_in_war] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Check how much war score the target country has in the current war. Usage: war_score_of_country = { country = <country> value <operatore> <real> } or war_score_of_country(<country>)
@@ -4923,12 +5353,15 @@ alias[trigger:war_score_of_country] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the war score of the scope country against the supplied one - usage: war_score_versus(<target>) or war_score_versus = { target = <country link> value <operator> <amount> }
 ## scopes = { country }
 alias[trigger:war_score_versus] = {
-    war = scope[war]
+    target = scope[country]
 
     ## cardinality = 0..inf
     value == value_field
@@ -4938,6 +5371,9 @@ alias[trigger:war_score_versus] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### todo
@@ -4987,6 +5423,9 @@ alias[trigger:world_culture_group_percentage] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the absolute number of the population that follow a particular culture group in the world - world_culture_group_population = { culture_group = <culture_group> value ><= <value> }
@@ -5002,6 +5441,9 @@ alias[trigger:world_culture_group_population] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the percentage of the population that follow a particular culture in the world - world_culture_percentage = { culture = <culture> value ><= <value> }
@@ -5017,6 +5459,9 @@ alias[trigger:world_culture_percentage] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the absolute number of the population that follow a particular culture in the world - world_culture_population = { culture = <culture> value ><= <value> }
@@ -5032,6 +5477,9 @@ alias[trigger:world_culture_population] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the percentage of the population that follow a particular religion group in the world - world_religion_group_percentage = { religion_group = <religion_group> value ><= <value> }
@@ -5047,6 +5495,9 @@ alias[trigger:world_religion_group_percentage] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the absolute number of the population that follow a particular religion group in the world - world_religion_group_population = { religion_group = <religion_group> value ><= <value> }
@@ -5062,6 +5513,9 @@ alias[trigger:world_religion_group_population] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the percentage of the population that follow a particular religion in the world - world_religion_percentage = { religion = <religion> value ><= <value> }
@@ -5077,6 +5531,9 @@ alias[trigger:world_religion_percentage] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Gets the absolute number of the population that follow a particular religion in the world - world_religion_population = { religion = <religion> value ><= <value> }
@@ -5092,6 +5549,9 @@ alias[trigger:world_religion_population] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Checks if the country has been in the current international organization scope for x years. Usage: years_in_international_organization = { country = <country scope> value = <years> } or years_in_international_organization(country)
@@ -5107,4 +5567,7 @@ alias[trigger:years_in_international_organization] = {
     value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }

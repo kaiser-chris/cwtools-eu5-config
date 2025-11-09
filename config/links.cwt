@@ -1,25 +1,12 @@
 links = {
-    # == Are these needed or just internals being exposed?
-    # TODO: A comparison trigger that needs a parsable string parameter that will return its value in the context it is used eg: scope:root.number_of(armies)
-    # compare_complex_value = {
-    #     desc = "desc"
-    #     input_scopes = { any }
-    #     output_scope = any
-    # }
-    # TODO: A comparison trigger that will return its date in the context it is used eg: root.gold
-    # compare_date = {
-    #     desc = "desc"
-    #     input_scopes = { any }
-    #     output_scope = any
-    # }
-    # TODO: A comparison trigger that will return its value in the context it is used eg: root.gold
-    # compare_value = {
-    #     desc = "desc"
-    #     input_scopes = { any }
-    #     output_scope = any
-    # }
-
     # === Event Targets
+
+    #TODO: Does not work
+    <script_value> = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
 
     active_mission = {
         input_scopes = { country }
@@ -29,7 +16,7 @@ links = {
     active_outbreak = {
         input_scopes = { location sub_unit }
         output_scope = disease_outbreak
-        from_data = yes
+        from_argument = yes
         prefix = active_outbreak:
         data_source = scope[disease]
     }
@@ -49,6 +36,7 @@ links = {
     num_pop_type_in_province = {
         input_scopes = { province }
         output_scope = value
+        type = value
         from_data = yes
         prefix = num_pop_type_in_province:
         data_source = <pop_type>
@@ -57,7 +45,7 @@ links = {
     area_exploration = {
         input_scopes = { area }
         output_scope = exploration
-        from_data = yes
+        from_argument = yes
         prefix = area_exploration:
         data_source = scope[country]
     }
@@ -76,6 +64,7 @@ links = {
     array_define = {
         input_scopes = { any }
         output_scope = value
+        type = value
         from_data = yes
         prefix = array_define:
         data_source = <array_define>
@@ -105,6 +94,7 @@ links = {
     bias_value = {
         input_scopes = { any }
         output_scope = value
+        type = value
         from_data = yes
         prefix = bias_value:
         data_source = <bias>
@@ -130,6 +120,7 @@ links = {
     building_base_cost_in_gold = {
         input_scopes = { building_type }
         output_scope = value
+        type = value
     }
     building_type_link = {
         input_scopes = { any }
@@ -154,7 +145,7 @@ links = {
         output_scope = country
         from_data = yes
         prefix = c:
-        data_source = <formable_country>
+        data_source = enum[formable_country_tag]
     }
     cabinet_action_link = {
         input_scopes = { any }
@@ -212,6 +203,7 @@ links = {
     character_age = {
         input_scopes = { character }
         output_scope = value
+        type = value
     }
     character_interaction = {
         input_scopes = { any }
@@ -299,7 +291,7 @@ links = {
     country_rank_on_date = {
         input_scopes = { country }
         output_scope = country_rank
-        from_data = yes
+        from_argument = yes
         prefix = country_rank_on_date:
         data_source = scope[date]
     }
@@ -348,6 +340,7 @@ links = {
     default_price = {
         input_scopes = { any }
         output_scope = value
+        type = value
         from_data = yes
         prefix = default_price:
         data_source = scope[goods]
@@ -370,8 +363,15 @@ links = {
         prefix = dialect:
         data_source = <dialect>
     }
+    dialect_link_language = {
+        input_scopes = { any }
+        output_scope = dialect
+        from_data = yes
+        prefix = dialect:
+        data_source = <language>
+    }
     dialect = {
-        input_scopes = { culture }
+        input_scopes = { character dynasty culture religion market }
         output_scope = dialect
     }
     disaster_type_link = {
@@ -460,15 +460,11 @@ links = {
     estate_power_link = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_argument = yes
         argument_separator = pipe
         prefix = estate_power:
         data_source = scope[estate_type]
-    }
-    estate_power = {
-        desc = "desc"
-        input_scopes = { any }
-        output_scope = any
     }
     estate_privilege = {
         input_scopes = { any }
@@ -480,6 +476,7 @@ links = {
     estate_satisfaction_link = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = estate_satisfaction:
         data_source = <estate>
@@ -487,24 +484,32 @@ links = {
     estate_satisfaction = {
         input_scopes = { estate }
         output_scope = value
+        type = value
     }
     estate_target_satisfaction = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = estate_target_satisfaction:
         data_source = <estate>
     }
-    estate_tax_base = {
+    estate_tax_base_link = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = estate_tax_base:
         data_source = <estate>
     }
+    estate_tax_base = {
+        input_scopes = { estate }
+        output_scope = value
+    }
     estate_tax_percentage = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = estate_tax_percentage:
         data_source = <estate>
@@ -575,12 +580,16 @@ links = {
         prefix = global_var:
         data_source = value[global_variable]
     }
-    god = {
+    god_link = {
         input_scopes = { any }
         output_scope = god
         from_data = yes
         prefix = god:
         data_source = <god>
+    }
+    god = {
+        input_scopes = { avatar holy_site }
+        output_scope = god
     }
     goods = {
         input_scopes = { any }
@@ -622,12 +631,16 @@ links = {
         input_scopes = { country }
         output_scope = character
     }
-    heir_selection = {
+    heir_selection_link = {
         input_scopes = { any }
         output_scope = heir_selection
         from_data = yes
         prefix = heir_selection:
         data_source = <heir_selection>
+    }
+    heir_selection = {
+        input_scopes = { country }
+        output_scope = heir_selection
     }
     holy_site = {
         input_scopes = { god avatar }
@@ -657,6 +670,7 @@ links = {
     institution_progress = {
         input_scopes = { location }
         output_scope = value
+        type = value
         from_data = yes
         prefix = institution_progress:
         data_source = <institution>
@@ -664,6 +678,7 @@ links = {
     interaction_target = {
         input_scopes = { cabinet }
         output_scope = value
+        type = value
         from_data = yes
         prefix = interaction_target:
         data_source = value[event_target]
@@ -697,6 +712,7 @@ links = {
     known_in_country = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = known_in_country:
         data_source = <good>
@@ -750,12 +766,16 @@ links = {
         input_scopes = { country }
         output_scope = character
     }
-    law = {
+    law_link = {
         input_scopes = { any }
         output_scope = law
         from_data = yes
         prefix = law:
         data_source = <law>
+    }
+    law = {
+        input_scopes = { policy }
+        output_scope = law
     }
     ### gets the policy chosen for a particular law in the scope international organization or country - usage law_policy(<law>)
     law_policy = {
@@ -772,7 +792,7 @@ links = {
     leader_at_index = {
         input_scopes = { international_organization }
         output_scope = character
-        from_data = yes
+        from_argument = yes
         prefix = leader_at_index:
         data_source = int
     }
@@ -844,6 +864,7 @@ links = {
     market_price = {
         input_scopes = { market }
         output_scope = value
+        type = value
         from_data = yes
         prefix = market_price:
         data_source = <good>
@@ -855,10 +876,18 @@ links = {
     max_great_powers = {
         input_scopes = { any }
         output_scope = value
+        type = value
     }
     mercenary_home = {
         input_scopes = { mercenary }
         output_scope = location
+    }
+    mission_link = {
+        input_scopes = { any }
+        output_scope = mission
+        from_data = yes
+        prefix = mission:
+        data_source = value[mission]
     }
     mission = {
         input_scopes = { country }
@@ -890,6 +919,7 @@ links = {
     num_estate_privileges = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = num_estate_privileges:
         data_source = <estate>
@@ -897,6 +927,7 @@ links = {
     num_location_rank = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = num_location_rank:
         data_source = <location_rank>
@@ -904,6 +935,7 @@ links = {
     num_pop_type = {
         input_scopes = { location }
         output_scope = value
+        type = value
         from_data = yes
         prefix = num_pop_type:
         data_source = <pop_type>
@@ -911,6 +943,7 @@ links = {
     num_pop_type_in_country = {
         input_scopes = { any }
         output_scope = value
+        type = value
         from_data = yes
         prefix = num_pop_type_in_country:
         data_source = <pop_type>
@@ -918,6 +951,7 @@ links = {
     num_pop_type_in_province = {
         input_scopes = { any }
         output_scope = value
+        type = value
         from_data = yes
         prefix = num_pop_type_in_province:
         data_source = <pop_type>
@@ -925,6 +959,7 @@ links = {
     num_possible_estate_privileges = {
         input_scopes = { any }
         output_scope = value
+        type = value
         from_data = yes
         prefix = num_possible_estate_privileges:
         data_source = <estate>
@@ -999,6 +1034,7 @@ links = {
     percentage_pop_type_in_country = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = percentage_pop_type_in_country:
         data_source = <pop_type>
@@ -1006,6 +1042,7 @@ links = {
     percentage_pop_type_in_location = {
         input_scopes = { location }
         output_scope = value
+        type = value
         from_data = yes
         prefix = percentage_pop_type_in_location:
         data_source = <pop_type>
@@ -1054,6 +1091,7 @@ links = {
     produced_in_country = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = produced_in_country:
         data_source = <good>
@@ -1061,6 +1099,7 @@ links = {
     produced_in_market = {
         input_scopes = { market }
         output_scope = value
+        type = value
         from_data = yes
         prefix = produced_in_market:
         data_source = <good>
@@ -1068,6 +1107,7 @@ links = {
     produced_in_world = {
         input_scopes = { any }
         output_scope = value
+        type = value
         from_data = yes
         prefix = produced_in_world:
         data_source = <good>
@@ -1207,12 +1247,16 @@ links = {
         input_scopes = { religion }
         output_scope = country
     }
-    religious_school = {
+    religious_school_link = {
         input_scopes = { any }
         output_scope = religious_school
         from_data = yes
         prefix = religious_school:
         data_source = <religious_school>
+    }
+    religious_school = {
+        input_scopes = { character }
+        output_scope = religious_school
     }
     resolution_link = {
         input_scopes = { any }
@@ -1232,7 +1276,7 @@ links = {
     resolution_target = {
         input_scopes = { any }
         output_scope = active_resolution
-        from_data = yes
+        from_argument = yes
         prefix = resolution_target:
         data_source = value[event_target]
     }
@@ -1242,9 +1286,9 @@ links = {
         from_argument = yes
         argument_separator = pipe
         prefix = resolution_vote:
-        data_source = value[country]
-        data_source = value[international_organization]
-        data_source = value[resolution]
+        data_source = scope[country]
+        data_source = scope[international_organization]
+        data_source = scope[resolution]
     }
     revolutionary_target = {
         input_scopes = { country }
@@ -1260,7 +1304,7 @@ links = {
     rule_end_date = {
         input_scopes = { character }
         output_scope = date
-        from_data = yes
+        from_argument = yes
         prefix = rule_end_date:
         data_source = value[country]
     }
@@ -1273,7 +1317,6 @@ links = {
         output_scope = character
     }
     ruler_or_regent = {
-        desc = "desc"
         input_scopes = { country }
         output_scope = character
     }
@@ -1327,6 +1370,7 @@ links = {
     societal_value = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = societal_value:
         data_source = <societal_value>
@@ -1356,7 +1400,8 @@ links = {
     stockpile_in_market = {
         input_scopes = { market }
         output_scope = value
-        from_data = yes
+        type = value
+        from_argument = yes
         prefix = stockpile_in_market:
         data_source = scope[goods]
     }
@@ -1385,6 +1430,7 @@ links = {
     sub_unit_count = {
         input_scopes = { unit }
         output_scope = value
+        type = value
         from_data = yes
         prefix = sub_unit_count:
         data_source = <unit_type>
@@ -1392,6 +1438,7 @@ links = {
     sub_unit_fraction = {
         input_scopes = { unit }
         output_scope = value
+        type = value
         from_data = yes
         prefix = sub_unit_fraction:
         data_source = <unit_category>
@@ -1399,6 +1446,7 @@ links = {
     sub_unit_strength = {
         input_scopes = { unit }
         output_scope = value
+        type = value
         from_data = yes
         prefix = sub_unit_strength:
         data_source = <unit_type>
@@ -1432,6 +1480,7 @@ links = {
     target_price = {
         input_scopes = { market }
         output_scope = value
+        type = value
         from_data = yes
         prefix = target_price:
         data_source = <good>
@@ -1462,6 +1511,7 @@ links = {
     total_effective_building_levels = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = total_effective_building_levels:
         data_source = <building_type>
@@ -1469,6 +1519,7 @@ links = {
     total_sub_unit_category_in_unit = {
         input_scopes = { unit }
         output_scope = value
+        type = value
         from_data = yes
         prefix = total_sub_unit_category_in_unit:
         data_source = <unit_category>
@@ -1476,13 +1527,15 @@ links = {
     total_sub_unit_count = {
         input_scopes = { unit }
         output_scope = value
+        type = value
         from_data = yes
         prefix = total_sub_unit_count:
-        data_source = <unit_type>
+        data_source = <unit_category>
     }
     total_sub_unit_strength = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = total_sub_unit_strength:
         data_source = <unit_type>
@@ -1490,6 +1543,7 @@ links = {
     total_sub_unit_type_count = {
         input_scopes = { country }
         output_scope = value
+        type = value
         from_data = yes
         prefix = total_sub_unit_type_count:
         data_source = <unit_type>
@@ -1497,6 +1551,7 @@ links = {
     total_sub_unit_type_strength = {
         input_scopes = { unit }
         output_scope = value
+        type = value
         from_data = yes
         prefix = total_sub_unit_type_strength:
         data_source = <unit_type>
@@ -1508,6 +1563,7 @@ links = {
     traded_in_market = {
         input_scopes = { market }
         output_scope = value
+        type = value
         from_data = yes
         prefix = traded_in_market:
         data_source = <good>
@@ -1557,11 +1613,7 @@ links = {
         input_scopes = { production_method }
         output_scope = demand
     }
-    value = {
-        desc = "desc"
-        input_scopes = { any }
-        output_scope = any
-    }
+    ### Reference a previous set variable via its name eg: var:mortal_enemy
     var = {
         output_scope = any
         from_data = yes
@@ -1625,6 +1677,16 @@ links = {
         prefix = add_static_modifier_utility:
         data_source = <static_modifier>
     }
+    add_static_modifier_utility_scaled = {
+        input_scopes = { location country character }
+        output_scope = value
+        type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = add_static_modifier_utility:
+        data_source = <static_modifier>
+        data_source = scope_field
+    }
     adm = {
         input_scopes = { character }
         output_scope = value
@@ -1685,9 +1747,9 @@ links = {
         input_scopes = { country }
         output_scope = value
         type = value
-        from_data = yes
-        prefix = ai_policy_resolution_vote_bias:
-        data_source = <unit>
+        from_argument = yes
+        prefix = ai_unlock_unit_score:
+        data_source = <unit_type>
     }
     ai_will_do = {
         input_scopes = { any }
@@ -1714,7 +1776,7 @@ links = {
         input_scopes = { area }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = area_average_control:
         data_source = scope[country]
     }
@@ -1722,7 +1784,7 @@ links = {
         input_scopes = { area }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = area_average_integration:
         data_source = scope[country]
     }
@@ -1730,7 +1792,7 @@ links = {
         input_scopes = { area }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = area_exploration_progress:
         data_source = scope[country]
     }
@@ -1774,6 +1836,7 @@ links = {
         output_scope = value
         type = value
     }
+    ### gets the market available merchant capacity for a country in the scope market
     available_merchant_capacity = {
         input_scopes = { market }
         output_scope = value
@@ -1827,7 +1890,7 @@ links = {
         input_scopes = { location }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = building_efficiency:
         data_source = scope[building_type]
     }
@@ -1845,7 +1908,7 @@ links = {
         input_scopes = { building }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = building_goods_input:
         data_source = scope[goods]
     }
@@ -1893,7 +1956,7 @@ links = {
         input_scopes = { location }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = building_type_max_level:
         data_source = scope[building_type]
     }
@@ -1902,7 +1965,7 @@ links = {
         input_scopes = { country }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = cancel_exploration_utility:
         data_source = scope[area]
     }
@@ -1911,7 +1974,7 @@ links = {
         input_scopes = { country }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = cb_creation_progress_against:
         data_source = scope[country]
     }
@@ -1920,7 +1983,7 @@ links = {
         input_scopes = { country }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = colonial_charter_progress:
         data_source = scope[province_definition]
     }
@@ -3933,7 +3996,7 @@ links = {
         data_source = scope[parliament_issue]
     }
     ### The current support in parliament for an issue
-    parliament_issue_support = {
+    parliament_issue_support_link = {
         input_scopes = { any }
         output_scope = value
         type = value
@@ -3941,6 +4004,12 @@ links = {
         argument_separator = pipe
         prefix = parliament_issue_support:
         data_source = scope[parliament_issue]
+    }
+    ### The current support in parliament for an issue
+    parliament_issue_support = {
+        input_scopes = { international_organization }
+        output_scope = value
+        type = value
     }
     ### Utility of a parliament type that can subtract the utility of current parliament modifiers - usage: parliament_type_utility(<type>|<bool>) or parliament_type_utility = { parliament_type = <type> subtract_current = <bool> value <operator><threshold> }
     parliament_type_utility = {
@@ -4026,10 +4095,14 @@ links = {
         type = value
     }
     ### gets the amount of population in an area
-    population_in_area = {
+    population_in_area_link = {
         input_scopes = { area }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = population_in_area:
+        data_source = scope[country]
     }
     ### Checks if the location has x amount of population with specific pop traits. Usage: population_with_traits = { limit = { <pop triggers> } OR scripted_trigger = <scripted trigger key> value = <script value> } or population_with_traits(<scripted trigger key>)
     population_with_traits = {
@@ -4461,8 +4534,7 @@ links = {
         input_scopes = { location country character }
         output_scope = value
         type = value
-        from_argument = yes
-        argument_separator = pipe
+        from_data = yes
         prefix = remove_static_modifier_utility:
         data_source = <static_modifier>
     }
@@ -5042,6 +5114,10 @@ links = {
         input_scopes = { market }
         output_scope = value
         type = value
+        prefix = used_merchant_capacity:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[country]
     }
     ### Check how much vote impact the current country scope would make when voting in the target resolution of the target IO. Usage: vote_impact_in_resolution = { international_organization = <international organization> resolution = <resolution> value <operator> <real> } or vote_impact_in_resolution(<international organization>|<resolution>)
     vote_impact_in_resolution = {

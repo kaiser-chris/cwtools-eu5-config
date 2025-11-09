@@ -3,24 +3,42 @@
 #CWTools magic scope
 alias[effect:scope_field] = { alias_name[effect] = alias_match_left[effect] }
 
-alias[trigger:scope_field] = { alias_name[trigger] = alias_match_left[trigger] }
+alias[trigger:value_field] == scope_field
 alias[trigger:value_field] == value_field
 alias[trigger:value_field] == <script_value>
 alias[trigger:value_field] == <static_value>
 alias[trigger:value_field] == $define_reference
 alias[trigger:value_field] == bool
-alias[trigger:value_field] == { alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation] }
+alias[trigger:value_field] == single_alias_right[formula]
 alias[trigger:scope_field] = scope_field
+
+alias[trigger:<static_value>] == value_field
+alias[trigger:<static_value>] == <script_value>
+alias[trigger:<static_value>] == <static_value>
+alias[trigger:<static_value>] == $define_reference
+alias[trigger:<static_value>] == bool
+alias[trigger:<static_value>] == single_alias_right[formula]
+alias[trigger:<static_value>] = scope_field
+
+alias[trigger:<script_value>] == value_field
+alias[trigger:<script_value>] == <script_value>
+alias[trigger:<script_value>] == <static_value>
+alias[trigger:<script_value>] == $define_reference
+alias[trigger:<script_value>] == bool
+alias[trigger:<script_value>] == single_alias_right[formula]
+alias[trigger:<script_value>] = scope_field
+
 alias[trigger:scope_field] == value_field
 alias[trigger:scope_field] == <script_value>
 alias[trigger:scope_field] == <static_value>
 alias[trigger:scope_field] == $define_reference
 alias[trigger:scope_field] == bool
+alias[trigger:scope_field] = { alias_name[trigger] = alias_match_left[trigger] }
 
 alias[arithmetic_operation:value_field] = value_field
 alias[arithmetic_operation:scope_field] = scope_field
-alias[arithmetic_operation:scope_field] = { alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation] }
-alias[arithmetic_operation:value_field] = { alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation] }
+alias[arithmetic_operation:scope_field] = single_alias_right[formula]
+alias[arithmetic_operation:value_field] = single_alias_right[formula]
 
 alias[trigger:NOT] = {
     alias_name[trigger] = alias_match_left[trigger]

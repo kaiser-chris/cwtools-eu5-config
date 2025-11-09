@@ -29,6 +29,9 @@ language = {
     family = <language_family>
 
     ## cardinality = 0..1
+    patronym_suffix = localisation
+
+    ## cardinality = 0..1
     patronym_suffix_son = localisation
 
     ## cardinality = 0..1
@@ -38,13 +41,31 @@ language = {
     patronym_prefix_son = localisation
 
     ## cardinality = 0..1
+    patronym_prefix_son_vowel = localisation
+
+    ## cardinality = 0..1
     patronym_prefix_daughter = localisation
+
+    ## cardinality = 0..1
+    patronym_prefix_daughter_vowel = localisation
 
     ## cardinality = 0..1
     location_prefix = localisation
 
     ## cardinality = 0..1
+    location_prefix_ancient = localisation
+
+    ## cardinality = 0..1
+    location_prefix_ancient_vowel = localisation
+
+    ## cardinality = 0..1
     location_suffix = localisation
+
+    ## cardinality = 0..1
+    location_prefix_elision = {
+        ## cardinality = 0..inf
+        localisation
+    }
 
     ## cardinality = 0..1
     character_name_short_regnal_number = localisation

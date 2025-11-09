@@ -11,10 +11,13 @@ types = {
 
 building_type = {
     ### building time in days
+    ## cardinality = 0..1
     build_time = int
     ### building time in days
+    ## cardinality = 0..1
     build_time = <script_value>
     ### building time in days
+    ## cardinality = 0..1
     build_time = <static_value>
 
     ### maximum levels the building can be upgraded to (root = location, scope:owner = building owner, scope:builder = who's paying)
@@ -56,6 +59,9 @@ building_type = {
 
     ## cardinality = 0..1
     can_close = bool
+
+    ## cardinality = 0..1
+    lifts_fog_of_war = bool
 
     ## cardinality = 0..1
     own_or_overlord_relation_needed = <scripted_relation>
@@ -139,9 +145,9 @@ building_type = {
     }
 
     ### defining unique production methods scripted directly into the building
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     unique_production_methods = {
-        localisation = {
+        value_set[unique_production_method] = {
             ## cardinality = 0..1
             potential = single_alias_right[trigger_clause]
 
@@ -197,7 +203,7 @@ building_type = {
     on_construction_ended = single_alias_right[effect_clause]
 
     ### what building type this one makes obsolete
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     obsolete = <building_type>
 
     ### modifier applied to the location if built in the capital (multiplied by building level and goods access)
@@ -208,9 +214,15 @@ building_type = {
     ## cardinality = 0..1
     capital_country_modifier = single_alias_right[modifier_clause]
 
+    ## cardinality = 0..1
+    foreign_country_modifier = single_alias_right[modifier_clause]
+
     ### modifier applied to the location (multiplied by building level and goods access)
     ## cardinality = 0..1
     modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    market_center_modifier = single_alias_right[modifier_clause]
 
     ### modifier applied to the location (not scaled)
     ## cardinality = 0..1

@@ -10,9 +10,11 @@ types = {
 
 culture = {
     language = <language>
+    language = <dialect>
 
     alias_name[color] = alias_match_left[color]
 
+    ## cardinality = 0..1
     culture_groups = {
         ## cardinality = 0..inf
         <culture_group>
@@ -23,6 +25,7 @@ culture = {
         value_set[culture_gfx_tag]
     }
 
+    ## cardinality = 0..1
     opinions = {
         ## cardinality = 0..inf
         <culture> = enum[culture_opinion]

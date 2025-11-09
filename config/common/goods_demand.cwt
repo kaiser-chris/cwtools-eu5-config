@@ -12,4 +12,7 @@ goods_demand = {
     category = <goods_demand_category>
 
     <good> = value_field
+
+    ## cardinality = 0..1
+    hidden = bool
 }

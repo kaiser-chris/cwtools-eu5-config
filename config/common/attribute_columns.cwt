@@ -6,6 +6,7 @@ types = {
             name = "$"
             name = "$_desc"
         }
+        unique = no
         skip_root_key = {
             any
         }

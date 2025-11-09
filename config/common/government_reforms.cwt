@@ -14,6 +14,9 @@ government_reform = {
     ## cardinality = 0..1
     major = bool
 
+    ## cardinality = 0..1
+    icon = filepath[gfx/interface/icons/government_reforms/illustrations/,.dds]
+
     ### Cannot be used by rebels
     ## cardinality = 0..1
     block_for_rebel = bool

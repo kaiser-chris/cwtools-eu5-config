@@ -114,7 +114,7 @@ international_organization = {
     leader = single_alias_right[effect_clause]
 
     ### (none/country/character) is the leader a country or a person? Default is country
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     leader_type = enum[international_organization_leader_type]
 
     ### if it's a character, do we use regnal numbers?
@@ -342,13 +342,14 @@ international_organization = {
     ## cardinality = 0..1
     laws = {
         ## cardinality = 0..inf
-        <law.international_organization_law> = <policy>
+        <law.international_organization_law> = value[policy]
     }
 
     ## cardinality = 0..1
     variables = {
         value_set[variable] = {
             ### how you want this variable to be displayed
+            ## cardinality = 0..1
             format = localisation
 
             ### how you want monthly changes to this variable to be displayed

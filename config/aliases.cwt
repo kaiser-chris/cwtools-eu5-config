@@ -43,9 +43,8 @@ single_alias[triggered_desc] = {
 }
 
 single_alias[duration_clause] = {
-    enum[duration] = int_value_field
-    enum[duration] == <script_value>
-    enum[duration] == <static_value>
+    ## cardinality = 0..inf
+    alias_name[duration] = alias_match_left[duration]
 }
 
 single_alias[scaled_modifier] = {
@@ -57,8 +56,8 @@ single_alias[scaled_modifier] = {
 
 single_alias[added_modifier] = {
     modifier = <modifier_container>
-    ## cardinality = 0..1
-    enum[duration] = int
+    ## cardinality = 0..inf
+    alias_name[duration] = alias_match_left[duration]
 }
 
 single_alias[on_action] = {
@@ -112,10 +111,11 @@ alias[modifier_element:<modifier_type>] = bool
 alias[modifier_element:<modifier_type>] = <script_value>
 alias[modifier_element:<modifier_type>] = <static_value>
 
-alias[duration:enum[duration]] = int
+alias[duration:enum[duration]] = value_field
 alias[duration:enum[duration]] = <script_value>
 alias[duration:enum[duration]] = <static_value>
 alias[duration:enum[duration]] = single_alias_right[formula]
+alias[duration:enum[duration]] = scope_field
 
 single_alias[selected_trigger_clause] = {
     ## cardinality = 0..1
@@ -124,8 +124,14 @@ single_alias[selected_trigger_clause] = {
     ## cardinality = 0..1
     none_available_msg_key = localisation
 
+    ## cardinality = 0..1
+    tooltip_msg_key = localisation
+
     ### character/location/province/area/region/country/value/boolean etc
     looking_for_a = enum[scope]
+
+    ## cardinality = 0..1
+    source_object = scope_field
 
     ### what you want to call this target in the scope (e.g. target, target_1, target_province etc.) Then later you'll use this name to reference what was selected here. If left out it will default to target, target_1, target_2, target_3 etc
     target_flag = value[event_target]
@@ -162,6 +168,7 @@ single_alias[selected_trigger_clause] = {
 
     ## cardinality = 0..inf
     column = {
+        ## cardinality = 0..inf
         data = <attribute_column>
 
         ## cardinality = 0..1
@@ -172,6 +179,9 @@ single_alias[selected_trigger_clause] = {
 
         ## cardinality = 0..1
         show_icon_in_cells = bool
+
+        ## cardinality = 0..1
+        widget = scalar
     }
 
     ### key of the sort you want the selection to default to. With nothing it will default to the first sort column. The columns you have are specified in columns = above, the sort keys for the sorts are in \common\attribute_columns\
@@ -206,16 +216,49 @@ single_alias[selected_trigger_clause] = {
 
     ### minimum value for value types
     ## cardinality = 0..1
+    min = value_field
+    ## cardinality = 0..1
+    min = <script_value>
+    ## cardinality = 0..1
+    min = <static_value>
+    ## cardinality = 0..1
     min = single_alias_right[formula]
 
+    ### maximum value for value types
+    ## cardinality = 0..1
+    max = value_field
+    ### maximum value for value types
+    ## cardinality = 0..1
+    max = <script_value>
+    ### maximum value for value types
+    ## cardinality = 0..1
+    max = <static_value>
     ### maximum value for value types
     ## cardinality = 0..1
     max = single_alias_right[formula]
 
     ### step value for changing value types in the UI
     ## cardinality = 0..1
+    step = value_field
+    ### step value for changing value types in the UI
+    ## cardinality = 0..1
+    step = <script_value>
+    ### step value for changing value types in the UI
+    ## cardinality = 0..1
+    step = <static_value>
+    ### step value for changing value types in the UI
+    ## cardinality = 0..1
     step = single_alias_right[formula]
 
+    ### default value for value types
+    ## cardinality = 0..1
+    default = value_field
+    ### default value for value types
+    ## cardinality = 0..1
+    default = <script_value>
+    ### default value for value types
+    ## cardinality = 0..1
+    default = <static_value>
     ### default value for value types
     ## cardinality = 0..1
     default = single_alias_right[formula]
@@ -230,6 +273,9 @@ single_alias[selected_trigger_clause] = {
 
     ## cardinality = 0..1
     cache_targets = bool
+
+    ## cardinality = 0..1
+    cache_order = bool
 
     ## cardinality = 0..1
     show_why_not_enabled = bool

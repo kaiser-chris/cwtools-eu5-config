@@ -12,11 +12,14 @@ types = {
 advance = {
     age = <age>
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     requires = <advance>
 
     ## cardinality = 0..1
     depth = int
+
+    ## cardinality = 0..1
+    country_type = enum[country_type]
 
     ## cardinality = 0..inf
     unlock_law = <law>
@@ -31,19 +34,33 @@ advance = {
     unlock_cabinet_action = <cabinet_action>
 
     ## cardinality = 0..inf
-    unlock_building = <building>
+    unlock_building = <building_type>
 
     ## cardinality = 0..inf
-    unlock_unit = <unit>
+    unlock_heir_selection = <heir_selection>
 
     ## cardinality = 0..inf
-    unlock_ability = <ability>
+    unlock_unit = <unit_type>
+
+    ## cardinality = 0..inf
+    unlock_ability = <unit_ability>
 
     ## cardinality = 0..inf
     unlock_levy = <levy>
 
     ## cardinality = 0..inf
+    unlock_estate_privilege = <estate_privilege>
+
+    ## cardinality = 0..inf
+    unlock_policy = value[policy]
+
+    ## cardinality = 0..inf
+    unlock_country_interaction = <country_interaction>
+
+    ## cardinality = 0..inf
     unlock_production_method = <production_method>
+    ## cardinality = 0..inf
+    unlock_production_method = value[unique_production_method]
 
     ## cardinality = 0..inf
     unlock_government_reform = <government_reform>
@@ -59,6 +76,12 @@ advance = {
 
     ## cardinality = 0..inf
     alias_name[modifier_element] = alias_match_left[modifier_element]
+
+    ## cardinality = 0..1
+    unlock_diplomacy = {
+        ## cardinality = 0..inf
+        enum[diplomacy_type]
+    }
 
     ## cardinality = 0..1
     ai_preference_tags = {
@@ -86,4 +109,7 @@ advance = {
 
     ## cardinality = 0..1
     government = <government_type>
+
+    ## cardinality = 0..1
+    modifier_while_progressing = single_alias_right[modifier_clause]
 }

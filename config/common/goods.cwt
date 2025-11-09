@@ -60,6 +60,10 @@ good = {
     demand_add = {
         ## cardinality = 0..1
         all = value_field
+
+        ## cardinality = 0..1
+        upper = value_field
+
         ## cardinality = 0..inf
         <pop_type> = value_field
     }

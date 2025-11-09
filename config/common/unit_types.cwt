@@ -31,20 +31,23 @@ unit_type = {
     buildable = bool
 
     ## cardinality = 0..1
+    default = bool
+
+    ## cardinality = 0..1
     levy = bool
 
     ## cardinality = 0..1
     age = <age>
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     gfx_tags = {
-        scalar
+        value_set[unit_type_gfx_tag]
     }
 
     ## cardinality = 0..1
     build_time_modifier = value_field
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     mercenaries_per_location = {
         pop_type = <pop_type>
         multiply = value_field
@@ -57,6 +60,9 @@ unit_type = {
     location_potential = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
+    location_trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
     upgrades_to = <unit_type>
 
     ## cardinality = 0..1

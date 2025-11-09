@@ -102,7 +102,11 @@ alias[trigger:any_in_global_list] = {
 }
 ## push_scope = any
 alias[trigger:any_in_list] = {
+    ## cardinality = 0..1
     variable = value[variable_list]
+
+    ## cardinality = 0..1
+    list = value[list]
 
     ## cardinality = 0..1
     percent = value_field[0.0..1.0]

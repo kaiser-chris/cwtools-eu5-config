@@ -216,6 +216,12 @@ enums = {
         free_city
         centralization
         socioeconomic
+        estates
+        election
+        leadership
+        foreign_policy
+        foundation
+        federal
     }
     enum[law_type] = {
         international_organization
@@ -237,6 +243,9 @@ enums = {
         rulerchange
         timed
     }
+    enum[international_organization_leave_reason] = {
+        DecidedToLeave
+    }
 
     enum[modifier_mode] = {
         add
@@ -257,6 +266,7 @@ enums = {
         general
         child
         ruler
+        none
     }
 
     enum[scope] = {
@@ -453,6 +463,9 @@ enums = {
         rgo
         armybuilder
         navybuilder
+        diplomacy
+        governmentreform
+        governmentreforms
     }
 
     enum[pin_collection] = {
@@ -581,12 +594,15 @@ enums = {
         rite_power
         self_control
         tribal_cohesion
+        stability
     }
 
     #TODO: incomplete
     enum[diplomacy_type] = {
         lifts_trade_protection
         giving_defensive_support
+        supportrebels
+        infiltrate_administration
     }
 
     #TODO: incomplete
