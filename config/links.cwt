@@ -727,12 +727,16 @@ links = {
         input_scopes = { culture }
         output_scope = language
     }
-    language_family = {
+    language_family_link = {
         input_scopes = { any }
         output_scope = language_family
         from_data = yes
         prefix = language_family:
         data_source = <language_family>
+    }
+    language_family = {
+        input_scopes = { language }
+        output_scope = language_family
     }
     last_dynasty_in_location = {
         input_scopes = { location }
@@ -3139,1097 +3143,1186 @@ links = {
         output_scope = value
         type = value
     }
+    ### Number of holy sites in the location
     location_num_holy_sites = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks if a location has a certain number of works of art
     location_num_works_of_art = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### gets the peace cost for the location according to giver and taker countries
+    ### usage in trigger:
+    ### location_peace_cost = {
+    ### 	giver = <country>
+    ### 	taker = <country>
+    ### 	value <operand> <threshold>  #ex: value < 10
+    ### }
+    ### usage in scripted value:
+    ### location_peace_cost(<giver>|<taker>)
     location_peace_cost = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = location_peace_cost:
+        data_source = scope[country]
+        data_source = scope[country]
     }
+    ### Checks if a location has a certain percentage of population capacity
     location_population_percentage = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### gets the maritime privateeer power for a country in the scope location
     location_privateer_power = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks the progress of the country scope to form the specified formable in percentage. Usage: location_progress_for_formable = { formable_country = <formable country scope> value = <value> } or location_progress_for_formable(<formable country scope>)
     location_progress_for_formable = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = location_progress_for_formable:
+        data_source = scope[formable_country]
     }
+    ### Checks if a location has a certain pixel count
     location_size = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks the tax-base of a location
     location_tax_base = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks if a location has a certain unemployed population for the supplied building type (with optional owner)
     location_unemployed_population_for_building_type = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = location_unemployed_population_for_building_type:
+        data_source = scope[building_type]
     }
-    location_within_range = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks if a country has a certain amount of work of arts
     location_works_of_art_star_rating = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
-    long_term_trigger_currency_utility = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Find the location in a province with the lowest prosperity
     lowest_prosperity = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks the lowest war score of ongoing wars
     lowest_war_score = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### How much Manpower does the country/IO have?
     manpower = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks the percentage of manpower a country has compared to its maximum
     manpower_percentage = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a location has certain market access
     market_access = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks how much food is in the market stockpile
     market_food = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
     }
+    ### Checks how much food is missing in the market
     market_food_deficit = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
     }
+    ### Checks how much food is in the market stockpile percentage wise
     market_food_percentage = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
     }
+    ### Checks how much food is traded in the market
     market_food_traded = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
     }
+    ### Checks how much food can be stockpiled in the market
     market_max_food = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
     }
+    ### Checks what the food balance is in the market
     market_monthly_food_balance = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
     }
+    ### Checks how many pops are in the market
     market_population = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
     }
-    market_possible_goods_trade_surplus = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks the max control in a location
     max_control = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### gets the max number of countries with a specific special status in an international organization
     max_countries_with_special_status = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = max_countries_with_special_status:
+        data_source = scope[special_status]
     }
+    ### Checks the max garrison strength of the location in scope
     max_garrison_strength = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain Max manpower
     max_manpower = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Maximum number of candidates for the heir selection.
+    ### i.e. the number of choices the player will have when an election occurs
+    ### ex: max_possible_candidates <operator> <amount>
     max_possible_candidates = {
-        input_scopes = { any }
+        input_scopes = { heir_selection }
         output_scope = value
         type = value
     }
+    ### Checks the amount of church aspects the religion has
     max_religious_aspects = {
-        input_scopes = { any }
+        input_scopes = { religion }
         output_scope = value
         type = value
     }
+    ### Checks if a location has a certain max number of RGO workers
     max_rgo_workers = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain Max Sailors
     max_sailors = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### number of sects available per country from the scope religion
     max_sects = {
-        input_scopes = { any }
+        input_scopes = { religion }
         output_scope = value
         type = value
     }
-    mercenary_has_owner = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### gets the market merchant capacity for a country in the scope market
     merchant_capacity = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = merchant_capacity:
+        data_source = scope[special_status]
     }
+    ### gets the market merchant power for a country in the scope market
     merchant_power_in_market = {
         input_scopes = { market }
         output_scope = value
         type = value
         from_argument = yes
+        argument_separator = pipe
         prefix = merchant_power_in_market:
-        data_source = scope[country]
+        data_source = scope[special_status]
     }
+    ### Checks if a location has a certain migration_attraction
     migration_attraction = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### The mil ability of the character
     mil = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
     }
+    ### Checks the total military strength (max manpower, army size, levy power) of a country
     military_strength = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain level of military tech
     military_tech_level = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
-    mission_completed = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    mission_task_bypassed = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    mission_task_completed = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks the AI utility of a modifier
     modifier_utility = {
-        input_scopes = { any }
+        input_scopes = { location country unit character religion province religious_school international_organization policy religious_aspect government_reform god avatar }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = modifier_utility:
+        data_source = scope_field
     }
+    ### Checks the AI utility of a modifier with location checks
     modifier_utility_include_locations = {
-        input_scopes = { any }
+        input_scopes = { location country unit character religion province religious_school international_organization policy religious_aspect government_reform god avatar }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = modifier_utility_include_locations:
+        data_source = scope_field
     }
+    ### Checks the monthly balance of a country
     monthly_balance = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a location has an potential conversion of X per month
     monthly_conversion = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks the monthly cost of a mercenary
     monthly_cost = {
-        input_scopes = { any }
+        input_scopes = { mercenary }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain income
     monthly_income_total = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain trade and tax income
     monthly_income_trade_and_tax = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain monthly manpower
     monthly_manpower = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain monthly Sailors
     monthly_sailors = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain income from trade
     monthly_trade_income = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a specific reform
     months_between_leader_changes = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Checks the months left of loan
     months_left = {
-        input_scopes = { any }
+        input_scopes = { loan }
         output_scope = value
         type = value
     }
+    ### Checks how many months its been since the country / international organization last called a parliament
     months_since_last_parliament_called = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks how many months its been since a country was at peace
     months_since_peace = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks how many months its been since a country was at War
     months_since_war = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### How many percent morale does this unit have???
     morale_percentage = {
-        input_scopes = { any }
+        input_scopes = { unit }
         output_scope = value
         type = value
     }
+    ### The naval range of the country
     naval_range = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### What is the xx position (0-1) the country has?
     navy_maintenance = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of ships
     navy_size = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain percentage of ships compared to expected size
     navy_size_percentage = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### How much navy tradition does the country/IO have?
     navy_tradition = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current navy tradition compared to the maximum does the country/IO have?
     navy_tradition_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
-    need_reforms = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    needs_opinion_with = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks if a country has a certain amount of adult characters who can do cabinet or military stuff
     num_adult_capable_characters = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### How many locations are affected?
     num_affected_locations = {
-        input_scopes = { any }
+        input_scopes = { disease_outbreak }
         output_scope = value
         type = value
     }
+    ### Check how many army_constructions a location has
     num_army_constructions = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of artists
     num_artists = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of avatars
     num_avatars = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a location has a certain amount of buildings
     num_buildings = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of Cardinals
     num_cardinals = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of living characters
     num_characters = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Check how many civil_constructions a location has
     num_civil_constructions = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of colonial charters
     num_colonial_charters = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### number of countries in the religion
     num_countries_in_religion = {
-        input_scopes = { any }
+        input_scopes = { religion }
         output_scope = value
         type = value
     }
+    ### gets the number of countries with a particular special status in an international organization
     num_countries_with_special_status = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = num_countries_with_special_status:
+        data_source = scope[special_status]
     }
+    ### Checks if a country has a certain number of institutions embraced
     num_embraced_institutions = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of Explorations
     num_explorations = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a location has a certain amount of foreign buildings
     num_foreign_buildings = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of forts
     num_forts = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country knows a certain number of institutions
     num_known_institutions = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of loans
     num_loans = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of owned locations
     num_locations = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country or its direct subjects has a certain amount of owned locations
     num_locations_owned_or_owned_by_subjects = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country, its subjects or its subjects' subjects has a certain amount of owned locations
     num_locations_owned_or_owned_by_subjects_or_below = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Check how many navy_constructions a location has
     num_navy_constructions = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Check how many parliament agendas are currently available to the country or international organization.
     num_of_active_parliament_agendas = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks how many advances a country currently has researched.
     num_of_advances_researched = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### The number of children of the character
     num_of_children = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
     }
+    ### Checks if a country has an amount of diplomats
     num_of_diplomats = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks how many electors the international organization has
     num_of_electors = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Checks if a country has an amount of locations owned by certain IO
     num_of_locations_owned_by_io = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has merchants in the specified amount of markets.
     num_of_markets_with_merchants = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has an amount of towns and cities
     num_of_non_rural = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has an amount of non-rural ports
     num_of_non_rural_ports = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has an amount of ports
     num_of_ports = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Get the amount of characters which support the rebel
     num_of_rebel_characters = {
-        input_scopes = { any }
+        input_scopes = { rebels }
         output_scope = value
         type = value
     }
+    ### Get the amount of countries which support the rebel
     num_of_rebel_supporters = {
-        input_scopes = { any }
+        input_scopes = { rebels }
         output_scope = value
         type = value
     }
+    ### Gets the total amount of church aspects in the country
     num_of_religious_aspects = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### The number of spouses of the character
     num_of_spouses = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
     }
+    ### Checks if a country has an amount of trades active
     num_of_trades = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### The number of traits the character has
     num_of_traits = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
     }
+    ### The number of traits of a specified category the character has. usage: num_of_trait_by_category(<trait_category>) or num_of_trait_by_category = { type = <trait_category> value <comparator> <integer> }
     num_of_traits_of_category = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = num_of_traits_of_category:
+        data_source = enum[character_trait_category]
     }
+    ### Checks if a country has a certain amount of open government reform slots
     num_open_reform_slots = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if the scope country or estate has a certain amount of privileges
     num_possible_privileges = {
-        input_scopes = { any }
+        input_scopes = { country estate }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of possible rivals
     num_possible_rivals = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if the scope country or estate has a certain amount of privileges
     num_privileges = {
-        input_scopes = { any }
+        input_scopes = { country estate }
         output_scope = value
         type = value
     }
+    ### Checks if an area has a certain amount of province definitions
     num_province_definitions_in_area = {
-        input_scopes = { any }
+        input_scopes = { area }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of provinces
     num_provinces = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of Rebels
     num_rebels = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of government reforms
     num_reforms = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of regiments
     num_regiments = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Amount above relations limit
     num_relations_above_limit = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain amount of rivals
     num_rivals = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Check how many roads a location has
     num_roads = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks the total number of subjects of a country
     num_subjects = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### How many sub units does this unit have?
     num_subunits = {
-        input_scopes = { any }
+        input_scopes = { unit }
         output_scope = value
         type = value
     }
+    ### Return the number of countries under any union ruled by the scoped dynasty
     num_union_countries = {
-        input_scopes = { any }
+        input_scopes = { dynasty }
         output_scope = value
         type = value
     }
+    ### Return the number of unions ruled by the scoped dynasty
     num_unions = {
-        input_scopes = { any }
+        input_scopes = { dynasty }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain number of works of art
     num_works_of_art = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Strength of an offensive alliance, including the nation with all countries giving offensive support and those that can be called in for offensive wars
     offensive_alliance_strength = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
-    only_allowed_overlord_court_language = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    only_allowed_overlord_primary_culture = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    only_allowed_overlord_primary_or_kindred_culture = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### is the country's opinion of the target greater or equal than the value? opinion = { target = X [*value >/</>=/<= Y* or *value = { min max }*  }
     opinion = {
         input_scopes = { country }
         output_scope = value
         type = value
-        prefix = opinion:
         from_argument = yes
+        argument_separator = pipe
+        prefix = opinion:
         data_source = scope[country]
     }
+    ### Get the opinion of the current country scope against the first target country and subtract it with the opinion the current scope has of the second country. Usage: opinion_difference_between = { first = <country> second = <country> value = <value> } or opinion_difference_between(<country>|<country>)
     opinion_difference_between = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = opinion_difference_between:
+        data_source = scope[country]
+        data_source = scope[country]
     }
+    ### Gets the relative strength of the scope organization to the supplied country - usage: organization_strength_relative_to_country(<target>|<bool exclude_target>) or organization_strength_relative_to_country = { target = <country link> value <operator> <amount> exclude_target = <bool> }
     organization_strength_relative_to_country = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = organization_strength_relative_to_country:
+        data_source = scope[country]
+        data_source = bool
     }
-    overlord_can_build_markets = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    overlord_can_destroy_markets = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    overlord_can_enforce_peace_on_subject = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    own_entire_area = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    own_entire_province = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    owns = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    owns_any_foreign_buildings_in = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    owns_or_non_sovereign_subject_owns = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### The chance an issue will be selected
     parliament_issue_chance = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = parliament_issue_chance:
+        data_source = scope[parliament_issue]
     }
+    ### The current support in parliament for an issue
     parliament_issue_support = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = parliament_issue_support:
+        data_source = scope[parliament_issue]
     }
-    parliament_issue_will_pass = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    parliament_type_enabled_in_international_organization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    parliament_type_is_enabled_in = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    parliament_type_is_locked_in = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    parliament_type_is_locked_in_international_organization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Utility of a parliament type that can subtract the utility of current parliament modifiers - usage: parliament_type_utility(<type>|<bool>) or parliament_type_utility = { parliament_type = <type> subtract_current = <bool> value <operator><threshold> }
     parliament_type_utility = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = parliament_type_utility:
+        data_source = scope[country]
+        data_source = bool
     }
-    parliament_type_visible_in = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    parliament_type_visible_in_international_organization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Gets how much the country has to pay for the specified IO and payment type. Usage: payment_contribution = { international_organization = <> payment = <> }
     payment_contribution = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = payment_contribution:
+        data_source = scope[country]
+        data_source = <international_organization_payment>
     }
+    ### gets the payment maintenance level for a country in an international organization. Usage: payment_maintenance = { international_organization = <> payment = <> }
     payment_maintenance = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = payment_maintenance:
+        data_source = scope[country]
+        data_source = <international_organization_payment>
     }
-    policy_enabled_to_international_organization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    policy_has_ai_propose_value = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    policy_is_locked_in_international_organization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    policy_visible_to_international_organization = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### How likely are characters to spawn from this pop?
     pop_character_chance = {
-        input_scopes = { any }
+        input_scopes = { pop }
         output_scope = value
         type = value
     }
-    pop_knows_about_goods = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### How literate is this pop?
     pop_literacy = {
-        input_scopes = { any }
+        input_scopes = { pop }
         output_scope = value
         type = value
     }
+    ### How satisfied is this pop?
     pop_satisfaction = {
-        input_scopes = { any }
+        input_scopes = { pop }
         output_scope = value
         type = value
     }
+    ### How big is this pop?
     pop_size = {
-        input_scopes = { any }
+        input_scopes = { pop }
         output_scope = value
         type = value
     }
+    ### The percentage of the specific pop type in the current country
     pop_type_percentage_in_country = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = pop_type_percentage_in_country:
+        data_source = scope[pop_type]
     }
+    ### The number of the specific pop type in the current country
     pop_type_population_in_country = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = pop_type_population_in_country:
+        data_source = scope[pop_type]
     }
+    ### Checks if the location/province/province_defintion/area/region/subcontinent/continent has a certain population
     population = {
-        input_scopes = { any }
+        input_scopes = { location province province_definition area region sub_continent continent }
         output_scope = value
         type = value
     }
+    ### gets the amount of population in an area
     population_in_area = {
-        input_scopes = { any }
+        input_scopes = { area }
         output_scope = value
         type = value
     }
+    ### Checks if the location has x amount of population with specific pop traits. Usage: population_with_traits = { limit = { <pop triggers> } OR scripted_trigger = <scripted trigger key> value = <script value> } or population_with_traits(<scripted trigger key>)
     population_with_traits = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = population_with_traits:
+        data_source = <scripted_trigger>
     }
+    ### Checks if a country has a certain amount of possible military leaders
     possible_military_leaders = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### The power of an estate
     power = {
-        input_scopes = { any }
+        input_scopes = { estate }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a power projection
     power_projection = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### How much prestige does the country/IO have?
     prestige = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current prestige compared to the maximum does the country/IO have?
     prestige_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Gets the previous scope country's antagonism towards the current scope country
     prev_antagonism_towards_this = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Gets the previous scope country's opinion of the current scope country
     prev_opinion_of_this = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Gets the previous scope country's trust of the current scope country
     prev_trust_of_this = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Gets the price of the scoped goods in the supplied market
+    ### price_in_market = { market = X value >= Y }
+    ### Where X is the name of the market
+    ### Where Y is a script value
     price_in_market = {
-        input_scopes = { any }
+        input_scopes = { goods }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = price_in_market:
+        data_source = scope[market]
     }
+    ### gets the total strength of the prisoners in the unit
     prisoner_strength = {
-        input_scopes = { any }
+        input_scopes = { unit }
         output_scope = value
         type = value
     }
+    ### How much power does a privateer has?
     privateer_power = {
-        input_scopes = { any }
+        input_scopes = { privateer }
         output_scope = value
         type = value
     }
+    ### How useful is a privateer here?
     privateer_utility = {
-        input_scopes = { any }
+        input_scopes = { area }
         output_scope = value
         type = value
     }
+    ### Checks production method profit
     production_method_profit = {
-        input_scopes = { any }
+        input_scopes = { production_method }
         output_scope = value
         type = value
     }
+    ### Checks the proportion of your population that is primary or accepted culture nobles
     proper_culture_nobles = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a location has a certain prosperity
     prosperity = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Total army levies that can be had from a province
     province_army_levy_size = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks the average_control of a province
     province_average_control = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks the average_development of a province
     province_average_development = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks the average_integration of a province
     province_average_integration = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
-    province_cabinet_action = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks the cultural_unity of a province
     province_cultural_unity = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks the food of a province
     province_food = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks the food percentage of capacity in a province
     province_food_percentage = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks the maximum amount of food the province can have
     province_max_food = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks how much food the province produces per month
     province_monthly_food_production = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Total navy levies that can be had from a province
     province_navy_levy_size = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks the number of institutions that can be promoted in a province
     province_possible_institutions = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks if a Province has a certain level of average prosperity
     province_prosperity = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks if a Province has a certain rebel progress
     province_rebel_progress = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks the religious_unity of a province
     province_religious_unity = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks if a Province has a certain level of average satisfaction
     province_satisfaction = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks if a Province has a certain total tax base
     province_tax_base = {
-        input_scopes = { any }
+        input_scopes = { province }
         output_scope = value
         type = value
     }
+    ### Checks the proximity to owner capital in a location
     proximity = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### How much purity does the country/IO have?
     purity = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current purity compared to the maximum does the country/IO have?
     purity_percentage = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### Uniformly random integer between 0 and 2^31-1. It will be the same if evaluated on the same scope and day.
     random_integer = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### Checks if a location has a Location Rank of a certain index
     rank_index = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Check how many locations in the province_defintion/area/region/subcontinent/continent produce the specified raw material. Usage: raw_material_amount = { goods = <goods scope> value = <value> } or raw_material_amount(<goods scope>)
     raw_material_amount = {
-        input_scopes = { any }
+        input_scopes = { market province_definition area region sub_continent continent }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = raw_material_amount:
+        data_source = scope[goods]
     }
+    ### Check how many locations world wide produce this raw material
     raw_material_occurrence = {
-        input_scopes = { any }
+        input_scopes = { goods }
         output_scope = value
         type = value
     }
+    ### Check how much raw material the scope location produces.
     raw_material_output = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
-    rebel_estate_type = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Check last month's progress of a rebel
     rebel_last_months_progress = {
-        input_scopes = { any }
+        input_scopes = { rebels }
         output_scope = value
         type = value
     }
+    ### Get the total amount of locations supporting the rebel
     rebel_locations = {
-        input_scopes = { any }
+        input_scopes = { rebels }
         output_scope = value
         type = value
     }
+    ### Check the progress of a rebel
     rebel_progress = {
-        input_scopes = { any }
+        input_scopes = { rebels }
         output_scope = value
         type = value
     }
+    ### Get the total amount of population supporting the rebel
     rebel_size = {
-        input_scopes = { any }
+        input_scopes = { rebels }
         output_scope = value
         type = value
     }
-    receives_fleet_basing_rights_from = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    receives_food_access_from = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    receives_isolation_exemption_from = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    receives_military_access_from = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    receiving_scripted_relation_of_type = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks the reform desire of the religion
     reform_desire = {
-        input_scopes = { any }
+        input_scopes = { religion }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain army size of regulars (maximum strength)
     regular_army_size = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### calculates the relative military strength of the scope country to the target. relative_military_strength = { target = X [*value >/</>=/<= Y* or *value = { min max }*  }
     relative_military_strength = {
         input_scopes = { country }
         output_scope = value
@@ -4238,41 +4331,52 @@ links = {
         from_argument = yes
         data_source = scope[country]
     }
+    ### Checks the price of a location's raw material in its market as a percentage of the base price of that material
     relative_raw_material_price = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
+        prefix = relative_raw_material_price:
+        from_argument = yes
+        data_source = scope[location]
     }
+    ### Gets the relative strength of the scope country to the supplied one - usage: relative_strength(<target>) or relative_strength = { target = <country link> value <operator> <amount> }
     relative_strength = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        prefix = relative_strength:
+        from_argument = yes
+        data_source = scope[country]
     }
-    release_only = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    relevant_countries = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Gets the percentage of the population that follow a particular religion group in the location/province/province_defintion/area/region/subcontinent/continent - religion_group_percentage = { religion_group = <religion group> value ><= <value> }
     religion_group_percentage = {
-        input_scopes = { any }
+        input_scopes = { location province province_definition area region sub_continent continent }
         output_scope = value
         type = value
+        prefix = religion_group_percentage:
+        from_argument = yes
+        data_source = scope[religion_group]
     }
+    ### The percentage of a specific religion group in the current country
     religion_group_percentage_in_country = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        prefix = religion_group_percentage_in_country:
+        from_argument = yes
+        data_source = scope[religion_group]
     }
+    ### Gets the absolute number of the population that follow a particular religion group in the location/province/province_defintion/area/region/subcontinent/continent - religion_group_population = { religion_group = <religion group> value ><= <value> }
     religion_group_population = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = religion_group_population:
+        from_argument = yes
+        data_source = scope[religion_group]
     }
+    ### Gets the percentage of the population that follow a particular religion in the location/province/province_defintion/area/region/subcontinent/continent - religion_percentage = { religion = <religion> value ><= <value> }
     religion_percentage = {
         input_scopes = { any }
         output_scope = value
@@ -4281,6 +4385,7 @@ links = {
         from_argument = yes
         data_source = scope[religion]
     }
+    ### The percentage of a specific religion in the current country
     religion_percentage_in_country = {
         input_scopes = { country }
         output_scope = value
@@ -4289,86 +4394,110 @@ links = {
         from_argument = yes
         data_source = scope[religion]
     }
+    ### Gets the absolute number of the population that follow a particular religion in the location/province/province_defintion/area/region/subcontinent/continent - religion_population = { religion = <religion> value ><= <value> }
     religion_population = {
-        input_scopes = { any }
+        input_scopes = { location province province_definition area region sub_continent continent }
         output_scope = value
         type = value
+        prefix = religion_population:
+        from_argument = yes
+        data_source = scope[religion]
     }
+    ### The number of pops with a specific religion in the current country
     religion_population_in_country = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        prefix = religion_population_in_country:
+        from_argument = yes
+        data_source = scope[religion]
     }
+    ### How much religious influence does the country/IO have?
     religious_influence = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current religious influence compared to the maximum does the country/IO have?
     religious_influence_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks the fraction of the population sharing the country's religion
     religious_unity = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Utility of relocating a market - usage: relocate_market_utility(<location>,<location>) or relocate_market_utility = { location = <location> new_location = <location> value <operator><threshold> }
     relocate_market_utility = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = relocate_market_utility:
+        data_source = scope[location]
+        data_source = scope[location]
     }
+    ### Checks the remaining debt of a loan
     remaining_debt = {
-        input_scopes = { any }
+        input_scopes = { loan }
         output_scope = value
         type = value
     }
+    ### Checks how many days are left in the parliament of the country / international organization before it concludes. Returns -1 when there is no parliament active.
     remaining_parliament_days = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks the AI utility of removing a static modifier from the scoped object
+    ### remove_static_modifier_utility = { modifier = X value >= Y }
+    ### Where X is the name of the static modifier
+    ### Where Y is a script value
     remove_static_modifier_utility = {
-        input_scopes = { any }
+        input_scopes = { location country character }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = remove_static_modifier_utility:
+        data_source = <static_modifier>
     }
+    ### How much republican_tradition does the country/IO have?
     republican_tradition = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current republican_tradition compared to the maximum does the country/IO have?
     republican_tradition_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
-    requires_goods = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    requires_vote = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks the progress of the current research in the country
     research_progress = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
-    resolution_is_active = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Gets the current scope country's opinion of a resolution. Usage: resolution_opinion(<international organization>|<resolution>|<vote>)
     resolution_opinion = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = resolution_opinion:
+        data_source = scope[international_organization]
+        data_source = scope[resolution]
+        data_source = scope[country]
     }
+    ### How high is the current country's AI value of accepting the country interaction done by the specified country scope? Always return 0 if the scope is a player
+    ### Usage: reverse_country_interaction_acceptance = { type = <country interaction> target = <country> value = <value> } or reverse_country_interaction_acceptance(<country interaction>|<country>)
     reverse_country_interaction_acceptance = {
         input_scopes = { country }
         output_scope = value
@@ -4379,401 +4508,494 @@ links = {
         data_source = scope[country_interaction]
         data_source = scope[country]
     }
+    ### Checks if a location has a certain number of RGO workers
     rgo_workers = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### How much righteousness does the country/IO have?
     righteousness = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current righteousness compared to the maximum does the country/IO have?
     righteousness_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How much rite power does the country/IO have?
     rite_power = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current rite power compared to the maximum does the country/IO have?
     rite_power_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks if the ruler of a country has ruled for x years
     ruler_reign = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if the ruler or regent of a country has ruled for x days
     ruler_reign_in_days = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
-    ruler_term_start_date = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks the percentage of Sailors a country has compared to its maximum
     sailors = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks the percentage of Sailors a country has compared to its maximum
     sailors_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### The satisfaction of an estate
     satisfaction = {
-        input_scopes = { any }
+        input_scopes = { estate }
         output_scope = value
         type = value
     }
+    ### How much self control does the country/IO have?
     self_control = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current self control compared to the maximum does the country/IO have?
     self_control_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks the AI utility of adding an amount of a certain trigger to the scoped object
+    ### short_term_trigger_currency_utility = { trigger = X size = <size> target = <optional target> value >= Y }
+    ### Where X is the name of the trigger giving the value
+    ### Where Y is a script value
     short_term_trigger_currency_utility = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = short_term_trigger_currency_utility:
+        data_source = value_field
+        data_source = int_value_field
+        data_source = scope_field
     }
-    situation_has_ended = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    situation_is_active = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### How much minting is going on (0..1)
     slider_minting_value = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
-    societal_value_cabinet_action = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Gets progress towards societal value
     societal_value_progress = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Get the political power of the specified country in an organization with that specified special status. Usage: special_status_power = { country = <country> type = <special status> value <operator> <float> } or special_status_power(<country>|<special status>)
     special_status_power = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = special_status_power:
+        data_source = scope[country]
+        data_source = scope[special_status]
     }
+    ### Get the political power fraction of the specified country in an organization with that specified special status. Usage: special_status_power_fraction = { country = <country> type = <special status> value <operator> <float> } or special_status_power(<country>|<special status>)
     special_status_power_fraction = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = special_status_power_fraction:
+        data_source = scope[country]
+        data_source = scope[special_status]
     }
+    ### How much spy-network does the country have in the target? spy_network = { target = X [*value >/</>=/<= Y* or *value = { min max }*  }
     spy_network = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = spy_network:
+        data_source = scope[country]
     }
+    ### How much Stability does the country/IO have?
     stability = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current Stability compared to the maximum does the country/IO have?
     stability_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks the proportion of your population that is true faith clergy
     state_religion_clergy = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### How many percent strength does this unit have???
     strength_percentage = {
-        input_scopes = { any }
+        input_scopes = { unit }
         output_scope = value
         type = value
     }
-    sub_unit_type = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    subject_can_be_annexed = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Get the level of the subject type.
     subject_level = {
-        input_scopes = { any }
+        input_scopes = { subject_type }
         output_scope = value
         type = value
     }
+    ### Checks a country's subject loyalty
     subject_loyalty = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Compares to relative power of all subjects combined
     subjects_relative_power = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### How many morale does this subunit have???
     subunit_morale = {
-        input_scopes = { any }
+        input_scopes = { sub_unit }
         output_scope = value
         type = value
     }
+    ### How many percent morale does this subunit have???
     subunit_morale_percentage = {
-        input_scopes = { any }
+        input_scopes = { sub_unit }
         output_scope = value
         type = value
     }
+    ### What is the regimental number for this subnunit
     subunit_number = {
-        input_scopes = { any }
+        input_scopes = { sub_unit }
         output_scope = value
         type = value
     }
+    ### How many  strength does this subunit have???
     subunit_strength = {
-        input_scopes = { any }
+        input_scopes = { sub_unit }
         output_scope = value
         type = value
     }
+    ### How many percent strength does this subunit have???
     subunit_strength_percentage = {
-        input_scopes = { any }
+        input_scopes = { sub_unit }
         output_scope = value
         type = value
     }
-    supports_rebel = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### The target satisfaction of an estate
     target_satisfaction = {
-        input_scopes = { any }
+        input_scopes = { estate }
         output_scope = value
         type = value
     }
+    ### Gets the current scope country's antagonism towards the previous scope country
     this_antagonism_towards_prev = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Gets the current scope country's opinion of the previous scope country
     this_opinion_of_prev = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Gets the current scope country's trust of the previous scope country
     this_trust_of_prev = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Return the threat level the scope country has towards the target country scope. Usage: threat_level_to = { country = <country scope> value = <value> } or threat_level_to(<country scope>)
     threat_level_to = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = threat_level_to:
+        data_source = scope[country]
     }
+    ### Checks the tithe percentage of the religion
     tithe = {
-        input_scopes = { any }
+        input_scopes = { religion }
         output_scope = value
         type = value
     }
+    ### The total ability of the character
     total_abilities = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
     }
+    ### Checks if a country has an accepted or primary culture population size of the specified value
     total_accepted_culture_population = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
     }
+    ### Checks if a location has a certain total amount of building levels
     total_building_levels = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks the total amount of cardinals of the religion
     total_cardinals = {
-        input_scopes = { any }
+        input_scopes = { religion }
         output_scope = value
         type = value
     }
+    ### Checks if a country has value that is population * local_control its in
     total_control_scaled_population = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks how much a country has in total debt
     total_debt = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Gets the total amount of development in the country
     total_development = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Check the total amount of dynastic power the scoped dynasty or country has. In case of country, the dynasty of the ruler or of the heir in case of regency is taken.
     total_dynastic_power = {
-        input_scopes = { any }
+        input_scopes = { country dynasty }
         output_scope = value
         type = value
     }
+    ### Returns the number of effective building levels which produce the specified good. total_effective_goods_production_buildings = { goods = <goods> value <comparator> <value> }
     total_effective_goods_production_buildings = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = total_effective_goods_production_buildings:
+        data_source = scope[goods]
     }
+    ### counts the number of enemies of an international organization
     total_enemies = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Check the total amount of goods that went through this market last month
     total_goods_traded = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
     }
+    ### Check the total value of goods that went through this market last month
     total_goods_value_traded = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a heathen population size of the specified value
     total_heathen_population = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a heretic population size of the specified value
     total_heretic_population = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### counts the number of locations owned by an international organization
     total_locations_owned = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### counts the number of members in an international organization
     total_members = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain total merchant capacity
     total_merchant_capacity = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
     total_merchant_power = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
     }
+    ### Checks if a country has an intolerated culture population size of the specified value
     total_not_tolerated_culture_population = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Gets the sum all member countries have to pay for the specified IO and payment type. Usage: total_payment_contribution = { payment = <> }
     total_payment_contribution = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = total_payment_contribution:
+        data_source = scope[country]
+        data_source = <international_organization_payment>
     }
+    ### Checks if a country has a certain population
     total_population = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if the country has the defined amount of pops in the target IO. Usage: total_population_in_international_organization = { international_organization = <international organization> value <operator> <value> } or total_population_in_international_organization(<international organization>)
     total_population_in_international_organization = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = total_population_in_international_organization:
+        data_source = scope[international_organization]
     }
+    ### Checks if the country has the defined amount of pops in the target IO. Usage: total_population_in_international_organization_percentage = { international_organization = <international organization> value <operator> <value> } or total_population_in_international_organization_percentage(<international organization>)
     total_population_in_international_organization_percentage = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = total_population_in_international_organization_percentage:
+        data_source = scope[international_organization]
     }
+    ### Checks if a country has a primary culture population size of the specified value
     total_primary_culture_population = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### Get the political power of all countries in an organization with that specified special status. Usage: total_special_status_power = { type = <special status> value <operator> <float> } or total_special_status_power(<special status>)
     total_special_status_power = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = total_special_status_power:
+        data_source = scope[special_status]
     }
+    ### Get the percentage political power of the target special status compared to the total amount of political power of all special statuses combined. Usage: special_status_power_fraction = { type = <special status> value <operator> <float> } or special_status_power_fraction(<special status>)
     total_special_status_power_fraction = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = total_special_status_power_fraction:
+        data_source = scope[special_status]
     }
+    ### Checks if a country has a tolerated culture population size of the specified value
     total_tolerated_culture_population = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a true faith population size of the specified value
     total_true_faith_population = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### Get the political power of all countries in an organization with that specified special status. Usage: total_special_status_power = { type = <special status> value <operator> <float> } or total_special_status_power(<special status>)
     total_unique_special_status_power = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = total_unique_special_status_power:
+        data_source = scope[special_status]
     }
+    ### What is the current price for the buy of a trade?
     trade_buy = {
-        input_scopes = { any }
+        input_scopes = { trade }
         output_scope = value
         type = value
     }
+    ### How much of the assigned capacity is being used?
     trade_capacity_usage_percent = {
-        input_scopes = { any }
+        input_scopes = { trade }
         output_scope = value
         type = value
     }
+    ### What is the current profit of a trade?
     trade_profit = {
-        input_scopes = { any }
+        input_scopes = { trade }
         output_scope = value
         type = value
     }
+    ### What is the current price for the sell of a trade?
     trade_sell = {
-        input_scopes = { any }
+        input_scopes = { trade }
         output_scope = value
         type = value
     }
+    ### How big volume was traded by this trade?
     trade_volume = {
-        input_scopes = { any }
+        input_scopes = { trade }
         output_scope = value
         type = value
     }
+    ### How much tribal_cohesion does the country/IO have?
     tribal_cohesion = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current tribal_cohesion compared to the maximum does the country/IO have?
     tribal_cohesion_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### is the country's trust towards the target greater or equal than the value? trust = { target = X [*value >/</>=/<= Y* or *value = { min max }*  }
     trust = {
         input_scopes = { country }
         output_scope = value
@@ -4782,258 +5004,318 @@ links = {
         from_argument = yes
         data_source = scope[country]
     }
+    ### returns the number of days a country has been in a union with the target country. Usage: union_length_days = { target = <country> value <comparator> <value> }
     union_length_days = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        prefix = union_length_days:
+        from_argument = yes
+        data_source = scope[country]
     }
-    unique_international_organization_type_exists = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    unit_has_leader = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Check the strength of the unit in scope
     unit_strength = {
-        input_scopes = { any }
+        input_scopes = { unit }
         output_scope = value
         type = value
     }
+    ### What is the xx position (0-1) the country has?
     upkeep_maintenance = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain cost of cultures accepted & tolerated
     used_cultures_capacity = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Diplomatic capacity used by the country
     used_diplomatic_capacity = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### gets the market used merchant capacity for a country in the scope market
     used_merchant_capacity = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
     }
-    valid_estate_for_heir_selection = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Check how much vote impact the current country scope would make when voting in the target resolution of the target IO. Usage: vote_impact_in_resolution = { international_organization = <international organization> resolution = <resolution> value <operator> <real> } or vote_impact_in_resolution(<international organization>|<resolution>)
     vote_impact_in_resolution = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = vote_impact_in_resolution:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[international_organization]
+        data_source = scope[resolution]
     }
+    ### Check how much vote percentage impact the current country scope would make when voting in the target resolution of the target IO. Usage: vote_percentage_impact_in_resolution = { international_organization = <international organization> resolution = <resolution> value <operator> <real> } or vote_percentage_impact_in_resolution(<international organization>|<resolution>)
     vote_percentage_impact_in_resolution = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = vote_percentage_impact_in_resolution:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[international_organization]
+        data_source = scope[resolution]
     }
+    ### Checks the number of votes for a particular outcome of a resolution. usage: votes_for_resolution(<resolution_key>|<thing>) or votes_for_resolution = { resolution = <resolution_key> outcome = <thing> value <comparator> <real> }
     votes_for_resolution = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = votes_for_resolution:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[resolution]
+        data_source = scope_field
     }
-    wants_casus_belli_with = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    wants_military_access_in = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    wants_opinion_with = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    wants_to_give_away_any_province = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    wants_to_subjugate = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### The war enthusiasm of the current country scope in the target war. Usage: war_enthusiasm = { war = <war scope> value = <script value> } or war_enthusiasm(<war scope>)
     war_enthusiasm = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = war_enthusiasm:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[war]
     }
+    ### How much WarExhaustion does the country/IO have?
     war_exhaustion = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current WarExhaustion compared to the maximum does the country/IO have?
     war_exhaustion_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks how many months the current war has been going.
     war_length = {
-        input_scopes = { any }
+        input_scopes = { war }
         output_scope = value
         type = value
     }
+    ### Checks how many years the current war has been going.
     war_length_in_years = {
-        input_scopes = { any }
+        input_scopes = { war }
         output_scope = value
         type = value
     }
+    ### Check how much war score the current country has in the target war. Usage: war_score_in_war = { war = <war> value <operatore> <real> } or war_score_in_war(<war>)
     war_score_in_war = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        prefix = war_score_in_war:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[war]
     }
+    ### Check how much war score the target country has in the current war. Usage: war_score_of_country = { country = <country> value <operatore> <real> } or war_score_of_country(<country>)
     war_score_of_country = {
-        input_scopes = { any }
+        input_scopes = { war }
         output_scope = value
         type = value
+        prefix = war_score_of_country:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[country]
     }
+    ### Gets the war score of the scope country against the supplied one - usage: war_score_versus(<target>) or war_score_versus = { target = <country link> value <operator> <amount> }
     war_score_versus = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        prefix = war_score_versus:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[country]
     }
+    ### Checks how many months with no action have passed in the current war.
     war_stalling_length = {
-        input_scopes = { any }
+        input_scopes = { war }
         output_scope = value
         type = value
     }
+    ### Checks how many years with no action have passed in the current war.
     war_stalling_length_in_years = {
-        input_scopes = { any }
+        input_scopes = { war }
         output_scope = value
         type = value
     }
-    within_colonial_range_of = {
-        input_scopes = { any }
+    winter_power = {
+        input_scopes = { location }
         output_scope = value
         type = value
     }
-    within_diplomatic_range = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    within_naval_range_of = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks the total art quality in the world
     world_art_quality = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### Gets the percentage of the population that follow a particular culture group in the world - world_culture_group_percentage = { culture_group = <culture_group> value ><= <value> }
     world_culture_group_percentage = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = world_culture_group_percentage:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[culture_group]
     }
+    ### Gets the absolute number of the population that follow a particular culture group in the world - world_culture_group_population = { culture_group = <culture_group> value ><= <value> }
     world_culture_group_population = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = world_culture_group_population:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[culture_group]
     }
+    ### Gets the percentage of the population that follow a particular culture in the world - world_culture_percentage = { culture = <culture> value ><= <value> }
     world_culture_percentage = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = world_culture_percentage:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[culture]
     }
+    ### Gets the absolute number of the population that follow a particular culture in the world - world_culture_population = { culture = <culture> value ><= <value> }
     world_culture_population = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = world_culture_population:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[culture]
     }
+    ### Gets the percentage of the population that follow a particular religion group in the world - world_religion_group_percentage = { religion_group = <religion_group> value ><= <value> }
     world_religion_group_percentage = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = world_religion_group_percentage:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[religion_group]
     }
+    ### Gets the absolute number of the population that follow a particular religion group in the world - world_religion_group_population = { religion_group = <religion_group> value ><= <value> }
     world_religion_group_population = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = world_religion_group_population:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[religion_group]
     }
+    ### Gets the percentage of the population that follow a particular religion in the world - world_religion_percentage = { religion = <religion> value ><= <value> }
     world_religion_percentage = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = world_religion_percentage:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[religion]
     }
+    ### Gets the absolute number of the population that follow a particular religion in the world - world_religion_population = { religion = <religion> value ><= <value> }
     world_religion_population = {
         input_scopes = { any }
         output_scope = value
         type = value
+        prefix = world_religion_population:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[religion]
     }
+    ### How much yanantin does the country/IO have?
     yanantin = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current yanantin compared to the maximum does the country/IO have?
     yanantin_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How much gold does the country get per year?
     yearly_gold = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### How many Manpower does the country get per year?
     yearly_manpower = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### How many Sailors does the country get per year?
     yearly_sailors = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### The yearly salary of the character
     yearly_salary = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
     }
+    ### Checks how long a religion has been enabled
     years_active = {
-        input_scopes = { any }
+        input_scopes = { religion }
         output_scope = value
         type = value
     }
+    ### Checks if the country has been in the current international organization scope for x years. Usage: years_in_international_organization = { country = <country scope> value = <years> } or years_in_international_organization(country)
     years_in_international_organization = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        prefix = years_in_international_organization:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[international_organization]
     }
+    ### Checks if x years have passed since the end of the disaster. Returns -1 if the disaster has never ended.
     years_since_disaster_end = {
-        input_scopes = { any }
+        input_scopes = { disaster }
         output_scope = value
         type = value
     }
+    ### Checks if x years have passed since the start of the disaster. Returns -1 if the disaster has never started.
     years_since_disaster_start = {
-        input_scopes = { any }
+        input_scopes = { disaster }
         output_scope = value
         type = value
     }
+    ### Checks if x years have passed since the end of the situation. Returns -1 if the situation has never ended.
     years_since_situation_end = {
-        input_scopes = { any }
+        input_scopes = { situation }
         output_scope = value
         type = value
     }
+    ### Checks if x years have passed since the start of the situation. Returns -1 if the situation has never started.
     years_since_situation_start = {
-        input_scopes = { any }
+        input_scopes = { situation }
         output_scope = value
         type = value
     }

@@ -3530,678 +3530,747 @@ alias[trigger:location_maritime_presence_power] = {
 ## scopes = { location }
 alias[trigger:location_max_winter_level] = enum[climate_winter_type]
 
-### todo
-## scopes = { any }
-alias[trigger:location_num_holy_sites] = bool
+### gets the peace cost for the location according to giver and taker countries
+### usage in trigger:
+### location_peace_cost = {
+### 	giver = <country>
+### 	taker = <country>
+### 	value <operand> <threshold>  #ex: value < 10
+### }
+### usage in scripted value:
+### location_peace_cost(<giver>|<taker>)
+## scopes = { location }
+alias[trigger:location_peace_cost] = {
+    giver = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:location_num_works_of_art] = bool
+    taker = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:location_peace_cost] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:location_population_percentage] = bool
+### Checks the progress of the country scope to form the specified formable in percentage. Usage: location_progress_for_formable = { formable_country = <formable country scope> value = <value> } or location_progress_for_formable(<formable country scope>)
+## scopes = { country }
+alias[trigger:location_progress_for_formable] = {
+    formable_country = scope[formable_country]
 
-### todo
-## scopes = { any }
-alias[trigger:location_privateer_power] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:location_progress_for_formable] = bool
+### Checks if a location has a certain unemployed population for the supplied building type (with optional owner)
+## scopes = { location }
+alias[trigger:location_unemployed_population_for_building_type] = {
+    building_type = scope[building_type]
 
-### todo
-## scopes = { any }
-alias[trigger:location_size] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:location_tax_base] = bool
+### Checks if a location has a certain population within range
+## scopes = { location }
+alias[trigger:location_within_range] = scope[country]
 
-### todo
+### Checks the AI utility of adding an amount of a certain trigger every month to the scoped object
+### long_term_trigger_currency_utility = { trigger = X size = <size> target = <optional target> value >= Y }
+### Where X is the name of the trigger giving the value
+### Where Y is a script value
 ## scopes = { any }
-alias[trigger:location_unemployed_population_for_building_type] = bool
+alias[trigger:long_term_trigger_currency_utility] = {
+    trigger = value_field
 
-### todo
-## scopes = { any }
-alias[trigger:location_within_range] = bool
+    size = int_value_field
 
-### todo
-## scopes = { any }
-alias[trigger:location_works_of_art_star_rating] = bool
+    target = scope_field
 
-### todo
-## scopes = { any }
-alias[trigger:long_term_trigger_currency_utility] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### gets the possible trade surplus for the goods in the scope market
 ## scopes = { any }
-alias[trigger:lowest_prosperity] = bool
+alias[trigger:market_possible_goods_trade_surplus] = {
+    goods = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:lowest_war_score] = bool
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:market_access] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:market_food] = bool
+### gets the max number of countries with a specific special status in an international organization
+## scopes = { international_organization }
+alias[trigger:max_countries_with_special_status] = {
+    special_status = scope[special_status]
 
-### todo
-## scopes = { any }
-alias[trigger:market_food_deficit] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:market_food_percentage] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:market_food_traded] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:market_max_food] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:market_monthly_food_balance] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:market_population] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:market_possible_goods_trade_surplus] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:max_control] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:max_countries_with_special_status] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:max_garrison_strength] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:max_manpower] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:max_possible_candidates] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:max_religious_aspects] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:max_rgo_workers] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:max_sailors] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:max_sects] = bool
-
-### todo
-## scopes = { any }
+### Check if a mercenary has an owner
+## scopes = { mercenary }
 alias[trigger:mercenary_has_owner] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:merchant_capacity] = bool
+### gets the market merchant capacity for a country in the scope market
+## scopes = { market }
+alias[trigger:merchant_capacity] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:merchant_power_in_market] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:migration_attraction] = bool
+### gets the market merchant power for a country in the scope market
+## scopes = { market }
+alias[trigger:merchant_power_in_market] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:military_tech_level] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:mission_completed] = bool
+### Checks if the country has completed the mission.
+## scopes = { country }
+alias[trigger:mission_completed] = scope[mission]
 
-### todo
-## scopes = { any }
-alias[trigger:mission_task_bypassed] = bool
+### Checks if the country has bypassed the mission task.
+## scopes = { country }
+alias[trigger:mission_task_bypassed] = scope[mission_task]
 
-### todo
-## scopes = { any }
-alias[trigger:mission_task_completed] = bool
+### Checks if the country has completed the mission task.
+## scopes = { country }
+alias[trigger:mission_task_completed] = scope[mission_task]
 
-### todo
-## scopes = { any }
+### Checks the AI utility of a modifier
+## scopes = { location country unit character religion province religious_school international_organization policy religious_aspect government_reform god avatar }
 alias[trigger:modifier_utility] = {
-    modifier = <static_modifier>
+    modifier = scope_field
 
-    value == int_value_field
+    value == value_field
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
 }
 
-### todo
-## scopes = { any }
+### Checks the AI utility of a modifier with location checks
+## scopes = { location country unit character religion province religious_school international_organization policy religious_aspect government_reform god avatar }
 alias[trigger:modifier_utility_include_locations] = {
-    modifier = <static_modifier>
+    modifier = scope_field
 
-    value == int_value_field
+    value == value_field
     value == <script_value>
     value == <static_value>
     value == single_alias_right[formula]
 }
 
-### todo
-## scopes = { any }
-alias[trigger:nand] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:naval_range] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:navy_maintenance] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:navy_size] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:navy_size_percentage] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:navy_tradition] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:navy_tradition_percentage] = bool
-
-### todo
-## scopes = { any }
+### religion needs reforms
+## scopes = { religion }
 alias[trigger:need_reforms] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:needs_opinion_with] = bool
+### Determines if a country needs X more relations with another nation. Usage: needs_opinion_with = { target = <country> value <comparator> <value> }
+## scopes = { country }
+alias[trigger:needs_opinion_with] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:nor] = bool
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:not] = bool
+### gets the number of countries with a particular special status in an international organization
+## scopes = { country }
+alias[trigger:num_countries_with_special_status] = {
+    special_status = scope[special_status]
 
-### todo
-## scopes = { any }
-alias[trigger:offensive_alliance_strength] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
+### The number of traits of a specified category the character has. usage: num_of_trait_by_category(<trait_category>) or num_of_trait_by_category = { type = <trait_category> value <comparator> <integer> }
+## scopes = { character }
+alias[trigger:num_of_traits_of_category] = {
+    type = enum[character_trait_category]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Check if a subject type only allows use of the overlord's court language
+## scopes = { subject_type }
 alias[trigger:only_allowed_overlord_court_language] = bool
 
-### todo
-## scopes = { any }
+### Check if a subject type only allows use of the overlord's primary culture
+## scopes = { subject_type }
 alias[trigger:only_allowed_overlord_primary_culture] = bool
 
-### todo
-## scopes = { any }
+### Check if a subject type only allows use of the overlord's primary or kindred culture
+## scopes = { subject_type }
 alias[trigger:only_allowed_overlord_primary_or_kindred_culture] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:opinion] = bool
+### is the country's opinion of the target greater or equal than the value? opinion = { target = X [*value >/</>=/<= Y* or *value = { min max }*  }
+## scopes = { country }
+alias[trigger:opinion] = {
+    target = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:opinion_difference_between] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:or] = bool
+### Get the opinion of the current country scope against the first target country and subtract it with the opinion the current scope has of the second country. Usage: opinion_difference_between = { first = <country> second = <country> value = <value> } or opinion_difference_between(<country>|<country>)
+## scopes = { country }
+alias[trigger:opinion_difference_between] = {
+    first = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:organization_strength_relative_to_country] = bool
+    second = scope[country]
 
-### todo
-## scopes = { any }
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Gets the relative strength of the scope organization to the supplied country - usage: organization_strength_relative_to_country(<target>|<bool exclude_target>) or organization_strength_relative_to_country = { target = <country link> value <operator> <amount> exclude_target = <bool> }
+## scopes = { international_organization }
+alias[trigger:organization_strength_relative_to_country] = {
+    target = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    exclude_target = bool
+}
+
+### Check if a subject type allows the overlord to build markets
+## scopes = { subject_type }
 alias[trigger:overlord_can_build_markets] = bool
 
-### todo
-## scopes = { any }
+### Check if a subject type allows the overlord to destroy markets
+## scopes = { subject_type }
 alias[trigger:overlord_can_destroy_markets] = bool
 
-### todo
-## scopes = { any }
+### Check if a subject type allows an overlord to enforce peace on a subject
+## scopes = { subject_type }
 alias[trigger:overlord_can_enforce_peace_on_subject] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:own_entire_area] = bool
+### Does the country own all locations in area?
+## scopes = { country }
+alias[trigger:own_entire_area] = scope[area]
 
-### todo
-## scopes = { any }
-alias[trigger:own_entire_province] = bool
+### Does the country own all locations in province?
+## scopes = { country }
+alias[trigger:own_entire_province] = scope[province_definition]
 
-### todo
-## scopes = { any }
+### Does the country own a specific location?
+## scopes = { country }
 alias[trigger:owns] = scope[location]
 
-### todo
-## scopes = { any }
+### Does the country own any foreign buildings in the target country?
+## scopes = { country }
 alias[trigger:owns_any_foreign_buildings_in] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:owns_or_non_sovereign_subject_owns] = bool
+### Does the country or any of its direct non-sovereign subjects own a specific location?
+## scopes = { country }
+alias[trigger:owns_or_non_sovereign_subject_owns] = scope[location]
 
-### todo
-## scopes = { any }
-alias[trigger:parliament_issue_chance] = bool
+### The chance an issue will be selected
+## scopes = { country international_organization }
+alias[trigger:parliament_issue_chance] = {
+    parliament_issue = scope[parliament_issue]
 
-### todo
-## scopes = { any }
-alias[trigger:parliament_issue_support] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
+### The current support in parliament for an issue
+## scopes = { country international_organization }
+alias[trigger:parliament_issue_support] = {
+    parliament_issue = scope[parliament_issue]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Check if the parliament issue of the country / international in debate will pass
+## scopes = { country international_organization }
 alias[trigger:parliament_issue_will_pass] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:parliament_type_enabled_in_international_organization] = bool
+### Is a parliament type enabled in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:parliament_type_enabled_in_international_organization] = scope[parliament_type]
 
-### todo
-## scopes = { any }
-alias[trigger:parliament_type_is_enabled_in] = bool
+### Is a parliament type enabled in the scope country?
+## scopes = { country }
+alias[trigger:parliament_type_is_enabled_in] = scope[parliament_type]
 
-### todo
-## scopes = { any }
-alias[trigger:parliament_type_is_locked_in] = bool
+### Is a parliament type locked in the scope country?
+## scopes = { country }
+alias[trigger:parliament_type_is_locked_in] = scope[parliament_type]
 
-### todo
-## scopes = { any }
-alias[trigger:parliament_type_is_locked_in_international_organization] = bool
+### Is a parliament type locked in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:parliament_type_is_locked_in_international_organization] = scope[parliament_type]
 
-### todo
-## scopes = { any }
-alias[trigger:parliament_type_utility] = bool
+### Utility of a parliament type that can subtract the utility of current parliament modifiers - usage: parliament_type_utility(<type>|<bool>) or parliament_type_utility = { parliament_type = <type> subtract_current = <bool> value <operator><threshold> }
+## scopes = { country }
+alias[trigger:parliament_type_utility] = {
+    parliament_type = scope[parliament_type]
 
-### todo
-## scopes = { any }
-alias[trigger:parliament_type_visible_in] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
 
-### todo
-## scopes = { any }
-alias[trigger:parliament_type_visible_in_international_organization] = bool
+    subtract_current = bool
+}
 
-### todo
-## scopes = { any }
-alias[trigger:payment_contribution] = bool
+### Can we see a parliament type in the scope country?
+## scopes = { country }
+alias[trigger:parliament_type_visible_in] = scope[parliament_type]
 
-### todo
-## scopes = { any }
-alias[trigger:payment_maintenance] = bool
+### Can we see a parliament type in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:parliament_type_visible_in_international_organization] = scope[parliament_type]
 
-### todo
-## scopes = { any }
-alias[trigger:player_proficiency] = bool
+### Gets how much the country has to pay for the specified IO and payment type. Usage: payment_contribution = { international_organization = <> payment = <> }
+## scopes = { country }
+alias[trigger:payment_contribution] = {
+    parliament_type = scope[parliament_type]
 
-### todo
-## scopes = { any }
-alias[trigger:player_proficiency_greater] = bool
+    payment = <international_organization_payment>
+}
 
-### todo
-## scopes = { any }
-alias[trigger:player_proficiency_greater_eq] = bool
+### gets the payment maintenance level for a country in an international organization. Usage: payment_maintenance = { international_organization = <> payment = <> }
+## scopes = { country }
+alias[trigger:payment_maintenance] = {
+    parliament_type = scope[parliament_type]
 
-### todo
-## scopes = { any }
-alias[trigger:player_proficiency_less] = bool
+    payment = <international_organization_payment>
+}
 
-### todo
-## scopes = { any }
-alias[trigger:player_proficiency_less_eq] = bool
+### Is player proficiency equal to NOVICE, EXPERIENCED, ADVANCED or EXPERT
+## scopes = { country }
+alias[trigger:player_proficiency] = enum[scenario_proficiency]
 
-### todo
-## scopes = { any }
-alias[trigger:policy_enabled_to_international_organization] = bool
+### Is player proficiency greater than NOVICE, EXPERIENCED, ADVANCED or EXPERT?
+## scopes = { country }
+alias[trigger:player_proficiency_greater] = enum[scenario_proficiency]
 
-### todo
-## scopes = { any }
+### Is player proficiency greater or equal to NOVICE, EXPERIENCED, ADVANCED or EXPERT?
+## scopes = { country }
+alias[trigger:player_proficiency_greater_eq] = enum[scenario_proficiency]
+
+### Is player proficiency less than NOVICE, EXPERIENCED, ADVANCED or EXPERT?
+## scopes = { country }
+alias[trigger:player_proficiency_less] = enum[scenario_proficiency]
+
+### Is player proficiency less or equal to NOVICE, EXPERIENCED, ADVANCED or EXPERT?
+## scopes = { country }
+alias[trigger:player_proficiency_less_eq] = enum[scenario_proficiency]
+
+### Can we enact a policy in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:policy_enabled_to_international_organization] = scope[policy]
+
+### Check if the policy has an ai proposal value to begin with
+## scopes = { policy }
 alias[trigger:policy_has_ai_propose_value] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:policy_is_locked_in_international_organization] = bool
+### Is a policy locked in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:policy_is_locked_in_international_organization] = scope[policy]
 
-### todo
-## scopes = { any }
-alias[trigger:policy_visible_to_international_organization] = bool
+### Can we see a policy in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:policy_visible_to_international_organization] = scope[policy]
 
-### todo
-## scopes = { any }
-alias[trigger:pop_character_chance] = bool
+### Checks if a pop knows about a goods enough to demand it
+## scopes = { pop }
+alias[trigger:pop_knows_about_goods] = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:pop_knows_about_goods] = bool
+### The percentage of the specific pop type in the current country
+## scopes = { country }
+alias[trigger:pop_type_percentage_in_country] = {
+    pop_type = scope[pop_type]
 
-### todo
-## scopes = { any }
-alias[trigger:pop_literacy] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:pop_satisfaction] = bool
+### The number of the specific pop type in the current country
+## scopes = { country }
+alias[trigger:pop_type_population_in_country] = {
+    pop_type = scope[pop_type]
 
-### todo
-## scopes = { any }
-alias[trigger:pop_type_percentage_in_country] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:pop_type_population_in_country] = bool
+### Checks if the location has x amount of population with specific pop traits. Usage: population_with_traits = { limit = { <pop triggers> } OR scripted_trigger = <scripted trigger key> value = <script value> } or population_with_traits(<scripted trigger key>)
+## scopes = { location }
+## push_scope = pop
+alias[trigger:population_with_traits] = {
+    ## cardinality = 0..1
+    limit = single_alias_right[trigger_clause]
 
-### todo
-## scopes = { any }
-alias[trigger:population_in_area] = bool
+    ## cardinality = 0..1
+    scripted_trigger = <scripted_trigger>
 
-### todo
-## scopes = { any }
-alias[trigger:population_with_traits] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:possible_military_leaders] = bool
+### Gets the price of the scoped goods in the supplied market
+### price_in_market = { market = X value >= Y }
+### Where X is the name of the market
+### Where Y is a script value
+## scopes = { goods }
+alias[trigger:price_in_market] = {
+    market = scope[market]
 
-### todo
-## scopes = { any }
-alias[trigger:power] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:power_projection] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:prestige_percentage] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:prev_antagonism_towards_this] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:prev_opinion_of_this] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:prev_trust_of_this] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:price_in_market] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:prisoner_strength] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:privateer_power] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:privateer_utility] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:production_method_profit] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:proper_culture_nobles] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_army_levy_size] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_average_control] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_average_development] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_average_integration] = bool
-
-### todo
-## scopes = { any }
+### Checks if a cabinet action role affects a province
+## scopes = { cabinet_action }
 alias[trigger:province_cabinet_action] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:province_cultural_unity] = bool
+### Check how many locations in the province_defintion/area/region/subcontinent/continent produce the specified raw material. Usage: raw_material_amount = { goods = <goods scope> value = <value> } or raw_material_amount(<goods scope>)
+## scopes = { market province_definition area region sub_continent continent }
+alias[trigger:raw_material_amount] = {
+    market = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:province_food] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:province_food_percentage] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_max_food] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_monthly_food_production] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_navy_levy_size] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_possible_institutions] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_prosperity] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_rebel_progress] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_religious_unity] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_satisfaction] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:province_tax_base] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:proximity] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:purity] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:purity_percentage] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:random_integer] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:rank_index] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:raw_material_amount] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:raw_material_occurrence] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:raw_material_output] = bool
-
-### todo
-## scopes = { any }
+### Checks if a rebel is of a certain category
+## scopes = { rebels }
 alias[trigger:rebel_category] = enum[rebel_type]
 
-### todo
-## scopes = { any }
-alias[trigger:rebel_estate_type] = bool
+### Checks if the rebel is from the specified estate type
+## scopes = { rebels }
+alias[trigger:rebel_estate_type] = scope[estate_type]
 
-### todo
-## scopes = { any }
-alias[trigger:rebel_locations] = bool
-
-### todo
+### if a rebel has a specific name key
 ## scopes = { any }
 alias[trigger:rebel_name_key] = localisation
 
-### todo
-## scopes = { any }
-alias[trigger:rebel_size] = bool
-
-### todo
-## scopes = { any }
+### Does the scope country receive fleet basing rights from the specified country?
+## scopes = { country }
 alias[trigger:receives_fleet_basing_rights_from] = scope[country]
 
-### todo
-## scopes = { any }
+### Does the scope country receive food access from the specified country?
+## scopes = { country }
 alias[trigger:receives_food_access_from] = scope[country]
 
-### todo
-## scopes = { any }
+### Does the scope country receive a trade isolation exemption from the specified country?
+## scopes = { country }
 alias[trigger:receives_isolation_exemption_from] = scope[country]
 
-### todo
-## scopes = { any }
+### Does the scope country receive military access from the specified country?
+## scopes = { country }
 alias[trigger:receives_military_access_from] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:receiving_scripted_relation] = bool
+### Checks for receiving scripted relation. Usage: receiving_scripted_relation = { target = country type = <scripted type> }
+## scopes = { country }
+alias[trigger:receiving_scripted_relation] = {
+    target = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:receiving_scripted_relation_of_type] = bool
+    type = enum[scripted_relation_type]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:reform_desire] = bool
+### Checks if that scripted relation is received by the country scope from any other country.
+## scopes = { country }
+alias[trigger:receiving_scripted_relation_of_type] = scope[relation_type]
 
-### todo
-## scopes = { any }
-alias[trigger:regular_army_size] = bool
+### calculates the relative military strength of the scope country to the target. relative_military_strength = { target = X [*value >/</>=/<= Y* or *value = { min max }*  }
+## scopes = { country }
+alias[trigger:relative_military_strength] = {
+    target = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:relative_military_strength] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:relative_raw_material_price] = bool
+### Checks the price of a location's raw material in its market as a percentage of the base price of that material
+## scopes = { location }
+alias[trigger:relative_raw_material_price] = {
+    location = scope[location]
 
-### todo
-## scopes = { any }
-alias[trigger:relative_strength] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### Gets the relative strength of the scope country to the supplied one - usage: relative_strength(<target>) or relative_strength = { target = <country link> value <operator> <amount> }
+## scopes = { country }
+alias[trigger:relative_strength] = {
+    target = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Checks if the game is in release mode or not.
 ## scopes = { any }
 alias[trigger:release_only] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:relevant_countries] = bool
+### Do we have any diplomatic action with the target country?
+## scopes = { country }
+alias[trigger:relevant_countries] = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:religion_group_percentage] = bool
+### Gets the percentage of the population that follow a particular religion group in the location/province/province_defintion/area/region/subcontinent/continent - religion_group_percentage = { religion_group = <religion group> value ><= <value> }
+## scopes = { location province province_definition area region sub_continent continent }
+alias[trigger:religion_group_percentage] = {
+    religion_group = scope[religion_group]
 
-### todo
-## scopes = { any }
-alias[trigger:religion_group_percentage_in_country] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:religion_group_population] = bool
+### The percentage of a specific religion group in the current country
+## scopes = { country }
+alias[trigger:religion_group_percentage_in_country] = {
+    religion_group = scope[religion_group]
 
-### todo
-## scopes = { any }
-alias[trigger:religion_percentage] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:religion_percentage_in_country] = bool
+### Gets the absolute number of the population that follow a particular religion group in the location/province/province_defintion/area/region/subcontinent/continent - religion_group_population = { religion_group = <religion group> value ><= <value> }
+## scopes = { location province province_definition area region sub_continent continent }
+alias[trigger:religion_group_population] = {
+    religion_group = scope[religion_group]
 
-### todo
-## scopes = { any }
-alias[trigger:religion_population] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:religion_population_in_country] = bool
+### Gets the percentage of the population that follow a particular religion in the location/province/province_defintion/area/region/subcontinent/continent - religion_percentage = { religion = <religion> value ><= <value> }
+## scopes = { location province province_definition area region sub_continent continent }
+alias[trigger:religion_percentage] = {
+    religion = scope[religion]
 
-### todo
-## scopes = { any }
-alias[trigger:religious_figure_type] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:religious_influence] = bool
+### The percentage of a specific religion in the current country
+## scopes = { country }
+alias[trigger:religion_percentage_in_country] = {
+    religion = scope[religion]
 
-### todo
-## scopes = { any }
-alias[trigger:religious_influence_percentage] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### Gets the absolute number of the population that follow a particular religion in the location/province/province_defintion/area/region/subcontinent/continent - religion_population = { religion = <religion> value ><= <value> }
+## scopes = { location province province_definition area region sub_continent continent }
+alias[trigger:religion_population] = {
+    religion = scope[religion]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### The number of pops with a specific religion in the current country
 ## scopes = { any }
+alias[trigger:religion_population_in_country] = {
+    religion = scope[religion]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Checks if a character is a specific type of religious figure
+## scopes = { character }
+alias[trigger:religious_figure_type] = <religious_figure>
+
+### does the Religion have the specified opinion of the target?
+## scopes = { religion }
 alias[trigger:religious_view] = {
     target = scope[religion]
 
@@ -4211,228 +4280,283 @@ alias[trigger:religious_view] = {
     value == single_alias_right[formula]
 }
 
-### todo
+### Utility of relocating a market - usage: relocate_market_utility(<location>,<location>) or relocate_market_utility = { location = <location> new_location = <location> value <operator><threshold> }
 ## scopes = { any }
-alias[trigger:relocate_market_utility] = bool
+alias[trigger:relocate_market_utility] = {
+    location = scope[location]
 
-### todo
-## scopes = { any }
-alias[trigger:remaining_debt] = bool
+    new_location = scope[location]
 
-### todo
-## scopes = { any }
-alias[trigger:remaining_parliament_days] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### Checks the AI utility of removing a static modifier from the scoped object
+### remove_static_modifier_utility = { modifier = X value >= Y }
+### Where X is the name of the static modifier
+### Where Y is a script value
 ## scopes = { any }
 alias[trigger:remove_static_modifier_utility] = {
     modifier = <static_modifier>
 
-    value == int_value_field
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
     value == <script_value>
+    ## cardinality = 0..inf
     value == <static_value>
+    ## cardinality = 0..inf
     value == single_alias_right[formula]
 }
 
-### todo
-## scopes = { any }
-alias[trigger:requires_goods] = bool
+### Returns true if the production method requires the specified trade good.
+## scopes = { production_method }
+alias[trigger:requires_goods] = scope[goods]
 
-### todo
-## scopes = { any }
+### Does the law require a vote?
+## scopes = { law }
 alias[trigger:requires_vote] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:research_progress] = bool
+### Is the resolution currently being debated in the scope international organization/situation?
+## scopes = { country international_organization }
+alias[trigger:resolution_is_active] = scope[resolution]
 
-### todo
-## scopes = { any }
-alias[trigger:resolution_is_active] = bool
+### Gets the current scope country's opinion of a resolution. Usage: resolution_opinion(<international organization>|<resolution>|<vote>)
+## scopes = { country }
+alias[trigger:resolution_opinion] = {
+    international_organization = scope[international_organization]
 
-### todo
-## scopes = { any }
-alias[trigger:resolution_opinion] = bool
+    resolution = scope[resolution]
 
-### todo
-## scopes = { any }
-alias[trigger:reverse_country_interaction_acceptance] = bool
+    vote = scope[country]
+}
 
-### todo
+### How high is the current country's AI value of accepting the country interaction done by the specified country scope? Always return 0 if the scope is a player
+### Usage: reverse_country_interaction_acceptance = { type = <country interaction> target = <country> value = <value> } or reverse_country_interaction_acceptance(<country interaction>|<country>)
 ## scopes = { any }
+alias[trigger:reverse_country_interaction_acceptance] = {
+    type = scope[country_interaction]
+
+    target = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### does the target have the specified opinion of the culture? { target = <target culture> value <>= <value> }
+## scopes = { culture }
 alias[trigger:reverse_cultural_view] = {
     target = scope[culture]
 
     value == enum[culture_opinion]
 }
 
-### todo
-## scopes = { any }
-alias[trigger:reverse_religious_view] = bool
+### does the target have the specified opinion of the Religion?
+## scopes = { religion }
+alias[trigger:reverse_religious_view] = {
+    target = scope[religion]
 
-### todo
-## scopes = { any }
-alias[trigger:reverse_school_opinion] = bool
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:rgo_workers] = bool
+### does the target have the specified opinion of the school?
+## scopes = { religious_school }
+alias[trigger:reverse_school_opinion] = {
+    target = scope[religious_school]
 
-### todo
-## scopes = { any }
-alias[trigger:righteousness] = bool
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:righteousness_percentage] = bool
+### can the country find a trade route from market a to market b { from = <market> to = <market> }?
+## scopes = { character }
+alias[trigger:ruled_country_on_or_after] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:rite_power] = bool
+    date = date_field
+    date = scope[date]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:rite_power_percentage] = bool
+### Gets the start date of the current ruler term
+## scopes = { country }
+alias[trigger:ruler_term_start_date] == date_field
+### Gets the start date of the current ruler term
+## scopes = { country }
+alias[trigger:ruler_term_start_date] == scope[date]
 
-### todo
-## scopes = { any }
-alias[trigger:ruled_country_on_or_after] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:ruler_reign] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:ruler_reign_in_days] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:ruler_term_start_date] = bool
-
-### todo
+### Saves a temporary target for use during the trigger execution
 ## scopes = { any }
 alias[trigger:save_temporary_scope_as] = value_set[event_target]
 
-### todo
+### Saves a numerical or bool value as an arbitrarily-named temporary target to be referenced later in the same effect
 ## scopes = { any }
-alias[trigger:save_temporary_scope_value_as] = bool
+alias[trigger:save_temporary_scope_value_as] = {
+    name = value_set[event_target]
 
-### todo
+    value = value_field
+    value = <script_value>
+    value = <static_value>
+    value = single_alias_right[formula]
+}
+
+### does the school have the specified opinion of the target?
 ## scopes = { any }
-alias[trigger:school_opinion] = bool
+alias[trigger:school_opinion] = {
+    target = scope[religious_school]
 
-### todo
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
+
+### Checks the type of the scope object
 ## scopes = { any }
 alias[trigger:scope_type] = enum[scope]
 
-### todo
+### Checks the AI utility of adding an amount of a certain trigger to the scoped object
+### short_term_trigger_currency_utility = { trigger = X size = <size> target = <optional target> value >= Y }
+### Where X is the name of the trigger giving the value
+### Where Y is a script value
 ## scopes = { any }
-alias[trigger:self_control] = bool
+alias[trigger:short_term_trigger_currency_utility] = {
+    trigger = value_field
 
-### todo
-## scopes = { any }
-alias[trigger:self_control_percentage] = bool
+    size = int_value_field
 
-### todo
-## scopes = { any }
-alias[trigger:short_term_trigger_currency_utility] = bool
+    target = scope_field
 
-### todo
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Check if a situation has ended
 ## scopes = { situation }
 alias[trigger:situation_has_ended] = bool
 
-### todo
+### Check if a situation is active
 ## scopes = { situation }
 alias[trigger:situation_is_active] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:slider_minting_value] = bool
-
-### todo
-## scopes = { any }
+### Checks if a cabinet action role has a societal value
+## scopes = { cabinet_action }
 alias[trigger:societal_value_cabinet_action] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:societal_value_progress] = bool
+### Can the supplied special status be bestowed on the supplied country in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:special_status_can_be_bestowed] = {
+    type = scope[special_status]
 
-### todo
-## scopes = { any }
-alias[trigger:special_status_can_be_bestowed] = bool
+    country = scope[country]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:special_status_power] = bool
+### Get the political power of the specified country in an organization with that specified special status. Usage: special_status_power = { country = <country> type = <special status> value <operator> <float> } or special_status_power(<country>|<special status>)
+## scopes = { international_organization }
+alias[trigger:special_status_power] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:special_status_power_fraction] = bool
+    type = scope[special_status]
 
-### todo
-## scopes = { any }
-alias[trigger:spy_network] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:stability_percentage] = bool
+### Get the political power fraction of the specified country in an organization with that specified special status. Usage: special_status_power_fraction = { country = <country> type = <special status> value <operator> <float> } or special_status_power(<country>|<special status>)
+## scopes = { international_organization }
+alias[trigger:special_status_power_fraction] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:state_religion_clergy] = bool
+    type = scope[special_status]
 
-### todo
-## scopes = { any }
-alias[trigger:strength_percentage] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:sub_unit_type] = bool
+### How much spy-network does the country have in the target? spy_network = { target = X [*value >/</>=/<= Y* or *value = { min max }*  }
+## scopes = { country }
+alias[trigger:spy_network] = {
+    target = scope[country]
 
-### todo
-## scopes = { any }
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Checks if a sub_unit is of a specific type
+## scopes = { sub_unit }
+alias[trigger:sub_unit_type] = scope[unit_type]
+
+### Check if a subject type allows an overlord to annex the subject
+## scopes = { subject_type }
 alias[trigger:subject_can_be_annexed] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:subject_can_be_created_by] = bool
+### Check if a subject type can be created by the supplied country
+## scopes = { subject_type }
+alias[trigger:subject_can_be_created_by] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:subject_level] = bool
+    where = scope[province]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:subjects_relative_power] = bool
+### Checks if a country supports the target rebel
+## scopes = { country }
+alias[trigger:supports_rebel] = scope[rebels]
 
-### todo
+### Switch on a trigger for the evaluation of another trigger with an optional fallback trigger.
 ## scopes = { any }
-alias[trigger:subunit_morale] = bool
+alias[trigger:switch] = {
+    trigger = alias_keys_field[trigger]
 
-### todo
-## scopes = { any }
-alias[trigger:subunit_morale_percentage] = bool
+    ## cardinality = ~1..inf
+    scalar = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
 
-### todo
-## scopes = { any }
-alias[trigger:subunit_number] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:subunit_strength] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:subunit_strength_percentage] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:supports_rebel] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:switch] = bool
+    ## cardinality = ~1..1
+    fallback = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+}
 
 ### if a country is a specific historical tag
 ## scopes = { country }
@@ -4444,61 +4568,149 @@ alias[trigger:tag] = enum[formable_country_tag]
 ### does a tag exist
 ## scopes = { any }
 alias[trigger:tag_exists] = <country>
-
-### todo
+### does a tag exist
 ## scopes = { any }
-alias[trigger:target_satisfaction] = bool
+alias[trigger:tag_exists] = enum[formable_country_tag]
 
-### todo
-## scopes = { any }
-alias[trigger:this_antagonism_towards_prev] = bool
+### Return the threat level the scope country has towards the target country scope. Usage: threat_level_to = { country = <country scope> value = <value> } or threat_level_to(<country scope>)
+## scopes = { country }
+alias[trigger:threat_level_to] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:this_opinion_of_prev] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:this_trust_of_prev] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:threat_level_to] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:time_of_year] = {
-    min = date_field
-    max = date_field
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
 }
 
-### todo
+### Check if the current date is within the bounds
+### time_of_year = {
+###     min = 11.1 # default: beginning of year
+###     max = 2.29 # default: end of year
+### }
+### Dates are formatted as "<month>.<day>" or just "<month>".
+### The check includes the min and max dates.
+### min can be larger than max, in this case we wrap around to the next year (i.e., February is between October and March).
 ## scopes = { any }
-alias[trigger:tithe] = bool
+alias[trigger:time_of_year] = {
+    min = scalar
+    max = scalar
+}
 
-### todo
+### Checks if a location is of a specific Topography type
 ## scopes = { any }
 alias[trigger:topography] = <topography>
 
-### todo
-## scopes = { any }
-alias[trigger:trade_buy] = bool
+### Return the threat level the scope country has towards the target country scope. Usage: threat_level_to = { country = <country scope> value = <value> } or threat_level_to(<country scope>)
+## scopes = { country }
+alias[trigger:total_effective_goods_production_buildings] = {
+    goods = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:trade_capacity_usage_percent] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:trade_profit] = bool
+### Return the threat level the scope country has towards the target country scope. Usage: threat_level_to = { country = <country scope> value = <value> } or threat_level_to(<country scope>)
+## scopes = { international_organization }
+alias[trigger:total_payment_contribution] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:trade_sell] = bool
+    payment = <international_organization_payment>
 
-### todo
-## scopes = { any }
-alias[trigger:trade_volume] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Return the threat level the scope country has towards the target country scope. Usage: threat_level_to = { country = <country scope> value = <value> } or threat_level_to(<country scope>)
+## scopes = { total_population_in_international_organization }
+alias[trigger:total_payment_contribution] = {
+    international_organization = scope[international_organization]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Return the threat level the scope country has towards the target country scope. Usage: threat_level_to = { country = <country scope> value = <value> } or threat_level_to(<country scope>)
+## scopes = { international_organization }
+alias[trigger:total_population_in_international_organization_percentage] = {
+    international_organization = scope[international_organization]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Get the political power of all countries in an organization with that specified special status. Usage: total_special_status_power = { type = <special status> value <operator> <float> } or total_special_status_power(<special status>)
+## scopes = { international_organization }
+alias[trigger:total_population_in_international_organization_percentage] = {
+    special_status = scope[special_status]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Get the percentage political power of the target special status compared to the total amount of political power of all special statuses combined. Usage: special_status_power_fraction = { type = <special status> value <operator> <float> } or special_status_power_fraction(<special status>)
+## scopes = { international_organization }
+alias[trigger:total_population_in_international_organization_percentage] = {
+    special_status = scope[special_status]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Get the political power of all countries in an organization with that specified special status. Usage: total_special_status_power = { type = <special status> value <operator> <float> } or total_special_status_power(<special status>)
+## scopes = { international_organization }
+alias[trigger:total_unique_special_status_power] = {
+    special_status = scope[special_status]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
 ### Evaluates the triggers if the display_triggers of preceding 'trigger_if' or 'trigger_else_if' is not mettrigger_if = { limit = { <display_triggers> } <triggers> }  trigger_else = { <triggers> }
 alias[trigger:trigger_else] = single_alias_right[trigger_clause]
@@ -4516,91 +4728,151 @@ alias[trigger:trigger_if] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
-### todo
-## scopes = { any }
-alias[trigger:trust] = bool
+### is the country's trust towards the target greater or equal than the value? trust = { target = X [*value >/</>=/<= Y* or *value = { min max }*  }
+## scopes = { country }
+alias[trigger:trust] = {
+    target = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:union_length_days] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### returns the number of days a country has been in a union with the target country. Usage: union_length_days = { target = <country> value <comparator> <value> }
 ## scopes = { any }
-alias[trigger:unique_international_organization_type_exists] = bool
+alias[trigger:union_length_days] = {
+    target = scope[country]
 
-### todo
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Does an international organization of this type exist?
 ## scopes = { any }
+alias[trigger:unique_international_organization_type_exists] = scope[international_organization_type]
+
+### does the unit have a leader?
+## scopes = { unit }
 alias[trigger:unit_has_leader] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:unit_strength] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:upkeep_maintenance] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:used_cultures_capacity] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:used_diplomatic_capacity] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:used_merchant_capacity] = bool
-
-### todo
-## scopes = { any }
+### Checks if a country has a certain government_power (e.g. 'legitimacy')
+## scopes = { country }
 alias[trigger:uses_government_power] = enum[government_type_power]
 
-### todo
-## scopes = { any }
-alias[trigger:valid_estate_for_heir_selection] = bool
+### Checks if the character's estate is allowed for the target heir selection
+## scopes = { character }
+alias[trigger:valid_estate_for_heir_selection] = scope[heir_selection]
 
-### todo
+### Checks the size of a variable list
+### variable_list_size = { name = X target >= Y }
+### Where X is the name of the variable
+### Where Y is a script value or number
 ## scopes = { any }
-alias[trigger:variable_list_size] = bool
+alias[trigger:variable_list_size] = {
+    name = value[variable_list]
 
-### todo
-## scopes = { any }
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Checks if a location is of a specific Vegetation type
+## scopes = { location }
 alias[trigger:vegetation] = <vegetation>
 
-### todo
-## scopes = { any }
-alias[trigger:vote_impact_in_resolution] = bool
+### Check how much vote impact the current country scope would make when voting in the target resolution of the target IO. Usage: vote_impact_in_resolution = { international_organization = <international organization> resolution = <resolution> value <operator> <real> } or vote_impact_in_resolution(<international organization>|<resolution>)
+## scopes = { country }
+alias[trigger:vote_impact_in_resolution] = {
+    international_organization = scope[international_organization]
 
-### todo
-## scopes = { any }
-alias[trigger:vote_is_locked] = bool
+    resolution = scope[resolution]
 
-### todo
-## scopes = { any }
-alias[trigger:vote_percentage_impact_in_resolution] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:vote_type] = bool
+### Is a country's vote locked in the scope international organization/situation?
+## scopes = { international_organization situation }
+alias[trigger:vote_is_locked] = {
+    voter = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:votes_for_resolution] = bool
+    resolution = scope[resolution]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:wants_casus_belli_with] = bool
+### Check how much vote percentage impact the current country scope would make when voting in the target resolution of the target IO. Usage: vote_percentage_impact_in_resolution = { international_organization = <international organization> resolution = <resolution> value <operator> <real> } or vote_percentage_impact_in_resolution(<international organization>|<resolution>)
+## scopes = { country }
+alias[trigger:vote_percentage_impact_in_resolution] = {
+    international_organization = scope[international_organization]
 
-### todo
-## scopes = { any }
-alias[trigger:wants_military_access_in] = bool
+    resolution = scope[resolution]
 
-### todo
-## scopes = { any }
-alias[trigger:wants_opinion_with] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+#TODO: unknown
+### Checks the type of the vote in a resolution
+## scopes = { resolution }
+alias[trigger:vote_type] = scalar
+
+### Checks the number of votes for a particular outcome of a resolution. usage: votes_for_resolution(<resolution_key>|<thing>) or votes_for_resolution = { resolution = <resolution_key> outcome = <thing> value <comparator> <real> }
+## scopes = { any }
+alias[trigger:votes_for_resolution] = {
+    resolution = scope[resolution]
+
+    outcome = scope_field
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Does country want a casus belli with another nation? Only for Ai
+## scopes = { country }
+alias[trigger:wants_casus_belli_with] = scope[country]
+
+### country wants military access in this other country?
+## scopes = { country }
+alias[trigger:wants_military_access_in] = scope[country]
+
+### Does country want more opinion with another nation? Only for Ai
+## scopes = { country }
+alias[trigger:wants_opinion_with] = scope[country]
+
+### Country wants to give any province to a subject?
 ## scopes = { any }
 alias[trigger:wants_to_give_away_any_province] = bool
 
@@ -4608,21 +4880,65 @@ alias[trigger:wants_to_give_away_any_province] = bool
 ## scopes = { country }
 alias[trigger:wants_to_subjugate] = scope[country]
 
-### todo
+### The war enthusiasm of the current country scope in the target war. Usage: war_enthusiasm = { war = <war scope> value = <script value> } or war_enthusiasm(<war scope>)
 ## scopes = { any }
-alias[trigger:war_length] = bool
+alias[trigger:war_enthusiasm] = {
+    war = scope[war]
 
-### todo
-## scopes = { any }
-alias[trigger:war_score_in_war] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:war_score_of_country] = bool
+### Check how much war score the current country has in the target war. Usage: war_score_in_war = { war = <war> value <operatore> <real> } or war_score_in_war(<war>)
+## scopes = { country }
+alias[trigger:war_score_in_war] = {
+    war = scope[war]
 
-### todo
-## scopes = { any }
-alias[trigger:war_score_versus] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Check how much war score the target country has in the current war. Usage: war_score_of_country = { country = <country> value <operatore> <real> } or war_score_of_country(<country>)
+## scopes = { war }
+alias[trigger:war_score_of_country] = {
+    war = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Gets the war score of the scope country against the supplied one - usage: war_score_versus(<target>) or war_score_versus = { target = <country link> value <operator> <amount> }
+## scopes = { country }
+alias[trigger:war_score_versus] = {
+    war = scope[war]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
 ### todo
 ## scopes = { any }
@@ -4642,106 +4958,153 @@ alias[trigger:weighted_calc_true_if] = {
     int = single_alias_right[trigger_clause]
 }
 
-### todo
-## scopes = { any }
-alias[trigger:winter_level] = bool
+### winter level check
+## scopes = { location }
+alias[trigger:winter_level] = enum[climate_winter_type]
 
-### todo
-## scopes = { any }
-alias[trigger:winter_power] = bool
-
-### todo
-## scopes = { any }
+### Is the location within Colonial range of the target country?
+## scopes = { location province area }
 alias[trigger:within_colonial_range_of] = scope[country]
 
-### todo
-## scopes = { any }
+### Is the target country within diplomatic range?
+## scopes = { country }
 alias[trigger:within_diplomatic_range] = scope[country]
 
-### todo
-## scopes = { any }
+### Is the location within naval range of the target country?
+## scopes = { location province area }
 alias[trigger:within_naval_range_of] = scope[country]
 
-### todo
+### Gets the percentage of the population that follow a particular culture group in the world - world_culture_group_percentage = { culture_group = <culture_group> value ><= <value> }
 ## scopes = { any }
-alias[trigger:world_art_quality] = bool
+alias[trigger:world_culture_group_percentage] = {
+    culture_group = scope[culture_group]
 
-### todo
-## scopes = { any }
-alias[trigger:world_culture_group_percentage] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### Gets the absolute number of the population that follow a particular culture group in the world - world_culture_group_population = { culture_group = <culture_group> value ><= <value> }
 ## scopes = { any }
-alias[trigger:world_culture_group_population] = bool
+alias[trigger:world_culture_group_population] = {
+    culture_group = scope[culture_group]
 
-### todo
-## scopes = { any }
-alias[trigger:world_culture_percentage] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### Gets the percentage of the population that follow a particular culture in the world - world_culture_percentage = { culture = <culture> value ><= <value> }
 ## scopes = { any }
-alias[trigger:world_culture_population] = bool
+alias[trigger:world_culture_percentage] = {
+    culture = scope[culture]
 
-### todo
-## scopes = { any }
-alias[trigger:world_religion_group_percentage] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### Gets the absolute number of the population that follow a particular culture in the world - world_culture_population = { culture = <culture> value ><= <value> }
 ## scopes = { any }
-alias[trigger:world_religion_group_population] = bool
+alias[trigger:world_culture_population] = {
+    culture = scope[culture]
 
-### todo
-## scopes = { any }
-alias[trigger:world_religion_percentage] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### Gets the percentage of the population that follow a particular religion group in the world - world_religion_group_percentage = { religion_group = <religion_group> value ><= <value> }
 ## scopes = { any }
-alias[trigger:world_religion_population] = bool
+alias[trigger:world_religion_group_percentage] = {
+    religion_group = scope[religion_group]
 
-### todo
-## scopes = { any }
-alias[trigger:yanantin] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### Gets the absolute number of the population that follow a particular religion group in the world - world_religion_group_population = { religion_group = <religion_group> value ><= <value> }
 ## scopes = { any }
-alias[trigger:yanantin_percentage] = bool
+alias[trigger:world_religion_group_population] = {
+    religion_group = scope[religion_group]
 
-### todo
-## scopes = { any }
-alias[trigger:yearly_gold] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### Gets the percentage of the population that follow a particular religion in the world - world_religion_percentage = { religion = <religion> value ><= <value> }
 ## scopes = { any }
-alias[trigger:yearly_manpower] = bool
+alias[trigger:world_religion_percentage] = {
+    religion = scope[religion]
 
-### todo
-## scopes = { any }
-alias[trigger:yearly_sailors] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### Gets the absolute number of the population that follow a particular religion in the world - world_religion_population = { religion = <religion> value ><= <value> }
 ## scopes = { any }
-alias[trigger:yearly_salary] = bool
+alias[trigger:world_religion_population] = {
+    religion = scope[religion]
 
-### todo
-## scopes = { any }
-alias[trigger:years_active] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:years_in_international_organization] = bool
+### Checks if the country has been in the current international organization scope for x years. Usage: years_in_international_organization = { country = <country scope> value = <years> } or years_in_international_organization(country)
+## scopes = { country }
+alias[trigger:years_in_international_organization] = {
+    international_organization = scope[international_organization]
 
-### todo
-## scopes = { any }
-alias[trigger:years_since_disaster_end] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:years_since_disaster_start] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:years_since_situation_end] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:years_since_situation_start] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}

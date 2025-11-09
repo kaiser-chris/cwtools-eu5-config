@@ -30,4 +30,7 @@ customizable_localization = {
         fallback = bool
         localization_key = localisation
     }
+
+    ## cardinality = 0..1
+    if_invalid_loc = enum[customizable_localization_invalid_loc_handling]
 }

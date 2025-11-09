@@ -90,6 +90,7 @@ enums = {
         NOVICE
         EXPERIENCED
         ADVANCED
+        EXPERT
     }
 
     # Undocumented. Unused so copied over Vic3
@@ -576,6 +577,10 @@ enums = {
         yanantin
         honor
         horde_unity
+        righteousness
+        rite_power
+        self_control
+        tribal_cohesion
     }
 
     #TODO: incomplete
@@ -613,6 +618,12 @@ enums = {
         Guarantee
         RivalClaimant
         Scripted
+    }
+
+    enum[customizable_localization_invalid_loc_handling] = {
+        return_empty
+        fallback_to_next_entry
+        return_loc_key
     }
 
 }
