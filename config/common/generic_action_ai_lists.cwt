@@ -1,6 +1,9 @@
 types = {
     type[generic_action_ai_list] = {
         path = "game/common/generic_action_ai_lists"
+        path = "game/in_game/common/generic_action_ai_lists"
+        path = "game/main_menu/common/generic_action_ai_lists"
+        path = "game/loading_screen/common/generic_action_ai_lists"
         file_extension = .txt
     }
 }

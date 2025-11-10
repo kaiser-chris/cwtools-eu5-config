@@ -1,6 +1,9 @@
 types = {
     type[vegetation] = {
         path = "game/common/vegetation"
+        path = "game/in_game/common/vegetation"
+        path = "game/main_menu/common/vegetation"
+        path = "game/loading_screen/common/vegetation"
         file_extension = .txt
         localisation = {
             name = "$"

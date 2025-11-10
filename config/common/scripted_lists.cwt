@@ -1,6 +1,9 @@
 types = {
     type[scripted_list] = {
         path = "game/common/scripted_lists"
+        path = "game/in_game/common/scripted_lists"
+        path = "game/main_menu/common/scripted_lists"
+        path = "game/loading_screen/common/scripted_lists"
         file_extension = .txt
     }
 }

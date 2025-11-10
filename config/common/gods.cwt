@@ -1,6 +1,9 @@
 types = {
     type[god] = {
         path = "game/common/gods"
+        path = "game/in_game/common/gods"
+        path = "game/main_menu/common/gods"
+        path = "game/loading_screen/common/gods"
         file_extension = .txt
         localisation = {
             name = "$"

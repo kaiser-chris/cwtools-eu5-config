@@ -1,6 +1,9 @@
 types = {
     type[town_setup] = {
         path = "game/common/town_setups"
+        path = "game/in_game/common/town_setups"
+        path = "game/main_menu/common/town_setups"
+        path = "game/loading_screen/common/town_setups"
         file_extension = .txt
     }
 }

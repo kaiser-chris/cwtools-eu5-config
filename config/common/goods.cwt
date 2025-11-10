@@ -1,6 +1,9 @@
 types = {
     type[good] = {
         path = "game/common/goods"
+        path = "game/in_game/common/goods"
+        path = "game/main_menu/common/goods"
+        path = "game/loading_screen/common/goods"
         file_extension = .txt
         localisation = {
             name = "$"

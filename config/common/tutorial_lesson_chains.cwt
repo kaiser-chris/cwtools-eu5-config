@@ -1,6 +1,9 @@
 types = {
     type[tutorial_lesson_chain] = {
         path = "game/common/tutorial_lesson_chains"
+        path = "game/in_game/common/tutorial_lesson_chains"
+        path = "game/main_menu/common/tutorial_lesson_chains"
+        path = "game/loading_screen/common/tutorial_lesson_chains"
         file_extension = .txt
     }
 }

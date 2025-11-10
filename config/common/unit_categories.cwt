@@ -1,6 +1,9 @@
 types = {
     type[unit_category] = {
         path = "game/common/unit_categories"
+        path = "game/in_game/common/unit_categories"
+        path = "game/main_menu/common/unit_categories"
+        path = "game/loading_screen/common/unit_categories"
         file_extension = .txt
         localisation = {
             name = "$"

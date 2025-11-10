@@ -1,6 +1,9 @@
 types = {
     type[age] = {
         path = "game/common/age"
+        path = "game/in_game/common/age"
+        path = "game/main_menu/common/age"
+        path = "game/loading_screen/common/age"
         file_extension = .txt
         localisation = {
             name = "$"

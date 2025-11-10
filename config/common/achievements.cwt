@@ -1,6 +1,9 @@
 types = {
     type[achievement] = {
         path = "game/common/achievements"
+        path = "game/in_game/common/achievements"
+        path = "game/main_menu/common/achievements"
+        path = "game/loading_screen/common/achievements"
         file_extension = .txt
         localisation = {
             name = "ACHIEVEMENT_$"

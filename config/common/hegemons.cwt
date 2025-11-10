@@ -1,6 +1,9 @@
 types = {
     type[hegemon] = {
         path = "game/common/hegemons"
+        path = "game/in_game/common/hegemons"
+        path = "game/main_menu/common/hegemons"
+        path = "game/loading_screen/common/hegemons"
         file_extension = .txt
         localisation = {
             name = "$"

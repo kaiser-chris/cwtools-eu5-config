@@ -1,6 +1,9 @@
 types = {
     type[mission] = {
         path = "game/common/missions"
+        path = "game/in_game/common/missions"
+        path = "game/main_menu/common/missions"
+        path = "game/loading_screen/common/missions"
         file_extension = .txt
         localisation = {
             name = "$"

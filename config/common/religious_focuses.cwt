@@ -1,6 +1,9 @@
 types = {
     type[religious_focus] = {
         path = "game/common/religious_focuses"
+        path = "game/in_game/common/religious_focuses"
+        path = "game/main_menu/common/religious_focuses"
+        path = "game/loading_screen/common/religious_focuses"
         file_extension = .txt
         localisation = {
             name = "$"

@@ -1,6 +1,9 @@
 types = {
     type[rival_criteria] = {
         path = "game/common/rival_criteria"
+        path = "game/in_game/common/rival_criteria"
+        path = "game/main_menu/common/rival_criteria"
+        path = "game/loading_screen/common/rival_criteria"
         file_extension = .txt
         localisation = {
             name = "$"

@@ -1,6 +1,9 @@
 types = {
     type[avatar] = {
         path = "game/common/avatars"
+        path = "game/in_game/common/avatars"
+        path = "game/main_menu/common/avatars"
+        path = "game/loading_screen/common/avatars"
         file_extension = .txt
         localisation = {
             name = "$"

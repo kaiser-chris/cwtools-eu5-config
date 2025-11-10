@@ -1,6 +1,9 @@
 types = {
     type[building_type] = {
         path = "game/common/building_types"
+        path = "game/in_game/common/building_types"
+        path = "game/main_menu/common/building_types"
+        path = "game/loading_screen/common/building_types"
         file_extension = .txt
         localisation = {
             name = "$"

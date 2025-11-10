@@ -1,6 +1,9 @@
 types = {
     type[situation] = {
         path = "game/common/situations"
+        path = "game/in_game/common/situations"
+        path = "game/main_menu/common/situations"
+        path = "game/loading_screen/common/situations"
         file_extension = .txt
         localisation = {
             name = "$"

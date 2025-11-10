@@ -1,6 +1,9 @@
 types = {
     type[institution] = {
         path = "game/common/institution"
+        path = "game/in_game/common/institution"
+        path = "game/main_menu/common/institution"
+        path = "game/loading_screen/common/institution"
         file_extension = .txt
         localisation = {
             name = "$"

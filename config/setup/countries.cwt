@@ -1,6 +1,9 @@
 types = {
     type[country] = {
         path = "game/setup/countries"
+        path = "game/in_game/setup/countries"
+        path = "game/main_menu/setup/countries"
+        path = "game/loading_screen/setup/countries"
         file_extension = .txt
         localisation = {
             name = "$"

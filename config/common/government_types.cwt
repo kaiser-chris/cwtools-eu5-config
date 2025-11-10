@@ -1,6 +1,9 @@
 types = {
     type[government_type] = {
         path = "game/common/government_types"
+        path = "game/in_game/common/government_types"
+        path = "game/main_menu/common/government_types"
+        path = "game/loading_screen/common/government_types"
         file_extension = .txt
         localisation = {
             name = "$"

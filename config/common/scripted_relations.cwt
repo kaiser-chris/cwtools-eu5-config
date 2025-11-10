@@ -1,6 +1,9 @@
 types = {
     type[scripted_relation] = {
         path = "game/common/scripted_relations"
+        path = "game/in_game/common/scripted_relations"
+        path = "game/main_menu/common/scripted_relations"
+        path = "game/loading_screen/common/scripted_relations"
         file_extension = .txt
         localisation = {
             name = "$_relation"

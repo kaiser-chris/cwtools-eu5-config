@@ -1,6 +1,9 @@
 types = {
     type[heir_selection] = {
         path = "game/common/heir_selections"
+        path = "game/in_game/common/heir_selections"
+        path = "game/main_menu/common/heir_selections"
+        path = "game/loading_screen/common/heir_selections"
         file_extension = .txt
         localisation = {
             name = "$"

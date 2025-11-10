@@ -1,6 +1,9 @@
 types = {
     type[static_modifier] = {
         path = "game/common/static_modifiers"
+        path = "game/in_game/common/static_modifiers"
+        path = "game/main_menu/common/static_modifiers"
+        path = "game/loading_screen/common/static_modifiers"
         file_extension = .txt
         localisation = {
             ## required

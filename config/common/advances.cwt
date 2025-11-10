@@ -1,6 +1,9 @@
 types = {
     type[advance] = {
         path = "game/common/advances"
+        path = "game/in_game/common/advances"
+        path = "game/main_menu/common/advances"
+        path = "game/loading_screen/common/advances"
         file_extension = .txt
         localisation = {
             name = "$"

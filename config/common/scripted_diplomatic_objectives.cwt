@@ -1,6 +1,9 @@
 types = {
     type[scripted_diplomatic_objective] = {
         path = "game/common/scripted_diplomatic_objectives"
+        path = "game/in_game/common/scripted_diplomatic_objectives"
+        path = "game/main_menu/common/scripted_diplomatic_objectives"
+        path = "game/loading_screen/common/scripted_diplomatic_objectives"
         file_extension = .txt
     }
 }

@@ -1,6 +1,9 @@
 types = {
     type[scripted_effect] = {
         path = "game/common/scripted_effects"
+        path = "game/in_game/common/scripted_effects"
+        path = "game/main_menu/common/scripted_effects"
+        path = "game/loading_screen/common/scripted_effects"
         file_extension = .txt
     }
 }

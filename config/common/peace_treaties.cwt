@@ -1,6 +1,9 @@
 types = {
     type[peace_treaty] = {
         path = "game/common/peace_treaties"
+        path = "game/in_game/common/peace_treaties"
+        path = "game/main_menu/common/peace_treaties"
+        path = "game/loading_screen/common/peace_treaties"
         file_extension = .txt
         localisation = {
             name = "$"

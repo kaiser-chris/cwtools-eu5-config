@@ -1,6 +1,9 @@
 types = {
     type[scripted_trigger] = {
         path = "game/common/scripted_triggers"
+        path = "game/in_game/common/scripted_triggers"
+        path = "game/main_menu/common/scripted_triggers"
+        path = "game/loading_screen/common/scripted_triggers"
         file_extension = .txt
     }
 }

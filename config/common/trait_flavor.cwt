@@ -1,6 +1,9 @@
 types = {
     type[trait_flavor] = {
         path = "game/common/trait_flavor"
+        path = "game/in_game/common/trait_flavor"
+        path = "game/main_menu/common/trait_flavor"
+        path = "game/loading_screen/common/trait_flavor"
         file_extension = .txt
     }
 }

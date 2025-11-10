@@ -1,6 +1,9 @@
 types = {
     type[trigger_localization] = {
         path = "game/common/trigger_localization"
+        path = "game/in_game/common/trigger_localization"
+        path = "game/main_menu/common/trigger_localization"
+        path = "game/loading_screen/common/trigger_localization"
         file_extension = .txt
     }
 }

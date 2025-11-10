@@ -1,6 +1,9 @@
 types = {
     type[scenario] = {
         path = "game/common/scenarios"
+        path = "game/in_game/common/scenarios"
+        path = "game/main_menu/common/scenarios"
+        path = "game/loading_screen/common/scenarios"
         file_extension = .txt
     }
 }

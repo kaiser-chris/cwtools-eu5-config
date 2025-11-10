@@ -1,6 +1,9 @@
 types = {
     type[casus_belli] = {
         path = "game/common/casus_belli"
+        path = "game/in_game/common/casus_belli"
+        path = "game/main_menu/common/casus_belli"
+        path = "game/loading_screen/common/casus_belli"
         file_extension = .txt
         localisation = {
             name = "$"

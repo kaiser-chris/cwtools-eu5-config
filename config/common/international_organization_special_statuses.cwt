@@ -1,6 +1,9 @@
 types = {
     type[international_organization_special_status] = {
         path = "game/common/international_organization_special_statuses"
+        path = "game/in_game/common/international_organization_special_statuses"
+        path = "game/main_menu/common/international_organization_special_statuses"
+        path = "game/loading_screen/common/international_organization_special_statuses"
         file_extension = .txt
         localisation = {
             name = "$"

@@ -1,6 +1,9 @@
 types = {
     type[generic_action] = {
         path = "game/common/generic_actions"
+        path = "game/in_game/common/generic_actions"
+        path = "game/main_menu/common/generic_actions"
+        path = "game/loading_screen/common/generic_actions"
         file_extension = .txt
         localisation = {
             name = "$"

@@ -1,6 +1,9 @@
 types = {
     type[topography] = {
         path = "game/common/topography"
+        path = "game/in_game/common/topography"
+        path = "game/main_menu/common/topography"
+        path = "game/loading_screen/common/topography"
         file_extension = .txt
         localisation = {
             name = "$"

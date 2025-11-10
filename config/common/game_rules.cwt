@@ -1,6 +1,9 @@
 types = {
     type[game_rule] = {
         path = "game/common/game_rules"
+        path = "game/in_game/common/game_rules"
+        path = "game/main_menu/common/game_rules"
+        path = "game/loading_screen/common/game_rules"
         skip_root_key = any
         file_extension = .txt
         localisation = {
@@ -12,6 +15,9 @@ types = {
     }
     type[game_rule_category] = {
         path = "game/common/game_rules"
+        path = "game/in_game/common/game_rules"
+        path = "game/main_menu/common/game_rules"
+        path = "game/loading_screen/common/game_rules"
         file_extension = .txt
         localisation = {
             ## required

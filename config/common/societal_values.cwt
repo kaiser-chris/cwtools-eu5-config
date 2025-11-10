@@ -1,6 +1,9 @@
 types = {
     type[societal_value] = {
         path = "game/common/societal_values"
+        path = "game/in_game/common/societal_values"
+        path = "game/main_menu/common/societal_values"
+        path = "game/loading_screen/common/societal_values"
         file_extension = .txt
         localisation = {
             name = "$"

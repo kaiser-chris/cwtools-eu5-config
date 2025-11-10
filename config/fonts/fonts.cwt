@@ -1,6 +1,9 @@
 types = {
     type[font_definition] = {
         path = "game/fonts"
+        path = "game/in_game/fonts"
+        path = "game/main_menu/fonts"
+        path = "game/loading_screen/fonts"
         file_extension = .font
         name_field = "name"
 

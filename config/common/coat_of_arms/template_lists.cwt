@@ -1,6 +1,9 @@
 types = {
     type[coat_of_arms_template_list] = {
         path = "game/common/coat_of_arms/template_lists"
+        path = "game/in_game/common/coat_of_arms/template_lists"
+        path = "game/main_menu/common/coat_of_arms/template_lists"
+        path = "game/loading_screen/common/coat_of_arms/template_lists"
         file_extension = .txt
         skip_root_key = {
             coat_of_arms_template_lists
@@ -8,6 +11,9 @@ types = {
     }
     type[pattern_texture_list] = {
         path = "game/common/coat_of_arms/template_lists"
+        path = "game/in_game/common/coat_of_arms/template_lists"
+        path = "game/main_menu/common/coat_of_arms/template_lists"
+        path = "game/loading_screen/common/coat_of_arms/template_lists"
         file_extension = .txt
         skip_root_key = {
             pattern_texture_lists
@@ -15,6 +21,9 @@ types = {
     }
     type[color_list] = {
         path = "game/common/coat_of_arms/template_lists"
+        path = "game/in_game/common/coat_of_arms/template_lists"
+        path = "game/main_menu/common/coat_of_arms/template_lists"
+        path = "game/loading_screen/common/coat_of_arms/template_lists"
         file_extension = .txt
         skip_root_key = {
             color_lists
@@ -22,6 +31,9 @@ types = {
     }
     type[textured_emblem_texture_list] = {
         path = "game/common/coat_of_arms/template_lists"
+        path = "game/in_game/common/coat_of_arms/template_lists"
+        path = "game/main_menu/common/coat_of_arms/template_lists"
+        path = "game/loading_screen/common/coat_of_arms/template_lists"
         file_extension = .txt
         skip_root_key = {
             textured_emblem_texture_lists
@@ -29,6 +41,9 @@ types = {
     }
     type[colored_emblem_texture_list] = {
         path = "game/common/coat_of_arms/template_lists"
+        path = "game/in_game/common/coat_of_arms/template_lists"
+        path = "game/main_menu/common/coat_of_arms/template_lists"
+        path = "game/loading_screen/common/coat_of_arms/template_lists"
         file_extension = .txt
         skip_root_key = {
             colored_emblem_texture_lists

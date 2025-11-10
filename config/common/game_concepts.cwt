@@ -1,6 +1,9 @@
 types = {
     type[game_concept] = {
         path = "game/common/game_concepts"
+        path = "game/in_game/common/game_concepts"
+        path = "game/main_menu/common/game_concepts"
+        path = "game/loading_screen/common/game_concepts"
         file_extension = .txt
         localisation = {
             ## required

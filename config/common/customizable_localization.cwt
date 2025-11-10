@@ -1,6 +1,9 @@
 types = {
     type[customizable_localization] = {
         path = "game/common/customizable_localization"
+        path = "game/in_game/common/customizable_localization"
+        path = "game/main_menu/common/customizable_localization"
+        path = "game/loading_screen/common/customizable_localization"
         file_extension = .txt
     }
 }

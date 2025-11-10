@@ -1,6 +1,9 @@
 types = {
     type[estate] = {
         path = "game/common/estates"
+        path = "game/in_game/common/estates"
+        path = "game/main_menu/common/estates"
+        path = "game/loading_screen/common/estates"
         file_extension = .txt
         localisation = {
             name = "$"

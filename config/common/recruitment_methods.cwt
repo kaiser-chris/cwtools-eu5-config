@@ -1,6 +1,9 @@
 types = {
     type[recruitment_method] = {
         path = "game/common/recruitment_method"
+        path = "game/in_game/common/recruitment_method"
+        path = "game/main_menu/common/recruitment_method"
+        path = "game/loading_screen/common/recruitment_method"
         file_extension = .txt
         localisation = {
             name = "$"

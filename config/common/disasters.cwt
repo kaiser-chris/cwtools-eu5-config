@@ -1,6 +1,9 @@
 types = {
     type[disaster] = {
         path = "game/common/disasters"
+        path = "game/in_game/common/disasters"
+        path = "game/main_menu/common/disasters"
+        path = "game/loading_screen/common/disasters"
         file_extension = .txt
         localisation = {
             name = "$"

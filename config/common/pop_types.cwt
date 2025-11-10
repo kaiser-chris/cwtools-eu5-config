@@ -1,6 +1,9 @@
 types = {
     type[pop_type] = {
         path = "game/common/pop_types"
+        path = "game/in_game/common/pop_types"
+        path = "game/main_menu/common/pop_types"
+        path = "game/loading_screen/common/pop_types"
         file_extension = .txt
         localisation = {
             name = "$"

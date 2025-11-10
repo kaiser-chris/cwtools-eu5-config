@@ -1,6 +1,9 @@
 types = {
     type[employment_system] = {
         path = "game/common/employment_systems"
+        path = "game/in_game/common/employment_systems"
+        path = "game/main_menu/common/employment_systems"
+        path = "game/loading_screen/common/employment_systems"
         file_extension = .txt
         localisation = {
             name = "$"

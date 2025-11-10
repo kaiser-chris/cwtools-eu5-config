@@ -1,6 +1,9 @@
 types = {
     type[culture_group] = {
         path = "game/common/culture_groups"
+        path = "game/in_game/common/culture_groups"
+        path = "game/main_menu/common/culture_groups"
+        path = "game/loading_screen/common/culture_groups"
         file_extension = .txt
         localisation = {
             name = "$"
