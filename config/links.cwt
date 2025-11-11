@@ -12,6 +12,13 @@ links = {
         input_scopes = { country }
         output_scope = mission
     }
+    advance_type = {
+        input_scopes = { any }
+        output_scope = advance_type
+        from_data = yes
+        prefix = advance_type:
+        data_source = <advance>
+    }
     ### gets the active outbreak for a disease in a location or subunit - usage active_outbreak(<disease>)
     active_outbreak = {
         input_scopes = { location sub_unit }
@@ -422,6 +429,13 @@ links = {
         from_data = yes
         prefix = dynasty:
         data_source = <dynasty>
+    }
+    dynasty_dynamic = {
+        input_scopes = { any }
+        output_scope = dynasty
+        from_data = yes
+        prefix = dynasty:
+        data_source = value[dynasty]
     }
     dynasty = {
         input_scopes = { character }
@@ -1321,6 +1335,7 @@ links = {
     }
     scope = {
         from_data = yes
+        output_scope = any
         prefix = scope:
         data_source = value[event_target]
     }
@@ -2371,8 +2386,7 @@ links = {
     ### Compare the current ingame year
     current_year = {
         input_scopes = { any }
-        output_scope = value
-        type = value
+        output_scope = any
     }
     ### Checks if x days have passed since the end of the disaster. Returns -1 if the disaster has never ended.
     days_since_disaster_end = {

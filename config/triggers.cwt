@@ -249,7 +249,7 @@ alias[trigger:calc_true_if] = {
     amount = int
 
     ## cardinality = 1..inf
-    alias_name[trigger] = alias_match_left[trigger]
+    int = single_alias_right[trigger_clause]
 }
 
 ### Can the country have the specified scripted relation with another country. Usage: can_add_relation = { first = <country> second = <country> type = <relation type> }
@@ -784,9 +784,13 @@ alias[trigger:culture_opinion_impact] = {
 alias[trigger:culture_percentage] = {
     culture = scope[culture]
 
+    ## cardinality = 0..1
     value == value_field
+    ## cardinality = 0..1
     value == <script_value>
+    ## cardinality = 0..1
     value == <static_value>
+    ## cardinality = 0..1
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -1153,9 +1157,12 @@ alias[trigger:dynastic_power] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### does a tag exist
+### does a dynasty exist
 ## scopes = { any }
 alias[trigger:dynasty_exists] = <dynasty>
+### does a dynasty exist
+## scopes = { any }
+alias[trigger:dynasty_exists] = value[dynasty]
 
 ### if a dynasty a special name-key
 ## scopes = { dynasty }
@@ -3715,7 +3722,7 @@ alias[trigger:location_can_be_removed_from_international_organization] = scope[l
 
 ### Checks if a location is the specific one (from named_location)
 ## scopes = { any }
-alias[trigger:location_key] = <named_location>
+alias[trigger:location_key] = value[location]
 
 ### gets the maritime merchant power for a country in the scope location
 ## scopes = { location }
@@ -3855,6 +3862,7 @@ alias[trigger:long_term_trigger_currency_utility] = {
 alias[trigger:market_possible_goods_trade_surplus] = {
     goods = scope[goods]
 
+    ## cardinality = 0..1
     country = scope[country]
 
     ## cardinality = 0..inf

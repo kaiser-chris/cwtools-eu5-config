@@ -46,10 +46,16 @@ single_alias[ordered_list_clause] = {
     max = <static_value>
 
     ## cardinality = 0..1
-    position = int
+    position = int_value_field
+    ## cardinality = 0..1
+    position = single_alias_right[formula]
+    ## cardinality = 0..1
+    position = <script_value>
+    ## cardinality = 0..1
+    position = <static_value>
 
     ## cardinality = 0..1
-    check_range_bounds = no
+    check_range_bounds = bool
 
     alias_name[effect] = alias_match_left[effect]
 }
@@ -396,7 +402,10 @@ alias[effect:random_in_list] = {
 
 ## push_scope = any
 alias[effect:every_in_local_list] = {
+    ## cardinality = 0..1
     variable = value[local_variable_list]
+    ## cardinality = 0..1
+    list = value[local_variable_list]
 
     ## cardinality = 0..1
     limit = {
@@ -411,7 +420,10 @@ alias[effect:every_in_local_list] = {
 }
 ## push_scope = any
 alias[effect:ordered_in_local_list] = {
+    ## cardinality = 0..1
     variable = value[local_variable_list]
+    ## cardinality = 0..1
+    list = value[local_variable_list]
 
     ## cardinality = 0..1
     limit = {
@@ -457,7 +469,10 @@ alias[effect:ordered_in_local_list] = {
 }
 ## push_scope = any
 alias[effect:random_in_local_list] = {
+    ## cardinality = 0..1
     variable = value[local_variable_list]
+    ## cardinality = 0..1
+    list = value[local_variable_list]
 
     ## cardinality = 0..1
     limit = {
@@ -639,6 +654,12 @@ alias[effect:random_list] = {
 single_alias[random_list_effect_clause] = {
     ## cardinality = 0..inf
     alias_name[effect] = alias_match_left[effect]
+
+    ## cardinality = 0..1
+    desc = localisation
+
+    ## cardinality = 0..1
+    show_chance = bool
 
     ## cardinality = 0..inf
     trigger = single_alias_right[trigger_clause]

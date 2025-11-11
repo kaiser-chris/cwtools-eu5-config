@@ -34,6 +34,8 @@ inline_scripted_effect = {
     alias_name[effect] = alias_match_left[effect]
 }
 
+alias[effect:<inline_scripted_effect>] = bool
+
 ### The scripted trigger will draw the value of the right clause via $left_clause$.
 alias[effect:<inline_scripted_effect>] = {
     ## cardinality = 0..inf

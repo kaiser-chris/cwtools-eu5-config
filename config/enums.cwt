@@ -880,4 +880,22 @@ enums = {
         population
     }
 
+    enum[event_type] = {
+        country_event
+        location_event
+        unit_event
+        exploration_event
+        age_event
+    }
+    enum[event_outcome] = {
+        positive
+        neutral
+        negative
+    }
+    enum[event_category] = {
+        disaster_event
+        situation_event
+        international_organization_event
+    }
+
 }
