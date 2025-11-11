@@ -59,10 +59,7 @@ international_organization_land_ownership_rule = {
     owned_location_color = <named_color>
     ### <optional> color of owned locations on the diplomatic map (will be stripes)
     ## cardinality = 0..1
-    owned_location_color = colour[rgb]
-    ### <optional> color of owned locations on the diplomatic map (will be stripes)
-    ## cardinality = 0..1
-    owned_location_color = colour[hsv360]
+    owned_location_color = color_field
     ### <optional> color of owned locations on the diplomatic map (will be stripes)
     ## cardinality = 0..1
     owned_location_color = single_alias_right[scripted_color_clause]

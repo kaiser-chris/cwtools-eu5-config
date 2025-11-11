@@ -88,10 +88,7 @@ situation = {
     map_color = <named_color>
     ### map color for location (root = location, scope:target = situation)
     ## cardinality = 0..1
-    map_color = colour[rgb]
-    ### map color for location (root = location, scope:target = situation)
-    ## cardinality = 0..1
-    map_color = colour[hsv360]
+    map_color = color_field
     ### map color for location (root = location, scope:target = situation)
     ## cardinality = 0..1
     map_color = single_alias_right[scripted_color_clause]
@@ -104,10 +101,7 @@ situation = {
     secondary_map_color = <named_color>
     ### map color for location (root = location, scope:target = situation)
     ## cardinality = 0..1
-    secondary_map_color = colour[rgb]
-    ### map color for location (root = location, scope:target = situation)
-    ## cardinality = 0..1
-    secondary_map_color = colour[hsv360]
+    secondary_map_color = color_field
     ### map color for location (root = location, scope:target = situation)
     ## cardinality = 0..1
     secondary_map_color = single_alias_right[scripted_color_clause]

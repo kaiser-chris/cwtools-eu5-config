@@ -22,8 +22,7 @@ government_type = {
     default_character_estate = <estate>
 
     map_color = <named_color>
-    map_color = colour[rgb]
-    map_color = colour[hsv360]
+    map_color = color_field
     map_color = single_alias_right[scripted_color_clause]
     map_color = $define_reference
 

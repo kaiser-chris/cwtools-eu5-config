@@ -198,10 +198,7 @@ international_organization = {
     map_color_override = <named_color>
     ### <optional> returns a color that will override any of the color options below like leader_color, member_color etc if you want to overlay anything. root = location, scope:recipient = IO
     ## cardinality = 0..1
-    map_color_override = colour[rgb]
-    ### <optional> returns a color that will override any of the color options below like leader_color, member_color etc if you want to overlay anything. root = location, scope:recipient = IO
-    ## cardinality = 0..1
-    map_color_override = colour[hsv360]
+    map_color_override = color_field
     ### <optional> returns a color that will override any of the color options below like leader_color, member_color etc if you want to overlay anything. root = location, scope:recipient = IO
     ## cardinality = 0..1
     map_color_override = single_alias_right[scripted_color_clause]
@@ -214,10 +211,7 @@ international_organization = {
     secondary_map_color_override = <named_color>
     ### <optional> returns a color that will override any of the striped color options like owned_location_color, member_color etc if you want to overlay anything. root = location, scope:recipient = IO
     ## cardinality = 0..1
-    secondary_map_color_override = colour[rgb]
-    ### <optional> returns a color that will override any of the striped color options like owned_location_color, member_color etc if you want to overlay anything. root = location, scope:recipient = IO
-    ## cardinality = 0..1
-    secondary_map_color_override = colour[hsv360]
+    secondary_map_color_override = color_field
     ### <optional> returns a color that will override any of the striped color options like owned_location_color, member_color etc if you want to overlay anything. root = location, scope:recipient = IO
     ## cardinality = 0..1
     secondary_map_color_override = single_alias_right[scripted_color_clause]
@@ -237,10 +231,7 @@ international_organization = {
     leader_color = <named_color>
     ### <optional> color of the leader on the diplomatic map
     ## cardinality = 0..1
-    leader_color = colour[rgb]
-    ### <optional> color of the leader on the diplomatic map
-    ## cardinality = 0..1
-    leader_color = colour[hsv360]
+    leader_color = color_field
     ### <optional> color of the leader on the diplomatic map
     ## cardinality = 0..1
     leader_color = single_alias_right[scripted_color_clause]
@@ -253,10 +244,7 @@ international_organization = {
     member_color = <named_color>
     ### <optional> color of members on the diplomatic map
     ## cardinality = 0..1
-    member_color = colour[rgb]
-    ### <optional> color of members on the diplomatic map
-    ## cardinality = 0..1
-    member_color = colour[hsv360]
+    member_color = color_field
     ### <optional> color of members on the diplomatic map
     ## cardinality = 0..1
     member_color = single_alias_right[scripted_color_clause]
@@ -269,10 +257,7 @@ international_organization = {
     target_color = <named_color>
     ### <optional> color of target on the diplomatic map
     ## cardinality = 0..1
-    target_color = colour[rgb]
-    ### <optional> color of target on the diplomatic map
-    ## cardinality = 0..1
-    target_color = colour[hsv360]
+    target_color = color_field
     ### <optional> color of target on the diplomatic map
     ## cardinality = 0..1
     target_color = single_alias_right[scripted_color_clause]

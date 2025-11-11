@@ -258,10 +258,7 @@ scripted_relation = {
     mutual_color = <named_color>
     ### for the diplomacy map mode
     ## cardinality = 0..1
-    mutual_color = colour[rgb]
-    ### for the diplomacy map mode
-    ## cardinality = 0..1
-    mutual_color = colour[hsv360]
+    mutual_color = color_field
     ### for the diplomacy map mode
     ## cardinality = 0..1
     mutual_color = $define_reference
@@ -274,10 +271,7 @@ scripted_relation = {
     giving_color = <named_color>
     ### for the diplomacy map mode
     ## cardinality = 0..1
-    giving_color = colour[rgb]
-    ### for the diplomacy map mode
-    ## cardinality = 0..1
-    giving_color = colour[hsv360]
+    giving_color = color_field
     ### for the diplomacy map mode
     ## cardinality = 0..1
     giving_color = $define_reference
@@ -290,10 +284,7 @@ scripted_relation = {
     receiving_color = <named_color>
     ### for the diplomacy map mode
     ## cardinality = 0..1
-    receiving_color = colour[rgb]
-    ### for the diplomacy map mode
-    ## cardinality = 0..1
-    receiving_color = colour[hsv360]
+    receiving_color = color_field
     ### for the diplomacy map mode
     ## cardinality = 0..1
     receiving_color = $define_reference

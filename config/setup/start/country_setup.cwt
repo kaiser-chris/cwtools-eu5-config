@@ -213,7 +213,7 @@ country_setup = {
         starting_technology_level = int
 
         ## cardinality = 0..inf
-        include = scalar
+        include = filepath[setup/templates/,.txt]
 
         ## cardinality = 0..inf
         timed_modifier = {

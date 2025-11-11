@@ -1,0 +1,22 @@
+priorities = {
+    "setup/start" = ordered
+    "in_game/setup/start" = ordered
+    "main_menu/setup/start" = ordered
+    "loading_screen/setup/start" = ordered
+    "common/on_actions" = ordered
+    "in_game/common/on_actions" = ordered
+    "main_menu/common/on_actions" = ordered
+    "loading_screen/common/on_actions" = ordered
+    "events" = fios
+    "in_game/events" = ordered
+    "main_menu/events" = ordered
+    "loading_screen/events" = ordered
+    "gui" = fios
+    "in_game/gui" = ordered
+    "main_menu/gui" = ordered
+    "loading_screen/gui" = ordered
+    "localization" = fios
+    "in_game/localization" = ordered
+    "main_menu/localization" = ordered
+    "loading_screen/localization" = ordered
+}

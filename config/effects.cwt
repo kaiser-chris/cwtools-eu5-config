@@ -1659,10 +1659,16 @@ alias[effect:change_country_adjective] = localisation
 alias[effect:change_country_color] = <named_color>
 ### changes the color of a country
 ## scopes = { country }
-alias[effect:change_country_color] = colour[rgb]
+alias[effect:change_country_color] = color_field
 ### changes the color of a country
 ## scopes = { country }
-alias[effect:change_country_color] = colour[hsv360]
+alias[effect:change_country_color] = single_alias_right[scripted_color_clause]
+### changes the color of a country
+## scopes = { country }
+alias[effect:change_country_color] = $define_reference
+### changes the color of a country
+## scopes = { country }
+alias[effect:change_country_color] = scope[color]
 
 ### Changes the name, adjective, and flag of a country to the dynasty of the ruler
 ## scopes = { country }

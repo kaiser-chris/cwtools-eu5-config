@@ -1,6 +1,5 @@
 alias[color:color] = <named_color>
-alias[color:color] = colour[rgb]
-alias[color:color] = colour[hsv360]
+alias[color:color] = color_field
 alias[color:color] = single_alias_right[scripted_color_clause]
 alias[color:color] = $define_reference
 alias[color:color] = scope[color]
@@ -13,14 +12,12 @@ single_alias[scripted_color_clause] = {
 
 alias[scripted_color:lerp] = {
     min_color = <named_color>
-    min_color = colour[rgb]
-    min_color = colour[hsv360]
+    min_color = color_field
     min_color = $define_reference
     min_color = scope[color]
 
     max_color = <named_color>
-    max_color = colour[rgb]
-    max_color = colour[hsv360]
+    max_color = color_field
     max_color = $define_reference
     max_color = scope[color]
 
@@ -31,8 +28,7 @@ alias[scripted_color:lerp] = {
 }
 
 alias[scripted_color:value] = <named_color>
-alias[scripted_color:value] = colour[rgb]
-alias[scripted_color:value] = colour[hsv360]
+alias[scripted_color:value] = color_field
 alias[scripted_color:value] = $define_reference
 alias[scripted_color:value] = scope[color]
 alias[scripted_color:value] = single_alias_right[scripted_color_clause]

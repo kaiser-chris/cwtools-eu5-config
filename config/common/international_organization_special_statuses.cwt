@@ -75,10 +75,7 @@ international_organization_special_status = {
     map_color = <named_color>
     ### scripted color on the map (root = country, scope:recipient = organization)
     ## cardinality = 0..1
-    map_color = colour[rgb]
-    ### scripted color on the map (root = country, scope:recipient = organization)
-    ## cardinality = 0..1
-    map_color = colour[hsv360]
+    map_color = color_field
     ### scripted color on the map (root = country, scope:recipient = organization)
     ## cardinality = 0..1
     map_color = single_alias_right[scripted_color_clause]
